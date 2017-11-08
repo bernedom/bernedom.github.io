@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Planning ahead the agile way  
+title: Planning ahead the agile way 
+thumbnail: images/agile-roadmapping/thumbnail.jpg
 ---
 
 Agile is shortsighted! In SCRUM you are only interested in whats going on in the next sprint! Kanban focusses only on what's next! Long term planning is not agile! Sounds familiar? The gap between short term (sprint-)planning and long term roadmaps is an often discussed focus point in the world of agile and an often cited reason why "our company cannot do agile". 
