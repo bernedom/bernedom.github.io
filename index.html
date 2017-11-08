@@ -9,7 +9,7 @@ layout: default
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       
       <div class="entry">
-	    <img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}"/>
+	     <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"><img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}" style="float : left; padding: 10px"/></a>
         {{ post.excerpt }}
       </div>
 
