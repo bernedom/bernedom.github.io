@@ -44,11 +44,15 @@ public:
 auto[m, n] = cls();
 ```
 
-While this works as expected there is a word of warning here, that unpacking depends obviously on the order of declaration in the class or struct. As long as this order is tightly controlled this is not so much a problem, but since the members of a struct are already named they are often not associated with positional stability. Experience shows that during refactoring class members often get regrouped semantically in a header file, which in that case could prove a disaster for any code using the structured bindings, so I strongly advise to use caution when using structured bindings with classes or structs. As these members are named variables strutured bindings provide a limited benefit anyway.
+While this works as expected there is a word of warning here, that unpacking depends obviously on the order of declaration in the class or struct. As long as this order is tightly controlled this is not so much a problem, but since the members of a struct are already named they are often not associated with positional stability. Experience shows that during refactoring class members often get regrouped semantically in a header file, which in that case could prove a disaster for any code using the structured bindings, so I strongly advise to use caution when using structured bindings with classes or structs. As these members are named variables structured bindings provide a limited benefit anyway.
+
+A much better approach when working with ```classes```and ```structs``` is to add support for strcutured bindings, which is quite easy. By template-specializing ```std::tuple_size, std::tuple_element``` and ```get````. By the way, this pairs nicely with ```if constexp```, another feature intrdocued in C++17. 
+
+
 
 Another note is that so far structured bindings do not cover partial extraction as was possible with ```std::tie```and ```std::ignore```, so one has to create dummy variables if only interested in parts of a tuple. However due the guaranteed copy elision introduced in c++17 this should be side-effect free if compiled with any kind of optimization. 
 
-To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templated constructs like std::tie.
+To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templates std::tie. 
 
 (This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2017/12/12/cpp17-was-bringt-der-neue-standard/))
 ![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png)
