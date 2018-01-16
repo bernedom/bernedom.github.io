@@ -8,11 +8,15 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       
-      <div>
+      <div style="display: grid; width: 100%; grid-template-columns: 220px 1fr;">
+<div>
 	    {% if post.thumbnail != null %}
 	       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"><img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}" style="float : left; padding: 10px"/></a>
         {% endif %}
-        {{ post.excerpt }}
+	</div>
+        <div>
+          {{ post.excerpt }}
+        </div>
       </div>
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
