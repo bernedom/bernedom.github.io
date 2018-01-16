@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="posts">
+<div>
   {% for post in site.posts %}
-    <article class="post">
+    <article> 
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       
-      <div class="entry">
+      <div>
 	    {% if post.thumbnail != null %}
 	       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"><img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}" style="float : left; padding: 10px"/></a>
         {% endif %}
