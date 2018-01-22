@@ -46,11 +46,44 @@ auto[m, n] = cls();
 
 While this works as expected there is a word of warning here, that unpacking depends obviously on the order of declaration in the class or struct. As long as this order is tightly controlled this is not so much a problem, but since the members of a struct are already named they are often not associated with positional stability. Experience shows that during refactoring class members often get regrouped semantically in a header file, which in that case could prove a disaster for any code using the structured bindings, so I strongly advise to use caution when using structured bindings with classes or structs. As these members are named variables structured bindings provide a limited benefit anyway.
 
-A much better approach when working with ```classes```and ```structs``` is to add support for strcutured bindings, which is quite easy. By template-specializing ```std::tuple_size, std::tuple_element``` and ```get````. By the way, this pairs nicely with ```if constexp```, another feature intrdocued in C++17. 
+A much better approach when working with ```classes```and ```structs``` is to add support for structured bindings, which is quite easy. By template-specializing ```std::tuple_size, std::tuple_element``` and ```get````. By the way, this pairs nicely with ```if constexpr```, another feature introduced in C++17. Specializing a class in this way removes the dependency on the order of the declaration and also allows to change the return type of the parameter returned or return additional information as a positional parameter.
+
+```lang=cpp
+// this illustrates how to make a class support structured bindings
+class Bindable
+{
+  public:
+    template<std::size_t N>
+    decltype(auto) get() const {
+
+      // note the changing of the type from std::string to const char* for the 2nd parameter
+      // of returning a reference to the vector
+      if constexpr (N == 0) return x;
+      else if constexpr (N == 1) return msg.c_str(); 
+      else if constexpr (N == 2) return (v); // parentheses make a reference out of this
+	  else if constexpr (N == 3) return v.size();
+
+    }
+  private:
+    int x{123};
+    std::string msg{"ABC"};
+    std::vector<int> v{1,2,3};
+};
+/// template specialisation for class Bindable
+namespace std{
+  template<>
+  struct tuple_size<Bindable> : std::integral_constant<std::size_t, 4> {};
+
+  template<std::size_t N>
+  struct tuple_element<N, Bindable> {
+    using type = decltype(std::declval<Bindable>().get<N>());
+  };
+
+}
+```
 
 
-
-Another note is that so far structured bindings do not cover partial extraction as was possible with ```std::tie```and ```std::ignore```, so one has to create dummy variables if only interested in parts of a tuple. However due the guaranteed copy elision introduced in c++17 this should be side-effect free if compiled with any kind of optimization. 
+A sidenote is that so far structured bindings do not cover partial extraction as was possible with ```std::tie```and ```std::ignore```, so one has to create dummy variables if only interested in parts of a tuple. However due the guaranteed copy elision introduced in c++17 this should be side-effect free if compiled with any kind of compile-time optimization enabled. 
 
 To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templates std::tie. 
 
