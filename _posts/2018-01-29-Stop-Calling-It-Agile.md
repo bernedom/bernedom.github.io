@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stop calling it agile 
-thumbnail:images/no-more-agile/stop-agile-thumb.jpg
+thumbnail: images/no-more-agile/stop-agile-thumb.jpg
 ---
 
 **We should stop calling it *agile* and start calling it *modern company culture*.** In the past fifteen years the word 'agile' has become widely popular in software development and other technology affine areas of business, but still people find it hard to find a consensus on what 'agile' means for them or their company. There seems to be an agreement that agile development contains such processes as scrum, kanban, xp or on a bigger scale SAFe, Less and all the other frameworks out there. But also an often heard complaint by people involved in software development is that they are never "100% agile", or that they do scrum but find it hard to get that elusive *culture shift* happening in their companies. 
