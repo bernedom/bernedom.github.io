@@ -6,6 +6,9 @@ layout: default
   <h1>{{ page.title }}</h1>
 
   <div class="entry">
+  {% if page.thumbnail != null %}
+    <img src="{{ site.baseurl }}/{{ page.thumbnail }}" alt="{{ page.title }}" style="float:left;display:block;padding:5px"/>
+  {% endif %}
     {{ content }}
   </div>
 
