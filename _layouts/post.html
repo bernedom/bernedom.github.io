@@ -7,7 +7,6 @@ layout: default
 
   <div class="entry">
   {% if page.thumbnail != null %}
-  <meta name="twitter:image" content="{{ site.baseurl }}/{{ page.thumbnail }}" />
     <img src="{{ site.baseurl }}/{{ page.thumbnail }}" alt="{{ page.title }}" style="float:left;display:block;padding:5px"/>
   {% endif %}
     {{ content }}
