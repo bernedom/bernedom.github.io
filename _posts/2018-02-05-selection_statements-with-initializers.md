@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Write C++ code easier with initializers in selection statements 
-thumbnail: images/logo_bbv_thumb.png
+title: initializers in selection statements - smarter coding in C++17
+thumbnail: images/cpp_logo.png
 ---
 
 **C++ is hard!** Luckily the new standards brought some features and tools to make writing C++ easier. Selection statements with initializers are one of these small-but-nice features that make our coding-life easier. 
@@ -34,6 +34,6 @@ A word of warning is that each ```if``` opens it's own scope, so be careful when
 
 All in all the initializers in selection statement are not the biggest change in C++, nor are they the feature which probably has the most impact on how code is written, but they are a very good example on the direction modern C++ is taking. 
  
-http://blog.bbv.ch/2018/01/29/einfacher-coden-mit-c17-selection-statement-mit-initializer/
 (This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2018/01/29/einfacher-coden-mit-c17-selection-statement-mit-initializer/)
+
 ![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png)
