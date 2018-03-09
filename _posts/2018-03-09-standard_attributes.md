@@ -6,14 +6,14 @@ thumbnail: images/cpp_logo.png
 
 **Good code is self-documenting** - We coders love this sentence and with the standard attributes available since C++11 we are one step closer to this utopia. 
 
-The first standard attributes ```noreturn```` and ```carries_dependency``` are alreadyy available since C++11. C++14 brought us the very much loved ```deprecated``` and with C++17 we now also got ```fallthrough``, ```nodiscard``` and ```maybe_unused```.
+The first standard attributes ```noreturn``` and ```carries_dependency``` are already available since C++11. C++14 brought us the very much loved ```deprecated``` and with C++17 we now got ```fallthrough```, ```nodiscard``` and ```maybe_unused```.
 
-Additionally, the introduction of the ```[[]]``` notation gave us an answer for the compiler specific syntaxes like ```#pragma```, ```__attribute__()```, ```__declspec```` and whatever else there is out there. The attrributes together with the unified notation allows us now, as CleanCode dictates, to explicitely state a specific intent for of the coder, static code analyzers and even the compiler. 
+Additionally, the introduction of the ```[[]]``` notation gave us an answer for the compiler specific syntaxes like ```#pragma```, ```__attribute__()```, ```__declspec``` and whatever else there is out there. The attributes together with the unified notation allows us now, as CleanCode dictates, to explicitly state a specific intent for of the coder, static code analyzers and even the compiler. 
 
 
-## ```[[noreturn]]``` (C++11)
+## [[noreturn]] (C++11)
 
-This should not be the norm, but there are certain cases in which functions to not return properly. An example is a call to an ```exit()```` or if there is always an exception thrown. In this case the function should be decorated with ```[[noreturn]]]``` to give a hint that this is a special method. But beware: should any function decorated like this return normally, the behavior is undefined. 
+This should not be the norm, but there are certain cases in which functions to not return properly. An example is a call to an ```exit()``` or if there is always an exception thrown. In this case the function should be decorated with ```[[noreturn]]]``` to give a hint that this is a special method. But beware: should any function decorated like this return normally, the behavior is undefined. 
 
 ```cpp
 [[noreturn]]void always_throw() { throw 123; };
@@ -38,13 +38,13 @@ Usually this is not very well liked, but in certain cases we want to execute two
 ```cpp
 switch (c) {
   case 'a':
-    f();
+    f();
     break;
   case 'b':
-    g();
-    [[fallthrough]];
+    g();
+    [[fallthrough]]; // Some compilers need the semicolon
   case 'c':
-    h();
+    h();
     break;
   case 'd': //no [[fallthrough]] necessary
   case 'e':
@@ -131,6 +131,6 @@ Of course as with all features the standard-attributes can be abused and used to
 
 *Thanks to Silvan Wegmann for Co-Authoring this article*
 
-(This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2018/01/29/einfacher-coden-mit-c17-selection-statement-mit-initializer/)
+(This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2018/03/08/c-attribute-clean-code-fur-den-compiler/)
 
 ![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png)
