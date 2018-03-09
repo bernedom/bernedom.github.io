@@ -32,9 +32,10 @@ During the lifetime of a software it is often the case that parts of the code sh
 ```
 
 ## [[fallthrough]](C++17)
-Wenn auch normalerweise ungern gesehen, kommt es doch in gewissen Fällen vor, dass wir in einem switch-case Statement die Codeteile des darauffolgenden case-Blocks mit ausführen wollen. Im folgenden Code-Stück soll zum Beispiel im Fall 'b' auch der Code von 'c' mit ausgeführt werden.
 
-[sourcecode lang="cpp"]
+Usually this is not very well liked, but in certain cases we want to execute two blocks of code in a ```switch```-```case``` statement. In the following example the code for the case 'b' and 'c' should be executed together. 
+
+```cpp
 switch (c) {
   case 'a':
     f();
@@ -50,13 +51,17 @@ switch (c) {
     e();
     break;
 }
-[/sourcecode]
-Mit dem Attribut [[fallthrough]] können wir nun unseren Kollegen und der statischen Codeanalyse explizit deutlich machen, dass dies genau unsere Absicht war. Hätten wir andererseits für den Fall 'a' das break vergessen, kann uns nun der Compiler auf den Fehler aufmerksam machen. In GCC 7 ist dies mit der Option -Wimplicit-fallthrough beziehungsweise mit-Wextra möglich. Leere case-statements, wie hier im Fall 'd', ohne break produzieren weiterhin auch ohne  [[fallthrough]] keine Warnung.
+```
 
-[[nodiscard]](C++17)
-Dies ist ebenfalls ein besonders hilfreiches Attribut für den täglichen Gebrauch. Wie oft haben wir schon Funktionsaufrufe gesehen von Funktionen, die einen bool oder einen int als Statuscode zurückgeben, wo dieser dann aber geflissentlich ignoriert wird. Mit [[nodiscard]] können wir solche Situation endlich verhindern. Und um dem noch eins draufzusetzen, kann [[nodiscard]] auch gleich für einen ganzen Datentyp gesetzt werden. So kann man als Library-entwickler den Benutzer mit Nachdruck auffordern gewisse Arten von Rückgabewerten weiter zu behandeln.
 
-[sourcecode lang="cpp"]
+With the attribute ```[[fallthrough]]``` we can express that executing both parts of the code was exactly our intention. Had omitted the attribute for cases 'b', most compilers are able to produce a warning or an error on this. Empty cases without a ```break``` are always warning free, even without ```[[fallthrough]]```.  
+
+
+## [[nodiscard]](C++17)
+
+This attribute I consider one of the most helpful. How often have we seen code where return values are just ignored, despite carrying helpful information? With ```[[nodiscard]]``` it is now possible to prevent this situation and to make it an even more powerful tool whole data types can be annoptated as such. Like this a library-developer can force the user to actually handle return value or error-data structures without resorting to controversial methods like throwing exceptions. 
+
+```cpp
 struct[[nodiscard]] demon{}; // Demons need to be kept and named
 struct ghost {}; 
 
@@ -74,12 +79,13 @@ void summon() {
   // Compiler Warning, because the function of summoning is nodiscard
   summon_ghost();
 }
-[/sourcecode]
-[[maybe_unused]](C++17)
-Wer kennt das nicht, wir möchten im debug mode einen erweiterten Assert in eine Funktion einbauen z.b. um Design by Contract zu realisieren, aber das passt irgendwie nicht ohne eine zusätzliche Variable und nun schimpft der Compiler im Release mode – wo wir den assert nicht mehr rein kompilieren, dass die Variable nicht mehr benutzt wird. Seit C++17 können wir das mit [[maybe_unused]] zusätzlich markieren. Das Attribut beinflusst nur die Ausgabe von Compiler Warnungen. Wenn eine Variable [[maybe_unused]] deklariert wird, kann sie vom Compiler nach wie vor weg optimiert werden, falls sie nicht gebraucht wird.
+```
+## [[maybe_unused]](C++17)
 
-[sourcecode lang="cpp"]
-[[maybe_unused]] void f([[maybe_unused]] bool thing1,
+We all know this. When compiling with debug information during development we want to have an extended assert or similar in the code, for instance to realize design by contract. But sometimes this does not work without defining additional variables and now the compiler complains in the release-configuration - where we don't compile the assert - that we have an unused variable. Since C++17 these warnigns can be avoided by marking variables with ```[[maybe_unused]]````. The compiler will still optimize the variables away if the flag is set, but it will do so silently. 
+
+```cpp
+void f([[maybe_unused]] bool thing1,
  [[maybe_unused]] bool thing2) {
   [[maybe_unused]] bool b = thing1 && thing2;
 
@@ -88,12 +94,13 @@ Wer kennt das nicht, wir möchten im debug mode einen erweiterten Assert in eine
   assert(thing1 &&
     thing2); // parameters thing1 and thing2 are not used, no warning
 }
-[/sourcecode]
-[[carries_dependency]](C++11)
+```
 
-Carries dependency gibt dem Benutzer und dem Compiler einen Hinweis, dass Speicher im Zusammenhang mit atomics "transparent" behandelt werden kann.
+## [[carries_dependency]](C++11)
 
-[sourcecode lang="cpp"]
+Carries dependency gives the coder and the compiler a hint that memory-handling inside a function can be considered `transparent` in conjunction with atomics. The settings such as hard realtime constraints or very limited stack- and memory sizes are not that common, but in these cases the effect can be quite beneficial. 
+
+```cpp
 void opaque_func(int *p){/* do something with p */};​
 
 [[carries_dependency]] void transparent_func(int *p) {
@@ -115,10 +122,14 @@ if (atomic)
  transparent_func(atomic); // marked as to work in the same memory-dependency
  // tree, compiler can omit the memory fence
 }
-[/sourcecode]
-Nebst der erweiterten Dokumentation sind Standard Attribute vor allem ein weiterer Schritt in Richtung "Weg mit den Dialekten - Ein C++ für alle Compiler und Plattformen". Ein guter Weg der mit C++11/14 begonnen wurde und mit C++17 weiter getrieben wurde. Wir sind bereits gespannt auf die nächsten Änderungen in C++20.
+```
 
+## What now? 
 
+Apart from extended inline-documentation the standard attributes are a step in the direction: "away with dialects - one C++ for all compilers and plattforms". A good path, that started with C++11/14 and is now advanced further with C++17. I really hope that this direction will continue with C++20.
+Of course as with all features the standard-attributes can be abused and used too liberally but it takes a surprisingly short time to get used to them and to be able to apply them in a helpful but non-intrusive manner. 
+
+*Thanks to Silvan Wegmann for Co-Authoring this article*
 
 (This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2018/01/29/einfacher-coden-mit-c17-selection-statement-mit-initializer/)
 
