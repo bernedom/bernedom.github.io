@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-{% seo %}
+	{% seo %}
     {% if page.thumbnail %}
     <meta property="og:image" content="{{ site.url }}/{{ page.thumbnail }}" />
     {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/custom_style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
     <!--[if lt IE 9]>
@@ -39,13 +39,14 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
-          <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
+          <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> </span>
+		  		
         </div>
 
         {{ content }}
-
+		 
       </section>
-
+ <span>{% include svg-icons.html %}</span>
     </div>
 
     {% if site.google_analytics %}
