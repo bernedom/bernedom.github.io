@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Do not leave your innovation to the engineers
-thumbnail: images/no-more-agile/stop-agile-thumb.jpg
+thumbnail: images/innovation/innovation_by_people.jpg
 ---
 
 LINKS TO DESIGN STUDIO - find book
