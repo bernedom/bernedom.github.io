@@ -21,7 +21,7 @@ To calculate the ```Seniority Bonus``` order your developers by seniority. The m
 
 ## Trigger words and the Distrust Factor
 
-Once you have determined the starting bias by using the ```Average Story Size``` and the ```Distrust Factor``` - have your developers discuss the backlog item for **3 minutes**. It is of utmost importance that this time-box is observed to get correct results. A predetermined person should be the moderator which counts any trigger words described in the table below and keeps track on who said what, as this is important to apply the ```Seniority Bonus```.
+Once you have determined the starting bias by using the ```Average Story Size``` and the ```Distrust Factor``` have your developers discuss the backlog item for **3 minutes**. It is of utmost importance that this time-box is observed to get correct results. A predetermined person should be the moderator which counts any trigger words described in the table below and keeps track on who said what, as this is important to apply the ```Seniority Bonus```.
 
 |Trigger Word|multiplier|Special Rules|
 |---|---|---|---|
@@ -68,7 +68,7 @@ So Assuming that the team has a Distrust factor of 2.14 and a Standard story siz
 
 ## Conclusion
 
-Why bother with lengthy and inaccurate estimation procedures if you can just use this formula. But if this is still not accurate enough, be sure to check out [this video on using facial expression as an even more accurate estimation method. Also check the date of publishing of this article if you really think of applying this method in your team ;)
+Why bother with lengthy and inaccurate estimation procedures if you can just use this formula. But if this is still not accurate enough, be sure to check out [this video on using facial expression as an even more accurate estimation method](https://www.youtube.com/watch?v=dQw4w9WgXcQ). Also check the date of publishing of this article if you really think of applying this method in your team ;)
 
 
 
