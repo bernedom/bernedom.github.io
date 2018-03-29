@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Better estimates by using applied linguistics
-
+thumbnail: images/aprils-fool/aprils-fool.jpg
 ---
 
 **Planning poker, magic estimation, T-shirt-size estimation and even the famed \#NoEstiamtes are too inaccurate** - But there is a way to estimate to up to 50% more accurately by using a simple formula  based on empirical measures and applied linguistics. Notice how developers use the same qualifiers for estimating workload over and over again? "It is just a minor bugfix", "This is a huge, complex task", "There is absolutely no way I can put an estimate on this one". Heard this sentences or variations of it in the past? Your best estimations are lying in front of you in plain sight. 
@@ -22,6 +22,7 @@ To calculate the ```Seniority Bonus``` order your developers by seniority. The m
 ## Trigger words and the Distrust Factor
 
 Once you have determined the starting bias by using the ```Average Story Size``` and the ```Distrust Factor``` - have your developers discuss the backlog item for **3 minutes**. It is of utmost importance that this time-box is observed to get correct results. A predetermined person should be the moderator which counts any trigger words described in the table below and keeps track on who said what, as this is important to apply the ```Seniority Bonus```.
+
 |Trigger Word|multiplier|Special Rules|
 |---|---|---|---|
 |one-liner|0.0001|
@@ -59,9 +60,9 @@ Your team consists of four developers
 
 = Total Team seniority = 7.2
 
-Jacks statement: This is basically (0.75) a simple (0.2) but huge (5) task 
-Amy: For this we need to touch multiple modules (2)
-Fred: 
+* Jacks statement: This is basically (0.75) a simple (0.2) but huge (5) task  = 0.75 * 5 * 0.2 = 0.75
+* Amys statement: For this we need to touch multiple modules (2) so it will be a big (3) change
+* Fred's : 
 
 
 ## Conclusion
