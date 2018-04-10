@@ -1,0 +1,19 @@
+---
+layout: post
+title: Getting agile beyond team size
+thumbnail: images/innovation/innovation_by_people.jpg
+---
+
+Agile is successful and we know it. For years we scrum masters, agile coaches and change champions advertised and trained developers in the agile principles and the many frameworks and ideas out there. We have seen them grow and become self-organized and empowered. It was tough work, changing minds and grass rooting ideas with the developers. And it was frustrating when we hit the hard wall of culture-shifting not just teams and organizations. Our teams worked well but somehow the movers and shakers of the companies needed a lot of attention to bring them along. Suddenly out ideas and principles we instilled so sucessfully into cross-functional teams of developers, testers and engineers were under harsh critique. Somehow there always seemed a level that did not agree with what we tried to achieve. Countless stories of trying to put scrum into action on a contract that is essentially waterfall proves that. 
+
+And then there was a shift a few years back. The big consulting companies such as McKinsey, PWC and Garnter and many more started advertising agile and agile leadership. The word was and is: "If you're not agile, you're going to file bankruptcy soon." Pulling on that momentum agile frameworks for larger settings such as SAFe, Less (...) sprang out. Wow these were well documented processes that spoke the same language than what we've teached to the teams. Wait a minute - Did we not state "Individual and interactions overs processes and tools"? And those large scale applications of the agile frameworks somehow look way more like rigid processes than those people-based approach we had before. 
+
+Yes they do and the agile community started to pick them apart. SAFe has the image of cementing existing hierarchical structures and to encourage command-and-control behaviours in the "uppers". These large scale approaches compromise our beautiful agile world. LESS walls teams into a rigid form of scrum instead of letting them discover their best approach to the usage of scrum. 
+The outcry was and is that these larger frameworks take what we did so successfully and put a too rigid corset around it, compromising our original idea of agility. So they are not outright bad, but they are far away from the shiny agile wonderland which we imagine.
+
+Yes those frameworks are putting more structure around the almost anarchistic way of how agile is often imagined. If those are applied there is less of "Let's do and see what's working" and more of "Let's make a plan of what we're doing and see what's working". Is this always needed if organizations get bigger? I don't know. But what I know is this is what is often wanted and thus needed to **sell** agility to organizations where the original grass-rooting approach did not yet yield the desired result. 
+
+In my opinion it is a good thing that companies start to want to introduce agility on a larger scale. That more and more intiatives to introduce the agile mindset in a company come from C-level executives or directly below. This shows that the idea behind the agile manifesto has matured and can be applied outside the dusty offices of engineers. But it also forces us coaches to think differently on how to introduce the agile mindset and methodology. 
+
+It is not our free-for-all idea of agility gets compromised. It is us that need to compromise and grow. Over the years we got real good at making individual teams go fast and have great impact with the products they develop. But as the ideas get adopted and implemented on a bigger scale we need to think and act on a bigger scale. Sometimes this is pure logisitics, if agilizing an organisation of 50+ people even the best coach will find it hard to find time to talk to everybody.
+
