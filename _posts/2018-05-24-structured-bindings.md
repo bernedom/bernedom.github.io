@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Quick and easy unpacking in C++ with structured bindings 
-thumbnail: images/logo_bbv_thumb.png
+thumbnail: images/cpp_logo.png
 ---
 
 **Unpacking a fixed size container in C++ can be tedious, requiring you to fiddle around with `std::get` or `std::tie`.** But not anymore, thanks to the new *structured bindings* introduced in C++17. Unpacking anything with a fixed size into named variables never has been easier. 
@@ -86,6 +86,3 @@ namespace std{
 A sidenote is that so far structured bindings do not cover partial extraction as was possible with `std::tie`and `std::ignore`, so one has to create dummy variables if only interested in parts of a tuple. However due the guaranteed copy elision introduced in c++17 this should be side-effect free if compiled with any kind of compile-time optimization enabled. 
 
 To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templates. They are the linear "evolution" of `auto` and help bringing datatypes like `std::tuple` or `std::array` more naturally into the code.  
-
-(This article was originally [published at bbv.ch in german](http://blog.bbv.ch/2017/12/12/cpp17-was-bringt-der-neue-standard/))
-![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png)
