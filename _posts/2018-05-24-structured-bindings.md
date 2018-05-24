@@ -8,7 +8,7 @@ thumbnail: images/cpp_logo.png
 
 Strcutured bindings provide a syntax without boilerplate to allow unpacking any data structure whose size is known during compile time. And yes even works with `structs` and public members of `classes`.
 
-```lang=cpp
+```cpp
 auto tuple = std::make_tuple(1, 'a', 2.3);
 std::array<int, 3> a{1, 2, 3};
 
@@ -22,7 +22,7 @@ Structured bindings always have to be declared using `auto` and may have all the
 
 Extracting classes and structs is, as mentioned, possible but has a few possible pitfalls.
 
-```lang=cpp
+```cpp
 struct Packed {
   int x;
   char y;
@@ -48,7 +48,7 @@ While this works as expected there is a word of warning here, that unpacking dep
 
 A much better approach when working with `classes`and `structs` is to add support for structured bindings, which is quite easy, by template-specializing `std::tuple_size, std::tuple_element` and `get`. By the way, this pairs nicely with `if constexpr`, another feature introduced in C++17. Specializing a class in this way removes the dependency on the order of the declaration and also allows to change the return type of the parameter returned or return additional information as a positional parameter.
 
-```lang=cpp
+```cpp
 // this illustrates how to make a class support structured bindings
 class Bindable
 {
