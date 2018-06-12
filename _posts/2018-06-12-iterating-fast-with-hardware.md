@@ -1,0 +1,45 @@
+---
+layout: post
+title: How to iterate fast when developing software and hardware together
+thumbnail: images/fast-iterations/iterating-with-hardware.jpg
+---
+
+**Iterate fast and often to make better products.** This rings true not just when creating software but also when developing close to or together with hardware. IoT and fully automated Industry 4.0 currently are one of the big topics in the industry. And because of this integrated development between hardware and software becomes more prominent again. But reality is often that software- and hardware-engineers fail to work effectively together and because of this struggle with creating awesome products. 
+
+There are a lot of machines and products out there that started with good intentions but ended up in quite a mess when delivered. Some devices sport brilliant design and technical excellence in some parts but as a whole just do not feel well thought through. Some integrated devices look good on the first glance but on closer inspection there are things that make the user go "huh?".
+On a deeper level the amounts of hacks that I saw software-developers do to work around a shortcoming of the hardware supported is amazing. On the other hand I have seen hardware that was engineered so well that the software failed to use its power to an optimal intent. This hurts me as an engineer, but it also has the potential to make devices more expensive than necessary.
+The reason is that often hardware and software development fail to iterate over the whole product together and are held apart. This is sad, because every iteration on the full product will increase the quality and purposefulness of a product. Every time the whole product is assembled together a huge opportunity to learn its shortcomings and where a solution excels in quality. 
+
+This kind of full-depth iterations can be achieved by **a combination of setting up teams the right way, prototyping fast and often and by directly involving the customer and/or end-user of your system**. 
+
+## Team setup
+
+There are a lot of companies where there is one hardware team working with one software team working with one electronics team and so on... While this appears to bundle the most skill in one place, a much better alternative is to organize teams so that they contain all skills necessary for developing the project. By team I mean people working together daily on the same product. collocated if possible, at least in close contact by skype, slack or whatever communication app you prefer. All those engineers should work and communicate together and share each others problems and successes. This has the benefit that people learn the "language" of each others special field and see how and why things are different in each others domain. The result is a better alignment between the different disciplines but it also lets people help each other out. When starting this might need a bit of coaching and team-building to achieve a frequent and honest communication inside the team.  
+
+![Changing your teams from skill oriented to be cross-functional]({{ site.baseurl }}/images/fast-iterations/Team-setup.png) 
+ 
+This setup really excels if each team can tackle a different product at the same time, but even if the project is too big to pack everybody into one team this can work. If this is the case make multiple teams with clearly defined areas of work and make sure that they go an extra length of integrating frequently across teams. How the teams are split is not so much of importance as that they are defined with a common understanding across teams. Having multiple vertical teams work on the same product also requires that you actively facilitate the exchange of information across the teams. I had very good experience with building so called communities of practice that where required to regularly exchange the state of work and any brilliant ideas or difficulties they came across. This exchange can be in face to face meetings every few weeks or by using slack or a similar chat app. Use whatever form of communication works but make sure that this exchange of information happens frequently. 
+
+## Prototype fast and often
+
+Once the teams are set up to tackle the full depth of a product this opens the way to do valuable prototypes and experiments that help to gain knowledge and test any assumptions. The main benefit is of course quick feedback whether any idea works or not. Prototypes can be as simple as a duct-tape and plywood construction or a simple arduino board that mocks the sensors of a big machine. The magic is to find a good balance of doing just enough that valuable information is gained but not to fiddle around too much and waste time. Also prototypes should be readily discarded if they no longer help to gain any useful information. In general it is hard to adapt a prototype to become the final product so discarding them and doing the work properly often helps. 
+
+One problem with hardware is often long lead times until something can be delivered. But with todays new technology such as 3D-printing, cheap-to-order PCP boards, Arduinos, Raspberry pies, readily accessible cloud services etc the possibility to quickly create something that works just good enough are amazing. Each of these technologies can help to quickly get feedback for a specific aspect of a product. But it is not just the shiny new things that help: There are many traditional "technologies" available - such as bread boards, plywood and duct-tape - that are easy enough to handle and that can be used to create something usable in no time at all. Having something tangible helps tremendously in answering questions and verifying assumptions in a real-life manner instead of doing endless "what-if" meetings and design sessions. 
+
+![Think outside the box to get some useful prototyping material]({{ site.baseurl }}/images/fast-iterations/prototyping-material.jpg) 
+
+This kind of hacking can be tremendous fun for a team and it is a great way to build a team in the first place. However w word of warning here is that all this hacking can be so much fun that one can easily miss the focus of actually building the project. So be sure that someone keeps an eye on the focus of the team. Also do not expect your first prototype to answer all questions at once, better start small and build that skill up. Once the skill of prototyping as a team is mastered it becomes a very powerful tool.
+
+## Toe to toe with the customer
+
+Having a cross-functional team that can deliver something tangible fast is great, but there is one piece of the puzzle missing and that is *customer involvement*. The team might have great ideas and fancy visions about a product, but in the end only the customer and/or end-user of a product can verify it's usefulness. That is where the prototypes that the team built come into play. Do not be afraid of showing a prototype to a customer, despite what is often claimed, most customers can handle trying out a prototype. 
+Yes, there is this balance of making a prototype polished enough so the customer will accept it and focus on the questions that needed answering and giving the impression that development "is almost finished", but with a bit of training and experimenting this balance is easier to strike than one might think. 
+
+And it is not just the product that can be demonstrated to the customer; Teams can be demoed to the customer as well. I consider it very important that each team member - or better the whole team - gets the chance to see when the customer can get his or her hands on a prototype. This establishes a personal connection between the stakeholders and the team which helps you gain trust because it's no longer an anonymous company working on a product but real people. Also having all experts on site is very handy in case something goes wrong during a demo or the customer asks pointed questions in a specific area. Being able to quickly fix anything and being ready to spend some thoughts and answers on his questions right away really display commitment from the team.
+
+![Meeting the customer and talking about your product is great]({{ site.baseurl }}/images/fast-iterations/customer-contact.jpg) 
+
+## And now? 
+
+Of course the recipe of creating a good cross-functional team, prototyping easy and often and getting toe to toe with the customer is easier said than done. Getting any of these three parts to be carried out in the daily life of a company can be a huge task that takes years to be instilled in all minds connected with a project. But as often in the world of agile getting under way into this direction is a gain in itself and helps breaking down old and too rigid processes and structures. 
+While I prefer to tackle changing this working mode in the order I described, team first, prototype second and close customer collaboration 3rd, they are more or less independent and can be tackled in whatever order seems fit. 
