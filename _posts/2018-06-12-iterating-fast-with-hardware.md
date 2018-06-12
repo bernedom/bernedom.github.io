@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to iterate fast when developing close to the hardware
+title: How to iterate fast when developing software and hardware together
 thumbnail: images/fast-iterations/iterating-with-hardware.jpg
 ---
 
