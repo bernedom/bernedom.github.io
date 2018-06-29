@@ -23,7 +23,13 @@ Of course the famous secret agent oversteps the constraints or violates one of t
 
 # Skills and training
 
-On the other hand James Bond only gets that much autonomy, because he is highly skilled. Diving, Parachuting, Flying a military Jet, driving a tank
+But why does James Bond gets that much autonomy? One reason is because he is highly skilled. From Diving, over Parachuting and driving a tank to playing high-stakes-poker: James Bond mastered all these and many more skills. Of course being a hollywood superman he is highly capable, but all the ability would be nothing without proper training. The tedious and long routines of aquiring difficult skills at a high level of compentence never made it to the screen, but it is obvious that 007 has ample time to learn new skills and hone old ones. Just the fact that he more or less keeps on top of modern technology and changed social norms for over 50 years make this obvious. This displays another key benefit of allowing your employees to learn new things and perfect or modernize existing skills. When doing so, people tend to stay longer with a company and thus keep key knowledge in the company. Especially for companies that rely on knowledge workers this is a huge benefit. 
+
+Training people menas that one has to allow for enough slack time, so people can recharge their batteries and improve themselves. On average MI-6 (Or the producers of the movie) send James Bond only on missions every 3 years. The rest of the time he spends relaxing and training. While even in trainig double-O agents retain their autonomy and alignment, it is very likely that MI-6 does not leave its employees on their own when training new skills by providing necessary training opportunities such as organizing a handful of military jets. 
+It is even mentioned in some movies that even the double-O agents need to pass certain tests and qualifications to keep their status, which is just fair considered how much power they wield. 
+
+A lot of companies display great difficulty in getting their employees trained beyond what is required by the organisational health and safety standards. 
+
 
 Nevertheless a lot of companies fail to facilitate the autonomy and aligment and as a consequence they require to create explicit rules and constraints for working and a heavy reliance on controlling to enforce these.
 
