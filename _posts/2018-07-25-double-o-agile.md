@@ -25,10 +25,18 @@ Of course the famous secret agent oversteps the constraints or violates one of t
 
 But why does James Bond gets that much autonomy? One reason is because he is highly skilled. From Diving, over Parachuting and driving a tank to playing high-stakes-poker: James Bond mastered all these and many more skills. Of course being a hollywood superman he is highly capable, but all the ability would be nothing without proper training. The tedious and long routines of aquiring difficult skills at a high level of compentence never made it to the screen, but it is obvious that 007 has ample time to learn new skills and hone old ones. Just the fact that he more or less keeps on top of modern technology and changed social norms for over 50 years make this obvious. This displays another key benefit of allowing your employees to learn new things and perfect or modernize existing skills. When doing so, people tend to stay longer with a company and thus keep key knowledge in the company. Especially for companies that rely on knowledge workers this is a huge benefit. 
 
-Training people menas that one has to allow for enough slack time, so people can recharge their batteries and improve themselves. On average MI-6 (Or the producers of the movie) send James Bond only on missions every 3 years. The rest of the time he spends relaxing and training. While even in trainig double-O agents retain their autonomy and alignment, it is very likely that MI-6 does not leave its employees on their own when training new skills by providing necessary training opportunities such as organizing a handful of military jets. 
-It is even mentioned in some movies that even the double-O agents need to pass certain tests and qualifications to keep their status, which is just fair considered how much power they wield. 
+Training people meas that one has to allow for enough slack time, so people can recharge their batteries and improve themselves. A lot of companies display great difficulty in getting their employees continously trained beyond what is required by the organisational health and safety standards. Quite often companies postpone the training of their employees to "later" or leave it entirely to the employe to tackle this in their free time. 
+On average MI-6 (Or the producers of the movie) send James Bond only on missions every 2 to 3 years. The rest of the time he spends relaxing and training. It is even mentioned in some movies that even the double-O agents need to pass certain tests and qualifications to keep their status, which is just fair considered how much power they wield. Of course it is in MI-6s interest that the double-O agents actually pass their certification, not just because they are critical to the worlds survival, but also because their training is probably a quite large monetary investment from the british government. It is very likely that MI-6 does not leave its employees on their own when training new skills by providing necessary training opportunities such as organizing a handful of military jets or the latest prototypes out of Q's laboratory.
 
-A lot of companies display great difficulty in getting their employees trained beyond what is required by the organisational health and safety standards. 
+# Supporting infrastructure and services
+
+It's not just the skills that set 007 apart from his counterparts. An often critical part of his success lies in the ingenious inventions of Q and his fellow technicians. No James Bond movie would be complete without the famous James Bond cars and the other small but helpful gadgets from MI-6s inventors. Oftentimes it is exactly these inventions that allow James Bond to survive and otherwise unescabable situation. 
+Of course the inventions themselves are brilliant, but even more brilliant is the way how Q is supplying them to 007. Q and his team are masters at anticipating the needs of secret agents in a pinch. They usually come up with a solution before James Bond even knows about the problem he might face. And all this without asking for a budget once. This in itself shows that Qs organisation works on a very high understanding of their customers daily work, but it also shows that James Bond can draw from a very well organised and powerful organisational support. It greatly enhances the effectiveness of James Bond that he does not have to seek out the responsible person and ask permission every time he needs a new gadget. But not just technical support is given, there is also a great organisational and administrative support going on. All the plane tickets, clothing and rental cars and contacts to foreign secret services miraclously appear whenever needed. While this is often displayed as James Bond charming Miss Monneypenny, she is just the face on the forefront of a large, very supportive administrative force. 
+
+
+
+
+---
 
 
 Nevertheless a lot of companies fail to facilitate the autonomy and aligment and as a consequence they require to create explicit rules and constraints for working and a heavy reliance on controlling to enforce these.
@@ -38,7 +46,7 @@ Even more dangeraously if the alignment is missing, secret agents turn into vill
 The villain agent Alex(?), played by Sean Bean is not just an example of alignment gone ﻿astray, but also of failed recognition of his skills and achievements. In one of the key scenes (Link) he explains that "he got tired of fixing his Majesties Mistakes for Handshake and a 'well done' from M". 
 While his ulterior motive remains vague the rage and subsequent quest for revenge on everything that that James Bond stands for make it clear that he 
 
-
+The 
 
  NOTES:
 * = OK für den Moment / Primärkandidat
