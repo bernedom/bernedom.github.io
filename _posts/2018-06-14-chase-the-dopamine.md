@@ -22,6 +22,8 @@ Over the time I got real good at setting myself achievable goals for my dopamine
 
 Dopamine is good for finding short-time motivation, but it does not last long. To get a lasting effect we have to get the other chemicals going as well. Since Serotonin and Oxytocin are dependant on other people's reaction it is important that we make the effort and solution of our dopamine-inducing tasks visible. Especially with work on a computer this requires a bit of effort, as the small tasks we do are often not observable from the outside. The solution is simple, tell people about your success and why your life is better now. A simple "Ah, my mailbox looks so empty, now that I unsubscribed from all that junk" over a cup of coffee.
 
+This article was inspired by https://www.youtube.com/watch?v=ReRcHdeUG9Ys
+
 
 
 
