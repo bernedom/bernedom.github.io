@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Double-O-Agile: You need James Bond in your company
-thumbnail: 
+title: "Double-O-Agile: You need James Bond in your company"
 ---
 
 **The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specialising in writing software, fit perfectly into that scheme. The combination of skill, motivation, aligment and initiative is what I like to call the "James Bond" package. The most famous of all secret agents possesses all these traits and a good measure of social skills, which is why he is so successful in saving the world. 
