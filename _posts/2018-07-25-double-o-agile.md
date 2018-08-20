@@ -59,7 +59,7 @@ Nevertheless a lot of companies fail to facilitate the autonomy and aligment and
 
 Even more dangeraously if the alignment is missing, secret agents turn into villains, as displayed by Sean Bean in Goldeneye. 007 
 
-The villain agent Alex(?), played by Sean Bean is not just an example of alignment gone ﻿astray, but also of failed recognition of his skills and achievements. In one of the key scenes (Link) he explains that "he got tired of fixing his Majesties Mistakes for Handshake and a 'well done' from M". 
+The villain agent Alec, played by Sean Bean is not just an example of alignment gone ﻿astray, but also of failed recognition of his skills and achievements. In one of the key scenes (Link) he explains that "he got tired of fixing his Majesties Mistakes for Handshake and a 'well done' from M". 
 While his ulterior motive remains vague the rage and subsequent quest for revenge on everything that that James Bond stands for make it clear that he 
 
 The 
@@ -97,7 +97,7 @@ Alternativen
 
 
 # Selbstpräsentation:
- C++ Coder, Agilist und Geheimagent
+ C++ Coder, Agilist
 
 # Überblick:
 
