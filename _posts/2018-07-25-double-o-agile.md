@@ -1,17 +1,23 @@
 ---
 layout: post
-title: "Double-O-Agile: You need James Bond in your company"
+title: "James Bond - The perfect agile problem solver"
 ---
 
 **The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specializing in writing software, fit perfectly into that scheme. The combination of skill, motivation, alignment and initiative is what I like to call the "James Bond" package. The most famous of all secret agents possesses all these traits and a good measure of social skills, which is why he is so successful in saving the world. 
 
 # The James Bond package
 
-What makes the James-Bond package so appealing? Why would you want to hire James Bond in the first place? Modern (software-) companies often work on complex systems that are only really defined and specified as the projects and products come along. To tackle that situation companies get agile which is a good thing, but it also raises the stake for each individual employee. But even classical command and control companies face challenges in personell when tackling modern projects. 
- 
-James Bond is a good and valuable employee, because he is with MI-6 for a long time, since his battle agains Dr. No in 1962 (or even since 1953 if the novels are counted) he sticks with the same company. In todays software-industry we calculate with a people retention of 3-5 years depending on the field. This in a profession where projects often run into months and years of development and are even longer maintained. It is amazing that James Bond stuck with the same company for over 55 years and performed well all the time. This is a very long time spanning more than most professional careers duration. But on closer inspection James Bond is actually not an individual, but a role filled by 6 people in sequence. Sean Connery, Roger Moore, Timothy Dalton, George Lazenby, Pierce Brosnan and Daniel Craig all played the same role but with still with a distinct personality to it. However the core task of that role - save the world and be suave while doing it - never changed.
+What makes the James-Bond package so appealing? Why would you want to hire James Bond in the first place? Modern (software-) companies often work on complex systems that are only really defined and specified as the projects and products come along. To tackle that situation, companies get agile which is a good thing, but it also raises the stake for each individual employee. While an agile working mode emphasises this, even classical command and control companies face challenges in personell when tackling challenging projects. 
 
-Also despite the different personalities that James Bond has depending on the actor, the core traits remain the same. James Bond remains highly motivated and displays great initiative in comopleting his missions.
+If we look at James Bonds missions a problems to solve, we see that the famous double-o agent works in a very agile manner. Most of the time the exact nature of his mission - or problem - is not known at the start of a movie. There are some clues and hints on what the villains want to do next, but most of the time James Bond discovers critical information only while already underway. As the problems are not very well defined he cannot determine a course of action early on, but has to adjust his tactics and tools as hi goes along. Tackling technical projects in an agile way often works the same. The problem is onl roughly defined at the start and the needed actions are emergent only while already underway.
+
+
+
+ -- James Bond as an agile problem solver. 
+ 
+James Bond is a good and valuable employee, because he is with MI-6 for a long time, since his battle against Dr. No in 1962 (or even since 1953 if the novels are counted) he sticks with the same company. In todays software-industry we calculate with a people retention of 3-5 years depending on the field. This in a profession where projects often run into months and years of development and are even longer maintained. It is amazing that James Bond stuck with the same company for over 55 years and performed well all the time. This is a very long time spanning more than most professional careers duration. But on closer inspection James Bond is actually not an individual, but a role filled by 6 people in sequence. Sean Connery, Roger Moore, Timothy Dalton, George Lazenby, Pierce Brosnan and Daniel Craig all played the same role but with still with a distinct personality to it. However the core task of that role - save the world and be suave while doing it - never changed.
+
+Despite the different personalities that James Bond has depending on the actor, the core traits remain the same. James Bond remains highly motivated and displays great initiative in comopleting his missions.
 
 Loyal 
 JB is well connected even amongst his enemies
