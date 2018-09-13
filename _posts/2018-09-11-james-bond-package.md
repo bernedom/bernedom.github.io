@@ -15,11 +15,9 @@ And like in software development James Bond usually only has a fragment of the f
 
 What makes James Bond also very similar to how a proper agile team operates is that he works with a certain empowerement. 007 does not need to call his boss M to ask permission to fly aorund the world to sneak into the villains lair. He just does it and gets the necessary backing from his superiors. Of course there are a few mission constraints, such as not making the whole affair public, but within these boundaries James Bond retains the full authority over *how* his mission is executed. 
 
-All this sounds very much familiar to how we want our agile teams to solve the problems we face during product development. pl
-
 # The James Bond Package
 
-James Bond is: 
+All this sounds very much familiar to how we want our agile teams to solve the problems we face during product development. And if we look a bit closer we see that James Bond is: 
  * Well trained and educated
  * Motivated
  * Works autonomous
@@ -29,7 +27,7 @@ James Bond is:
  * Loyal
  * Employed for a long time
 
-Sounds familiar? This reads almost like one of the job advertisements for a (software) engineering position that pop up daily on linkedin, xing and other similar plattforms. Nothing wrong with that, thast is actually what we expect from our employees. In an agile culture it is not just technical excellence that we need but also high initiative and self reliance. 
+**This reads almost like a job advertisement for a (software) engineering position**. Nothing wrong with that, thast is actually what we expect from our employees. In an agile culture it is not just technical excellence that we need but also high initiative and self reliance. 
 
 James Bond as an expert problem solver brings posesses all of these (and many more) traits. The most obvious of all is that James Bond is highly skilled and well trained. From flying fighter jets, over fencing to socializing over a high-stake round of poker, James Bond can do it. One could see him as a subject matter expert on covert espionage or similar to a typical knowledge worker. Of course James Bond was not just born with these skills, but received a good education and further training by the British Navy and later the Secret Service. An important thing to note is that this training still goes on even after years of service. The James Bond of the 60ies probably would be utterly confused with modern computers, if he hadn't been trained on the newest technology.
 
@@ -38,29 +36,10 @@ It is never quite revealed why James Bond is so highly motivated to di his job a
 It is also motivation that helps people to display autonomy and high initiative to solve problems. James Bond shows both of these traits repeatedly by not asking for permission or guidance to go to the next step of his mission, but just doing it and knowing that this is ok. With the fast moving environments in agile development we face similar situations where circumstances and constraints might change and we want to act fast. Asking for permission of our bosses is a sure way to slow us down, so we need people who are confident in their abilities to make decisions locally and stick up for them. Imagine if James Bond would phone M every time he has to do a hard decision in the field, the villains probably would run circles around him and M probably would drown in phone calls of 00-agents from around the world. 
 
 Though James Bond is self-reliant and perfectly capable of beating up or cheating villains on his own, he sometimes seeks help from others. Interestingly these are usually people from outside of MI-6 such as Felix Leitner from the CIA or some shady russian ex-KGB-gangsters. Sometimes it is even a former henchman of his adversaries that help him out of a tight situation or supply the critical piece of information. Being well conncted helps tremendously in many aspects, sometimes just being able to know that someone knows the situation you are in helps already with solving it. 
- 
 
-The „James-Bond-Package“
-Well trained and skilled
-Motivated
-High initiative and self reliance
-Creative problem solver
-Well connected – also with his adversaries
-Loyal 
-Employed for a long time
+# The James Bond Package in reality
 
-
-James Bond – More than a man
-"Just" a role
-Role-Title "00" 
-Developed and refined since the 60ies 
-Every James Bond has his own personality and style
+As appealing as the James Bond package is, can we transfer it from hollywood to reality? Though it is unrealistic that we are able to hire or even build up a single James Bond we can subsitute him with **crossfunctional, empowered teams**. Not every single team member has to be an expert in all the problem-solving skills needed to save the world if they work together. By having people with complementing and overlapping skillsets we can get very close to what James Bond can do. However there are some key attributes such as motivation and a sense for autonomy which should be shared with all team members and this is probably the hardest part, but by coaching and enabling people even this can be achieved with a bit of time.
 
 
 
-007 as an (agile) problem solver
-Rarely has the full picture from the beginning
-Keeps his mission in focus
-Reprioritizes his tactis frequently
-Chooses the apropriate course of action and tools depending on the situation 
-Works autonomous and aligned with the mission
