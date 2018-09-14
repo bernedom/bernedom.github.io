@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "The James Bond Package - an agile skill- and mindset"
+title: The "James Bond Package"
+thumbnail: images/james_bond/thumbnail.jpg
 ---
 
-**The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specializing in writing software, fit perfectly into that scheme. The combination of skill, motivation, alignment and initiative is what I like to call the "James Bond" package. The most famous of all secret agents possesses all these traits and a good measure of social skills, which is why he is so successful in saving the world. 
+**The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specializing in writing software, fit perfectly into that scheme. The combination of skill, motivation, alignment and initiative is what I like to call the **James Bond Package**. All these traits and a good measure of social skills make 007 such a successful agile problem solver.
 
 # 007: an agile problem solver
 
@@ -40,6 +41,12 @@ Though James Bond is self-reliant and perfectly capable of beating up or cheatin
 # The James Bond Package in reality
 
 As appealing as the James Bond package is, can we transfer it from Hollywood to reality? Though it is unrealistic that we are able to hire or even build up a single James Bond we can substitute him with **cross-functional, empowered teams**. Not every single team member has to be an expert in all the problem-solving skills needed to save the world if they work together. By having people with complementing and overlapping skill-sets we can get very close to what James Bond can do. However there are some key attributes such as motivation and a sense for autonomy which should be shared with all team members and this is probably the hardest part, but by coaching and enabling people even this can be achieved with a bit of time.
+
+---
+*This article is part of a series from my talk [double-o-agile (PDF slides)](/images/james_bond/00agile_english.pdf)*
+
+
+<sub>Thumbnail image source: https://wallpapercave.com/w/nn6fDQN</sub>
 
 
 
