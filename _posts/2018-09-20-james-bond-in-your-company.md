@@ -4,7 +4,7 @@ title: Working with James Bond in your company
 thumbnail: images/james_bond/thumbnail.jpg
 ---
 
-**The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specializing in writing software, fit perfectly into that scheme. Having someone with the skills and mentality of James Bond in your company might help solving your problems. However getting James Bond to work for you and then be able to unlock his full potential needs some work on company culture. 
+**The core capital of modern companies are their employees**. Especially for the companies operating in areas that require highly trained and motivated people with a high degree on initiative. A lot of tech companies, especially if they are specializing in writing software, fit perfectly into that scheme. Having someone with the [skills and mentality of James Bond (see "The James Bond Package")](/james-bond-package/) in your company might help solving your problems. However getting James Bond to work for you and then be able to unlock his full potential needs some work on company culture. 
 
 # The MI-6 operating model
 
