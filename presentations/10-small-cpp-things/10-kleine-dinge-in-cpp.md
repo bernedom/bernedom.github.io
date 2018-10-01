@@ -30,7 +30,7 @@ Warbarer code beginnt auf dem kleinsten level. SOLID prinzipien, clean code etc.
 
 Progammiersprachen leben von Erwartungshaltungen beim lesen. 
 
-Idee: Warum es cool ist, warum es gefährlich ist
+Idee: Warum es cool ist, warum es gefÃ¤hrlich ist
 
 //-->
 
@@ -38,8 +38,8 @@ Idee: Warum es cool ist, warum es gefährlich ist
 
 # Die neuen C++ Standards
 
-* Viele "grosse" Änderungen
-  * variadic templates, move-semantics,`auto` 
+* Viele "grosse" Ã„nderungen
+  * variadic templates, move-semantics, `auto`, ` [](){}`
 * kleinere die unter dem Radar fliegen
 
 ---
@@ -51,11 +51,24 @@ Idee: Warum es cool ist, warum es gefährlich ist
 1. using declarations
 1. guaranteed copy elision
 1. Delegating constructors (inkl. using)
-1. ```<algorithm>```
+1. strongly typed enums
 1. standard atttributes
 1. ```__has_include```
 1. ```<filesystem>```
-1. strongly typed enums
+1. ```<algorithm>```
+
+<!--
+
+* final, default, delete
+* static assertions
+* noexcept
+* nested namespace definition
+* initialisierung von lambda captures
+* type traits (too big)
+* unordered containers
+
+
+//-->
 
 --- 
 
@@ -71,7 +84,7 @@ auto & [i,k,l] = tuple;
 * Auspacken von fixed size containern
 * Geht auch mit Klassen und structs
   * Aber Achtung: keine strikt-order Semantik
-  * Workarounds gehen, sind aber aufwändig
+  * Workarounds gehen, sind aber aufwÃ¤ndig
 
 ---
 
@@ -131,10 +144,9 @@ namespace BX
 ```
 struct A {
 
-  A() = default;
+  A() =default;
   A(const A &rhs) = delete;
   A(const A &&rhs) = delete;
-  ~A() = default;
 
 };
 
@@ -144,3 +156,101 @@ A a = f();
 
 
 
+---
+
+# delegating constructors
+
+#### Konstruktoren die andere Konstruktoren aufrufen
+
+
+```
+class DelegatingCtor
+{
+ int number_;
+ public:
+   DelegatingCtor(int n) : number_(n) {}
+   DelegatingCtor() : DelegatingCtor(42) {};
+   
+}
+```
+
+---
+
+# Inheriting ctors
+
+```
+struct Base 
+{
+ Base() = default();
+ explicit Base(int n) {};
+}
+
+
+struct Derived : public Base
+{
+  using Base::Base; // get all ctors from base class!
+}
+
+Derived d(123);
+```
+
+
+---
+
+# Strongly typed enums & scoped enums
+
+```
+enum Color : unsiged char { Red, Green, Blue }; 
+```
+
+```
+
+enum class Sound { Boing, Gloop, Crack };
+
+auto s = Sound::Boing;
+
+```
+
+---
+
+# (Standard) attributes 
+
+```
+[[MyCustomAnnotation]]
+int some_function() 
+{
+}
+```
+
+* `[[deprecated]]`, `[[deprecated("reason")]]`, `[[fallthrough]]`, `[[nodiscard]]`, `[[maybe_unused]]`
+
+More to come 
+ * C++20: design by contract
+
+---
+
+# `__has_include`
+
+##### Weniger abhängigkeiten von `#define`s 
+
+```
+#if __has_include(<unistd.h>)
+#define OPEN_SHARDED dlopen
+#elif __has_include(<windows.h>)
+#define OPEN_SHARED LoadLibrary
+#else
+#pragma error("loading shared libraries not supported");
+#endif
+```
+
+--- 
+
+# `#include <filesystem>`
+
+# Endlich! (C++17)
+
+---
+
+# `#include <algorithm>`
+
+### Die top 105 algorithmen 
