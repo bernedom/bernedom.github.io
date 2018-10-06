@@ -4,7 +4,7 @@ title: The "James Bond Package"
 thumbnail: images/james_bond/thumbnail.jpg
 ---
 
-**With his combination of skills, motivation and initiative James Bond is the perfect agile problem solver.** Agile working requires empowerment of teams and individuals, self-organizing and a different mentality than classical command-and-control structures. This is not just the case for the leaders but also from the people actually solving the problem. To perform in such an environment it helps if each and everyone of us shares a bit of what I like to call the "James Bond Package". 
+**Due to his combination of skills, motivation and initiative James Bond is the perfect agile problem solver.** Agile working requires empowerment of teams and individuals, self-organizing and a different mentality than classical command-and-control structures. This is not just the case for the leaders but also for the people actually solving the problems and delivering the products. To perform in such an environment it helps if each and everyone of us shares a bit of what I like to call the "James Bond Package". 
 
 # 007: an agile problem solver
 
