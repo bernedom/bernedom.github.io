@@ -33,6 +33,31 @@ std::swap(x,y);
  
 Die folgenden 10 kleine Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
+# `final` 
+
+Das Keyword `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
+
+``` 
+class Base final 
+{
+ 
+}
+
+class Derived : public Base {} // Compiler error
+```
+
+``` 
+class Base
+{
+  virtual void f();
+}
+
+class Derived : public Base
+{
+  void f() override final; // f cannot be overriden by further base classes
+}
+ 
+
 # `Using`-Declarations und Konstruktorenvererbung
 
 `using`-Deklarationen erlauben es dem Programmierer ein Symbol von einer deklarativen Region, wie Namespaces, Klassen und Strukturen in einen anderen zu "importieren" ohne dass zusätzlicher code generiert wird. Bei Klassen ist dies vor allem nützlich um Konstruktoren von Basisklassen direkt zu übernehmen, ohne dass alle Varianten neu geschrieben werden müssen. Ein weiteres Beispiel ist um Ko-Variante Implementierungen in Abgeleiteten Klassen explizit zu gestalten. Damit wird dem dem Leser klar signalisiert, dass hier eine "fremde" Implementation verwendet wird, die keine funktionale Modifikation erfahren hat. 
@@ -76,11 +101,12 @@ namespace I::K::L
 
 
 
+1. final
+1. using declarations
+1. =delete
 
 1. structured bindings
 1. selection statements with initializers
-1. default, delete, final
-1. using declarations
 1. guaranteed copy elision
 1. Delegating constructors (inkl. using)
 1. strongly typed enums
