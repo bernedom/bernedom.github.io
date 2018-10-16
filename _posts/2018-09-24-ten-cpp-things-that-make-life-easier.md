@@ -33,11 +33,29 @@ std::swap(x,y);
  
 Die folgenden 10 kleine Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
-# `Using`-Declarations
+# `Using`-Declarations und Konstruktorenvererbung
 
-
+`using`-Deklarationen erlauben es dem Programmierer ein Symbol von einer deklarativen Region, wie Namespaces, Klassen und Strukturen in einen anderen zu "importieren" ohne dass zusätzlicher code generiert wird. Bei Klassen ist dies vor allem nützlich um Konstruktoren von Basisklassen direkt zu übernehmen, ohne dass alle Varianten neu geschrieben werden müssen. Ein weiteres Beispiel ist um Ko-Variante Implementierungen in Abgeleiteten Klassen explizit zu gestalten. Damit wird dem dem Leser klar signalisiert, dass hier eine "fremde" Implementation verwendet wird, die keine funktionale Modifikation erfahren hat. 
 
 ```
+struct A
+{
+  A() {}
+  explicit A(char c {}
+
+  int get_x(); 
+}
+
+struct B : public A
+{
+  using A::A; // get all constructors from A
+  private:
+    using A::get_x;  // <-- get_x is now private
+}
+``` 
+
+Seit C++17 funktioniert das übernehmen von Symbolen auch für (verschachtelte) Namespaces: 
+
 void f(){
     // Do something
 }
@@ -49,11 +67,10 @@ namespace X
     void z() {};
 }
 
-namespace A::B::C
+namespace I::K::L
 {
-    using ::f; // f() is available in A::B::C now
-    using X::x; // x() is available in A::B::C (dropped namespace X) 
-    using X::y, X::z;
+    using ::f; // f() is available in I::K::L now
+    using X::x; // x() is available in I::K::L (dropped namespace X)
 }
 ```
 
@@ -62,6 +79,7 @@ namespace A::B::C
 
 1. structured bindings
 1. selection statements with initializers
+1. default, delete, final
 1. using declarations
 1. guaranteed copy elision
 1. Delegating constructors (inkl. using)
