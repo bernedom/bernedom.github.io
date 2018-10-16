@@ -30,7 +30,9 @@ Even more important than the daily comforts is allowing people to take a break f
 Taking care of MI-6's secret agents needs does not happen magically, it is done by people working in supporting branches. Everything James Bond needs on his missions is organised for him. Very rarely are his needs questioned, mostly **it is assumed that if an agent requests something he has good reasons for it**. This trust-based mentality translates very well to an agile working mode where empowered teams should be abel to aqcuire the necessary infrastructure and services to get their job done quickly. If engineers that are aligned to a product-goal say they need access to a certain software to bring a product forward, they very likely correct. 
 MI-6 goes step further than just provinding what is asked. **The supporting branches are proactively supporting their agents**. For instance Q never asks what James Bond needs, but rather presents him with the gadgets that allow him to complete his mission - no negotiation about the budget or haggling about resources is involved. This works because the *supporting personell know the work of the agents very well*, sometimes even with hands-on experience such as moneypenny being handed over a sniper rifle and being sent to the field to shoot at some villain.
 
-***** SKYFALL MONEYPENNY IMAGE **** 
+![Miss Monneypenny doing fieldwork in Skyfall]({{site.base_url}}/images/james_bond/moneypenny_fieldwork.jpg)
+
+<sup> Miss Monneypenny doing fieldwork in "Skyfall"</sup>
 
 This working environment is a large part of the success of James Bond, as it helps him focussing his energy on the important tasks at hand but all this performance optimizing actions are nothing without focus. By stating its goal and intentions explicitely and pursuing them relentlessly MI-6 helps creating such a focus. The mission of MI-6 is "We work overseas to help make the UK a safer and more prosperous place"; this quite explicit mission statement helps James Bond to reevaluate all his actions time and time again. Does stopping Mr. Goldfinger make the UK a safer and more prosperous place? No question about it. 
 
