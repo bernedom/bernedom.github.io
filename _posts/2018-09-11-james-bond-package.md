@@ -41,7 +41,7 @@ But even James Bond was not just born with these skills, he received a good educ
 It is never quite revealed why James Bond is so highly motivated to do his job and why he - as a descendant of Scottish heritage - is so fiercely loyal to Great Britain. Nevertheless this is a crucial factor in helping James Bond to top performance as it helps him to go out of the was of ordinary people to solve the problem. Without motivation and loyalty it is doubtful that he would put his life in danger for his mission. James Bond identifies very much with the goals of MI-6 which is to protect Great Britain and the world in general, and having a meaningful goal is proven to increase intrinsic motivation.
 While we do not expect our engineers to put their life at stake for our projects we would nevertheless have them motivated towards our goal and not just following orders because they have to. As the problems in software engineering often are complicated bordering on the complex we need people to be motivated to go that extra step and keep going when searching for solutions despite failing the first time or the problem being difficult to resolve. Having a goal, with which people can identify helps tremendously in when building up motivations. 
 
-![I'm more of a problem eliminator]({{site.base_url}}/images/james_bond/stop_when_im_done.jpg)
+![I stop when I'm done]({{site.base_url}}/images/james_bond/stop_when_im_done.jpg)
 
 Apart from being motivated to solve a problem or complete a mission, James Bond displays autonomy and high initiative. James Bond repeatedly completes his missions without asking for permission or guidance for his action, but just doing it and knowing that this is OK. 
 Such a behaviour is implictely encouraged when tell teams to empower themselves, which is one of the cornerstone of lean and agile environments. When circumstances and constraints might change fast people need to be able to decide and act with speed. Asking for permission of our bosses - or even worse across several hierarchical layers - is a sure way to slow us down. Imagine if James Bond would phone M every time he has to do a hard decision in the field, the villains probably would run circles around him and M probably would drown in phone calls of 00-agents from around the world.
@@ -55,7 +55,9 @@ Though James Bond is self-reliant and perfectly capable of beating up villains o
 As appealing as the James Bond package is, can we transfer it from Hollywood to reality? Though it is unrealistic that we are able to hire or even build up a single James Bond we can substitute him with **cross-functional, empowered teams**. Not every single team member has to be an expert in all the problem-solving skills needed to save the world if they work together. By having people with complementing and overlapping skill-sets we can get very close to what James Bond can do. However there are some key attributes such as motivation and a sense for autonomy which should be shared with all team members and this is probably the hardest part, but by coaching and enabling people even this can be achieved with a bit of time.
 
 ---
-*This article is the first part of a series of articles regarding  my talk [double-o-agile (PDF slides)](/images/james_bond/00agile_english.pdf)* 
+*This article is the first part of a series of articles regarding my talk [double-o-agile (PDF slides)](/images/james_bond/00agile_english.pdf)* 
+
+* [Part 2: What secret agents need to work successfully]({{site.base_url}}/james-bond-in-your-company/)
 
 
 <sub>Thumbnail image source: https://wallpapercave.com/w/nn6fDQN</sub>
