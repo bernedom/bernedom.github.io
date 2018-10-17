@@ -1,10 +1,8 @@
-+ ---
+---
 layout: post
 title: 10 kleine Dinge die C++ einfacher machen
 thumbnail: images/cpp_logo.png
 ---
-
-# Kleine Sprachfeatures ins C++?
 
 Die neuen C++ Standards haben die Programmiersprache merklich modernisiert und teilweise ganz neue Programmierparadigmen in die Welt von C++ eingebracht. Die "grossen" Änderungen wie Variadic Templates, `auto`, move-semantics, Lambda-Expressions und weitere haben für viel Diskussionsstoff gesorgt und sind dementsprechend mittlerweile auch weitherum bekannt. Nebst den Sprachfeatures hat auch die Standard-Library eine merkliche Erweiterung erfahren und hat viele der Konzepte von Bibliotheken von Drittanbietern wie zum Beispiel `boost` auch in einer "Standard-Umgebung" zur verfügung gestellt. Aber nebst diesen sehr spürbaren und teilweise auch umstrittenen Features gibt es eine ganze Menge an kleinen-aber-feinen Spracherweiterungen die oft unter dem Radar fliegen und weit weniger bekannt sind. 
 
@@ -131,7 +129,33 @@ struct NonDefaultConstructible {
 
 ```
  
-# guaranteed copy elusion
+# guaranteed copy elision
+
+Die garantiere Verhinderung von kopien und moves ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren code. Diese Tilgung (engl. elision) verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde dieses Verhalten als zwingend - oder eben als garantiertes Verhalten - in den Standard aufgenommen. 
+Im Zusammenhang mit dem oben genannten ` = delete` lässt sie den Progammierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden kann mit noch grösserer Konsequenz umzusetzen.
+```
+class A {
+public:
+  A() = default;
+  A(const A &) = delete;
+  A(const A &&) = delete;
+	A& operator=(const A&) = delete;
+	A& operator=(A&&) = delete;
+  ~A() = default;
+
+};
+
+// Without elision this is illegal, as it performs a copy/move of A which has
+// deleted copy/move ctors
+A f() { return A{}; }
+
+int main() {
+
+  // OK, because of copy elision. Copy/move constructing an anonymous A is not
+  // neccessary
+  A a = f();
+}
+```
 
 1. final
 1. using declarations
