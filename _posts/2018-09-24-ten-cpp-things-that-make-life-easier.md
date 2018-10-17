@@ -31,11 +31,11 @@ Dieser XOR-Swap ist zwar Speichereffizient und hat in ganz spezifischen Fällen 
 std::swap(x,y);
 ```
  
-Die folgenden 10 kleine Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
+Die folgenden 10 kleine Features und Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
 # `final` 
 
-Das Keyword `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
+Der Spezifikator `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
 
 ``` 
 class Base final 
@@ -69,17 +69,23 @@ struct A
   explicit A(char c {}
 
   int get_x(); 
+
+	int func();
 }
 
 struct B : public A
 {
   using A::A; // get all constructors from A
+
+	using A::func;
+  int func(int); // could possibly mask A::func()
+
   private:
     using A::get_x;  // <-- get_x is now private
 }
 ``` 
 
-Seit C++17 funktioniert das übernehmen von Symbolen auch für (verschachtelte) Namespaces: 
+Für Klassen und Structs funktioniert das schon länger, seit C++17 funktioniert das übernehmen von Symbolen auch für (verschachtelte) Namespaces: 
 
 void f(){
     // Do something
@@ -99,19 +105,47 @@ namespace I::K::L
 }
 ```
 
+# delegating Constructors
 
+# `=delete` - Löschen von Funktionen
+
+
+Das Keyword `delete` für Funktionsdeklrationen - nicht zu verwechseln mit dem entsprechenden Ausdruck um Objekte zu Löschen - ist eine weitere sehr starke Erweiterung in C++11, mit der ein Programmierer eine Absicht nicht nur Signalisieren sondern auch vom Kompiler forcieren lassen kann. Ein netter Nebeneffekt dabei ist auch, dass die Menge generierter, aber evtl. nie verwendeter Code minimiert werden kann. Mit der Verwendung von `= delete` kann explizit sichergestellt werden, das gewisse Operationen wie zum Beispiel Kopieren eines Objektes nicht vorgesehen sind. NAtürlich sollte die "Rule of Five" auch beim Löschen von Funktionen beachtet werden. 
+
+```
+
+struct NonCopyable {
+  NonCopyable() = default; 
+
+  // disables copying the object through construction
+  NonCopyable(const Dummy &) = delete;
+  // disables copying the object through assignement
+  NonCopyable &operator=(const Dummy &rhs) = delete;
+};
+
+struct NonDefaultConstructible {
+  
+// this struct can only be constructed through a move or copy
+  NonDefaultConstructible() = delete;
+}; 
+
+```
+ 
+# guaranteed copy elusion
 
 1. final
 1. using declarations
+1. Delegating constructors (inkl. using)
 1. =delete
+1. guaranteed copy elision
 
 1. structured bindings
 1. selection statements with initializers
-1. guaranteed copy elision
-1. Delegating constructors (inkl. using)
 1. strongly typed enums
 1. standard atttributes
 1. ```__has_include```
+
+
 1. ```<filesystem>```
 1. ```<algorithm>```
 
