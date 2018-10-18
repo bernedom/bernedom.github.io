@@ -84,7 +84,7 @@ auto & [i,k,l] = tuple;
 * Auspacken von fixed size containern
 * Geht auch mit Klassen und structs
   * Aber Achtung: keine strikt-order Semantik
-  * Workarounds gehen, sind aber aufwÃ¤ndig
+  * Workarounds gehen, sind aber aufwändig
 
 ---
 
@@ -108,6 +108,9 @@ switch(int i = std::rand(); i = %3)
    ...
 }
 ```
+
+<!-- https://skebanga.github.io/if-with-initializer/ for a RAII example 
+//--> 
 ---
 
 # using declarations

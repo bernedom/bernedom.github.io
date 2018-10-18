@@ -29,7 +29,7 @@ std::swap(x,y);
  
 Die folgenden 10 kleine Features und Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
-# Fertig mit Vererbung mit `final` 
+# Vererbung mit kontrollieren mit `final` 
 
 Der Spezifikator `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
 
@@ -52,7 +52,7 @@ class Derived : public Base
 }
 ``` 
 
-# `Using`-Declarations und Konstruktorenvererbung
+# `Using`-Declarationen und Konstruktorenvererbung
 
 `using`-Deklarationen erlauben es dem Programmierer ein Symbol von einer deklarativen Region, wie Namespaces, Klassen und Strukturen in einen anderen zu "importieren" ohne dass zusätzlicher code generiert wird. Bei Klassen ist dies vor allem nützlich um Konstruktoren von Basisklassen direkt zu übernehmen, ohne dass alle Varianten neu geschrieben werden müssen. Ein weiteres Beispiel ist um Ko-Variante Implementierungen in Abgeleiteten Klassen explizit zu gestalten. Damit wird dem dem Leser klar signalisiert, dass hier eine "fremde" Implementation verwendet wird, die keine funktionale Modifikation erfahren hat. 
 
@@ -98,7 +98,7 @@ namespace I::K::L
 }
 ```
 
-# delegating constructors
+# Weiterleiten von Konstruktoren
 
 Andere High-Level Programmiersprachen kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkweit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen oder Checks durchführen hilft dies sehr und hilft bei der Umsetzung des RAII (Resource Allocation is Initialisation) paradigma, weil unter Umständen auf abgesetzte Initialisierung-Funktionen verzichtet werden kann. 
 
@@ -155,10 +155,12 @@ struct NonDefaultConstructible {
 
 ```
  
-# guaranteed copy elision
+# Garantiertes verhindern von Kopien
 
-Die garantiere Verhinderung von kopien und moves ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren code. Diese Tilgung (engl. elision) verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde dieses Verhalten als zwingend - oder eben als garantiertes Verhalten - in den Standard aufgenommen. 
-Im Zusammenhang mit dem oben genannten ` = delete` lässt sie den Progammierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden kann mit noch grösserer Konsequenz umzusetzen.
+Die garantiere Verhinderung von Kopien (engl. guaranteed copy elision) ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren Code. Diese Tilgung (engl. elision) verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde das Auslassen von Kopien als garantiertes Verhalten in den Standard aufgenommen. 
+Nebst dem Effekt, das so weniger Code generiert wird, lässt sie den Progammierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden darf mit noch grösserer Konsequenz umzusetzen. Im Zusammenhang mit dem obengenannten `= delete` lässt sich dies sehr deutlich ausdrücken. 
+
+Dies 
 
 ```cpp 
 class A {
@@ -186,16 +188,81 @@ int main() {
 
 # Structured Bindings
 
+Mit `std::tuple` und `std::array` wurden in C++11 zwei Datenstrukturen mit zur compile time bekannter Grösse eingeführt. Während `std::array` eine relativ simple Modernisierung von C-Arrays darstellt wurde mit `std::tuple` wurde eine generische Möglichkeit geschaffen um heterogene Daten bequem im Programm herum zu reichen, ohne dass der Programmiere reine Datenklassen oder `structs` erstellen muss. 
 
+Seit C++17 ist der Zugriff auf die Inhalte dieser Datenstrukturen durch die Strukturierten Bindings sehr leichtgewichtig möglich:
+
+```cpp
+const auto tuple = std::make_tuple<1, 'a', 2.3>;
+
+const auto [a, b, c] = tuple;
+auto & [i,k,l] = tuple;
+```
+
+Zu beachten ist, dass alle Variablen hier die selbe `const`-ness haben und entweder alle als Referenz oder By-Value gelesen werden. 
+Die Structured bindings funktionieren auch im Zusammenhang mit Klassen, allerdings ist dies etwas Problematisch, da die Semantik von Klassenmember keine starke Reihenfolge der Member vorsieht. Es gibt Möglichkeiten diese Semantik nachzuimplementieren, allerdings ist dies vergleichsweise aufwändig. 
+
+# Verzweigungen mit Initialisierung
+
+Auf den ersten Blick ist die Einführung direkten Initialisierung in `if`- und `switch`-statements in C++17 eine Möglichkeit Code noch ein kleines bisschen kompakter schreiben. Ein weiter etwas versteckter Vorteil ist, dass der Programmierer seine Absicht, dass ein Symbol nur innerhalb einer Verzweigung verwendet wird deutlicher ausdrücken kann. Die Initialisierung direkt neben bzw. in der Bedingung zu haben verhindert auch die Gefahr, dass sie bei Refactorings (unabsichtlich) von der Verzweigung getrennt wird. 
+
+
+```cpp
+if(int i = std::rand(); i % 2 == 0)
+{ }
+```
+
+```
+switch(int i = std::rand(); i = %3)
+{
+  case 0:
+   ...
+  case 1:
+   ...
+  case 2:
+   ...
+}
+```
+
+Im Zusammenhang mit den oben genannten Structures Bindings kann die direkte Initialisierung sehr elegant verwendet werden. 
+Im folgenden Beispiel wird versucht ein bereits existierender Wert in einer `std::map` zu überschreiben. Der Rückgabewert von `insert` wird direkt in einen iterator und das flag, ob die operation erfolgreich war entpackt und kann somit direkt innerhalb der Abfrage verwendet werden. 
+
+```cpp
+
+std::map<char, int> map;
+map['a'] = 123;
+
+if(const auto [position, inserted] = map.insert({'a', 1000}); !inserted)
+{
+  std::cout << "'a' already exists with value " << position->second << "\n";
+}
+
+```
+
+# Stark typisierte Enums
+
+In den neuen Standards haben `enum`s einige Verbesserungen erfahren. Der unterliegenden Datentyp lässt sich nun explizit spezifizieren, was der Plattformunabhängigkeit von Code zu gute kommt. 
+
+
+```cpp
+enum Color : uint8_t { Red, Green, Blue }; 
+```
+
+```cpp
+enum class Sound { Boing, Gloop, Crack };
+
+auto s = Sound::Boing;
+
+```
 
 1. final
 1. using declarations
 1. Delegating constructors (inkl. using)
 1. =delete
 1. guaranteed copy elision
-
 1. structured bindings
 1. selection statements with initializers
+
 1. strongly typed enums
 1. standard atttributes
 1. ```__has_include```
