@@ -31,7 +31,7 @@ std::swap(x,y);
  
 Die folgenden 10 kleine Features und Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
-# `final` 
+# Fertig mit Vererbung mit `final` 
 
 Der Spezifikator `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
 
@@ -54,7 +54,7 @@ class Derived : public Base
 {
   void f() override final; // f cannot be overriden by further base classes
 }
- 
+``` 
 
 # `Using`-Declarations und Konstruktorenvererbung
 
@@ -68,14 +68,14 @@ struct A
 
   int get_x(); 
 
-	int func();
+  int func();
 }
 
 struct B : public A
 {
   using A::A; // get all constructors from A
 
-	using A::func;
+  using A::func;
   int func(int); // could possibly mask A::func()
 
   private:
@@ -85,6 +85,7 @@ struct B : public A
 
 Für Klassen und Structs funktioniert das schon länger, seit C++17 funktioniert das übernehmen von Symbolen auch für (verschachtelte) Namespaces: 
 
+```
 void f(){
     // Do something
 }
@@ -103,9 +104,41 @@ namespace I::K::L
 }
 ```
 
-# delegating Constructors
+# delegating constructors
 
-# `=delete` - Löschen von Funktionen
+Andere High-Level Programmiersprachen kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkweit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen oder Checks durchführen hilft dies sehr und hilft bei der Umsetzung des RAII (Resource Allocation is Initialisation) paradigma, weil unter Umständen auf abgesetzte Initialisierung-Funktionen verzichtet werden kann. 
+
+```
+class DelegatingCtor
+{
+   int number_;
+ public:
+   DelegatingCtor(int n) : number_(n) {}
+   DelegatingCtor() : DelegatingCtor(42) {};
+   
+}
+```
+
+Gerade im zusammenhang mit ver verwendung der oben genannten Konstruktorenvererbung mit `using` lässt sich code so noch weiter komprimieren. 
+
+```
+class Base
+{
+  public: 
+    Base(int x) : x_{x} {}; 
+  private:
+    int x_;
+};
+
+class Derived : public Base
+{
+  public:
+    using Base::Base; // imports Base(int) as Derived(int)
+    Derived(char) : Derived(123) {} // delegating ctor; 
+};
+```
+
+# `= delete` - Löschen von Funktionen
 
 
 Das Keyword `delete` für Funktionsdeklrationen - nicht zu verwechseln mit dem entsprechenden Ausdruck um Objekte zu Löschen - ist eine weitere sehr starke Erweiterung in C++11, mit der ein Programmierer eine Absicht nicht nur Signalisieren sondern auch vom Kompiler forcieren lassen kann. Ein netter Nebeneffekt dabei ist auch, dass die Menge generierter, aber evtl. nie verwendeter Code minimiert werden kann. Mit der Verwendung von `= delete` kann explizit sichergestellt werden, das gewisse Operationen wie zum Beispiel Kopieren eines Objektes nicht vorgesehen sind. NAtürlich sollte die "Rule of Five" auch beim Löschen von Funktionen beachtet werden. 
@@ -133,14 +166,15 @@ struct NonDefaultConstructible {
 
 Die garantiere Verhinderung von kopien und moves ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren code. Diese Tilgung (engl. elision) verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde dieses Verhalten als zwingend - oder eben als garantiertes Verhalten - in den Standard aufgenommen. 
 Im Zusammenhang mit dem oben genannten ` = delete` lässt sie den Progammierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden kann mit noch grösserer Konsequenz umzusetzen.
+
 ```
 class A {
 public:
   A() = default;
   A(const A &) = delete;
   A(const A &&) = delete;
-	A& operator=(const A&) = delete;
-	A& operator=(A&&) = delete;
+  A& operator=(const A&) = delete;
+  A& operator=(A&&) = delete;
   ~A() = default;
 
 };
@@ -156,6 +190,10 @@ int main() {
   A a = f();
 }
 ```
+
+# Structured Bindings
+
+
 
 1. final
 1. using declarations
