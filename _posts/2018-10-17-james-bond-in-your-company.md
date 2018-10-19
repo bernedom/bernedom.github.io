@@ -5,7 +5,7 @@ thumbnail: images/james_bond/thumbnail.jpg
 ---
 
 **The core capital of modern companies are their employees**. This fundamental truth is even more important for companies operating in areas that require highly trained and motivated people with a high degree of initiative. It is not just software companies that fit perfectly into that scheme, but almost any engineering-driven company and many, many companies outside classical STEM fields. After all as  Humphrey Watts said: “Every business is a software business”. 
-Having someone with the [skills and mentality of James Bond](/james-bond-package/) in your company helps a lot when solving complex problems is daily business. However getting James Bond to work for you and then be able to unlock his full potential needs a company culture that fits the modus operandi of a secret agent. 
+In [the article "The James Bond Package"]({{site.baseurl}}/james-bond-package/) I wrote how having someone with the skills and mentality of James Bond in your company helps a lot when solving complex problems is daily business. However getting James Bond to work for you and then be able to unlock his full potential needs a company culture that fits the modus operandi of a secret agent. 
 
 # The MI-6 operating model
 
