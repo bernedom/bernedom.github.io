@@ -241,8 +241,8 @@ if(const auto [position, inserted] = map.insert({'a', 1000}); !inserted)
 
 # Stark typisierte Enums
 
-In den neuen Standards haben `enum`s einige Verbesserungen erfahren. Der unterliegenden Datentyp lässt sich nun explizit spezifizieren, was der Plattformunabhängigkeit von Code zu gute kommt. 
-
+Enums sind seit langem bekannt und ein of zitiertes Ärgernis ist, dass die Typensicherheit bei der Verwendung nur ungenügend sichergestellt ist. So war es in der Vergangenheit Möglich ein wert eines Enum-Typs einer Variable eines anderen Enum-Typs zuzuweisen. Mit den den neuen Standards gehört dies bei korrekter Verwendung der vergangenheit an. Wird einer `enum` definition das Keyword `class` oder `struct` hinzugefügt wird daraus ein stark typisierter Datentyp und eine Verwendung mit einem anderen `enum`-Typ führt je nach Konfiguration zu einer Warnung oder einem Fehler beim Kompilieren.
+Sozusagen als zusätzlichen Seiteneffekt kann seit C++11 auch der unterliegende Datentyp für ein enum explizit angegeben werden, was der portabilität des Codes zu Gute kommt. 
 
 ```cpp
 enum Color : uint8_t { Red, Green, Blue }; 
@@ -255,6 +255,21 @@ auto s = Sound::Boing;
 
 ```
 
+# Standardattribute
+
+Attribute sind seit längerem für verschiedene Compiler bekannt, allerdins war die Notation für die verschiedenen Compiler oft unterschiedlich. Seit C++17 wurde diese als `[[ attribute ]]` standardisiert was portablen den Code lesbarer macht. Zudem wurden verschiedene von allen Compilern unterstützte Standardattribute eingefügt, welche es dem Programmierer erlauben seine Absichten für gewisse Konstrukte explizit zu formulieren
+
+|`[[noreturn]]`| Zeigt an, dass eine Funktion nicht zurückkehrt, z.B. weil sie immer eine exception wift |
+|`[[deprecated]]` `[[deprecated("reason")]]`| Zeigt an, dass die verwendung dieser Klasse, Funktion oder Variable zwar erlaubt, aber nicht mehr empfohlen ist |
+|`[[fallthrough]]` | Verwenddet in `switch`-statement um anzuzeigen, dass ein `case:`-block mit absicht kein `break` beinhaltet |
+|`[[nodiscard]]` | Produziert eine Compiler-Warnung falls ein so markierter Rückgabewert nicht verwendet wird |
+|`[[maybe_unused]]` | Unterdrückt Compiler-Warnungen bei nicht verwendeten Variablen. z.B. in Debug-code |
+
+
+# Einfacheres Handling von systemabhängingen Includes
+
+
+
 1. final
 1. using declarations
 1. Delegating constructors (inkl. using)
@@ -262,9 +277,9 @@ auto s = Sound::Boing;
 1. guaranteed copy elision
 1. structured bindings
 1. selection statements with initializers
-
 1. strongly typed enums
 1. standard atttributes
+
 1. ```__has_include```
 
 
