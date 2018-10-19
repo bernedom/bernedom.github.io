@@ -182,7 +182,6 @@ struct NonDefaultConstructible {
 Die garantiere Verhinderung von Kopien (engl. guaranteed copy elision) ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren Code. Diese Tilgung verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde das Auslassen von Kopien als garantiertes Verhalten in den Standard aufgenommen. 
 Nebst dem Effekt, das so weniger Code generiert wird, lässt sie den Programmierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden darf mit noch grösserer Konsequenz umzusetzen. Unter Verwendung mit dem oben genannten `= delete` lässt sich dies sehr deutlich ausdrücken.
 
-Dies 
 
 ```cpp 
 class A {
