@@ -4,15 +4,18 @@ title: 10 kleine Dinge die C++ einfacher machen
 thumbnail: images/cpp_logo.png
 ---
 
-Die neuen C++ Standards haben die Programmiersprache merklich modernisiert und teilweise ganz neue Programmierparadigmen in die Welt von C++ eingebracht. Die "grossen" Änderungen wie Variadic Templates, `auto`, Move-Semantik, Lambda-Ausdrücke und weitere haben für viel Diskussionsstoff gesorgt und sind dementsprechend mittlerweile auch weit herum bekannt. Nebst den Sprachfeatures hat auch die Standard-Bibliothek eine merkliche Erweiterung erfahren und hat viele der Konzepte von Bibliotheken von Drittanbietern wie zum Beispiel `boost` auch in einer "Standard-Umgebung" zur Verfügung gestellt. Aber nebst diesen sehr spürbaren und teilweise auch umstrittenen Features gibt es eine ganze Menge an kleinen-aber-feinen Spracherweiterungen die oft unter dem Radar fliegen und weit weniger bekannt sind. 
+**Die neuen Standards haben die Programmiersprache C++ merklich modernisiert und teilweise ganz neue Programmierparadigmen in die Welt von C++ eingebracht.** Die "grossen" Änderungen wie Variadic Templates, `auto`, Move-Semantik, Lambda-Ausdrücke und weitere haben für viel Diskussionsstoff gesorgt und sind dementsprechend weit herum bekannt. Nebst den Sprachfeatures hat auch die Standard-Bibliothek eine merkliche Erweiterung erfahren und viele Konzepte aus Bibliotheken wie `boost` wurden so Standardisiert. Nebst diesen sehr spürbaren (und teilweise auch umstrittenen) Features gibt es eine ganze Menge an kleinen-aber-feinen Spracherweiterungen die oft weniger bekannt sind oder übersehen werden.
 
-Aber gerade weil diese Features oft sehr klein und teilweise fast unsichtbar sind haben sie grosses Potential um im Programmiereralltag das Leben einfacher zu machen. Denn auch wenn zum Beispiel Variadic Templates eine sehr spannende und mächtige Angelegenheit sind, schreiben wir ungleich mehr nicht-templatisierten Code. Auch Lambda-Ausdrücke haben ihre Daseinsberechtigung, aber vermutlich schreiben wir dennoch viel häufiger konventionelle Funktionellen und Methoden. Gerade weil der Grossteil unseres Codes nicht aus der Verwendung der neuen "Killer-Features" besteht lohnt es sich das Augenmerk dort auf Lesbarkeit und Wartbarkeit zu legen.
+Gerade weil diese Features oft sehr klein und teilweise fast unsichtbar sind haben sie grosses Potential um im Programmiereralltag das Leben einfacher zu machen und Code ohne schwerwiegende Eingriffe sanft zu modernisieren. Es ist oft so, dass man bei der Arbeit mit bestehendem Code nicht die Möglichkeit hat grosse Strukturelle oder von aussen sichtbare Änderungen vorzunehmen, aber genau hier können die "kleinen Features" helfen Code aktuell und wartbar zu halten. 
 
-# Moderner, Wartbarer Code
+# Moderner, wartbarer Code
 
-Wartbarkeit, Lesbarkeit und Code-Qualität sind Themen die aus der heutigen Software-Entwicklung nicht mehr wegzudenken sind. Gerade im Zuge der Agilisierung wo Code nicht nur einmal sondern bewusst mehrmals überarbeitet, verändert und angepasst wird sind dies zentrale Themen. Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion sind ein wichtiger Aspekt von Codequalität, aber im kleinsten beginnt diese bereits bei der Verwendung der Sprache selbst. Das Verwenden von den von der Sprache zur Verfügung gestellten Features und Funktionen hilft die **Absicht hinter dem geschriebenen Code** zu verdeutlichen. Zudem kann oft dadurch die Menge von geschriebenem Code reduziert werden und dies hilft nach dem Prinzip von "Less Code means less bugs" der Qualität auch wieder enorm. 
+Wartbarkeit, Lesbarkeit und Code-Qualität sind Themen die aus der heutigen Software-Entwicklung nicht mehr wegzudenken sind. Der Vorteil von Software gegenüber Hardware ist, das sie sich relativ leicht anpassen und überarbeiten lässt und insbesondere dort wo agil gearbeitet wird geschieht das oft sehr bewusst und immer wieder. Durch diese Volatilität werden gewinnen diese Qualitätsmerkmale noch mehr an Gewicht denn schlechter Code macht den Vorteil der einfachen Bearbeitung mehr als zunichte. 
+Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion sind wichtige Aspekte von Codequalität, aber Qualität beginnt bereits bei der Verwendung der Sprache selbst. Das Verwenden der zur Verfügung gestellten Sprachfeatures und -Funktionen hilft die **Absicht hinter dem geschriebenen Code** zu verdeutlichen und erleichtert oft auch das automatische Verifizieren dieser Absichten. Zudem kann oft dadurch die Menge von geschriebenem Code reduziert werden was dem Prinzip von "Less code means less bugs" in die Hände spielt. 
 
-Ein einfacher Algorithmus kann sehr kompliziert zu verstehen sein, wenn die Schreibweise nicht den Erwartungen entsprechen oder der vorgängige Autor sich einen besonders schlauen Hack zur Optimierung einfallen lies.
+## Ein Beispiel zur Illustration
+
+Ein einfacher Algorithmus kann sehr kompliziert zu verstehen sein, wenn die Schreibweise nicht den Erwartungen entsprechen oder der Autor sich einen besonders schlauen Hack zur Optimierung einfallen lies.
 So kann zum Beispiel das tauschen von zwei variablen `x` und `y` wie folgt geschrieben werden: 
 
 ```cpp
@@ -21,17 +24,19 @@ y = y ^ x;
 x = x ^ y;
 ```
 
-Dieser XOR-Swap ist zwar speichereffizient und hat in ganz spezifischen Fällen seine Daseinsberechtigung, aber intuitiv lesbar ist die Operation nicht. Selbst mit einem Code-Kommentar versehen zwingt dieses einfach Beispiel dem Leser unnötige Denkarbeit auf. Dem gegenübergestellt liest sich das folgende Beispiel viel einfacher: 
+Dieser XOR-Swap ist zwar speicher-effizient und hat in ganz spezifischen Fällen seine Daseinsberechtigung, aber intuitiv lesbar ist die Operation nicht. Selbst mit einem Code-Kommentar versehen zwingt dieses einfach Beispiel dem Leser unnötige Denkarbeit auf. Dem gegenübergestellt liest sich das folgende Beispiel viel einfacher: 
 
 ```cpp
 std::swap(x,y);
 ```
  
-Die folgenden 10 kleine Features und Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
+Die folgenden 10 kleine Features und Erweiterungen hauptsächlich aus den modernen C++-Standards helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
-# Vererbung mit kontrollieren mit `override` und `final`
+# Vererbung kontrollieren mit `override` und `final`
 
-Wann immer eine Funktion in einem Vererbungsbaum überschrieben wird sollte seit C++11 `override` verwendet werden. Damit wird eine überschriebene Funktion automatisch virtuell und der Compiler erhält die Möglichkeit um zu überprüfen ob auch tatsächlich eine Methode überschrieben wird und ob die überschriebene Methode auch tatsächlich virtuell ist. 
+Vererbung ist für viele Programmierer Fluch und Segen gleichermassen. Einerseits hilft sie of Code-Duplizierung zu vermeiden, andererseits gibt dabei - insbesondere in C++ -  viele Stolpersteine die beachtet werden müssen. Gerade bei Refactorings an Basisklassen kommt es immer wieder vor, dass die abhängigen Klassen vergessen werden und man dies erst zur Laufzeit merkt. 
+Das Schlüsselwort `override` liefert hier seit C++11 Abhilfe. 
+Wann immer eine Funktion in einem Vererbungsbaum überschrieben wird sollte`override` verwendet werden. Damit wird eine überschriebene Funktion automatisch virtuell und der Compiler erhält die Möglichkeit um zu überprüfen ob auch tatsächlich eine Methode überschrieben wird und ob die überschriebene Methode auch tatsächlich virtuell ist. 
 
 ```cpp
 
@@ -45,10 +50,9 @@ struct Derived : public Base
   // Compiler-error if Base::func does not exist or is not virtual
   int func() override { return 2; }; 
 };
-
 ```
-
-Der Spezifikator `final` zeigt an, dass eine Klasse nicht oder virtuelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück Code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der Compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
+Noch mehr Kontrolle über den Vererbungsbaum erhält man, wenn man die Vererbung ab einem gewissen Punkt komplett unterbinden kann. Der Spezifikator `final` zeigt an, dass eine Klasse oder virtuelle Funktion nicht weiter überschrieben werden kann.
+Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück Code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der Compiler mit indem die Kompilierung fehlschlägt, sollte man dies doch versuchen.
 
 ```cpp
 class Base final 
@@ -61,17 +65,19 @@ class Derived : public Base {} // Compiler error
 class Base
 {
   virtual void f();
-}
+};
 
 class Derived : public Base
 {
   void f() override final; // f cannot be overriden by further base classes
-}
+};
 ``` 
 
 # `using`-Deklarationen und Konstruktorenvererbung
 
-`using`-Deklarationen erlauben es dem Programmierer ein Symbol von einer deklarativen Region, wie Namensräume, Klassen und Strukturen in einen anderen zu "importieren" ohne dass zusätzlicher Code generiert wird. Bei Klassen ist dies vor allem nützlich um Konstruktoren von Basisklassen direkt zu übernehmen, ohne dass alle Varianten neu geschrieben werden müssen. Ein weiteres Beispiel ist um kovariante Implementierungen in Abgeleiteten Klassen explizit zu gestalten. Damit wird dem dem Leser klar signalisiert, dass hier eine "fremde" Implementation verwendet wird, die keine funktionale Modifikation erfahren hat. 
+Code zu duplizieren ist dem Programmierer ein Graus, selbst wenn es sich hier um generierten Code handelt. 
+`using`-Deklarationen erlauben es dem Programmierer ein Symbol von einer deklarativen Region, wie Namensräume, Klassen und Strukturen in einen anderen zu "importieren" ohne dass zusätzlicher Code generiert wird. 
+Bei Klassen ist dies vor allem nützlich um Konstruktoren von Basisklassen direkt zu übernehmen, ohne dass alle Varianten neu geschrieben werden müssen. Ein weiteres Beispiel ist um kovariante Implementierungen in abgeleiteten Klassen explizit zu gestalten. Damit wird dem dem Leser klar signalisiert, dass hier eine "fremde" Implementation verwendet wird, die keine funktionale Modifikation erfahren hat. 
 
 ```cpp
 struct A
@@ -80,7 +86,6 @@ struct A
   explicit A(char c {}
 
   int get_x(); 
-
   int func();
 }
 
@@ -117,7 +122,7 @@ namespace I::K::L
 
 # Weiterleiten von Konstruktoren
 
-Andere High-Level Programmiersprachen kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkeit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen oder Checks durchführen hilft dies sehr und hilft bei der Umsetzung des RAII (Resource Allocation is Initialisation) Paradigma, weil unter Umständen auf abgesetzte Initialisierung-Funktionen verzichtet werden kann. 
+Andere High-Level Programmiersprachen kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in endlich C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkeit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen und/oder Checks durchführen hilft dies sehr und fördert die Umsetzung des RAII (Resource Allocation is Initialisation) Paradigmas. 
 
 ```cpp
 class DelegatingCtor
@@ -130,7 +135,7 @@ class DelegatingCtor
 }
 ```
 
-Gerade im Zusammenhang mit der Verwendung der oben genannten Konstruktorenvererbung mit `using` lässt sich Code so noch weiter komprimieren. 
+Im Zusammenhang mit der Verwendung der oben genannten Konstruktorenvererbung mit `using` lässt sich Code so noch weiter komprimieren. 
 
 ```cpp
 class Base
@@ -151,8 +156,9 @@ class Derived : public Base
 
 # `= delete` - Löschen von Funktionen
 
-
-Das Keyword `delete` für Funktionsdeklaration - nicht zu verwechseln mit dem entsprechenden Ausdruck um Objekte zu Löschen - ist eine weitere sehr starke Erweiterung in C++11, mit der ein Programmierer eine Absicht nicht nur Signalisieren sondern auch vom Compiler forcieren lassen kann. Ein netter Nebeneffekt dabei ist auch, dass die Menge generierter, aber eventuell. nie verwendeter Code minimiert werden kann. Mit der Verwendung von `= delete` kann explizit sichergestellt werden, das gewisse Operationen wie zum Beispiel Kopieren eines Objektes nicht vorgesehen sind. Natürlich sollte die "Rule of Five" auch beim Löschen von Funktionen beachtet werden. 
+Weniger Code heisst weniger Bugs, auch bei generiertem Code. Also erleichtern wir dem Compiler doch die Arbeit Code zu generieren, den wir gar nicht wollen und brauchen.
+Das Keyword `delete` für Funktionsdeklaration - nicht zu verwechseln mit dem entsprechenden Ausdruck um Objekte zu Löschen - ist eine weitere sehr starke Erweiterung in C++11, mit der ein Programmierer eine Absicht nicht nur Signalisieren sondern auch vom Compiler durchsetzen lassen kann.
+Mit der Verwendung von `= delete` kann explizit sichergestellt werden, das gewisse Operationen wie zum Beispiel Kopieren eines Objektes nicht vorgesehen und möglich sind. Natürlich sollte die "Rule of Five" auch beim Löschen von Funktionen beachtet werden. 
 
 ```cpp
 struct NonCopyable {
@@ -169,13 +175,12 @@ struct NonDefaultConstructible {
 // this struct can only be constructed through a move or copy
   NonDefaultConstructible() = delete;
 }; 
-
 ```
  
 # Garantiertes verhindern von Kopien
 
-Die garantiere Verhinderung von Kopien (engl. guaranteed copy elision) ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren Code. Diese Tilgung (engl. elision) verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde das Auslassen von Kopien als garantiertes Verhalten in den Standard aufgenommen. 
-Nebst dem Effekt, das so weniger Code generiert wird, lässt sie den Programmierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden darf mit noch grösserer Konsequenz umzusetzen. Im Zusammenhang mit dem oben genannten `= delete` lässt sich dies sehr deutlich ausdrücken. 
+Die garantiere Verhinderung von Kopien (engl. guaranteed copy elision) ist für den Programmierer meist unsichtbar, aber dahinter verbirgt sich grosses Potential für kleineren und saubereren Code. Diese Tilgung verhindert, dass unnötige Kopien von temporären Objekten erstellt werden, wenn sie unmittelbar nach dem erstellen einem Neuen Symbol zugewiesen werden. Einige Compiler, wie gcc unterstützen dies zwar schon länger, aber mit C++17 wurde das Auslassen von Kopien als garantiertes Verhalten in den Standard aufgenommen. 
+Nebst dem Effekt, das so weniger Code generiert wird, lässt sie den Programmierer seine Absicht, dass ein Objekt nicht kopiert oder verschoben werden darf mit noch grösserer Konsequenz umzusetzen. Unter Verwendung mit dem oben genannten `= delete` lässt sich dies sehr deutlich ausdrücken.
 
 Dies 
 
@@ -205,7 +210,7 @@ int main() {
 
 # Structured Bindings
 
-Mit `std::tuple` und `std::array` wurden in C++11 zwei Datenstrukturen mit zur Compile-Time time bekannter Grösse eingeführt. Während `std::array` eine relativ simple Modernisierung von C-Arrays darstellt wurde mit `std::tuple` wurde eine generische Möglichkeit geschaffen um heterogene Daten bequem im Programm herum zu reichen, ohne dass der Programmiere reine Datenklassen oder `structs` erstellen muss. 
+Klassen und Strukturen sind nicht die einzige Möglichkeit um das Handling von Daten zu strukturieren. Die Standardbibliothek stellt zudem eine ganze Menge Datencontainer für genau diese Zwecke zur Verfügung. Mit `std::tuple` und `std::array` wurden in C++11 zwei Datenstrukturen mit zur Compile-Time bekannter Grösse eingeführt. Während `std::array` eine relativ simple Modernisierung von C-Arrays darstellt wurde mit `std::tuple` wurde eine generische Möglichkeit geschaffen um heterogene Daten bequem im Programm herum zu reichen, ohne dass der Programmiere reine Datenklassen oder `structs` erstellen muss. 
 
 Seit C++17 ist der Zugriff auf die Inhalte dieser Datenstrukturen durch die Strukturierten Bindings sehr leichtgewichtig möglich:
 
@@ -218,6 +223,41 @@ auto & [i,k,l] = tuple;
 
 Zu beachten ist, dass alle Variablen hier die selbe `const`-ness haben und entweder alle als Referenz oder By-Value gelesen werden. 
 Die Structured Bindings funktionieren auch im Zusammenhang mit Klassen, allerdings ist dies etwas Problematisch, da die Semantik von Klassenmembers keine starke Reihenfolge der Member vorsieht. Es gibt Möglichkeiten diese Semantik zu reimplementieren, allerdings ist dies vergleichsweise aufwändig. 
+
+# Stark typisierte Enums
+
+Einer der wohl am häufigsten verwendeten Möglichkeiten für eigene Datentypen mit klaren Wertebereichen zu erstellen waren schon in C die `enums` und auch heute werden sie noch oft und gerne verwendet. 
+Ein oft zitiertes dabei Ärgernis ist, dass die Typensicherheit bei der Verwendung von Enums nur ungenügend sichergestellt ist. So war es in der Vergangenheit Möglich ein Wert eines Enum-Typs einer Variable eines anderen Enum-Typs zuzuweisen.
+ Mit den den neuen Standards gehört dies bei korrekter Verwendung der Vergangenheit an. Wird einer `enum` Definition das Keyword `class` oder `struct` hinzugefügt wird daraus ein stark typisierter Datentyp und eine Verwendung mit einem anderen `enum`-Typ führt je nach Konfiguration zu einer Warnung oder einem Fehler beim Kompilieren.
+Sozusagen als zusätzlicher Bonus kann seit C++11 auch der unterliegende Datentyp für ein enum explizit angegeben werden, was der Portabilität des Codes zu Gute kommt. 
+
+```cpp
+enum Color : uint8_t { Red, Green, Blue }; 
+```
+
+```cpp
+enum class Sound { Boing, Gloop, Crack };
+
+auto s = Sound::Boing;
+```
+
+# Zeit-Literale mit `<chrono>`
+
+Eine sehr häufige Verwendung von Daten mit klaren, aber nicht immer linearen Wertebereiten ist insbesondere bei Applikationen mit strikten Zeitanforderungen natürlich die Zeit selbst. Das handling von Zeiteinheiten ist für viele Programmierer ein Albtraum. Die Gründe sind vielfältig, von der nicht-linearen Aufteilung von Sekunden, Minuten und Stunden bis hin, dass schnell mal Verwirrung entsteht um welche Zeiteinheit sich bei einem Aufruf wie `sleep(100)`. Handelt es sich hier um Sekunden? Millisekunden? Mit der Einführung von `std::chrono` in C++11 und dem Hinzufügen von Zeitliteralen wird das Handling um einiges einfacher. Mit den Literalen können Zeitangaben mit einem einfachen Suffix im Code mit einer fixierten Einheit beziehungsweise mit einer fixen Auflösung deklariert werden. `<chrono>` liefert dabei alles zwischen Mikrosekunden und Stunden. 
+Durch die Verwendung der von `std::chrono` mitgelieferten Zeiteinheiten lassen sich Zeitwerte bereits zur Compile-Time konvertieren und das lästige manuelle Umrechnen zur Laufzeit gehört der Vergangenheit an. 
+
+```cpp
+
+using namespace std::chrono_literals;
+
+auto seconds = 10s;
+auto very_small = 1us;
+
+if(very_small < seconds) // automatic, compile-time conversion 
+{
+...
+}
+```
 
 # Verzweigungen mit Initialisierung
 
@@ -253,27 +293,11 @@ if(const auto [position, inserted] = map.insert({'a', 1000}); !inserted)
 {
   std::cout << "'a' already exists with value " << position->second << "\n";
 }
-
-```
-
-# Stark typisierte Enums
-
-Enums sind seit langem bekannt und ein oft zitiertes Ärgernis ist, dass die Typensicherheit bei der Verwendung nur ungenügend sichergestellt ist. So war es in der Vergangenheit Möglich ein wert eines Enum-Typs einer Variable eines anderen Enum-Typs zuzuweisen. Mit den den neuen Standards gehört dies bei korrekter Verwendung der Vergangenheit an. Wird einer `enum` Definition das Keyword `class` oder `struct` hinzugefügt wird daraus ein stark typisierter Datentyp und eine Verwendung mit einem anderen `enum`-Typ führt je nach Konfiguration zu einer Warnung oder einem Fehler beim Kompilieren.
-Sozusagen als zusätzlichen Seiteneffekt kann seit C++11 auch der unterliegende Datentyp für ein enum explizit angegeben werden, was der Portabilität des Codes zu Gute kommt. 
-
-```cpp
-enum Color : uint8_t { Red, Green, Blue }; 
-```
-
-```cpp
-enum class Sound { Boing, Gloop, Crack };
-
-auto s = Sound::Boing;
-
 ```
 
 # Standardattribute
 
+Wann immer ein Programmierer eine Annahme trifft, sollte dies im Code dokumentiert sein. Mit den Standardattributen können einige solcher Annahmen mit wenig Aufwand dokumentiert werden. 
 Attribute sind seit längerem für verschiedene Compiler bekannt, allerdings war die Notation für die verschiedenen Compiler oft unterschiedlich. Seit C++17 wurde diese als `[[ attribute ]]` standardisiert was portablen den Code lesbarer macht. Zudem wurden verschiedene von allen Compilern unterstützte Standardattribute eingefügt, welche es dem Programmierer erlauben seine Absichten für gewisse Konstrukte explizit zu formulieren
 
 |`[[noreturn]]`| Zeigt an, dass eine Funktion nicht zurückkehrt, z.B. weil sie immer eine Exception wirft |
@@ -283,28 +307,9 @@ Attribute sind seit längerem für verschiedene Compiler bekannt, allerdings war
 |`[[maybe_unused]]` | Unterdrückt Compiler-Warnungen bei nicht verwendeten Variablen. z.B. in Debug-Code |
 
 
-# Zeit-Literale mit `<chrono>`
-
-Das handling von Zeiteinheiten ist für viele Programmierer ein Albtraum. Die Gründe sind vielfältig, von der nicht-linearen Aufteilung von Sekunden, Minuten und Stunden bis hin, dass schnell mal Verwirrung entsteht um welche Zeiteinheit sich bei einem Aufruf wie `sleep(100)`. Handelt es sich hier um Sekunden? Millisekunden? Mit der Einführung von `std::chrono` in C++11 und dem Hinzufügen von Zeitliteralen wird das Handling um einiges einfacher. 
-Durch die Verwendung der von `std::chrono` mitgelieferten Zeiteinheiten lassen sich Zeitwerte bereits zur Compiler-Time konvertieren und das lästige manuelle Umrechnen zur Laufzeit gehört der Vergangenheit an. 
-
-```cpp
-
-using namespace std::chrono_literals;
-
-auto seconds = 10s;
-auto very_small = 1us;
-
-if(very_small < seconds) // automatic, compile-time conversion 
-{
-...
-}
-
-```
-
 # Fazit
 
-Diese 10 kleinen Features und Funktionen sind natürlich nur ein kleiner Teil davon, was modernes C++ ausmacht. Aber durch deren konsequente Anwendung kann Code mit relativ wenig Aufwand lesbarer und einfacher Verständlich gemacht werden, ohne dass die Komplette Struktur einer existierenden Codebase gleich umgesschrieben werden muss. 
+Diese 10 kleinen Features und Funktionen sind natürlich nur ein kleiner Teil davon, was modernes C++ ausmacht. Aber durch deren konsequente Anwendung kann Code mit relativ wenig Aufwand lesbarer und einfacher Verständlich gemacht werden, ohne dass die Komplette Struktur einer existierenden Codebase gleich umgeschrieben werden muss. 
 
 
 
