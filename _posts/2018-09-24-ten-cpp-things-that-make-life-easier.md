@@ -29,7 +29,24 @@ std::swap(x,y);
  
 Die folgenden 10 kleine Features und Erweiterungen aus C++11 - C++17 helfen Code kompakt und lesbar zu halten und somit die Code-Qualität zu verbessern.
 
-# Vererbung mit kontrollieren mit `final` 
+# Vererbung mit kontrollieren mit `override` und `final`
+
+Wann immer eine Funktion in einem Vererbungsbaum überschrieben wird sollte seit C++11 `override` verwendet werden. Damit wird eine überschriebene Funktion automatisch virtuell und der Compiler erhält die möglichkeit um zu überprüfen ob auch tatsächlich eine Methode überschrieben wird und ob die überschriebene Methode auch tatsächlich virtuell ist. 
+
+```cpp
+
+struct Base
+{
+  virtual int func() { return 1; }
+};
+
+struct Derived : public Base
+{
+  // Compiler-Error if Base::func does not exist or is not virtual
+  int func() override { return 2; }; 
+};
+
+```
 
 Der Spezifikator `final` zeigt an, dass eine Klasse nicht oder vrituelle Funktion nicht weiter überschrieben werden kann. Dies verringert zwar den Schreibaufwand nicht, aber kommuniziert ganz klar eine Absicht hinter einen Stück code, nämlich dass keine weitere Vererbung erwünscht ist. Hier hilft sogar der compiler mit, diese erwünschte Verwendung des Programmteils umzusetzen, indem die Kompilierung fehlschlägt, falls ein mit `final` markiertes Element überschrieben wird. 
 
@@ -100,7 +117,7 @@ namespace I::K::L
 
 # Weiterleiten von Konstruktoren
 
-Andere High-Level Programmiersprachen kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkweit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen oder Checks durchführen hilft dies sehr und hilft bei der Umsetzung des RAII (Resource Allocation is Initialisation) paradigma, weil unter Umständen auf abgesetzte Initialisierung-Funktionen verzichtet werden kann. 
+Andere High-Level Programmiersprachhttps://www.youtube.com/watch?v=P32hvk8b13Men kennen das "Verketten" von Konstruktoren schon länger und seit C++11 ist dies auch in C++ möglich. Die Vorteile von weniger dupliziertem Code und damit einfacherer Lesbarkweit und somit bessere Wartbarkeit liegen dabei auf der Hand. Gerade bei Konstruktoren die intern komplizierte Initialisierungen oder Checks durchführen hilft dies sehr und hilft bei der Umsetzung des RAII (Resource Allocation is Initialisation) paradigma, weil unter Umständen auf abgesetzte Initialisierung-Funktionen verzichtet werden kann. 
 
 ```cpp
 class DelegatingCtor
@@ -242,7 +259,7 @@ if(const auto [position, inserted] = map.insert({'a', 1000}); !inserted)
 # Stark typisierte Enums
 
 Enums sind seit langem bekannt und ein of zitiertes Ärgernis ist, dass die Typensicherheit bei der Verwendung nur ungenügend sichergestellt ist. So war es in der Vergangenheit Möglich ein wert eines Enum-Typs einer Variable eines anderen Enum-Typs zuzuweisen. Mit den den neuen Standards gehört dies bei korrekter Verwendung der vergangenheit an. Wird einer `enum` definition das Keyword `class` oder `struct` hinzugefügt wird daraus ein stark typisierter Datentyp und eine Verwendung mit einem anderen `enum`-Typ führt je nach Konfiguration zu einer Warnung oder einem Fehler beim Kompilieren.
-Sozusagen als zusätzlichen Seiteneffekt kann seit C++11 auch der unterliegende Datentyp für ein enum explizit angegeben werden, was der portabilität des Codes zu Gute kommt. 
+Sozusagen als zusätzlichttps://www.youtube.com/watch?v=P32hvk8b13Mhen Seiteneffekt kann seit C++11 auch der unterliegende Datentyp für ein enum explizit angegeben werden, was der portabilität des Codes zu Gute kommt. 
 
 ```cpp
 enum Color : uint8_t { Red, Green, Blue }; 
@@ -266,66 +283,28 @@ Attribute sind seit längerem für verschiedene Compiler bekannt, allerdins war 
 |`[[maybe_unused]]` | Unterdrückt Compiler-Warnungen bei nicht verwendeten Variablen. z.B. in Debug-code |
 
 
-# Einfacheres Handling von systemabhängingen Includes
+# Zeit-Literale mit `<chrono>`
+
+Das handling von Zeiteinheiten ist für viele Programmierer ein Albtraum. Die Gründe sind vielfältig, von der nicht-linearen Aufteilung von Sekunden, Minuten und Stunden bis hin, dass schnell mal Verwirrung entsteht um welche Zeiteinheit sich bei einem Aufruf wie `sleep(100)`. Handelt es sich hier um Sekunden? Millisekunden? Mit der Einführung von `std::chrono` in C++11 und dem Hinzufügen von Zeitliteralen wird das Handling um einiges einfacher. 
+Durch die Verwendung der von `std::chrono` mitgelieferten Zeiteinheiten lassen sich Zeitwerte bereits zur compile-time konvertieren und das lästige manuelle Umrechnen zur Laufzeit gehört der Vergangenheit an. 
+
+```cpp
+
+using namespace std::chrono_literals;
+
+auto seconds = 10s;
+auto very_small = 1us;
+
+if(very_small < seconds) // automatic, compile-time conversion 
+{
+...
+}
+
+```
+
+# Fazit
+
+Diese 10 kleinen Features und Funktionen sind natürlich nur ein kleiner Teil davon, was modernes C++ ausmacht. Aber durch deren konsequente Anwendung kann Code mit relativ wenig Aufwand lesbarer und einfacher Verständlich gemacht werden, ohne dass die Komplette Struktur einer existierenden Codebase gleich umgesschrieben werden muss. 
 
 
 
-1. final
-1. using declarations
-1. Delegating constructors (inkl. using)
-1. =delete
-1. guaranteed copy elision
-1. structured bindings
-1. selection statements with initializers
-1. strongly typed enums
-1. standard atttributes
-
-1. ```__has_include```
-
-
-1. ```<filesystem>```
-1. ```<algorithm>```
-
-
-** The new standards have modernized C++ significantly and this is a good thing.** But it's not just the "big" new features such as smart-pointers, variadic templates and move semantics that make the new standards so powerful. They come with a a lot of small-but-nice additions that often pass below the radar of the casual C++ programmer. Together with many changes and additions to the STL these make for a powerful combination in writing nice code. g
-
-* Code quality on the lowest level - No architecture 
-* 
-
-# features: 
-
-* structured bindings
-* initializers in conditional statements
-* using - maybe split
-* guaranteed copy elision
-* Delegating constructors (inkl. using)
-* <algorithm> too big, maybe split
-* standard atttributes
-* __has_include
-* <filesystem>
-* strongly typed enums
-
-* final, default, delete
-* static assertions
-* noexcept
-* nested namespace definition
-* initialisierung von lambda captures
-* type traits (too big)
-* unordered containers
-
-
-
-# ideas
-
-* using over typedef
-
-
-
- Die Einführung der neuen Standards C++11/14/17 hat C++ merklich modernisiert. Nebst solchen grossen Sprachfeatures wie smart-pointers, move semantics und varaidic templates gibt es auch noch eine ganze Menge an kleineren Erweiterungen die oftmals unter dem Radar fliegen. Aber gerade diese Features können Helfen C++ Code merklich zu vereinfachen und Wartbarer zu machen. Dies gekoppelt mit neuen Features in der STL können helfen viele kleine Fehlerchen schon beim schreiben des Codes zu verhindern. Dass der Code sich dabei auch noch leichter liest und stabiler wird sind weitere erfreuliche Nebeneffekte. 10 dieser kleinen aber feinen Features werden hier aufgezeigt und etwas genauer unter die Lupe genommen.
-Gliederung
-
-* Wartbarer/Lesbarer Code was ist das?
-* 10 Beispiele (inklusive Code) aus dem Alltag die den Code lesbarer machen.
-Nutzen und Besonderheiten
-
-Die Teilnehmer erhalten eine Übersicht und konrete Inputs über C++ Sprachkonstrukte welche Code wartbarer machen. Sowohl neuer Code als auch Refactoring von bestehendem Code wird besprochen. Nebst den Benefits der Features wird auch auf allfällige Gefahren und Pitfalls eingegangen. Die Teilnehmer erhalten die Möglichkeit Fragen zu den einzelnen Features zu stellen und diese kritisch zu diskutieren. 
