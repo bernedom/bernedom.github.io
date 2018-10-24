@@ -4,6 +4,7 @@ layout: default
 
 <div>
   {% for post in site.posts %}
+  {% if post.unlisted == null or post.unlisted != true %}
     <article> 
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
@@ -23,5 +24,6 @@ layout: default
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
+  {% endif %}
   {% endfor %}
 </div>
