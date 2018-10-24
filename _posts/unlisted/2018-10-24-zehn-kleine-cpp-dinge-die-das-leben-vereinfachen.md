@@ -2,6 +2,7 @@
 layout: post
 title: 10 kleine Dinge die C++ einfacher machen
 thumbnail: images/cpp_logo.png
+unlisted: true
 ---
 
 **Die neuen Standards haben die Programmiersprache C++ merklich modernisiert und teilweise ganz neue Programmierparadigmen in die Welt von C++ eingebracht.** Die "grossen" Änderungen wie Variadic Templates, `auto`, Move-Semantik, Lambda-Ausdrücke und weitere haben für viel Diskussionsstoff gesorgt und sind dementsprechend weit herum bekannt. Nebst den Sprachfeatures hat auch die Standard-Bibliothek eine merkliche Erweiterung erfahren und viele Konzepte aus Bibliotheken wie `boost` wurden so Standardisiert. Nebst diesen sehr spürbaren (und teilweise auch umstrittenen) Features gibt es eine ganze Menge an kleinen-aber-feinen Spracherweiterungen die oft weniger bekannt sind oder übersehen werden.
