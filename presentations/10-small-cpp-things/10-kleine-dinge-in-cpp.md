@@ -1,11 +1,15 @@
-<!-- $theme: gaia -->
-<!-- $size: 16:9 -->
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+
 10 kleine Dinge die C++ einfacher machen
 ===
 
 
 
-###### Dominik Berner
+### Dominik Berner
+
 ---
 
 # Wartbarer Code? 
@@ -24,77 +28,279 @@ oder
 std::swap(x,y);
 ```
 
-<!--
+???
+
 
 Warbarer code beginnt auf dem kleinsten level. SOLID prinzipien, clean code etc. alles gut, aber es beginnt bei der Verwendung der Sprache.
 
 Progammiersprachen leben von Erwartungshaltungen beim lesen. 
 
-Idee: Warum es cool ist, warum es gefÃ¤hrlich ist
+Idee Warum es cool ist, warum es gefaehrlich ist
 
-//-->
 
 ---
 
 # Die neuen C++ Standards
 
-* Viele "grosse" Ã„nderungen
+* Viele "grosse" Änderungen
   * variadic templates, move-semantics, `auto`, ` [](){}`
 * kleinere die unter dem Radar fliegen
 
+
 ---
 
-# Die kleinen aber feinen
 
-1. structured bindings
-1. selection statements with initializers
-1. using declarations
-1. guaranteed copy elision
-1. Delegating constructors (inkl. using)
-1. strongly typed enums
-1. standard atttributes
-1. ```__has_include```
-1. ```<filesystem>```
-1. ```<algorithm>```
+# Stark typisierte enums
 
-<!--
+```cpp
+enum Color : uint8_t { Red, Green, Blue }; 
+```
 
-* final, default, delete
-* static assertions
-* noexcept
-* nested namespace definition
-* initialisierung von lambda captures
-* type traits (too big)
-* unordered containers
+```cpp
+enum class Sound { Boing, Gloop, Crack };
+
+auto s = Sound::Boing;
+```
+
+---
+
+# Hast du Zeit? - Zeitliterale
+
+.left[
+```cpp
+using namespace std::chrono_literals;
+
+auto seconds = 10s;
+auto very_small = 1us;
+
+if(very_small < seconds) // automatic, compile-time conversion 
+{
+...
+}```
+
+---
+
+# Vererb mir bitte was - `override` 
+
+.left[
+```cpp
+struct Base
+{
+  virtual int func() { return 1; }
+};
+
+struct Derived : public Base
+{
+  // Compiler-error if Base::func does not exist or is not virtual
+  int func() override { return 2; }; 
+};
+```
+]
 
 
-//-->
+---
 
---- 
 
-# structured bindings
+# Du bist enterbt! - `final`
 
-```lang=cpp
+.left[
+```cpp
+class Base final 
+{ };
+
+class Derived : public Base {}; // Compiler error
+```
+
+
+
+```cpp
+class Base
+{
+  virtual void f();
+};
+
+class Derived : public Base
+{
+  // f cannot be overriden by further base classes
+  void f() override final; 
+};
+``` 
+]
+
+---
+
+# Benutz mich! - `using` deklarationen
+
+### (Und Kontstruktorenvererbung)
+
+.left[
+```cpp
+struct A
+{
+  A() {}
+  explicit A(char c {}
+
+  int get_x(); 
+  int func();
+}
+
+struct B : public A
+{
+  using A::A; // get all constructors from A
+
+  using A::func;
+  int func(int); // could possibly mask A::func()
+
+  private:
+    using A::get_x;  // <-- get_x is now private
+}
+```
+]
+
+---
+
+# Auch mit Namensräumen 
+
+.left[
+```cpp
+void f(){ }
+
+namespace X
+{
+  void x() {};
+  void y() {};
+  void z() {};
+}
+
+namespace I::K::L
+{
+  using ::f; // f() is available in I::K::L now
+  using X::x; // x() is available in I::K::L (dropped namespace X)
+}
+
+...
+
+I::K::L::f();
+I::K::L::x();
+```
+]
+
+---
+
+# Mach du das doch - Delegating Ctors
+
+.left[
+```cpp
+class DelegatingCtor
+{
+    int number_;
+  public:
+    DelegatingCtor(int n) : number_(n) {}
+    DelegatingCtor() : DelegatingCtor(42) {};
+   
+}
+```
+]
+
+---
+
+# Combine the power with `using`
+
+.left[
+```cpp
+class Base
+{
+  public: 
+    Base(int x) : x_{x} {}; 
+  private:
+    int x_;
+};
+
+class Derived : public Base
+{
+  public:
+    using Base::Base; // imports Base(int) as Derived(int)
+    Derived(char) : Derived(123) {} // delegating ctor; 
+};
+```
+]
+
+---
+
+# Mich gibt's gar nicht - `=delete`
+
+.left[
+```cpp
+struct NonCopyable {
+  NonCopyable() = default; 
+
+  // disables copying the object through construction
+  NonCopyable(const Dummy &) = delete;
+  // disables copying the object through assignement
+  NonCopyable &operator=(const Dummy &rhs) = delete;
+};
+
+struct NonDefaultConstructible {
+  
+// this struct can only be constructed through a move or copy
+  NonDefaultConstructible() = delete;
+}; 
+```
+]
+
+---
+
+# Guaranteed copy elision
+
+.left[
+```cpp 
+class A {
+public:
+  A() = default;
+  A(const A &) = delete;
+  A(const A &&) = delete;
+  A& operator=(const A&) = delete;
+  A& operator=(A&&) = delete;
+  ~A() = default;
+
+};
+
+// Without elision this is illegal, as it performs a copy/move of A which has
+// deleted copy/move ctors
+A f() { return A{}; }
+
+int main() {
+
+  // OK, because of copy elision. 
+  // Copy/move anonymously constructed A is not
+  // neccessary
+  A a = f();
+}
+```
+]
+
+
+---
+
+# Auspacken! - Structured Bindings
+
+.left[
+```cpp
 const auto tuple = std::make_tuple<1, 'a', 2.3>;
 
 const auto [a, b, c] = tuple;
 auto & [i,k,l] = tuple;
 ```
-
-* Auspacken von fixed size containern
-* Geht auch mit Klassen und structs
-  * Aber Achtung: keine strikt-order Semantik
-  * Workarounds gehen, sind aber aufwändig
+]
 
 ---
 
-# selection statements with initializers
+# Selection Statement mit initializer
 
-```
+.left[
+```cpp
 if(int i = std::rand(); i % 2 == 0)
-{
-	...
-}
+{ }
 ```
 
 ```
@@ -108,152 +314,18 @@ switch(int i = std::rand(); i = %3)
    ...
 }
 ```
-
-<!-- https://skebanga.github.io/if-with-initializer/ for a RAII example 
-//--> 
----
-
-# using declarations
-
-##### "import" a name defined elswhere into another declarative region"
-
-```
-struct A
-{
-	int get_x(); 
-}
-
-struct B : public A
-{
-  private:
-    using A::get_x;  // <-- get_x is now private
-}
-
-namespace AX
-{
- void f();
-}
-
-namespace BX
-{
- using AX::f;
-}
-```
-
----
-
-# guaranteed copy elision
-
-```
-struct A {
-
-  A() =default;
-  A(const A &rhs) = delete;
-  A(const A &&rhs) = delete;
-
-};
-
-A f() { return A{}; }
-A a = f();
-```
-
+]
 
 
 ---
 
-# delegating constructors
+# Standard Attribute
 
-#### Konstruktoren die andere Konstruktoren aufrufen
-
-
-```
-class DelegatingCtor
-{
- int number_;
- public:
-   DelegatingCtor(int n) : number_(n) {}
-   DelegatingCtor() : DelegatingCtor(42) {};
-   
-}
-```
-
----
-
-# Inheriting ctors
+```cpp
+[[noreturn]] 
+[[deprecated]], [[deprecated("Reason")]]
+[[fallthrough]]
+[[nodiscard]]
+[[maybe_unused]]
 
 ```
-struct Base 
-{
- Base() = default();
- explicit Base(int n) {};
-}
-
-
-struct Derived : public Base
-{
-  using Base::Base; // get all ctors from base class!
-}
-
-Derived d(123);
-```
-
-
----
-
-# Strongly typed enums & scoped enums
-
-```
-enum Color : unsiged char { Red, Green, Blue }; 
-```
-
-```
-
-enum class Sound { Boing, Gloop, Crack };
-
-auto s = Sound::Boing;
-
-```
-
----
-
-# (Standard) attributes 
-
-```
-[[MyCustomAnnotation]]
-int some_function() 
-{
-}
-```
-
-* `[[deprecated]]`, `[[deprecated("reason")]]`, `[[fallthrough]]`, `[[nodiscard]]`, `[[maybe_unused]]`
-
-More to come 
- * C++20: design by contract
-
----
-
-# `__has_include`
-
-##### Weniger abhängigkeiten von `#define`s 
-
-```
-#if __has_include(<unistd.h>)
-#define OPEN_SHARDED dlopen
-#elif __has_include(<windows.h>)
-#define OPEN_SHARED LoadLibrary
-#else
-#pragma error("loading shared libraries not supported");
-#endif
-```
-
---- 
-
-# `#include <filesystem>`
-
-# Endlich! (C++17)
-
----
-
-# `#include <algorithm>`
-
-### Die top 105 algorithmen 
