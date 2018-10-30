@@ -6,18 +6,30 @@ class: center, middle, inverse
 
 ---
 
-10 kleine Dinge die C++ einfacher machen
+10 **kleine** Dinge die C++ einfacher machen
 ===
 
 
-
 ### Dominik Berner
+
+???
+
+# Begrüssung
+
+Grosse features seit C++11 ==> smart ptr, variadic templates, lambdas, move semantics... 
+
+Aber die kleinen bringen auch viel
+
+# Einiges wird wohl bekannt sein, dafür gibts auch etwas begründung warum das verwendet werden soll
+
+
+
 ---
 
 # Wartbarer Code? 
 
 ```
-x = x ^ y; 
+x = x ^ y;
 y = y ^ x;
 x = x ^ y;
 
@@ -38,17 +50,14 @@ Warbarer **code beginnt auf dem kleinsten level**. SOLID prinzipien, clean code 
 
 Progammiersprachen leben von Erwartungshaltungen beim lesen. 
 
-Idee Warum es cool ist, warum es gefaehrlich ist
-
+Ein paar kleine features die sich auch relativ einfach in bestehenden code einarbeiten lassen und so die Qualität verbessern
 
 ---
 
-# Die neuen C++ Standards
+# Dominik Berner
 
-* Viele "grosse" Änderungen
-  * variadic templates, move-semantics, `auto`, ` [](){}`
-* kleinere die unter dem Radar fliegen
-
+.column[ ![Me](profile_picture_presenting.jpg) ]
+.column[ * C++ Coder ]
 
 ---
 
