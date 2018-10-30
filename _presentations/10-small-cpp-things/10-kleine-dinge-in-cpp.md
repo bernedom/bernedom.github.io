@@ -1,6 +1,9 @@
 name: title
 layout: true
 class: center, middle, inverse
+
+.footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik) ![web](web_icon.png)  [http://www.dominikberner.me](http://dominikberner.me) ]
+
 ---
 
 10 kleine Dinge die C++ einfacher machen
@@ -9,13 +12,11 @@ class: center, middle, inverse
 
 
 ### Dominik Berner
-
 ---
 
 # Wartbarer Code? 
 
-```lang=c++
-
+```
 x = x ^ y; 
 y = y ^ x;
 x = x ^ y;
@@ -26,7 +27,7 @@ x = x ^ y;
 
 oder 
 
-```lang=c++
+```
 std::swap(x,y);
 ```
 
