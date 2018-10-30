@@ -35,18 +35,19 @@ a {
     text-decoration: none;
 }
 
+
 .inverse {
-    background-color: #006064;
-    color: #ECEFF1;
+    background-color: #ECEFF1;
+    color: #CC071E;
     text-shadow: 0 0 0px black;
 }
 .inverse h1, .inverse h2, .inverse h3 {
-    color: #ECEFF1;
+    color: #CC071E;
     line-height: 0.8em;
-    text-shadow: 0 0 8px black;
+    text-shadow: 0 0 8px gray;
 }
 .inverse a {
-    color: #ECEFF1;
+    color: #CC071E;
     text-decoration: none;
     font-family: monospace;
 }
@@ -61,6 +62,10 @@ a {
     right: 0px;
     bottom: 0px;
 }
+
+.footer { position: absolute; bottom: 12px; left: 20px; }
+.footer a { font-family: 'Yanone Kaffeesatz'; }
+.footer img { vertical-align: middle; }
 
 blockquote {
   background: #fdf6e3;
