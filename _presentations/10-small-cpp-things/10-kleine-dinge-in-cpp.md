@@ -1,4 +1,4 @@
-name: inverse
+name: title
 layout: true
 class: center, middle, inverse
 ---
@@ -22,6 +22,8 @@ x = x ^ y;
 
 ```
 
+--
+
 oder 
 
 ```lang=c++
@@ -31,7 +33,7 @@ std::swap(x,y);
 ???
 
 
-Warbarer code beginnt auf dem kleinsten level. SOLID prinzipien, clean code etc. alles gut, aber es beginnt bei der Verwendung der Sprache.
+Warbarer **code beginnt auf dem kleinsten level**. SOLID prinzipien, clean code etc. alles gut, aber es beginnt bei der Verwendung der Sprache.
 
 Progammiersprachen leben von Erwartungshaltungen beim lesen. 
 
@@ -77,7 +79,7 @@ if(very_small < seconds) // automatic, compile-time conversion
 {
 ...
 }```
-
+]
 ---
 
 # Vererb mir bitte was - `override` 
