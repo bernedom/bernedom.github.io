@@ -3,10 +3,9 @@ layout: true
 class: center, middle, inverse
 
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik) ![web](web_icon.png)  [http://www.dominikberner.me](http://dominikberner.me) ]
-
 ---
 
-10 **kleine** Dinge die C++ einfacher machen
+10 kleine Dinge die C++ einfacher machen
 ===
 
 
@@ -16,12 +15,28 @@ class: center, middle, inverse
 
 # Begrüssung
 
+# C++ ist schwierig - aber die neuen Standards machen es einfacher
+# Situation Beschreiben: Brownfield project, modernisieren
+
 Grosse features seit C++11 ==> smart ptr, variadic templates, lambdas, move semantics... 
 
 Aber die kleinen bringen auch viel
 
-# Einiges wird wohl bekannt sein, dafür gibts auch etwas begründung warum das verwendet werden soll
+# Einiges wird wohl bekannt sein
+# vielleicht auch das eine oder andere neue
 
+---
+
+# Dominik Berner
+
+.left-column[
+ ![Me](profile_picture_presenting.jpg)
+]
+.right-column[
+* C++ Coder
+* Med-Tech 
+* Agilist 
+] 
 
 
 ---
@@ -35,9 +50,26 @@ x = x ^ y;
 
 ```
 
+???
+
+# Wer weiss was das macht? 
+
+Cool oder nicht? Wartbar oder nicht?
+
+
+
+# Lesbarkeit, Wartbarkeit, Code Qualität
+## Absicht hinter code erkennbar 
+### Absicht lässt sich mit compiler nachdruck verleihen
+
+ Warum? Software is volatil - Dies wird zunichte gemacht durch Schlechten code
+
+Beispiele: ich traue mich nicht schlechten Code anzufassen 
+
+Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion
 --
 
-oder 
+### besser:
 
 ```
 std::swap(x,y);
@@ -45,19 +77,13 @@ std::swap(x,y);
 
 ???
 
-
-Warbarer **code beginnt auf dem kleinsten level**. SOLID prinzipien, clean code etc. alles gut, aber es beginnt bei der Verwendung der Sprache.
+Natürlich: Abstriche bei z.b. Performance etc. 
 
 Progammiersprachen leben von Erwartungshaltungen beim lesen. 
 
 Ein paar kleine features die sich auch relativ einfach in bestehenden code einarbeiten lassen und so die Qualität verbessern
 
----
-
-# Dominik Berner
-
-.column[ ![Me](profile_picture_presenting.jpg) ]
-.column[ * C++ Coder ]
+# Los gehts mit ein paar features
 
 ---
 
@@ -68,11 +94,21 @@ Ein paar kleine features die sich auch relativ einfach in bestehenden code einar
 enum Color : uint8_t { Red, Green, Blue }; 
 ```
 
+
 ```cpp
 enum class Sound { Boing, Gloop, Crack };
 
 auto s = Sound::Boing;
 ```
+
+???
+
+# etwas zum aufwärmen
+
+# unterlioegender Datentyp spezifiziert 
+zuweising über enums nicht mehr möglich
+
+Absicht klar erkennbar und umsetzbar. 
 
 ---
 
