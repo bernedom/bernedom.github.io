@@ -16,14 +16,16 @@ class: center, middle, inverse
 # Begrüssung
 
 # C++ ist schwierig - aber die neuen Standards machen es einfacher
-# Situation Beschreiben: Brownfield project, modernisieren
-
 Grosse features seit C++11 ==> smart ptr, variadic templates, lambdas, move semantics... 
 
 Aber die kleinen bringen auch viel
 
 # Einiges wird wohl bekannt sein
 # vielleicht auch das eine oder andere neue
+
+# Situation Beschreiben: Brownfield project, modernisieren
+
+# Pfadfinder-mentalität: Lass den Code etwas besser zurück als du ihn angetroffen hast
 
 ---
 
@@ -53,30 +55,15 @@ Seit Anfang an auf c++11 (Cx::TR1)
 
 Computergrafik, Medtech
 
+# Agilist -> Konstantes Refactoren
+
 # Arbeiten mit gutem code ist ein Genuss
 
 ---
 
-# Wartbarer Code? 
-
-```cpp
-int x{123};
-int y{999};
-
-x = x ^ y;
-y = y ^ x;
-x = x ^ y;
-
-```
+# Guter Code? 
 
 ???
-
-# Wer weiss was das macht? 
-
-(Tascht werte von zwei Variablen) 
-Cool oder nicht? Wartbar oder nicht?
-
-
 
 # Lesbarkeit, Wartbarkeit, Code Qualität
 ## Absicht hinter code erkennbar 
@@ -90,9 +77,33 @@ Keine natürliche Sprache
 Beispiele: ich traue mich nicht schlechten Code anzufassen 
 
 Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion
+
 --
 
-### besser:
+```cpp
+int x{123};
+int y{999};
+
+x = x ^ y;
+y = y ^ x;
+x = x ^ y;
+
+```
+
+???
+
+# Ein Beispiel Wer weiss was das macht? 
+
+(Tauscht werte von zwei Variablen, ohne eine dritte) 
+Cool oder nicht? Wartbar oder nicht?
+
+# Wie machen wir den gut? 
+
+# Lesbar, klein, absicht erkennbar, compilergestützt
+
+--
+
+# Guter Code!
 
 ```
 std::swap(x,y);
@@ -149,6 +160,9 @@ switch(int i = std::rand(); i = %3)
 
 Gut weil scoping klar
 Operator precendence keine Frage mehr
+Absicht: diese veriable wird nur in diesem Statement verwendet
+
+Feature 1
 
 ---
 
@@ -157,13 +171,14 @@ Operator precendence keine Frage mehr
 .left[
 
 ```
-enum class Sound { Boing, Gloop, Crack };
-enum class Smell { Roses, Veils, Sunflower };
+enum class Color { Red, Purple, Green };
+enum class Smell { Roses, Violet, Sunflower }; 
 
-*auto s = Sound::Boing; 
+*auto color = Color::Purple; 
+auto c2 = Red; // ooops! Missing type specifier
 
-s = Smell::Roses; // ooops! Assignment across types
-auto s1 = Boing; // ooops! Missing type specifier
+color = Smell::Violet; // ooops! Assignment across types
+
  
 ```
 
@@ -171,13 +186,16 @@ auto s1 = Boing; // ooops! Missing type specifier
 
 ???
 
-
-
 Starker scope für enums.
 Kein gebastel mit Namespaces und umgebenden klassen
 zuweising über verschiedene enums nicht mehr möglich
 
 Absicht klar erkennbar und umsetzbar. 
+(violet sind veilchen)
+
+violet - englisch purple
+
+feature 2 
 
 --
 
@@ -185,7 +203,7 @@ Absicht klar erkennbar und umsetzbar.
 
 .left[
 ```
-enum Color : uint8_t { Red, Green, Blue }; 
+enum class Color : uint8_t { Red, Green, Blue }; 
 ```
 ]
 
@@ -217,6 +235,8 @@ if(very_small < seconds) { ... }
 
 ???
 
+# Wenn wirs schon von uneindeutigen Werten haben
+
 # handling von Zeiteinheiten sind ein Graus
 
 nicht linear verwertbar,
@@ -229,9 +249,9 @@ compiler enforced das; Weg von `timestamp_in_seconds()` etc
 
 .left[
 ```
-long double operator "" km(long double d) {...}
+long double operator "" _km(long double d) {...}
 
-const auto zurich_to_lucerne = 52.672km;
+const auto zurich_to_lucerne = 52.672_km;
 
 ```
 ]
@@ -240,6 +260,8 @@ const auto zurich_to_lucerne = 52.672km;
 ???
 
 Sehr mächtiges Feature, wird aber hier nicht im detail besprochen 
+
+# Alles was kein _ hat ist reserved for further standardisation
 
 
 ---
@@ -564,4 +586,25 @@ I::K::L::x();
 ```
 ]
 
+---
 
+```
+
+struct distance
+{
+  distance(long double m) : distance_in_meters{m} {}
+  long double distance_in_meters;
+
+// all the operators...
+};
+
+distance operator "" _km(long double d ) { return {d * 1000}; }
+distance operator "" _cm(long double d) { return {d / 100}; }
+
+int main(int, char**) {
+
+auto d = 12.44_km;
+auto dd = 120.0_cm;
+
+}
+```
