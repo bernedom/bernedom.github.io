@@ -140,14 +140,14 @@ vertical-align: middle;
  /* Two-column layout */
 .left-column {
   color: #777;
-  width: 20%;
+  width: 40%;
   height: 92%;
   float: left;
     font-family: inherit;
 }
  
 .right-column {
-  width: 75%;
+  width: 55%;
   float: right;
   padding-top: 1em;
     font-family: inherit;
