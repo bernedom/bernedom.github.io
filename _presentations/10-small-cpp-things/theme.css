@@ -63,6 +63,8 @@ a {
     bottom: 0px;
 }
 
+
+
 .footer { position: absolute; bottom: 12px; left: 20px; }
 .footer a { font-family: 'Yanone Kaffeesatz'; }
 .footer img { vertical-align: middle; }
@@ -105,6 +107,7 @@ ol > li:before {
 
 img {
     max-width: 100%;
+vertical-align: middle;
 }
 
 .small {
@@ -132,18 +135,21 @@ img {
     font-size: 1.2em;
 }
 
+.remark-code-line-highlighted     { background-color: #fdeab5; }
+
  /* Two-column layout */
 .left-column {
   color: #777;
   width: 20%;
   height: 92%;
   float: left;
+    font-family: inherit;
 }
-  .left-column h2:last-of-type, .left-column h3:last-child {
-    color: #000;
-  }
+ 
 .right-column {
   width: 75%;
   float: right;
   padding-top: 1em;
+    font-family: inherit;
 }
+
