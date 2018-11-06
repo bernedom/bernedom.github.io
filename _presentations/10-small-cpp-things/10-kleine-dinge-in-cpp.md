@@ -80,7 +80,7 @@ Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong
 
 --
 
-```cpp
+```
 int x{123};
 int y{999};
 
@@ -136,7 +136,7 @@ exclude: true
 # Selection Statement mit initializer
 
 .left[
-```cpp
+```
 if(int i = std::rand(); i % 2 == 0)
 { }
 ```
@@ -269,7 +269,7 @@ Sehr mächtiges Feature, wird aber hier nicht im detail besprochen
 # Vererb mir bitte was - `override` 
 
 .left[
-```cpp
+```
 struct Base
 {
   virtual int func() { return 1; }
@@ -303,7 +303,7 @@ macht refactorings viel einfacher - z.b. wenn signatur in Basisklasse ändert
 # Du bist enterbt! - `final`
 
 .left[
-```cpp
+```
 *class Base final 
 { };
 
@@ -326,7 +326,7 @@ Vererbungen noch strenger kontrollieren
 ### Auch für Methoden
 
 .left[
-```cpp
+```
 class Base
 {
   virtual void f();
@@ -354,7 +354,7 @@ Versuchung nur teile der Klasse final zu machen - think again
 # Mich gibt's gar nicht - `=delete`
 
 .left[
-```cpp
+```
 struct NonCopyable {
   NonCopyable() = default; 
 
@@ -390,7 +390,7 @@ Früher methoden mussten private sein -- Semantisch inkorrekt
 
 
 .left[
-```cpp
+```
 struct Base
 {
   Base() {}
@@ -456,7 +456,7 @@ Code reuse in ctors. Endlich!
 # Mach du das doch - Delegating Ctors
 
 .left[
-```cpp
+```
 struct Base
 {
 	Base(double d);
@@ -489,7 +489,7 @@ Hilft bei RAII, weil auf init() funktionen verzichtet werden kann bei
 # Auspacken! - Structured Bindings
 
 .left[
-```cpp
+```
 const auto tuple = std::make_tuple<1, 'a', 2.3>;
 
 const auto [a, b, c] = tuple;
@@ -518,7 +518,7 @@ http://dominikberner.ch/structured-bindings/
 # Guaranteed copy elision
 
 .left[
-```cpp 
+``` 
 class A {
 public:
   A() = default;
@@ -549,7 +549,7 @@ int main() {
 
 # Standard Attribute
 
-```cpp
+```
 [[noreturn]] 
 [[deprecated]], [[deprecated("Reason")]]
 [[fallthrough]]
@@ -564,7 +564,7 @@ int main() {
 # `using` auch mit Namensräumen 
 
 .left[
-```cpp
+```
 void f(){ }
 
 namespace X
