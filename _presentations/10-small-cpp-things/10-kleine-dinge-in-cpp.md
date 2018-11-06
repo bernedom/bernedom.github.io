@@ -20,12 +20,10 @@ Grosse features seit C++11 ==> smart ptr, variadic templates, lambdas, move sema
 
 Aber die kleinen bringen auch viel
 
-# Einiges wird wohl bekannt sein
-# vielleicht auch das eine oder andere neue
+### Einiges wird wohl bekannt sein
+### vielleicht auch das eine oder andere neue
 
 # Situation Beschreiben: Brownfield project, modernisieren
-
-# Pfadfinder-mentalität: Lass den Code etwas besser zurück als du ihn angetroffen hast
 
 ---
 
@@ -59,6 +57,8 @@ Computergrafik, Medtech
 
 # Arbeiten mit gutem code ist ein Genuss
 
+### Pfadfinder-mentalität: Lass den Code etwas besser zurück als du ihn angetroffen hast
+
 ---
 
 # Guter Code? 
@@ -70,13 +70,15 @@ Computergrafik, Medtech
 ### Absicht lässt sich mit compiler nachdruck verleihen
 
 # Programmiersprache födern Erwartungshaltung 
-Keine natürliche Sprache
+Keine natürliche Sprache (Beispiel do ... while, if ... else)
 
- Warum? Software is volatil - Dies wird zunichte gemacht durch Schlechten code
+
+## Software is volatil - Dies wird zunichte gemacht durch Schlechten code
 
 Beispiele: ich traue mich nicht schlechten Code anzufassen 
 
-Dinge wie Clean Code, das SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion
+ SOLID-Prinzip oder Paradigmen wie Low Coupling, Strong Cohesion
+
 
 --
 
@@ -138,7 +140,7 @@ exclude: true
 .left[
 ```
 if(int i = std::rand(); i % 2 == 0)
-{ }
+{ ... }
 ```
 
 ```
@@ -242,6 +244,7 @@ if(very_small < seconds) { ... }
 nicht linear verwertbar,
 compiler enforced das; Weg von `timestamp_in_seconds()` etc
 
+feature 3 
 
 --
 
@@ -297,6 +300,8 @@ liest sich auch ein kleines bischen natürlicher
 
 macht refactorings viel einfacher - z.b. wenn signatur in Basisklasse ändert
 
+feature 4
+
 ---
 
 
@@ -320,6 +325,8 @@ Vererbungen noch strenger kontrollieren
 - z.b. um tiefe vererbungsbäume zu verhindern
 
 -> Kann dem compiler in gewissen situationen helfen ein virtual-table lookup wegzuoptimieren
+
+feature 5
 
 --
 
@@ -384,6 +391,8 @@ Früher methoden mussten private sein -- Semantisch inkorrekt
 
 ## Guaranteed copy elision hilft hier
 
+feature 6
+
 ---
 
 # Benutz mich! - `using` deklarationen
@@ -420,6 +429,8 @@ using funktioniert nur innerhalb vererbungshierarchie
 
 Geht auch mit namensräumen (Reservefolie)
 
+feature 7
+
 ---
 
 # Genetische Verwandtschaft - Konstruktorenvererbung
@@ -450,6 +461,8 @@ Jetzt wirds wieder spannender. Andere sprachen kennen das schon seit langem
 Absicht: Nichts neues hier
 
 Code reuse in ctors. Endlich!
+
+feature 8
 
 ---
 
@@ -482,7 +495,9 @@ struct Derived : public Base
 Deklaration zeigt ganz klar Absicht - Ich verwende dann diesen da
 Hilft bei RAII, weil auf init() funktionen verzichtet werden kann bei 
 
-# Nun weg von Datenstrukturen
+# Wenn wir schon bei Datenstrulturen sind
+
+feature 9
 
 ---
 
@@ -508,6 +523,8 @@ keine private-structs mehr nötig
 Klassen und struckts können auch ausgepackt werden, aber hier ist die semantik nicht geordnet -> Nicht empfehlenswert
 
 http://dominikberner.ch/structured-bindings/
+
+feature 10
 
 ---
 
