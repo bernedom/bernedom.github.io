@@ -528,6 +528,33 @@ feature 10
 
 ---
 
+# Die 10 "kleinen" features
+
+.left[
+1. Initializers in selection statements
+1. Stark typisierte enums
+1. Zeitliterale
+1. `override`
+1. `final`
+1. `= delete`
+1. `using` - deklarationen
+1. Konstruktorenvererbung
+1. Konstruktorendelegation
+1. Structured bindings
+]
+
+???
+
+# Das waren die 10
+## besserer Code mit kleinem Aufwand
+## ohne dass man gesamte Programmstruktur umbauen muss
+
+# Vielen dank
+
+# Fragen? 
+
+---
+
 # Reserve
 
 ---
