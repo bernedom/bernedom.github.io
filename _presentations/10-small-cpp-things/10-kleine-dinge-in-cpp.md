@@ -144,7 +144,7 @@ if(int i = std::rand(); i % 2 == 0)
 ```
 
 ```
-switch(int i = std::rand(); i = %3)
+switch(int i = std::rand(); i % 3)
 {
   case 0:
    ...
@@ -226,11 +226,11 @@ enum class Color : uint8_t { Red, Green, Blue };
 ```
 using namespace std::chrono_literals;
 
-*auto seconds = 10s;
-*auto very_small = 1us;
+*auto time_step = 10s;
+*auto very_small_time_step = 1us;
 
 // automatic, compile-time conversion 
-if(very_small < seconds) { ... } 
+if(very_small_time_step < time_step) { ... } 
 ```
 ]
 
@@ -252,10 +252,14 @@ feature 3
 
 .left[
 ```
-long double operator "" _km(long double d) {...}
+struct distance {
+  distance(long double m) : distance_in_m{m} {}
+  long double distance_in_m;
+}
+
+distance operator "" _km(long double d) { return {d * 1000}; }
 
 const auto zurich_to_lucerne = 52.672_km;
-
 ```
 ]
 
@@ -366,15 +370,15 @@ struct NonCopyable {
   NonCopyable() = default; 
 
   // disables copying the object through construction
-  NonCopyable(const Dummy &) = delete;
+*  NonCopyable(const Dummy &) = delete;
   // disables copying the object through assignement
-  NonCopyable &operator=(const Dummy &rhs) = delete;
+*  NonCopyable &operator=(const Dummy &rhs) = delete;
 };
 
 struct NonDefaultConstructible {
   
-// this struct can only be constructed through a move or copy
-  NonDefaultConstructible() = delete;
+  // this struct can only be constructed through a move or copy
+*  NonDefaultConstructible() = delete;
 }; 
 ```
 ]
@@ -423,6 +427,8 @@ struct Derived : public Base
 
 ???
 
+# Absicht: ich weiss dass func() in der Basisklasse existiert
+
 Klare intention: Hier wird etwas wiederverwendet und nichts neues erstellt
 
 using funktioniert nur innerhalb vererbungshierarchie 
@@ -446,7 +452,7 @@ struct Base
 
 struct Derived : public Base
 {
-*  using Base::Base; // get all ctors from Base
+*  using Base::Base; // get *all* ctors from Base
 
   Derived(double d); // Add more
 };
@@ -505,10 +511,10 @@ feature 9
 
 .left[
 ```
-const auto tuple = std::make_tuple<1, 'a', 2.3>;
+const auto dataset = std::make_tuple<1, 'a', 2.3>;
 
-const auto [a, b, c] = tuple;
-auto & [i,k,l] = tuple;
+const auto [a, b, c] = dataset;
+auto & [i,k,l] = dataset;
 ```
 ]
 
