@@ -18,13 +18,20 @@ To be good at making decisions you have to be aware what kind of decision-making
 
 Apart from how you like your decisions it is also important to be clear on how you arrive to that decision. Some people like to put all possible options and thoughts into words and ask for advice before, some people like to refine these options first in private and then discuss only the synthesis of that. Big misunderstandings often happen when one approach is confused with the other. If people are expecting only a synthesis of the context and a decision, but find themselves in a discussion about options it is very likely that each of these options might be mistaken for a "final" decision and thus the decider might seem to jump from one decision onto another. If on the other hand people are prepared to discuss options but receive only an already made decision they proably complain about lack of consideration of different options. 
 
-## Have an explicit decision strategy 
+## Communicate your decision strategy 
 
-No matter what your style of making decision is, it helps tremendously to make your preferred strategy on how to arrive at a decision clear and transparent. Also make it clear if you are adapting or abandoning that strategy in favor of another. My personal bias is towards fast decisions that get readjusted frequently, and I often convey this to people by telling them about the more experimental nature of the decision I'm going to take, sometimes even putting a timeframe on my decision when it should be checked against facts or be refined further. Saying things like "I'm going to collect feedback, synthesise and then decide" or "let's discuss options first without deciding and then agree on a synthesis on which I will base my decision" helps me to outline my intended decision-strategy to people. This serves to onboard people to my thought-process but it also gives them the chance to challenge any part of it. 
+No matter what your style of making decision is, it helps tremendously to make your preferred strategy on how to arrive at a decision clear and transparent. Also make it clear if you are adapting or abandoning that strategy in favor of another. My personal bias is towards fast decisions that get readjusted frequently, and I often convey this to people by telling them about the more experimental nature of the decision I'm going to take, sometimes even putting a timeframe on my decision when it should be checked against facts or be refined further. Saying things like "I'm going to collect feedback, synthesise and then decide" or "let's discuss options first without deciding and then agree on a synthesis on which I will base my decision" helps you to outline intended decision-strategy to people. This serves to align people to your thought-process but it also gives them the chance to challenge any part of it. 
 
 ## Reflect on how you arrived at a decision
 
-## Further reading
+Whenever desisions are under contest a first reflex is often to put just the content of the decision under scrutiny but it is often equally important to refelct on how one arrived at a decision. Doing so often helps spotting where things went not as expected - or where expectations differ - much better and thus is of much more value to any actions to improve the situation. This is especially true if past decisions, or the perceived lack of them, leads to fights and discussions regularly. 
 
-* advice processm
-* cynefin
+Reflecting about your personal decision habits is a good way to find gaps of how different people perceive the decision. This of course is a good thing to do at all time, not just when things go wrong. Ask yourself: 
+
+1. Was a decision taken at all? 
+1. Was it clear that a decision was taken (and who took it)? 
+1. Did it trigger a distinct and timely action in those affected?
+
+Only if these three questions can be answered with "yes" by all people involved this was a "good" decision. If any of the questions where answered with "no", tackle to turn that into a yes in the future first. The first two points can be made clearer by being aware and transparent of the though process behind decisions as described above. The third is often more related to the content of the decision. 
+
+So next time a tough decision is on the agenda - take a step back and answer these questions. Happy deciding!
