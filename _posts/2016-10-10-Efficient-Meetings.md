@@ -36,10 +36,12 @@ Be dependable when it comes to timing and duration of meetings. Be on time when 
 
 
 Ending the meeting on time is the harder part but with a bit of training this becomes easy as well. Start out by time boxing the items on the agenda, and have an eye on the clock during the meeting. Often it's better to conclude a meeting on time, even if you have not reached all the discussion points on the agenda, take a breather and schedule the next meeting at a close time in the future. Estimating how much time something takes is hard at first and needs a bit of training but a good guideline is to do a quick calculation along the line: "five people are in the meeting, everybody will talk 5 minutes about the subject, so 25 minutes it is.”
-Step 5: Track the discussions and keep minutes
+
+# Step 5: Track the discussions and keep minutes
 
 This one is simple. Take notes, sort them after the meeting and archive them in a place where you can find them again. Distribute the notes to the people involved between meetings, so you don't need to raise the same issues over and over. Also encourage others to take (& share) their personal notes.
-Optional Step 5.5: Get Feedback
+
+# Optional Step 5.5: Get Feedback
 
 Running meetings takes training and training needs feedback. Get feedback on how the meeting went from the participants. One quick way to get feedback is to prepare a flipchart with a pre-drawn graph on time invested vs. outcome and have everybody leave a tick-mark on the graph. Follow up with the people who think they wasted the time, ask them why. Also give others feedback when they run a meeting to encourage them to do the same.
 
