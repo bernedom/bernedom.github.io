@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Putting value behind your decisions
+title: Decide to decide better
 thumbnail: images/decisions/thumbnail.jpg
 ---
 
@@ -24,7 +24,6 @@ Reflecting about your personal decision habits is a good way to start. From ther
 Only if these three questions can be answered with "yes" by all people involved this was a "valuable" decision in the sense that is was a good thing to take that decision. If any of the questions where answered with "no", tackle to turn that into a yes in the future first.
 Only when the first two questions about the thought process behind the decisions are answered focussing on the content of the decision becomes relevant. 
 
-
 ## How people decide
 
 People fall generally into two categories when it comes to decision-making-habits. There are the ones who decide early and watch the outcome and then adjust frequently and others who try to first find and analyze as many options as possible before deciding and decide as late as possible. People in the first category often feel uncomfortable and left hanging until a decision is taken, while people in the second category often experience doubt after taking a decision, often this doubt is about if the decision was taken prematurely. Both ways have their merits and drawbacks. The quick deciders often have to readjust or even revert decisions because they lacked part of the context surrounding the matter to be decided on. The careful analysts sometimes miss the opportunity for a decision and might be seen as not deciding at all. Both ways work well on their own. The problems happen when people from the different spectrum have to work together and are unaware of where of the spectrum each of them is. This is of course not a black-and-white matter but depending on a lot of factors and people might behave differently in different contexts and different social settings.
@@ -38,5 +37,5 @@ Apart from how you like to make your decisions, it is important to be clear on h
 No matter what is your preferred way of decision-making, make your preferred strategy clear and transparent. Also make it clear if you are adapting or abandoning that strategy in favor of another. My personal bias is towards fast decisions that get readjusted frequently, and I often convey this to people by telling them about the more experimental nature of the decision I'm going to take. Sometimes I even put an expiry date on my decisions for when they should be checked against any newly emerged facts or be refined further.
 Saying things like "I'm going to collect feedback, synthesise and then decide" or "let's discuss options first without deciding and then agree on a synthesis on which I will base my decision" help to outline intended decision-strategy to the people present. This aligns people to your thought-process and as a side-effect also offers the chance to challenge any part of the intended course of action. 
 
-
-
+By being aware and transparent in ones decision process setting the context in which decsisions were made becomes much easier. At the beginning this will require conscious effort but after a while this can become an automatic process. Having this automatic context-setting as an innate knowledge in the people deciding and those being affected by them will lead to better decisions, which in turn will allow to take decisions in a more leightweight manner.
+ 
