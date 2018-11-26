@@ -144,9 +144,11 @@ vertical-align: middle;
 .left-column {
   color: #777;
   width: 40%;
-  height: 92%;
+  height: 80%;
   float: left;
     font-family: inherit;
+    padding-top: 1em;
+    
 }
  
 .right-column {
