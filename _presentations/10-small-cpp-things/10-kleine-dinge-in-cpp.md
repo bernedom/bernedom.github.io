@@ -11,6 +11,8 @@ class: center, middle, inverse
 
 ### Dominik Berner
 
+![](logo_bbv_thumb.png)
+
 ???
 
 # Begrüssung
@@ -20,10 +22,9 @@ Grosse features seit C++11 ==> smart ptr, variadic templates, lambdas, move sema
 
 Aber die kleinen bringen auch viel
 
-### Einiges wird wohl bekannt sein
-### vielleicht auch das eine oder andere neue
+### Grobübersicht, keine tiefgehende Diskussionen
 
-# Situation Beschreiben: Brownfield project, modernisieren
+### Features sind nützlich bei Brownfield projekten
 
 ---
 
@@ -48,8 +49,8 @@ Aber die kleinen bringen auch viel
 
 ???
 
-10+ Jahre erfahrung mit C++
-Seit Anfang an auf c++11 (Cx::TR1)
+# 10+ Jahre erfahrung mit C++
+#Seit Anfang an auf c++11 (Cx::TR1)
 
 Computergrafik, Medtech
 
@@ -160,11 +161,47 @@ switch(int i = std::rand(); i % 3)
 
 # etwas zum aufwärmen
 
-Gut weil scoping klar
+# 
+
+# Gut weil scoping klar, deklaration neu IN if
 Operator precendence keine Frage mehr
 Absicht: diese veriable wird nur in diesem Statement verwendet
 
 Feature 1
+
+## Weiter zu einer anderen netten syntax-Erweiterung
+
+---
+
+# Auspacken! - Structured Bindings
+
+.left[
+```
+const auto dataset = std::make_tuple<1, 'a', 2.3>;
+
+const auto [a, b, c] = dataset;
+auto & [i,k,l] = dataset;
+```
+]
+
+~~Funktioniert auch für Klassen und Structs~~
+
+???
+
+fixed-size container und strukture können als anonyme datencontainer gebraucht werden
+# Auspacken mit `std::tie` und `std::get` mühsam
+
+keine private-structs mehr nötig
+
+# Klassen und structs können auch ausgepackt werden, aber hier ist die semantik nicht geordnet -> Nicht empfehlenswert
+
+http://dominikberner.ch/structured-bindings/
+
+## Weiter zu anderen Datentypen - Enums
+
+feature 2
+
+
 
 ---
 
@@ -176,20 +213,20 @@ Feature 1
 enum class Color { Red, Purple, Green };
 enum class Smell { Roses, Violet, Sunflower }; 
 
-*auto color = Color::Purple; 
-auto c2 = Red; // ooops! Missing type specifier
+auto color = Color::Purple; 
 
-color = Smell::Violet; // ooops! Assignment across types
-
- 
+// Examples below do not compile
+auto c2 = Red; // 'Red' not declared in scope
+color = Smell::Violet; // conversion from 'Smell' to 'Color'
 ```
 
 ]
 
 ???
 
-Starker scope für enums.
-Kein gebastel mit Namespaces und umgebenden klassen
+# Starker scope für enums.
+##Kein gebastel mit Namespaces und umgebenden klassen
+
 zuweising über verschiedene enums nicht mehr möglich
 
 Absicht klar erkennbar und umsetzbar. 
@@ -197,7 +234,7 @@ Absicht klar erkennbar und umsetzbar.
 
 violet - englisch purple
 
-feature 2 
+feature 3
 
 --
 
@@ -229,7 +266,7 @@ using namespace std::chrono_literals;
 *auto time_step = 10s;
 *auto very_small_time_step = 1us;
 
-// automatic, compile-time conversion 
+// automatic, compile-time conversion between 's' and 'us'
 if(very_small_time_step < time_step) { ... } 
 ```
 ]
@@ -244,7 +281,7 @@ if(very_small_time_step < time_step) { ... }
 nicht linear verwertbar,
 compiler enforced das; Weg von `timestamp_in_seconds()` etc
 
-feature 3 
+feature 4
 
 --
 
@@ -252,14 +289,11 @@ feature 3
 
 .left[
 ```
-struct distance {
-  distance(long double m) : distance_in_m{m} {}
-  long double distance_in_m;
-}
 
-distance operator "" _km(long double d) { return {d * 1000}; }
+long double operator "" _km(long double d) 
+{ return {d * 1000}; }
 
-const auto zurich_to_lucerne = 52.672_km;
+const auto zurich_to_sindelfingen = 201.672_km;
 ```
 ]
 
@@ -270,6 +304,7 @@ Sehr mächtiges Feature, wird aber hier nicht im detail besprochen
 
 # Alles was kein _ hat ist reserved for further standardisation
 
+# Nun gehts ans eingemachte, Klassen und Vererbung
 
 ---
 
@@ -284,7 +319,8 @@ struct Base
 
 struct Derived : public Base
 {
-  // Compiler-error if Base::func does not exist or is not virtual
+   // Compiler-error if Base::func does not exist 
+   // or if func is not virtual
 *  int func() override { return 2; }; 
 };
 ```
@@ -294,7 +330,7 @@ struct Derived : public Base
 ???
 
 
-# Endlich! Der compiler hilft mir vererbungsbäume zu plfanzen
+# Endlich! Der compiler hilft mir vererbungsbäume zu pflanzen
 
 Nur `virtual` Absicht nicht vollständig ausgedrückt
 override ist automatisch virtual
@@ -304,7 +340,7 @@ liest sich auch ein kleines bischen natürlicher
 
 macht refactorings viel einfacher - z.b. wenn signatur in Basisklasse ändert
 
-feature 4
+feature 5
 
 ---
 
@@ -330,7 +366,7 @@ Vererbungen noch strenger kontrollieren
 
 -> Kann dem compiler in gewissen situationen helfen ein virtual-table lookup wegzuoptimieren
 
-feature 5
+feature 6
 
 --
 
@@ -340,13 +376,13 @@ feature 5
 ```
 class Base
 {
-  virtual void f();
+  virtual void func();
 };
 
 class Derived : public Base
 {
-  // f cannot be overriden by further base classes
-*  void f() override final; 
+  // func cannot be overriden by further base classes
+*  void func() override final; 
 };
 ``` 
 ]
@@ -354,15 +390,15 @@ class Derived : public Base
 
 ???
 
-## Kann man machen, muss man aber nicht
+# Kann man machen, muss man aber nicht
 
 besser - von anfang an methode nicht virtual 
 
-Versuchung nur teile der Klasse final zu machen - think again
+# Versuchung nur teile der Klasse final zu machen - think again
 
 ---
 
-# Mich gibt's gar nicht - `=delete`
+# Mich gibt's gar nicht: `=delete`
 
 .left[
 ```
@@ -370,9 +406,9 @@ struct NonCopyable {
   NonCopyable() = default; 
 
   // disables copying the object through construction
-*  NonCopyable(const Dummy &) = delete;
+* NonCopyable(const Dummy &) = delete;
   // disables copying the object through assignement
-*  NonCopyable &operator=(const Dummy &rhs) = delete;
+* NonCopyable &operator=(const Dummy &rhs) = delete;
 };
 
 struct NonDefaultConstructible {
@@ -385,6 +421,7 @@ struct NonDefaultConstructible {
 
 
 ???
+# Löscht einen konstruktor/operator - Verwendung führt zu compiler error
 
 Ganz klar ausdrücken, dieses Objekt darf so nicht verwendet werden.
 Generell für Ctors und operatoren
@@ -395,7 +432,7 @@ Früher methoden mussten private sein -- Semantisch inkorrekt
 
 ## Guaranteed copy elision hilft hier
 
-feature 6
+feature 7
 
 ---
 
@@ -406,21 +443,19 @@ feature 6
 ```
 struct Base
 {
-  Base() {}
-  explicit Base(char c {}
-
-  int get_x(); 
   int func();
-}
+  int some_function(); 
+};
 
 struct Derived : public Base
 {
-  using Base::func;
+* using Base::func; // explicit intent: I'm aware of Base:func
+
   int func(int); // could possibly mask Base::func()
 
   private:
-    using Base::get_x;  // <-- get_x is now private
-}
+*   using Base::some_function;  // some_function is now private
+};
 ```
 ]
 
@@ -435,7 +470,7 @@ using funktioniert nur innerhalb vererbungshierarchie
 
 Geht auch mit namensräumen (Reservefolie)
 
-feature 7
+feature 8
 
 ---
 
@@ -452,9 +487,10 @@ struct Base
 
 struct Derived : public Base
 {
-*  using Base::Base; // get *all* ctors from Base
+* using Base::Base; // get *all* ctors from Base
 
-  Derived(double d); // Add more
+  Derived(double d); // Add more ctors
+  Derived(int x); // overwrite Base(int x)
 };
 
 ```
@@ -468,7 +504,7 @@ Absicht: Nichts neues hier
 
 Code reuse in ctors. Endlich!
 
-feature 8
+feature 9
 
 ---
 
@@ -478,75 +514,59 @@ feature 8
 ```
 struct Base
 {
-	Base(double d);
+  Base(int d) {};
+* Base() : Base(42) {}
 };
+```
+]
 
+???
+
+# Code reduktion, Gegenstück zu inheritance
+
+Deklaration zeigt ganz klar Absicht - Ich verwende dann diesen da
+Hilft bei RAII, weil auf init() funktionen verzichtet werden kann bei 
+
+
+--
+
+### Bonus: Kombinierbar mit Konstruktorenvererbung
+
+.left[
+```
 struct Derived : public Base
 {
-  int number_;
-
-  Derived(int n) : number_(n) {}
-*  Derived() : Derived(42) {};
-
   // combine with inherting ctors
-*  using Base::Base;
-*  Derived(float f) : Derived{static_cast<double>(f)}; 
-   
+* using Base::Base;
+* Derived(float f) : Derived{static_cast<double>(f)}; 
 }
 ```
 ]
 
 ???
 
-Deklaration zeigt ganz klar Absicht - Ich verwende dann diesen da
-Hilft bei RAII, weil auf init() funktionen verzichtet werden kann bei 
+Funktioniert auch bei Konstruktorenvererbung
 
-# Wenn wir schon bei Datenstrulturen sind
-
-feature 9
-
----
-
-# Auspacken! - Structured Bindings
-
-.left[
-```
-const auto dataset = std::make_tuple<1, 'a', 2.3>;
-
-const auto [a, b, c] = dataset;
-auto & [i,k,l] = dataset;
-```
-]
-
-
-???
-
-im grösseren Sinn hilft dies type-pollution zu unterbinden. 
-fixed-size container und strukture können als anonyme datencontainer gebraucht werden
-
-keine private-structs mehr nötig
-
-Klassen und struckts können auch ausgepackt werden, aber hier ist die semantik nicht geordnet -> Nicht empfehlenswert
-
-http://dominikberner.ch/structured-bindings/
 
 feature 10
 
 ---
 
+
 # Die 10 "kleinen" features
 
 .left[
 1. Initializers in selection statements
-1. Stark typisierte enums
-1. Zeitliterale
-1. `override`
-1. `final`
-1. `= delete`
-1. `using` - deklarationen
-1. Konstruktorenvererbung
-1. Konstruktorendelegation
-1. Structured bindings
+2. Structured bindings
+3. Stark typisierte enums
+4. Zeitliterale
+5. `override`
+6. `final`
+7. `= delete`
+8. `using` - deklarationen
+9. Konstruktorenvererbung
+10. Konstruktorendelegation
+
 ]
 
 ???
