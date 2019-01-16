@@ -4,35 +4,44 @@ title: If I had visions, I'd go to a doctor
 #thumbnail: images/Git-Logo-2Color-thumb.png
 ---
 
-**A good product vision is the cornerstone of being successful in delivering software products.** Actually this is true for any product in development, not just software. Having a product vision that is tangible and accepted by your developers is the a&o, if teams are supposed to work in an empowered and self-organized way. The vision is paramount in creating a *purpose* for everyone working towards it, which is the foundation in creating alignment between individuals, teams and organisazions. Unfortunately lots of companies seem to struggle with creating a vision that is good enough to facilitate that. 
+**A good product vision is the cornerstone of being successful in delivering software products[^1].** Having a product vision that is tangible and accepted by your developers is one of the most important things to have, if teams are supposed to work in an empowered and self-organized way. The vision is not just a good advertising tool, but it is the foundation to creating a *purpose* for everyone's alignment towards what the product shall be. It is almost a pathological pattern that companies that struggle with creating good product or company visions find it very hard to create alignement and motivation in their employess building and delivering their products. 
 
-# The purpose of a vision
+# Why you need a good vision
 
-The purpose of a vision is to be a beacon towards which each action we do is aimed at. Or in other words each feature delivered should bring us a step closer to the vision. An essential factor for doing successful agile development is to build a common alignment, else people will have a very hard time to intrisically motivate themselves to a common goal. A good vision is a very powerful tool for creating such an alignment within the people building the product. This common purpose is not just important for motivation but a basis for unlocking many other benefits of agile development such autonomous and fast decision making and much more. 
+Each feature we deliver should bring us a step closer to the vision. So if we do not have a clear and consitent vision, chances are that we deliver features "all over the place" and end up with products that have an inconsistent feel to then. When working in an agile manner this becomes even more important, as an essential factor for doing successful agile development is to build a common alignment and foster autonomy. Empowering teams to be autonomous without a foundation for alignment will have people running off into different directions. 
+
+There are lots of articles and studies out there that say that having a purpose is one of the biggest factor to motivate people to do good work. A good vision is a tangible way to give such a purpose form. If the vision is non-existent or not tangible enough, people will find it very hard time to intrisically motivate themselves to reach a common goal. This common goal is an important basis for unlocking other benefits of agile development such as fast decision making and producing in a value-driven way. 
 
 # A good vision - John Deere
 
-A good vision should be vivid enough so it can become a tangible thing. The word "vision" itself comes from the latin "visere" which means "seeing" and that is already a very good description of what makes a good vision. People should be able to "see" it - at least in a metaphysical way. "We want to build the best tractor for the the agricultural market. " this is not a vision, this is a marketing slogan. And a bad one at that. A good vision is descriptive on how it is working. "We want to build a tractor that does is fully automated and connected to the cloud." much better but not yet good enough. 
-"We want the farmer to get up in the morning, check the weather, irrigation status and other things relevant to farming on their smart phone and from there direct their tractors to do the work best suited for todays needs." - Now we're getting closer to a good vision. Check out [John Deere's excellent video about their product vision](https://www.youtube.com/watch?v=t08nOEkrX-I) to get the full picture. 
+A good vision should be vivid enough so it can become a tangible thing. The word "vision" itself comes from the latin "visere" which means "seeing" and that is a very good description of what is the main aspect of a vision. People should be able to "see" it - at least in a metaphorical way.
 
-What John Deere did with their vision, was to take it away from the product and focus it on their users. By doing so they changed the topic from what they wanted to build (a fully automated tractor connected to the cloud) to what problem they wanted to solve: "Taking the backbreaking part out of farmers work and helping them process the information in their very complex environment better to make better decisions yielding in better farming output."
+As an example, let's look at [John Deere's  excellent video about their product vision](https://www.youtube.com/watch?v=t08nOEkrX-I). In it we see a farmer who controls his agricultural operation from a futuristic interactive office and when he heads out he does the same from his mobile phone. Gone are the days of guessing the weather and other things an when farming was mainly backbreaking, hard labor. Although we might not agree that this is a vision to pursue, it is a very clear statement on where the company John Deere wants to go. It is no longer going to be just a manufacturer of tractors, but a provider of an end-to-end farming solution. 
 
-The vision also shifts of what John Deeres product is. It is no longer only the tractor but an end-to-end solution from processing information up to the hand on tractor and various appliances. **A good vision is shaping and defining the product, not the other way around.** It does it by highlighting what is not obvious when we thing of "John Deere". Thinking of "John Deere" as tractors is obvious. Thinking of "John Deere" as a data provider is not.
+A first version of the vision might have been:  "We want to build a tractor that does is fully automated and connected to the cloud so farming becomes a data-driven operation". This is essentially sayig the same as what is shown in the video but it is not yet good enough. By simply putting that into a narrative such as "With our farming soultion the farmer to get up in the morning, checks the weather, irrigation status and other things relevant their smart office and from there direct their tractors to do the work best suited for the days needs." It  becomes a proper (although minimal) vision. Add a few more details and the vision becomes very lively. The fancy video is just a nice way of presenting that. 
 
-Putting it into a well produced video helps a lot with visualizing but it does not necessarily be done, but having drawings of your vision helps a lot. Because if you struggle to put something into a drawing it probably is not yet tangible enough.
+## View it from the other side 
 
-No vision was correct in the first go. Finding a vision is tough work and needs some serious thinking on it. The people at John Deere probably spent quite some time on their vision and had to refine it multiple times to arrive at such a consistent narrative. 
-While product visions should have certain stability at their core, they will get refined and sonme details will shift over time, reflecting changed circumstances and hopefully the growth of the product. 
+What John Deere did with their vision, was to take the focus away from the product and focus it on their users. By doing so they changed the topic from what they wanted to build (a fully automated tractor connected to the cloud) to what problem they wanted to solve: "helping farmers to process the information in their very complex environment better to make better decisions, yielding in better farming output."
 
-# Commit to the vision - make it public
+The vision also shifts of what John Deeres defines as their product. It is no longer only a fancy tractor but an end-to-end solution from processing information up to the autonomous tractor and various appliances on the field. **A good vision is shaping and defining the product, not the other way around.** The vision becomes even more powerful by highlighting what is not obvious but focusing on things behind the immediate horizon. Thinking of "John Deere" as tractors is obvious. Thinking of "John Deere" as a data provider is not. The obvious is often just a fancy way to say "we are here" while the not-so-obvious is a statement of "we want to go there".
 
-A very important point in establishing a vision is to commit to it and have a definitive statement like "this is where we want to go". One of the easiest ways to signal that commitment is to make the vision publicly visible. This does not necessarily mean to put it on youtube and advertise it, but making sure that there is a consistent communication about what the vision is. For products not available for the general public publishing and commiting to a vision might take an entirely other form. Even if the vision is not made fully public, being prepared to do so is a good sign that a vision is mature and commitable enough. 
 
-No matter how the communication works bein committed and getting the buy in from the people building this vision is essential. The buy in also serves as a good measurement about the quality of the vision. If you find it hard to get the people building a product to commit to a vision, it might need some rework. Since every feature developed should be tied to the vision, if this is hard that is another hint that the vision or the product definition need some more work. 
+# Commit to the vision
+
+The most important point in having an implementable vision is to commit to it. One of the easiest ways to signal that commitment is to make the vision publicly visible. Going public does not necessarily mean to put your vision on youtube and advertise it on TV. Choose whatever is fitting for your product and circumstances. For products not available for the general public, publishing a vision might take an entirely other form. Even if the vision is not made fully public, being prepared to do so is a good sign that a vision is mature and commitable enough. Good signs that this is the case are if visualizing your vision as a drawing or video is easy. If this is easy this means your vision is tangible enough and if many people in your company produce similar drawings there is a consistent communication about what your vision is. 
+
+No matter how the communication works, being committed and getting the buy in from the people building this vision is essential. The buy-in also serves as a good measurement about the quality of the vision. If you find it hard to get the people building a product to commit to a vision, it might need some rework. 
+Every feature developed should be tied to the vision, if people find it hard to build towards that, take that as another hint that the vision needs more work. 
+
+
 
 # Having a 20/20 vision
 
-Building a vision is not easy, but having a good one makes up easily for all the effort put into it. Take a step back and look at your product vision - should you already have one - and check: 
+No vision is correct in the first go, so be persistent in improving it. Finding a vision is tough work and needs some serious thinking on it. The people at John Deere probably spent quite some time on their vision and had to refine it multiple times to arrive at such a consistent narrative. 
+Good product visions will have a certain stability at their core, but will also be easy to refine. Adding details and cutting out what is obsolete over time is a sign of the growth of a product. 
+
+As a rough checklist for your future vision answer these questions: 
 
  * Is it tangible? Does reading/seeing it create a mental image? 
  * Does it highlight the non-obvious? 
@@ -40,7 +49,7 @@ Building a vision is not easy, but having a good one makes up easily for all the
  * Can it evolve without falling apart?
  * Are you commited to work towards it? Can you work towards it on a day-to-day basis?
 
-If you can answer the questions wit a definitive "yes" good! See wher it leads to. If not, get your vision through another iteration add what's missing and take away what's obvious or superflous. 
+If you can answer the questions with a definitive "yes" good! See where it leads to. If not, get your vision through another iteration add what's missing and take away what's obvious or superflous. 
 
- 
-
+ ---
+[^1]:Actually this is true for any product in development, not just software.
