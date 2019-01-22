@@ -1,7 +1,7 @@
 ---
 layout: post
-title: If I had visions, I'd go to a doctor
-#thumbnail: images/Git-Logo-2Color-thumb.png
+title: Get a 20/20 vision for your product
+thumbnail: images/visions/thumbnail.png
 ---
 
 **A good product vision is the cornerstone of being successful in delivering software products[^1].** Having a product vision that is tangible and accepted by your developers is one of the most important things to have, if teams are supposed to work in an empowered and self-organized way. A vision is not just a good advertising tool, but it is the foundation to creating a *purpose* for everyone's alignment towards what the product shall be. It is a pathological pattern, that companies that struggle with creating good product or company visions, find it very hard to create alignment and motivation in those employees who are building and delivering their products. 
@@ -17,6 +17,8 @@ There are lots of articles and studies out there that say that having a purpose 
 Good visions are vivid enough to become almost physically tangible. The word "vision" itself comes from the Latin "visere" which means "seeing" and that is a very good description of what is the main aspect of a vision. People should be able to "see" it - at least in a metaphorical way.
 
 As an example, let's look at [John Deere's  excellent video about their product vision](https://www.youtube.com/watch?v=t08nOEkrX-I). In it we see a farmer who controls his agricultural operation from a futuristic interactive office and when he heads out he does the same from his mobile phone. Gone are the days of guessing the weather and other things an when farming was mainly backbreaking, hard labor. Although we might not agree that this is a vision to pursue, it is a very clear statement on where the company John Deere wants to go. It is no longer going to be just a manufacturer of tractors, but a provider of an end-to-end farming solution. 
+
+[![John Deeres visioanry video](https://img.youtube.com/vi/t08nOEkrX-I/0.jpg)](https://www.youtube.com/watch?v=t08nOEkrX-I)
 
 A first version of the vision might have been:  "We want to build a tractor that does is fully automated and connected to the cloud so farming becomes a data-driven operation". This is essentially saying the same as what is shown in the video but it is not yet good enough. By simply putting that into a narrative such as "With our farming solution the farmer to get up in the morning, checks the weather, irrigation status and other things relevant their smart office and from there direct their tractors to do the work best suited for the days needs." It  becomes a proper (although minimal) vision. Add a few more details and the vision becomes very lively. The fancy video is just a nice way of presenting that. 
 
