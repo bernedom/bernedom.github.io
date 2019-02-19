@@ -18,7 +18,7 @@ Good visions are vivid enough to become almost physically tangible. The word "vi
 
 As an example, let's look at [John Deere's  excellent video about their product vision](https://www.youtube.com/watch?v=t08nOEkrX-I). In it we see a farmer who controls his agricultural operation from a futuristic interactive office and when he heads out he does the same from his mobile phone. Gone are the days of guessing the weather and other things an when farming was mainly backbreaking, hard labor. Although we might not agree that this is a vision to pursue, it is a very clear statement on where the company John Deere wants to go. It is no longer going to be just a manufacturer of tractors, but a provider of an end-to-end farming solution. 
 
-[![John Deeres visioanry video](https://img.youtube.com/vi/t08nOEkrX-I/0.jpg)](https://www.youtube.com/watch?v=t08nOEkrX-I)
+[![John Deere's visionary video](https://img.youtube.com/vi/t08nOEkrX-I/0.jpg)](https://www.youtube.com/watch?v=t08nOEkrX-I)
 
 A first version of the vision might have been:  "We want to build a tractor that does is fully automated and connected to the cloud so farming becomes a data-driven operation". This is essentially saying the same as what is shown in the video but it is not yet good enough. By simply putting that into a narrative such as "With our farming solution the farmer to get up in the morning, checks the weather, irrigation status and other things relevant their smart office and from there direct their tractors to do the work best suited for the days needs." It  becomes a proper (although minimal) vision. Add a few more details and the vision becomes very lively. The fancy video is just a nice way of presenting that. 
 
@@ -26,7 +26,7 @@ A first version of the vision might have been:  "We want to build a tractor that
 
 What John Deere did with their vision, was to take the focus away from the product and focus it on their users. By doing so they changed the topic from what they wanted to build (a fully automated tractor connected to the cloud) to what problem they wanted to solve: "helping farmers to process the information in their very complex environment better to make better decisions, yielding in better farming output."
 
-The vision also shifts of what John Deeres defines as their product. It is no longer only a fancy tractor but an end-to-end solution from processing information up to the autonomous tractor and various appliances on the field. **A good vision is shaping and defining the product, not the other way around.** The vision becomes even more powerful by highlighting what is not obvious but focusing on things behind the immediate horizon. Thinking of "John Deere" as tractors is obvious. Thinking of "John Deere" as a data provider is not. The obvious is often just a fancy way to say "we are here" while the not-so-obvious is a statement of "we want to go there".
+The vision also shifts of what John Deere defines as their product. It is no longer only a fancy tractor but an end-to-end solution from processing information up to the autonomous tractor and various appliances on the field. **A good vision is shaping and defining the product, not the other way around.** The vision becomes even more powerful by highlighting what is not obvious but focusing on things behind the immediate horizon. Thinking of "John Deere" as tractors is obvious. Thinking of "John Deere" as a data provider is not. The obvious is often just a fancy way to say "we are here" while the not-so-obvious is a statement of "we want to go there".
 
 
 # Commit to the vision
