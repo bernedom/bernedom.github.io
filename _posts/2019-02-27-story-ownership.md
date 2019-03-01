@@ -8,23 +8,31 @@ thumbnail: images/visions/thumbnail.png
 
 # Story ownership
 
-The principle of story ownerships is acutally quite simple, **each story gets an owner assigned and the goal and responsibility of an 'owner' of a story is to get that thing completed as soon as possible**. Of course still respecting any given quality standards, processes and other constraints a team operates under. Being the owner of the story does not necessarily mean that, that person necessarily has to implement that item themselves. Any member of a team can take ownership, not just the product owner (if you're doing scrum) or the requirements engineer. 
+The principle of story ownerships is simple:
 
-As a rule of thumb I say whoever adds an item to the board or system which is used to track the backlog gets the ownership. If it is added by an outsider of the team a good strategy is to make the person who talked with the customer about that item the owner. 
+1. Each story gets an owner assigned but this ownership has to be taken up voluntarily
+1. The goal and responsibility of an 'owner' of a story is to get that thing completed as soon as possible while still respecting any given quality standards and team-internal processes
+1. Ownership can be transfered in agreement between people 
+1. Stories who do not get a distinct owner for a long time are discarded
 
-Ownership can be handed to another person - even temporarily - if there is an agreement between the two people. If a story cannot find an owner for some time, this is a hint that either the story is not as importatnt as thought or that there is something wrong with the story. In either case, discuss this and try to find an owner, if it is unsolveable: remove it from the board. 
+Being the owner of the story does not necessarily mean that, that person necessarily has to implement that item themselves. Any member of a team can take ownership, not just the product owner (if you're doing scrum) or the requirements engineer. In fact the more people are willing to take ownership over stories the better as it reduces dependency on single persons. 
+As a rule of thumb I say whoever adds an item to the board or system which is used to track the backlog gets the ownership. If the story is added by an outsider of the team a good strategy is to make the person who talked with the customer about that item the owner. 
 
-# How do I juggle my owned stories
+Ownership has to be taken voluntarily and this also counts when handing over ownership. As ownership comes with a certain degree of commitment to get the story done, just assigning it to someone usually might not create the necessary driving force within that person to motivate them to push that story further on. 
 
- 
+Being the owner grants quite some power, but it does not mean that the person becomes an absolutistic ruler about how this is going to be done. Getting stories done should still follow any team interal processes and it should be in the owners interest to work as transparently as possible. 
 
+If a story cannot find an owner for some time, this is a hint that either the story is not as important as we thought or that there is content missing within the story. In either case, discuss this and try to find an owner, if it is unsolveable for some time: remove it from the board. 
+Not being able to find an owner for a story who is willing to push it is a very strong sign that people in your team do not understand the "why do we want to do this" of the story. 
 
+# Beware the ownership overload
 
-- Each story has an owner
-- the owners responsibility is to move the sotry as fast as possible to done (given the agreed quality statndard)
-- transfer ownership
-- discarding stories - in agreement, if ownership cannot be transfered
-- own some but not too many
+Distributing the responsibility of getting stories done in such a way of course has some possible pitfalls as well. As each person only can manage very few concurrent things, limiting the number of actively owner stories for each person is a good thing. Essentially the amount of stories that are actively owned by people should correspiond to whatever the throughput of stories of your team is. Each owner should be able to have a more or less reliable prediction on when his stories will be started. This should align with your work in progress limit in such a sense that the number of currently owned, but not worked on stories is not much larger than whatever you plan to tackle next. 
+
+****!!!! Put a graphic about correspondence of WIP vs story size vs backlog in here!!!***
+
+- Decentralized command and responsibility
+
 - requires maturity of a team and good, decentralized decision processes -- Advice process
 ---
 [^1]: I use the word "story" here, but I essentially means any kind of backlog item.
