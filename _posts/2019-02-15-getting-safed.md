@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Help! I'm getting SAFed!
-thumbnail: images/decisions/thumbnail.jpg
+thumbnail: images/getting-safed/thumbnail.png
 ---
 
 **SAFe is the worst implementation of "corporate agile" that is out there!** Over the last few months I heard this sentence or a variety of it a few times. There is some truth to it, it is not the whole truth. The [SAFe-framework](https://www.scaledagileframework.com) is far from what I imagine when thinking "agile", but there are some aspects which are pretty neat. Despite all the critics it is a very popular framework that is implemented in a lot of bigger companies. So there has to be *something* good in it, doesn't it? Let's have a more differentiated look at it! 
@@ -27,6 +27,7 @@ So far so good. But then SAFe just takes it too far and into too much detail. Th
 Instead of stopping at the point where teams are aware of their goals and dependencies and then setting them to work in an autonomous manner, going into that kind of detail is severely restricting the freedom to operate of the teams. After all you **committed to a plan for 5 sprints**, so as a consequence deviating from that plan needs quite a bit of justification, which has the potential to encourage teams to rather stick to the plan instead of adapting it to the current situation. 
 
 # Putting a break on self-organizing
+
 SAFe propagates a layered organizational structure with a clear flow of information, which is very nice as it scales very easily. Depending on the size of the organization you get fewer or more layers added. The downside of this is that these are structures that discourage self-organization and empowerment.
 There is always one person "above" to coordinate with. Can't decide on something? Escalate it upwards. Can't be bothered to get something done? delegate it downwards. Sounds familiar?
 
