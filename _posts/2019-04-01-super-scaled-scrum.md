@@ -4,7 +4,7 @@ title: Scaled Single Sprint Scrum<sup>TM</sup>
 thumbnail: images/aprils-fool/aprils-fool.jpg
 ---
 
-**Scrum is hard and tedious! It's like groundhog day for software projects!** Ever noticed that scrum does the same thing over and over again? Plannings, retrospectives, dailies, backlog refinements... Each sprint we do the same thing! Especially for long running projects this becomes boring. Programmers follow the [Don't repeat yourself paradigm](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), so why we do different in processes? There has to be room to optimize, right? There is a solution to it: **Scaled Single Sprint Scrum** - *It's like scrum but totally different!*
+**Scrum is hard and tedious! It's like groundhog day for software projects!** Ever noticed that scrum does the same thing over and over again? Plannings, retrospectives, dailies, backlog refinements... Each sprint we do the same thing! Especially for long running projects this becomes boring. Programmers follow the [Don't repeat yourself paradigm](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), so why we do differently in processes? There has to be room to optimize, right? There is a solution to it: **Scaled Single Sprint Scrum** - *It's like scrum but totally different!*
 
 # Scaled Single Sprint Scrum<sup>TM</sup>
 
