@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leadership debt will break your legs
+title: On leadership debt 
 thumbnail: images/leadership-debt/thumbnail.png
 ---
 
@@ -18,7 +18,7 @@ It is almost impossible to avoid such debt completely in an evolving environment
 
 Unfortunately leadership debt is even less tangible than technical debt and its effect often have a much longer delay. Lack of hard facts and temporal dissonance makes it very hard to recognize leadership debt. 
 
-# Avoiding and how to handle leadership debt 
+# Avoiding paying the interest 
 
 Competent leaders are necessary in modern organizations and even more so if that organization is undergoing a transformation. As changing the organizational DNA often forces an organization to internally realign itself, somebody has to take over the lead in figuring out the direction to go. So it is natural, that people are looking for leaders that are driving such change. It is noteworthy that there often is a distinct leader in a certain situation, but that is not necessarily always the same person for each situation. In an unstructured social setting such leaders often emerge spontaneously through conversation and behavior, but in a company people are often attributed to roles which consequently fosters an expectation an who is leading. A word of warning: Avoid assuming that just because a person is fulfilling a certain role he or she is automatically good at leading (or even aware of the implied leadership). 
 
@@ -33,7 +33,7 @@ Getting honest feedback is important for all people, but as leaders are key figu
 ![Escaping leadership debt]({{ site.baseurl }}/images/leadership-debt/escaping-leadership-debt.png)
 <br>*Escaping Leadership debt*
 
-# Getting out of leadership debt
+# First steps to become debt-free
 
 As each organization has its own context there is no "guaranteed to work"-recipe to minimize leadership debt, but the following measures are often a very good starting point. 
 
