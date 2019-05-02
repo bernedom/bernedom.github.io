@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Leadership debt will break your legs
-thumbnail: images/getting-safed/thumbnail.png
+thumbnail: images/leadership-debt/thumbnail.png
 ---
 
 **In the future we need few managers, but lots of leaders.** Countless companies and organizations are currently changing how they work internally. Some experience a growth spurt in the wake of digitalisation, others want to be more flexible in reacting to change. And a lot of these organizations struggle with these transformations. They got the agile framework of their choosing in place, they got the teams set up and maybe they even streamlined their portfolio and technological infrastructure to be easy to adapt to changes. At first everything looks good, but after a while all the new shining things start to lose their gleam and things become tedious again. Decisions still take ages to be put into action and once a course is set people find it hard to deviate from it. Not to mention all the fluffy stuff like empowerment of the teams and people, that somehow does not seem to happen. These symptoms might hint at what I call "leadership debt". 
@@ -28,6 +28,10 @@ It is possible to minimize the amount of debt incurred, but avoiding it complete
 
 Leading people is not something that can be learned over night or even with a two day course in "Leadership 101" - unfortunately looking at a lot of companies this seems to be exactly what is assumed. Few people can perform in a leadership function naturally, for most of us a very steep learning curve awaits to become good at leading and inspiring people. Formal training helps, but strong leaders acquire their competence through constant and active reflection and learning-by-doing. Even better if leaders are not just reflecting for themselves, but receive honest and critical feedback from others. Unfortunately lots of organizations lack the practice to apply such feedback to their leaders and are further hampered by structures that make giving feedback harder. Consciously creating structures and mechanisms that foster constant feedback and learning are the most important things for avoiding leadership debt in an organization. This starts with a culture where **people give and receive critical, but constructive feedback daily**. 
 Getting honest feedback is important for all people, but as leaders are key figures in an organization, for them being in a good feedback loop is worth even more. 
+
+
+![Escaping leadership debt]({{ site.baseurl }}/images/leadership-debt/escaping-leadership-debt.png)
+<br>*Escaping Leadership debt*
 
 # Getting out of leadership debt
 
