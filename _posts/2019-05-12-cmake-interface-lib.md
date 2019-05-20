@@ -11,9 +11,71 @@ I tried to keep the cmake file as small as possible omitting a few possible opti
 
 The usage of our header only library should be as simple as calling `find_package` and then using `target_link_library` on it. See [here for a full example](https://github.com/bernedom/SI/blob/master/example/CMakeLists.txt)
 
-# Setting up the project for building 
+# Overview
 
-**  # todo add expansion list
+In order to make the interface library usable, the following things have to be done. 
+
+1. Set up the cmake project
+1. Define the libary to be built as a header only libarary
+1. Add files to the library
+1. Define installation properties
+1. Specify which files to copy into the installation directory
+
+<details>
+<summary markdown="span">
+Click here to expand the full CMakeLists.txt
+</summary>
+
+```cmake
+cmake_minimum_required(VERSION 3.8)
+
+project("SI" VERSION 0.0.4)
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:include>)
+
+target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
+
+enable_testing()
+add_subdirectory(test)
+
+install(TARGETS ${PROJECT_NAME}
+        EXPORT SI_Targets
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+        INCLUDES
+        DESTINATION include)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
+                                 VERSION ${PROJECT_VERSION}
+                                 COMPATIBILITY SameMajorVersion)
+
+configure_package_config_file(
+  "${PROJECT_SOURCE_DIR}/cmake/SIConfig.cmake.in"
+  "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+  INSTALL_DESTINATION
+  lib/cmake/${PROJECT_NAME})
+
+install(EXPORT SI_Targets
+        FILE ${PROJECT_NAME}Targets.cmake
+        NAMESPACE ${PROJECT_NAME}::
+        DESTINATION lib/cmake/${PROJECT_NAME})
+
+install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+              "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+        DESTINATION lib/cmake/${PROJECT_NAME})
+
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
+```
+</details>
+
+# Setting up the project for building 
 
 The first line of all cmake files is the minimum required version. Here version `3.8.` Generally I try to pick the lowest version number that supports all the features I'm using.
 
@@ -26,6 +88,8 @@ The next line denotes the name of the project "SI" in our case and the version (
 ```cmake
 project("SI" VERSION 0.0.4)
 ```
+
+# Defining the header-only library
 
 `add_library` tells camke that we want to build a library and to set up the [target](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html). Good practice is to use the project name as a variable `${PROJECT_NAME}` as the name for the library/target for consistency reasons. The [keyword `INTERFACE`](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html#interface-libraries) makes our target a header only library that does not need to be compiled. 
 
@@ -44,7 +108,7 @@ So far the target of our library is set up, but it does not contain any files ye
 
 `$<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>` tells cmake that if the libray is used directly by another cmake target (in the *BUILD* context), then the include path is `${${PROJECT_NAME}_SOURCE_DIR}/include}` which is a nested variable. `${${PROJECT_NAME}_SOURCE_DIR}` contains an automatically generated variable which points to the directory in which the CMakeLists.txt lies that contains the `project()` call. This expands to `/directory/where/CmakeList.txt/is/include`
 
-`$<INSTALL_INTERFACE:include>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects.
+`$<INSTALL_INTERFACE:include>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects. The target path for installation can be set by setting the `CMAKE_INSTALL_PREFIX` variable. 
 
 ```cmake
 target_include_directories(
@@ -64,9 +128,13 @@ If a compiler does not support the specified feature, building the library will 
 target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
 ```
 
-By now we are able to use the project by copying it into an existing source tree and adding it 
-
 # Installation instructions
+
+By this point the project itself is set up an can be built locally. However it cannot yet be installed to the system. For this we specify where to install by using the [`install` command](https://cmake.org/cmake/help/latest/command/install.html).
+
+First we list the targets to install by telling cmake `TARGETS ${PROJECT_NAME}` again using the variable `${PROJECT_NAME}` which we used in `add_libary` to create the target for the libary. 
+Next we define an `EXPORT` target which tells cmake to create a Cmake-file containing code to import the specified targets later from the installation path. The name of our EXPORT target is `SI_Targets`. 
+ 
 
 ```cmake
 install(TARGETS ${PROJECT_NAME}
