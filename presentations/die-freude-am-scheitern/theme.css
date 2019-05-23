@@ -116,6 +116,18 @@ a {
 }
 
 
+.bottom-abs {
+    position: absolute;
+    width: 80%;
+    display: block;
+    bottom: 10%;
+    left: 0;
+    
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
 
 .footer { position: absolute; bottom: 12px; left: 20px; }
 .footer a { font-family: 'Yanone Kaffeesatz'; }
