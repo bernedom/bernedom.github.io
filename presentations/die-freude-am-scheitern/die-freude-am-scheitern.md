@@ -8,12 +8,13 @@ background-size: contain
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 class: center, middle, inverse
+background-image: url(images/title_background.jpg)
 
-Die Freude am Scheitern
-===
+# Die Freude am Scheitern
 
+## Dominik Berner
+### Software Engineer, Agilist, Rock Climber
 
-### Dominik Berner
 
 ![](logo_bbv_thumb.png)
 
@@ -25,34 +26,15 @@ Die Freude am Scheitern
 Das gilt nicht nur fürs Klettern, sondern überall im Leben. 
 
 Ihr kennt mich als Software Ingineur und Agilist, aber ich bin auch begeisterter Kletterer
-Seit über 10 Jahren besteige ich Berge 
+Seit über 10 Jahren besteige ich Berge. 
 
 ---
-
-background-image: url(images/IMG_7222.jpg)
-
-# Klettern und Softwareentwicklung 
-
-### Same Same but different
-
-???
-
-Klettern und Softwareentwicklung haben viel gemeinsam und sich doch ganz Unterschiedlich
-
-Klettern ist auch ein mentaler sport
-
-* viel Konzentration
-* commitment (Da gehts nur noch vorwärts)
-* Abstriche bei der Sorgfalt haben fatale folgen
-* Teamsport (zumindest draussen)
-* Der Kontext macht viel aus - Hobbyprojekt vs high-stake-project (Boing 737)
-* Methodisches vorgehen vs guts and glory 
-
----
-
+background-image: url(images/celebrate_success.jpg)
 # Erfolge feiern!
 
 ???
+
+Erfolge sind cool und geben uns mut
 
 * Oben auf dem Gipfel stehen, wissend, dass man toughes geleistet hat. Tief einatmen, aussicht geniessen
 * Software ausgeliefert, wissend dass man da was nützliches gebaut hat. Tief einatmen, Kundenfeedback geniessen
@@ -60,23 +42,80 @@ Klettern ist auch ein mentaler sport
  wieder runterkommen und noch Jahrelang vom Trip Schwärmen
  - Software Ausliefern, Kundenzufriedenheit über Jahre erleben - Noch Jahrelang vom Erlebnis schwärmen
 
+
+# Schön wenn es klappt - Der Alltag sieht oft anders aus!
+
 ---
 
-# Fehlschläge
-
-
-![](danger-bar.png)
+# Fehlschläge erleben
 
 ???
 
-- Es hat nicht gereicht, Mentaler Hammer - Noch Jahrelang vom Trip reden
-- Softwar Ausliefern, Es läuft nicht, Krisensitzung - Noch Jahrelang vom Elrebnis reden 
+# Der Alltag ist begleitet von Scheitern mal klein 
+
+## hoppla das wäre schöner gegegangen
+bis zu
+## Fatale Konsequenzeen - Rega Helikopter (Von noch schlimmer wollen wir nicht reden)
+
+Das fängt beim "hups ich hab mich am Haken festgehalten" and und endet dort wo jemand verletzt wird oder stirbt. 
+Kleine unschönheiten in der Software bis zu, boing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstörens
 
 Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand
 
-Das fängt beim "hups ich hab mich am Haken festgehalten" and und endet dort wo jemand verletzt wird oder stirbt. - Beim Klettern ist das realität und die Community geht relativ offen und bewusst damit um. 
+# Arten von Scheitern
 
-Doch was ist dazwischen? 
+--
+
+![](images/dangermeter.png)
+
+???
+
+# Zwischen den extremen gibt es Zwischenschritte
+* Am Sport Scheitern - Nicht so nice, TDD nicht geklappt, Technologie nicht ideal...
+* Kontrollierter Abbruch - Stichwort kontrolliert 
+* "Nochmals davon kommen" - Nur Glück entscheidet über Ausgang - **Das hätte schlimmer kommen können**
+* Katastrophaler Fehlschlag - Glück hat nicht gereicht, Konsequenzen sind potentiell Schwerwiegend
+
+### Die Grenzen zwischen den Sektoren sind unscharf und individuell
+
+---
+
+# Wo macht es freude
+
+** Bild mit Zeiger zwischen "Davonkommen und kontrolliertem Abbruch"
+
+???
+
+* Tägliches scheitern darf nicht frustrieren - Machs nochmal werde besser
+* Katastrophal wollen wir nicht
+
+* Die Magie geschieht zwischen Gelb un organge 
+
+**Man muss wissen wie weit man zu weit gehen darf**
+
+Gelb: Immer umkehren bringt uns irgendwie nicht auf den Gipfel - Bringt das Projekt auch nicht raus
+Orange: Vermutlich viele kleine Aspekte die uns hierhin  gebracht haben
+
+Im orangen geschieht etwas wunderbares. 
+Man merkt Kontrolle ist nicht mehr da. Fight, Flight, Freeze reaktion - kleinhirn
+**Nicht in aktionismus verfallen** - Gelassenheit
+
+Dann wenn das kleinhirn überwunden ist: Ziel wieder die kontrolle erreichen
+* Voller Fokus alles gelernte wird aktiviert und angewendet 
+* Teamwork wird enorm wichtig
+* Man lernt sich selbst kennen - 
+
+Schritt für Schritt wird die Lösung erarbeitet
+- Ein zusätzlicher Haken hier, trickkiste der Knöpfe etc
+- SW Rollback, Stabilisieren, 
+
+Bis man wieder im grünen/gelben ist
+
+---
+
+# Runterkommen - Retrospektive
+
+Man diskutiert und analysiert
 
 ---
 
@@ -102,8 +141,6 @@ Das sind häufiges fehler, was machen wir damit? Wir lernen mehr - Mehr in die K
 
 - Software nur teilweise ausgeliefert, Teile der Funktionalität laufen nicht. Projektbudget aufgebraucht, stop. Feature wird nicht weiterentwickelt oder funktioniert nicht, socherheitsrichtlinien können so nicht eingehalten werden. 
 
-Bsp. Galtigentürme bei 35°C - Nach zwei von drei türmen ohne Wasser dagestanden, schwindel & konzentrationsverlust
-
 ---
 
 # Nochmals davonkommen
@@ -118,11 +155,6 @@ Kontrolverlust ist für jeden Anderst. Je nach Skill kommt der evtl später. Ich
 
 Da lernt man viel über sich selbst. Man ist aus der Kontrollzone geraten 
 Glück entscheidet darüber ob man davon kommt. 
-
-
-Bsp: Bockmattlitour - Falsch am Drahtseil eingehängt 
-Galtigentürme, verstiegen nicht wiede rrunter, pendelsturz - Fersenbeinbruch
-Louis am falschen ort eingeklinkgt, Partnercheck verkackt
 
 ---
 
@@ -155,9 +187,6 @@ Konsequenz: du kletters vermutlich nei mehr, du entwickelst vermutlich nie mehr 
 
 ???
 
-Szene Setting - Scheitern beim klettern, ( scheitern beim SW entwickeln)
- - Auf dem Gipfel stehen ist geil, wieder runterkommen und noch Jahrelang vom Trip Schwärmen
- - Software Ausliefern, Kundenzufriedenheit über Jahre erleben - Noch Jahrelang vom Erlebnis schwärmen
   
 Fehlschläge 
 
@@ -181,3 +210,16 @@ Abwohl die Abstürze in der Softwareentwicklung oft weniger dramatisch sind als 
 Natürlich möchten wir jeden Gipfel erreichen und dass jedes Softwareprodukt ein voller Erfolg wird, aber manchmal klappt das einfach nicht. Scheitern gehört zum Leben dazu und mit der richtigen Einstellung werden aus Rückschlägen wertvolle Erfahrungen. Sowohl als Bergsteiger als auch als Softwareingenieur habe ich mich vertieft mit dem Thema auseinander gesetzt. In diesem Talk gebe ich euch Denkanstösse zum positiven Umgang mit Fehlschlägen  - ob in der Steilwand oder im Alltag.
 
 PS. Der Talk ist auch für die nicht schwindelfreien unter euch geeignet ;)
+
+
+
+Klettern und Softwareentwicklung haben viel gemeinsam und sich doch ganz Unterschiedlich
+
+Klettern ist auch ein mentaler sport
+
+* viel Konzentration
+* commitment (Da gehts nur noch vorwärts)
+* Abstriche bei der Sorgfalt haben fatale folgen
+* Teamsport (zumindest draussen)
+* Der Kontext macht viel aus - Hobbyprojekt vs high-stake-project (Boing 737)
+* Methodisches vorgehen vs guts and glory 
