@@ -189,7 +189,8 @@ vertical-align: middle;
     opacity: 0.75;
     position: absolute;
     left: 20px;
-    bottom: 12px;
+    bottom: 36px;
+    color: #111;
 }
 
 .credit a {

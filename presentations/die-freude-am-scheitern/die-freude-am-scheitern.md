@@ -34,7 +34,7 @@ background-image: url(images/celebrate_success.jpg)
 
 ???
 
-Erfolge sind cool und geben uns mut
+Erfolge sind cool und geben uns Mut
 
 * Oben auf dem Gipfel stehen, wissend, dass man toughes geleistet hat. Tief einatmen, aussicht geniessen
 * Software ausgeliefert, wissend dass man da was nützliches gebaut hat. Tief einatmen, Kundenfeedback geniessen
@@ -46,9 +46,12 @@ Erfolge sind cool und geben uns mut
 # Schön wenn es klappt - Der Alltag sieht oft anders aus!
 
 ---
-
+background-image: url(images/Falling.jpeg)
 # Fehlschläge erleben
 
+.credit[
+  https://www.stocksy.com/1198104/rock-climber-falling-whilst-climbing-a-mountain-cliff
+]
 ???
 
 # Der Alltag ist begleitet von Scheitern mal klein 
@@ -77,17 +80,19 @@ Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmitte
 * Katastrophaler Fehlschlag - Glück hat nicht gereicht, Konsequenzen sind potentiell Schwerwiegend
 
 ### Die Grenzen zwischen den Sektoren sind unscharf und individuell
+- Können und Erfahrung
 
 ---
+background-image: url(images/Falling.jpeg)
+# Zu weit gehen
 
-# Wo macht es freude
-
-** Bild mit Zeiger zwischen "Davonkommen und kontrolliertem Abbruch"
+![](images/dangermeter_lightened.png)
 
 ???
 
 * Tägliches scheitern darf nicht frustrieren - Machs nochmal werde besser
 * Katastrophal wollen wir nicht
+* Kontrollierter Abort, da lernen wir viel, wissen aber nicht wo unsere Grenzen sind 
 
 * Die Magie geschieht zwischen Gelb un organge 
 
@@ -112,10 +117,23 @@ Schritt für Schritt wird die Lösung erarbeitet
 Bis man wieder im grünen/gelben ist
 
 ---
-
+background-image: url(images/retro.jpg)
 # Runterkommen - Retrospektive
 
-Man diskutiert und analysiert
+
+.credit[
+  http://www.fornohuette.ch 
+]
+
+-- 
+
+Diskutieren, ehrlich reflektieren, post mortem
+- daran wachsen, merken wo man noch aufzuholen hat
+
+--- 
+# Die Freude am Scheitern
+
+
 
 ---
 
