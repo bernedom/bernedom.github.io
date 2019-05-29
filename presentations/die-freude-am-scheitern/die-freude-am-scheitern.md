@@ -22,20 +22,23 @@ background-image: url(images/title_background.jpg)
  
 #"Wir lernen nur durch scheitern" - reinhold messner
 
-
 Das gilt nicht nur fürs Klettern, sondern überall im Leben. 
 
 Ihr kennt mich als Software Ingineur und Agilist, aber ich bin auch begeisterter Kletterer
 Seit über 10 Jahren besteige ich Berge. 
 
 ---
-background-image: url(images/celebrate_success.jpg)
-# Erfolge feiern!
+background-image: url(images/oben_sein.jpg)
+# Hoch steigen!
 
 ???
 
 Erfolge sind cool und geben uns Mut
 
+# Geschichte erzählen
+
+Stellt euch vor... 
+ 
 * Oben auf dem Gipfel stehen, wissend, dass man toughes geleistet hat. Tief einatmen, aussicht geniessen
 * Software ausgeliefert, wissend dass man da was nützliches gebaut hat. Tief einatmen, Kundenfeedback geniessen
 
@@ -47,23 +50,21 @@ Erfolge sind cool und geben uns Mut
 
 ---
 background-image: url(images/Falling.jpeg)
-# Fehlschläge erleben
+#Tief fallen!
 
 .credit[
   https://www.stocksy.com/1198104/rock-climber-falling-whilst-climbing-a-mountain-cliff
 ]
 ???
 
-# Der Alltag ist begleitet von Scheitern mal klein 
-
 ## hoppla das wäre schöner gegegangen
 bis zu
-## Fatale Konsequenzeen - Rega Helikopter (Von noch schlimmer wollen wir nicht reden)
+## Fatale Konsequenzen 
 
 Das fängt beim "hups ich hab mich am Haken festgehalten" and und endet dort wo jemand verletzt wird oder stirbt. 
-Kleine unschönheiten in der Software bis zu, boing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstörens
+Kleine unschönheiten in der Software bis zu, boing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstören. 
 
-Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand
+Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand. Über die Jahre habe ich das Scheitern selbst etwas genauer unter die Lupe genommen. 
 
 # Arten von Scheitern
 
@@ -74,13 +75,63 @@ Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmitte
 ???
 
 # Zwischen den extremen gibt es Zwischenschritte
-* Am Sport Scheitern - Nicht so nice, TDD nicht geklappt, Technologie nicht ideal...
-* Kontrollierter Abbruch - Stichwort kontrolliert 
-* "Nochmals davon kommen" - Nur Glück entscheidet über Ausgang - **Das hätte schlimmer kommen können**
-* Katastrophaler Fehlschlag - Glück hat nicht gereicht, Konsequenzen sind potentiell Schwerwiegend
+
+---
+background-image: url(images/Falling.jpeg)
+#Tief fallen!
+
+![](images/dangermeter_sport.png)
+
+???
+
+## Am Sport Scheitern/Sportlich scheitern 
+   Nicht so nice, TDD nicht geklappt, Technologie nicht ideal, route nicht rotpunkt
+   **Passiert uns täglich, normalbetrieb** 
+
+---
+background-image: url(images/Falling.jpeg)
+#Tief fallen!
+
+![](images/dangermeter_controlled.png)
+
+???
+
+## Kontrollierter Abbruch 
+   Stichwort kontrolliert, Der Gipfel bleibt unerreichbar, zurück auf den Boden. Feature lässt sich so nicht ausliefern, zurück auf start nochmals aufrollen, architektur überdenken. Code endet nicht in der Produktion 
+   **und dann nochmals vom Boden auf einsteigen**  
+   **Passiert uns ab- und zu mal** - Kann dennoch ganz OK sein. 
+
+---
+background-image: url(images/Falling.jpeg)
+#Tief fallen!
+
+![](images/dangermeter_getting_away.png)
+
+???
+
+---
+background-image: url(images/Falling.jpeg)
+#Tief fallen!
+
+![](images/dangermeter_catastrophic.png)
+
+???
+
+## Nochmals davon kommen" 
+  Teilweise Kontrollverlust. Nur Glück entscheidet über Ausgang - Code ist in produktion, man merkt es aber bevor schlimmeres passiert.  jemand ist bereits leicht verletzt, man lässt Material am Berg.
+  **Selten, aber wenn...** 
+
+## Katastrophaler Fehlschlag
+ Glück hat nicht gereicht, Konsequenzen sind potentiell Schwerwiegend. Von längerer downtime bis "Du wirst nie mehr Klettern/Programmieren. 
+ Code ist nicht nur in produktion sondern schaden ist auch aktiv
+  - Herzschrittmacher mit Zeitüberlauf 256 Schläge/min
+  - Boeing 737
+ **Hier wollen wir ums verrrecken nicht sein!**
 
 ### Die Grenzen zwischen den Sektoren sind unscharf und individuell
 - Können und Erfahrung
+
+# Aber wo ist die Freude?
 
 ---
 background-image: url(images/Falling.jpeg)
@@ -90,31 +141,39 @@ background-image: url(images/Falling.jpeg)
 
 ???
 
-* Tägliches scheitern darf nicht frustrieren - Machs nochmal werde besser
-* Katastrophal wollen wir nicht
-* Kontrollierter Abort, da lernen wir viel, wissen aber nicht wo unsere Grenzen sind 
+# An der Grenze zwischen Gelb und Orange passiert etwas spannendes
 
-* Die Magie geschieht zwischen Gelb un organge 
+Man ist unbewusst zu weit gegangen und hat ein Teil der Kontrolle verloren. 
 
-**Man muss wissen wie weit man zu weit gehen darf**
+Orange: Vermutlich viele kleine Aspekte die uns hierhin gebracht haben.
+ - Ob selbst schuld oder nicht ist egal
 
-Gelb: Immer umkehren bringt uns irgendwie nicht auf den Gipfel - Bringt das Projekt auch nicht raus
-Orange: Vermutlich viele kleine Aspekte die uns hierhin  gebracht haben
+# Geschichte: Haken nicht richtig gesetzt, Pendelsturz Fersenbeinbruch - Exit aus Route
+# DB Update verhauen - Alle Order der letzten 24h weg
 
-Im orangen geschieht etwas wunderbares. 
-Man merkt Kontrolle ist nicht mehr da. Fight, Flight, Freeze reaktion - kleinhirn
-**Nicht in aktionismus verfallen** - Gelassenheit
+## Hier lernt man extrem viel über sich
 
-Dann wenn das kleinhirn überwunden ist: Ziel wieder die kontrolle erreichen
-* Voller Fokus alles gelernte wird aktiviert und angewendet 
+* Kleinhirn setzt ein "Flight, Fight or Freeze"
+* Dem gilt es zu widerstehen - Erfahrung Hilft hier viel
+
+Dann wenn das kleinhirn überwunden ist: **Ziel wieder die kontrolle erreichen**
+* Voller Fokus alles gelernte wird aktiviert und angewendet
+  * Rollbacks, Schaden eingrenzen, Krisenkommunikation 
 * Teamwork wird enorm wichtig
+  * Braucht vertrauen und brutale Ehrlichkeit auch sich selbst gegenüber
 * Man lernt sich selbst kennen - 
 
 Schritt für Schritt wird die Lösung erarbeitet
-- Ein zusätzlicher Haken hier, trickkiste der Knöpfe etc
+- Ein zusätzlicher Haken hier, Trickkiste der Knöpfe etc
 - SW Rollback, Stabilisieren, 
 
-Bis man wieder im grünen/gelben ist
+Bis man wieder im gelben ist.
+Versuchung zu widerstehen dass nun alles Grün ist. 
+ohne abstieg auf den Boden nicht mehr werden.
+
+**Man muss wissen wie weit man zu weit gehen darf**
+
+# Man entschärft die Situation, und geht runter. Und dann?
 
 ---
 background-image: url(images/retro.jpg)
@@ -125,119 +184,32 @@ background-image: url(images/retro.jpg)
   http://www.fornohuette.ch 
 ]
 
--- 
+???
 
-Diskutieren, ehrlich reflektieren, post mortem
-- daran wachsen, merken wo man noch aufzuholen hat
+# Der entscheidende Schritt.
 
---- 
+Man ist unten in der Hütte, Kollege mit Rega weg. Man ist im Bier, der Server läuft wieder - so wie vorgestern
+Revue passieren lassen, darüber reden. 
+
+**Vielleicht erst mit ein paar Tagen Abstand möglich**
+
+daran wachsen, merken wo man noch aufzuholen hat. 
+
+---
+background-image: url(images/celebrate_success.jpg)
 # Die Freude am Scheitern
 
-
-
----
-
-# Am Sport scheitern
-
 ???
 
-- Ich wollte eine clean begehung, ich wollte die route on-sight-rotpunkt, ich wollte über eine bstimmte reoute auf den Gipfel - Hat nicht geklappt, ich hab beschissen, aber ich bin oben
+Und dann ist man wieder zurück am Fels 
+Oder man packt die Software nochmals an
 
-- Ich wollte konsequent TDD machen, ich wollte technologie version 123 verwenden, ich wollte programmiersprache XY, es hätte auf Prozessor Es wäre noch besser gegangen
+Vorbereitet, Nervös und los gehts
 
-Das sind häufiges fehler, was machen wir damit? Wir lernen mehr - Mehr in die Kletterhalle, nochmals ans Gathering oder in den TDD kurs und nächstes mal machen wir es besser
+Schlüsselstelle voller Angst - 
 
----
+Oben ankommen wissen dass man es besser gemacht hat als man es vorher gekonnt hätte
 
-# Kontrollierter Abbruch!
+# Das meine Freunde ist die Freude Am Scheitern 
+# Danke!
 
-???
-
-# Stichwort Kontrolliert
-
-- Es geht einfach nicht mehr weiter, ich kann nicht mehr. Das Wetter wird schlecht, wir gehen runter. Gipfel wird nicht erreicht, das isst enttäuschend. der Ausflug war aber trotzdem schön. Kostet auch vielleicht etwas. - Wir schauen woran es lag und kommen nochmals her und machen weiter wo wir aufgehört haben
-
-- Software nur teilweise ausgeliefert, Teile der Funktionalität laufen nicht. Projektbudget aufgebraucht, stop. Feature wird nicht weiterentwickelt oder funktioniert nicht, socherheitsrichtlinien können so nicht eingehalten werden. 
-
----
-
-# Nochmals davonkommen
-
-???
-
-- Seil reicht gerade so noch, ungesichert über dem Abgrund, Verschätzt rückzug unmöglich  und Wetter kehrt. Fataler Sicherungsfehler. Totale erschöpfung. 
-- Aus versehen unverschlüsselte Passwörter in die Produktion gegeben - Rollback & stillstand. Per zufall noch konzeptionieller Fehler entdeckt
-
-Man steigt runter und analysiert. Sehr persönlich - Da muss man ein Team sein und reflektieren. Verständnis für Kontext aufbauen. Wie sind wir in solche situationen gekommen? 
-Kontrolverlust ist für jeden Anderst. Je nach Skill kommt der evtl später. Ich hänge am Seil und bin am Ende - Mein kollege klettert munter drauflos. Wer hat nun recht? 
-
-Da lernt man viel über sich selbst. Man ist aus der Kontrollzone geraten 
-Glück entscheidet darüber ob man davon kommt. 
-
----
-
-# Fataler Absturz
-
-???
-- Seil reicht nicht. Unten rausabgeseilt. "ach das kann ich ungesichert", Machismo
-- Ich weiss nicht was ich tue. Mir fehlt die komplette expertise, willentliches ignorieren von gegebenem
-
-Konsequenz: du kletters vermutlich nei mehr, du entwickelst vermutlich nie mehr software
-
----
-
-# Mit freude Scheitern
-
-- Scheitert wo es grün ist, so viel ihr könnt
-- Brecht kontrolliert ab wenns zu viel wird, lernt schnell und versucht es nochmals
-- Erlebt die orange zone bewusst. Trainiert euch wo ist die Grenze$
-  - Baut skills auf die euch in die orange Zone schauen lasst und damit ihr wieder zurück kommt
-  - sucht euch Partner deren Orange Zone später anfängt
-  - ein schritt vorwärts, ein schritt zurück
-- Seid hartnäckig. Rauf & runter bis der Gipfel erreicht ist, dann sucht euch den nächsten
-- Ärgert euch im Moment und freut euch an dem Erlebten und den Guten Geschichten
-
-
-
----
-
-# Brainstorm
-
-???
-
-  
-Fehlschläge 
-
-- Es hat nicht gereicht, Mentaler Hammer - Noch Jahrelang vom Trip reden
-- Softwar Ausliefern, Es läuft nicht, Krisensitzung - Noch Jahrelang vom Elrebnis reden 
-
-  
-von Grün (Scheitern am Sport) über Orange (Aufhören), Rot (Damit davon kommen), Schwarz (Katastrophaler Fehlschlag)
-
-Man muss wissen wie weit man zu weit gehen kann
-
-John Dill Yosemite mountain rescue - Accident report
-(John Dill Staying alive (PDF) )[http://dev.supertopo.com/topos/yosemite/stayalive.pdf]
-bob Gaines Advanced Rock climbing: Mastering Sport and Trad Climbing
-
-
-Bergsteigerlegende Reinhold Messner sagte einst "Wir lernen nur durch Scheitern".
-
-Abwohl die Abstürze in der Softwareentwicklung oft weniger dramatisch sind als beim Bergsteigen, gibt es durchaus Parallelen wie wir mit Fehlschlägen umgehen. Was heisst es genau "zu scheitern". Wo dürfen wir uns Fehler erlauben und wo gilt Nulltoleranz? Und wie können wir an den Misserfolgen wachsen?
-
-Natürlich möchten wir jeden Gipfel erreichen und dass jedes Softwareprodukt ein voller Erfolg wird, aber manchmal klappt das einfach nicht. Scheitern gehört zum Leben dazu und mit der richtigen Einstellung werden aus Rückschlägen wertvolle Erfahrungen. Sowohl als Bergsteiger als auch als Softwareingenieur habe ich mich vertieft mit dem Thema auseinander gesetzt. In diesem Talk gebe ich euch Denkanstösse zum positiven Umgang mit Fehlschlägen  - ob in der Steilwand oder im Alltag.
-
-PS. Der Talk ist auch für die nicht schwindelfreien unter euch geeignet ;)
-
-
-
-Klettern und Softwareentwicklung haben viel gemeinsam und sich doch ganz Unterschiedlich
-
-Klettern ist auch ein mentaler sport
-
-* viel Konzentration
-* commitment (Da gehts nur noch vorwärts)
-* Abstriche bei der Sorgfalt haben fatale folgen
-* Teamsport (zumindest draussen)
-* Der Kontext macht viel aus - Hobbyprojekt vs high-stake-project (Boing 737)
-* Methodisches vorgehen vs guts and glory 
