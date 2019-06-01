@@ -225,8 +225,8 @@ vertical-align: middle;
 
 /** css workaround to use chrome's print to pdf*/
 @page {
- /* size: 908px 681px for 4:3 */ 
-  size: 1210px 681px;
+  size: 908px 681px for 4:3  
+  /*size: 1210px 681px;*/
   margin: 0;
 }
 

@@ -27,13 +27,19 @@ Das gilt nicht nur fürs Klettern, sondern überall im Leben.
 Ihr kennt mich als Software Ingineur und Agilist, aber ich bin auch begeisterter Kletterer
 Seit über 10 Jahren besteige ich Berge. 
 
+# Wie gehe ich mit fehlschlägen um, wo darf ich fehlschlagen, wo besser nicht
+
+## Fehlschläge sind wichtig, aber um sie zu verstehen müssen wir auch die erfolge erleben
+
+Erfolge sind cool und geben uns Mut
+
 ---
 background-image: url(images/oben_sein.jpg)
-# Hoch steigen!
+# Erfolge feiern!
 
 ???
 
-Erfolge sind cool und geben uns Mut
+
 
 # Geschichte erzählen
 
@@ -50,7 +56,7 @@ Stellt euch vor...
 
 ---
 background-image: url(images/Falling.jpeg)
-#Tief fallen!
+# Fehlschläge erleben!
 
 .credit[
   https://www.stocksy.com/1198104/rock-climber-falling-whilst-climbing-a-mountain-cliff
@@ -61,10 +67,12 @@ background-image: url(images/Falling.jpeg)
 bis zu
 ## Fatale Konsequenzen 
 
+Über die Jahre habe ich das Scheitern selbst etwas genauer unter die Lupe genommen. 
+
 Das fängt beim "hups ich hab mich am Haken festgehalten" and und endet dort wo jemand verletzt wird oder stirbt. 
 Kleine unschönheiten in der Software bis zu, boing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstören. 
 
-Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand. Über die Jahre habe ich das Scheitern selbst etwas genauer unter die Lupe genommen. 
+Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand. 
 
 # Arten von Scheitern
 
@@ -78,7 +86,7 @@ Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmitte
 
 ---
 background-image: url(images/Falling.jpeg)
-#Tief fallen!
+# Fehlschläge erleben!
 
 ![](images/dangermeter_sport.png)
 
@@ -88,9 +96,12 @@ background-image: url(images/Falling.jpeg)
    Nicht so nice, TDD nicht geklappt, Technologie nicht ideal, route nicht rotpunkt
    **Passiert uns täglich, normalbetrieb** 
 
+## Das soll uns nicht aufhalten
+## kontiniuerlich verbessern
+
 ---
 background-image: url(images/Falling.jpeg)
-#Tief fallen!
+# Fehlschläge erleben!
 
 ![](images/dangermeter_controlled.png)
 
@@ -103,23 +114,25 @@ background-image: url(images/Falling.jpeg)
 
 ---
 background-image: url(images/Falling.jpeg)
-#Tief fallen!
+# Fehlschläge erleben!
 
 ![](images/dangermeter_getting_away.png)
 
 ???
 
+
+## Nochmals davon kommen" 
+  Teilweise Kontrollverlust. Nur Glück entscheidet über Ausgang - Code ist in produktion, man merkt es aber bevor schlimmeres passiert.  jemand ist bereits leicht verletzt, man lässt Material am Berg.
+  **Selten, aber wenn...** 
+
 ---
 background-image: url(images/Falling.jpeg)
-#Tief fallen!
+# Fehlschläge erleben!
 
 ![](images/dangermeter_catastrophic.png)
 
 ???
 
-## Nochmals davon kommen" 
-  Teilweise Kontrollverlust. Nur Glück entscheidet über Ausgang - Code ist in produktion, man merkt es aber bevor schlimmeres passiert.  jemand ist bereits leicht verletzt, man lässt Material am Berg.
-  **Selten, aber wenn...** 
 
 ## Katastrophaler Fehlschlag
  Glück hat nicht gereicht, Konsequenzen sind potentiell Schwerwiegend. Von längerer downtime bis "Du wirst nie mehr Klettern/Programmieren. 
@@ -141,59 +154,49 @@ background-image: url(images/Falling.jpeg)
 
 ???
 
-# An der Grenze zwischen Gelb und Orange passiert etwas spannendes
+## An der Grenze zwischen Gelb und Orange passiert etwas spannendes
 
 Man ist unbewusst zu weit gegangen und hat ein Teil der Kontrolle verloren. 
 
 Orange: Vermutlich viele kleine Aspekte die uns hierhin gebracht haben.
  - Ob selbst schuld oder nicht ist egal
 
-# Geschichte: Haken nicht richtig gesetzt, Pendelsturz Fersenbeinbruch - Exit aus Route
-# DB Update verhauen - Alle Order der letzten 24h weg
+**Bsp. Haken nicht richtig gesetzt, Pendelsturz Fersenbeinbruch - Exit aus Route
+ DB Update verhauen - Alle Order der letzten 24h weg** 
 
 ## Hier lernt man extrem viel über sich
+**Man muss wissen wie weit man zu weit gehen darf**
 
-* Kleinhirn setzt ein "Flight, Fight or Freeze"
-* Dem gilt es zu widerstehen - Erfahrung Hilft hier viel
+* Kleinhirn setzt ein **"Flight, Fight or Freeze"** - Dem gilt es zu widerstehen - Erfahrung Hilft hier viel
 
-Dann wenn das kleinhirn überwunden ist: **Ziel wieder die kontrolle erreichen**
+### Ziel wieder die Kontrolle erreichen
 * Voller Fokus alles gelernte wird aktiviert und angewendet
   * Rollbacks, Schaden eingrenzen, Krisenkommunikation 
 * Teamwork wird enorm wichtig
   * Braucht vertrauen und brutale Ehrlichkeit auch sich selbst gegenüber
-* Man lernt sich selbst kennen - 
-
+  
 Schritt für Schritt wird die Lösung erarbeitet
-- Ein zusätzlicher Haken hier, Trickkiste der Knöpfe etc
 - SW Rollback, Stabilisieren, 
 
-Bis man wieder im gelben ist.
-Versuchung zu widerstehen dass nun alles Grün ist. 
-ohne abstieg auf den Boden nicht mehr werden.
-
-**Man muss wissen wie weit man zu weit gehen darf**
-
-# Man entschärft die Situation, und geht runter. Und dann?
+**Bis man wieder im gelben ist. Versuchung zu widerstehen dass nun alles Grün ist. **
+ohne Abstieg auf den Boden nicht mehr werden.
 
 ---
 background-image: url(images/retro.jpg)
 # Runterkommen - Retrospektive
 
 
-.credit[
-  http://www.fornohuette.ch 
-]
-
 ???
 
-# Der entscheidende Schritt.
+# Retrospektive - Revue passieren lassen & lernen
 
-Man ist unten in der Hütte, Kollege mit Rega weg. Man ist im Bier, der Server läuft wieder - so wie vorgestern
-Revue passieren lassen, darüber reden. 
+## Offen und erhlich 
+## Wie gerieten wir in diese Situation
+### Wie haben wir uns verhalten - wo müssen wir lernen
+### Wer fühlte sich im Orangen bereich, wer im roten, wer im grünen
+### Ganz runter, lernen, drübver schlafen
 
-**Vielleicht erst mit ein paar Tagen Abstand möglich**
-
-daran wachsen, merken wo man noch aufzuholen hat. 
+## Anruf, komm das machen wir nochmals
 
 ---
 background-image: url(images/celebrate_success.jpg)
