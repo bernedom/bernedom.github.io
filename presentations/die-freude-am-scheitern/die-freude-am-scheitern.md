@@ -178,8 +178,7 @@ Orange: Vermutlich viele kleine Aspekte die uns hierhin gebracht haben.
 Schritt für Schritt wird die Lösung erarbeitet
 - SW Rollback, Stabilisieren, 
 
-**Bis man wieder im gelben ist. Versuchung zu widerstehen dass nun alles Grün ist. **
-ohne Abstieg auf den Boden nicht mehr werden.
+**Bis man wieder im gelben ist.** 
 
 ---
 background-image: url(images/retro.jpg)
@@ -187,6 +186,9 @@ background-image: url(images/retro.jpg)
 
 
 ???
+
+# Versuchung zu widerstehen dass nun alles Grün ist. **
+ohne Abstieg auf den Boden nicht mehr werden.
 
 # Retrospektive - Revue passieren lassen & lernen
 
