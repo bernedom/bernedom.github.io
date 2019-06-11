@@ -62,7 +62,7 @@ configure_package_config_file(
   INSTALL_DESTINATION
   lib/cmake/${PROJECT_NAME})
 
-install(EXPORT SI_Targets
+install(EXPORT ${PROJECT_NAME}_Targets
         FILE ${PROJECT_NAME}Targets.cmake
         NAMESPACE ${PROJECT_NAME}::
         DESTINATION lib/cmake/${PROJECT_NAME})
@@ -132,31 +132,60 @@ target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
 
 By this point the project itself is set up an can be built locally. However it cannot yet be installed to the system. For this we specify where to install by using the [`install` command](https://cmake.org/cmake/help/latest/command/install.html).
 
-First we list the targets to install by telling cmake `TARGETS ${PROJECT_NAME}` again using the variable `${PROJECT_NAME}` which we used in `add_libary` to create the target for the libary. 
-Next we define an `EXPORT` target which tells cmake to create a Cmake-file containing code to import the specified targets later from the installation path. The name of our EXPORT target is `SI_Targets`. 
+First we list the targets to install by telling cmake `TARGETS ${PROJECT_NAME}` again using the variable `${PROJECT_NAME}` which we used in `add_library` above to create the target for the libary. 
+Next an `EXPORT` target is defined.  This tells cmake to create a Cmake-file containing instrcutions to import the specified targets later from the installation path. The name of our EXPORT target is `SI_Targets`, again using the variable. 
  
+Next the folders for the installation artifacts are set. The folder names are relative to what the user defines in the `CMAKE_INSTALL_PREFIX` variable.
+
+* `ARCHIVE` - All files that are neither executables, libraries (.so), header files or executables. 
+* `LIBRARY` - All shared libraries (.so/.dll) files, tyically all binaries produced by a `add_library` call
+* `RUNTIME` - All executables build by an `add_excutable` call
+* `INCLUDE` - All public header files. For our header only library these are all files. 
+  
+ Technically for a header only library only the `INCLUDES` would be needed, but it is good practice to supply the other locations as well. 
+
 
 ```cmake
 install(TARGETS ${PROJECT_NAME}
-        EXPORT SI_Targets
+        EXPORT ${PROJECT_NAME}_Targets
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin
-        INCLUDES
-        DESTINATION include)
+        INCLUDES DESTINATION include)
 ```
+
+The next two lines are a shortcut to avoid having to write the boilerplate cmake code to manage version comparison. First the cmake package containing the macros for that is included. This is deliverd with the standard cmake installations since 3.5. Then the macro `write_basic_package_version_file` is called and instructed to create a file `SIConfigVersion.cmake`, again using the variable containing the project name. The Version specified is the one supplied in the `project` dierective at the beginning of the file and since I'm using semantic versioning I declare that this library is compatible to all it's versions of the same Major digit. 
 
 ```cmake
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
                                  VERSION ${PROJECT_VERSION}
                                  COMPATIBILITY SameMajorVersion)
+```
 
+After setting up the version, another cmake macro `configure_package_config_file` is called, to generate the configuration file which cmake uses for using an installed package.
+<details>
+<summary markdown="span">
+ The content of the input file `SIconfig.cmake.in` is quite simple.  
+</summary>
+```cmake
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
+check_required_components("@PROJECT_NAME@")
+```
+
+</details>
+All the placeholders marked with `@` in the input file are replaced with the explicit values and the file is written to the target .cmake file. 
+By specifying `INSTALL_DESTINATION` cmake is told where to place it when creating the installation artifact.  
+
+```cmake
 configure_package_config_file(
-  "${PROJECT_SOURCE_DIR}/cmake/SIConfig.cmake.in"
+  "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
   "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
   INSTALL_DESTINATION
   lib/cmake/${PROJECT_NAME})
+```
 
 install(EXPORT SI_Targets
         FILE ${PROJECT_NAME}Targets.cmake
