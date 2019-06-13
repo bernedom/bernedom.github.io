@@ -44,7 +44,7 @@ enable_testing()
 add_subdirectory(test)
 
 install(TARGETS ${PROJECT_NAME}
-        EXPORT SI_Targets
+        EXPORT ${PROJECT_NAME}_Targets
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin
@@ -187,16 +187,30 @@ configure_package_config_file(
   lib/cmake/${PROJECT_NAME})
 ```
 
-install(EXPORT SI_Targets
+## Selecting targets and files to install
+
+After setting up the configuration for installing the library the targets and files to be installed have to be made known to cmake by using the `install` function. First the file containing the targets is created and copied to the installation folder. The `EXPORT` keyword at the beginning tells cmake to export the installation targets which are defined in the file `SITargets.cmake` which is created in the build folder when building the project to the `DESTINATION` specified. All targets are to be placed in the `NAMESPACE` SI.  
+
+```cmake
+install(EXPORT ${PROJECT_NAME}_Targets
         FILE ${PROJECT_NAME}Targets.cmake
         NAMESPACE ${PROJECT_NAME}::
         DESTINATION lib/cmake/${PROJECT_NAME})
+```
 
+Since we created cmake file that contain the build configuration as well as information about version compatibilty above, these files are installed to the install folder as well. By providing the `FILES` keyword a list of files is given to be saved in a target folder. 
+
+```cmake
 install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
         DESTINATION lib/cmake/${PROJECT_NAME})
+```
 
+Finally the header files are copied to the installation folder. For header only libraries ususally all header files are supplied, so instead of providing individual files the whole include directory is copied. A thing to note here as of cmake 3.12 is that the whole folder specified is copied, not just the contents. 
+
+```cmake
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
 ```
+
 
 [the cmake file of the SI library](https://github.com/bernedom/SI/blob/18586fcc0efc269dd2014c7fcf52838e9068558b/CMakeLists.txt)
