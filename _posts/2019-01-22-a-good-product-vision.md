@@ -1,14 +1,15 @@
 ---
 layout: post
-title: Get a 20/20 vision for your product
+title: A practical guide to tangible product visions
 thumbnail: images/visions/thumbnail.png
 ---
 
-**A good product vision is the cornerstone for being successful at delivering software products[^1].** Having a product vision that is tangible and accepted by your developers is one of the most important things to have, if teams are supposed to work in an empowered and self-organized way. A vision is not just a good advertising tool, but it is the foundation to creating a *purpose* for everyone's alignment towards what the product shall be. It is a pathological pattern, that companies that struggle with creating good product or company visions, find it very hard to create alignment and motivation in those employees who are building and delivering their products. 
+**A good product vision is the cornerstone for being successful at delivering software products[^1].** Having a product vision that is tangible and accepted by your developers is one of the most important things to have, if teams are supposed to work in an empowered and self-organized way. A vision is not just a good advertising tool, but it is the foundation to creating a *purpose* for everyone's alignment towards what the product shall be. It is a common pattern, that companies that struggle with creating good product or company visions, find it very hard to create alignment and motivation in those employees who are building and delivering their products. 
 
 # Why you need a good vision
 
-Each feature we deliver should bring us a step closer to the vision. So if we do not have a clear and consistent vision, chances are that we deliver features all over the place and end up with products that have an inconsistent feel to them. When working in an agile manner this becomes even more important, as an essential factor for doing successful agile development is to build a common alignment and foster autonomy. Empowering teams to be autonomous without alignment will have people running off into different directions. 
+How importang a good product vision is often becomes apparent, when one sees how compaies without them struggle to move forward. On one side they struggle to motivate their employees, on the other hand they lack a clear direction in which their products are developed. Also a commonly understood and accepted goal improves autonomy of teams and individuals, which is something modern agile companies strive for. 
+
 
 There are lots of articles and studies out there that say that having a purpose is one of the biggest factor to motivate people to do good work. A good vision is a tangible way to give such a purpose form. If the vision is non-existent or not tangible enough, people will find it very hard time to intrinsically motivate themselves to reach a common goal. This common goal is an important basis for unlocking other benefits of agile development such as fast decision making and producing in a value-driven way. 
 
