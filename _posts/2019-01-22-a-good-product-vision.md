@@ -8,10 +8,7 @@ thumbnail: images/visions/thumbnail.png
 
 # Why you need a good vision
 
-How importang a good product vision is often becomes apparent, when one sees how compaies without them struggle to move forward. On one side they struggle to motivate their employees, on the other hand they lack a clear direction in which their products are developed. Also a commonly understood and accepted goal improves autonomy of teams and individuals, which is something modern agile companies strive for. 
-
-
-There are lots of articles and studies out there that say that having a purpose is one of the biggest factor to motivate people to do good work. A good vision is a tangible way to give such a purpose form. If the vision is non-existent or not tangible enough, people will find it very hard time to intrinsically motivate themselves to reach a common goal. This common goal is an important basis for unlocking other benefits of agile development such as fast decision making and producing in a value-driven way. 
+There are lots of articles and studies out there that say that having a purpose is one of the biggest factor to motivate people to do good work. A good vision is a tangible way to give such a purpose form. If the vision is non-existent or not tangible enough, people will find it very hard time to intrinsically motivate themselves to reach a common goal. This common goal is an important basis for unlocking other benefits of agile development such as fast, decentralized decision making and producing in a value-driven way. 
 
 # A good vision - John Deere
 
