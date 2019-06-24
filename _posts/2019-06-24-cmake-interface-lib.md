@@ -157,6 +157,7 @@ After setting up the version, another cmake macro `configure_package_config_file
 <summary markdown="span">
  The content of the input file `SIconfig.cmake.in` is quite simple. 
 </summary>
+
 ```cmake
 @PACKAGE_INIT@
 
@@ -165,6 +166,7 @@ check_required_components("@PROJECT_NAME@")
 ```
 
 </details>
+
 All the placeholders marked with `@` in the input file are replaced with the explicit values and the file is written to the target `.cmake` file. 
 By specifying `INSTALL_DESTINATION` cmake is told where to place it when creating the installation artifact.
 
