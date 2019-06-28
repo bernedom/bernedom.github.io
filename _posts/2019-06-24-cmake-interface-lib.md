@@ -22,7 +22,7 @@ In order to make the interface library usable, the following things have to be d
 
 <details>
 <summary markdown="span">
-As an overview: Click here to expand the full CMakeLists.txt
+For a quick overview: Click here to expand the full CMakeLists.txt
 </summary>
 
 ```cmake
@@ -155,7 +155,7 @@ write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
 After setting up the version, another cmake macro `configure_package_config_file` is called, to generate the configuration file which cmake uses for using an installed package.
 <details>
 <summary markdown="span">
- The content of the input file `SIconfig.cmake.in` is quite simple. 
+ The content of the input file `SIconfig.cmake.in` (It's quite simple). 
 </summary>
 
 ```cmake
