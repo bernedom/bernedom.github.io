@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cmake line by line - header only library
+title: Cmake line by line - creating a header-only library
 thumbnail: images/cmake-logo.png
 ---
 
