@@ -26,9 +26,11 @@ For a quick overview: Click here to expand the full CMakeLists.txt
 </summary>
 
 ```cmake
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.12)
 
-project("SI" VERSION 0.0.4)
+project("SI" VERSION 1.0.1
+             DESCRIPTION "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
+             HOMEPAGE_URL "https://github.com/bernedom/SI")
 
 add_library(${PROJECT_NAME} INTERFACE)
 
@@ -76,16 +78,18 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
 
 # Setting up the project 
 
-The first line of all cmake files is the minimum required version. Here version `3.8.` Generally I try to pick the lowest version number that supports all the features I'm using. As SI is using C++17 features, I chose 3.8 because it supplies the necessary keywords.
+The first line of all cmake files is the minimum required version. Here version `3.12` Generally I try to pick the lowest version number that supports all the features I'm using. As SI is using C++17 features, I chose 3.12 because it supplies the necessary keywords and allows to define targets without specifying the source files up front.
 
 ```cmake
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.12)
 ```
 
-The next line denotes the name of the project `"SI"` in our case and the version (0.0.4) of the package. Generally usage of [semantic versioning](https://semver.org/) is recommended.
+The next line denotes the name of the project `"SI"` in our case and the version (1.0.1) of the package. Generally usage of [semantic versioning](https://semver.org/) is recommended. Then there is a package description and the link to the project homepage, which is the github repo in this case.
 
 ```cmake
-project("SI" VERSION 0.0.4)
+project("SI" VERSION 1.0.1
+             DESCRIPTION "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
+             HOMEPAGE_URL "https://github.com/bernedom/SI")
 ```
 
 # Defining how to "build" the header-only library
