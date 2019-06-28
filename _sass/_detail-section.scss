@@ -1,0 +1,35 @@
+details{
+  display:block;
+
+  margin: 0px 10px 0px 0px;
+  padding: 10px 0px 10px 30px;
+  position: relative;
+  font-size: 100%;
+  line-height: 1.2;
+  background-color: #333;
+  text-align: left;
+  border-left: 3px solid #ffcc00;
+   
+  }
+
+  details summary
+  {
+    font-weight: bold;
+    
+  }
+
+  /* Hide the default marker. */    
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Add the custom marker in the default state. */    
+details summary:before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  content: "";
+  background-image: url(images/click-me-hand.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
