@@ -102,14 +102,14 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 So far the target of the library is set up, but it does not contain any files yet. `target_inlcude_directories` lets us add them. The first parameter `${PROJECT_NAME}` is again the variable containing or project name "SI", next the keyword `INTERFACE` tells cmake that the files are to be exposed in the library interface, which means they are publicly visible when using the library. What follows is a list of include directories wrapped in [generator expressions](https://cmake.org/cmake/help/v3.14/manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)). The Generator expressions are evaluated at the time when the build system is generated and allow to have different values for when the library is used directly over cmake or when it is installed. 
 
-`$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>` tells cmake that if the library is used directly by another cmake target (such as when building tests for the library or when it is included as a sub directory), then the include path is `${PROJECT_SOURCE_DIR}/include}` which is a nested variable. `${${PROJECT_NAME}_SOURCE_DIR}` contains an automatically generated variable which points to the directory in which the CMakeLists.txt lies that contains the `project()` call. This expands to `/directory/where/CmakeList.txt/is/include`
+`$<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>` tells cmake that if the library is used directly by another cmake target (such as when building tests for the library or when it is included as a sub directory), then the include path is `${PROJECT_SOURCE_DIR}/include}` which is a nested variable. `${${PROJECT_NAME}_SOURCE_DIR}` contains an automatically generated variable which points to the directory in which the CMakeLists.txt lies that contains the `project()` call. This expands to `/directory/where/CmakeList.txt/is/include`
 
 `$<INSTALL_INTERFACE:include>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects. The target path for installation can be set by setting the `CMAKE_INSTALL_PREFIX` variable. 
 
 ```cmake
 target_include_directories(
   ${PROJECT_NAME}
-  INTERFACE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
             $<INSTALL_INTERFACE:include>)
 ```
 
@@ -230,4 +230,4 @@ target_link_libraries(${PROJECT_NAME} SI::SI)
 
 ```
 
-[the cmake file of the SI library at the time of writing](https://github.com/bernedom/SI/blob/18586fcc0efc269dd2014c7fcf52838e9068558b/CMakeLists.txt)
+[the cmake file of the SI library at the time of writing](https://github.com/bernedom/SI/blob/f0410c09e94d35ced0ae7a7a94ed6af9fddacb47/CMakeLists.txt)
