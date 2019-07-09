@@ -4,7 +4,7 @@ title: How we fail
 thumbnail: images/failure/thumbnail.png
 ---
 
-**"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. Modern companies and organisations often have a culture where failure is not just accepted, but seen as strong opportunities for learning. Being able to fail without dire consequences, be it for the individual, teams or the organisation itself is a great enabler to foster creative, innovative work. 
+**"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. Modern companies and organisations often have a culture where failure is not just accepted, but seen as strong opportunities for learning. Being able to fail without dire consequences, be it as an individual, as a team or the organisation itself is a great enabler to foster creative, innovative work. 
 
 But is failure in every circumstance a good thing? Probably not. As a software engineer and climber I saw a few fails with sometimes quite drastic consequences. Which led me to analyze a bit closer on how and where we fail in what kind. Failures can be of a wide range of severity, ranging from "Oups, that could have gone better" to fatal and disastrous consequences. This severity can be split into four kinds of failure
 
@@ -33,10 +33,31 @@ Catastrophic failure is what we read in the newspapers. These are climbers falli
 Under no circumstances do we want to end up here. No matter what our failure culture is, these kind of failures are so damaging that they have to be avoided, almost at all costs. In this area it is much better to learn from other people - those who by some miracle or sheer will managed to survive such a failure. 
 These are the software bugs that caused failures in pace makers, that faked the measured emission at Volkswagen or that caused the recent crashes of Boing 737s. It does not matter if one finds himself in this situation because of ones own fault or from external circumstances - the consequences are the same.   
 
-## The joy of failure
+## Getting control back
 
-The boundaries between the segments of the danger meter are of course very fluid and depend on the skill, experience and personality of each individual. An interesting part of life happens whenever we find ourseves in the orange segment "Getting away with it". We might suddenly realize that we lost - at least partially - control over our situation. A critical security bug just popped up in production and we do our best to revert that and only later realize that we were lucky that nobody exploited that bug. 
-Very often the first instinct when we realize that we are no longer in control is one of the three F repsonses - Fight, Flight or Freeze.    
+The boundaries between the types of failre are of course very fluid and depend on the skill, experience and personality of each individual. An experienced climber might be somewhere in the green zone while a total newbie may be deep in orange and not know forward or backwards.
+An interesting part of life happens whenever we find ourselves in the orange segment "Getting away with it". We might suddenly realize that we lost control over our situation. A critical security bug just popped up in production and we do our best to revert that and only later realize that we were lucky that nobody exploited that bug. When this happen our goal dramatically shifts from what it was - reaching the summit, or delivering a feature - to containing or avoiding any further damage and getting back into the yellow zone of "controlled abort". 
+Very often the first instinct when we realize that we are no longer in control is one of the three F repsonses - Fight, Flight or Freeze. Unfortunately these instincts to not help us that much in climbing or software engineering, which both require systematic actions to solve problems. The key to successfully navigate out of the orange zone is to overcome these initial reflexes and start thinking.
+
+Once this initial reflexes are overcome - something I found easier and easier with experience and age - a wonderful thing happens. Because of the dire circumstances one starts to activate all the learned knowledge and skills to get out. Be it digging deep into the obscure knowledge of knots to perform a mountain rescue of a stuck climbing partner or summoning up some arcane technical knowledge to isolate an elusive software bug. Concentration and focus becomes heightened and everything except solving the next small problem to get back into a controlled situation becomes secondary. In these situations communication in (successful) teams becomes very open, brutally honest and to the point.  
+
+In this state of flow the situation is resolved step by step until the situation is getting closer to normal or routine. 
+
+## Getting down and reflecting
+
+After getting down to solid earth from a near-death experience on a mountain is one of the best and horrible feelings ever. Glad to having survived one often only then realizes how close to severe injury or death one came. The same is in software engineering, once all the systems are running again as they should be one often realizes what else could have gone wrong. 
+
+Realizing that and rebuilding the situational awareness on how one ended up in the sticky situation and how one got out of it is they key to the learning experience. How did we react, where were our weaknesses and lack of skills in solving the situation? Who acted in what manner when things spiralled out of control? Did we panic and make things worse or did we freeze in place for an overlong time? 
+
+Reflecting over the experience is what makes us learn from it and avoid similar fate in the future. Having (blameless) post mortems after each emergency is one of the best ways of turning failure into learning. 
+
+## The joy of failure 
+
+And after some time has passed since the gut wrenching experience of utterly despairing in an emergency and then successively getting out of it again. We stand back at the foot of the very mountain that tried to kill you last time. Or you take again that feature from the scrum board that touches the tricky part of the code. Taking a deep breath the journey starts again. First slowly and with utmost care until one reaches the point where things went bad last time. 
+Taking a deep breath and collecting ones thoughts one launches again into the crux, carefully avoiding the steps and holds that led us to being stuck. Or calling in the colleague to pair programm and refactor through the security relevant spaghetti-code. And gradually one sees that this might just work out - it is still a nasty piece of work to overcome but confidence rises with each line of code and each move on the rock face. Until the whole weight of the situation falls away and the journey becomes smooth again and one reaches the summit - or merges that code into the master. 
+
+This moment of standing at the top of a mountain or watching your feature performing nicely in the code is awesome. Full of pride one looks back at how one had to go through hell to get here. How horrible and how good the experience of overcoming a near-catastrophic failure was. And one knows that reaching this summit would not have been possible before. Knowing that experience these moments of dread and despair provided the necesary learning experience to finally reach the top is incredible. This feeling, this sense of personal masteris is the **joy of failure.** 
+
 
 -- 
 This article was inspired by the article ["Staying alive" by John Dill of the Yosemite Search and Resce ](http://www.bluebison.net/yosar/alive.htm)
