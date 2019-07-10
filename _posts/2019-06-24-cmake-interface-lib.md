@@ -28,29 +28,35 @@ For a quick overview: Click here to expand the full CMakeLists.txt
 ```cmake
 cmake_minimum_required(VERSION 3.12)
 
-project("SI" VERSION 1.0.1
-             DESCRIPTION "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
-             HOMEPAGE_URL "https://github.com/bernedom/SI")
+project(
+  "SI"
+  VERSION 1.0.1
+    DESCRIPTION
+    "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
+    HOMEPAGE_URL  "https://github.com/bernedom/SI")
+
+include(GNUInstallDirs)
 
 add_library(${PROJECT_NAME} INTERFACE)
 
+# Adding the install interface generator expression makes sure that the include
+# files are installed to the proper location (provided by GNUInstallDirs)
 target_include_directories(
   ${PROJECT_NAME}
-  INTERFACE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-            $<INSTALL_INTERFACE:include>)
+  INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
 
 enable_testing()
 add_subdirectory(test)
 
+# locations are provided by GNUInstallDirs
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}_Targets
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        RUNTIME DESTINATION bin
-        INCLUDES
-        DESTINATION include)
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
@@ -58,19 +64,19 @@ write_basic_package_version_file("${PROJECT_NAME}ConfigVersion.cmake"
                                  COMPATIBILITY SameMajorVersion)
 
 configure_package_config_file(
-  "${PROJECT_SOURCE_DIR}/cmake/SIConfig.cmake.in"
+  "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
   "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
   INSTALL_DESTINATION
-  lib/cmake/${PROJECT_NAME})
+  ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(EXPORT ${PROJECT_NAME}_Targets
         FILE ${PROJECT_NAME}Targets.cmake
         NAMESPACE ${PROJECT_NAME}::
-        DESTINATION lib/cmake/${PROJECT_NAME})
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-        DESTINATION lib/cmake/${PROJECT_NAME})
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
 ```
@@ -92,6 +98,12 @@ project("SI" VERSION 1.0.1
              HOMEPAGE_URL "https://github.com/bernedom/SI")
 ```
 
+Since this library will be plattform independent but still be installable following best practices, before we wet anything up, we include [`GNUInstallDirs`](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html) (included in cmake) which will provide us with a set of variables containing installation directories for various artifacts. The variables will be used later. 
+
+```cmake
+include(GNUInstallDirs)
+```  
+
 # Defining how to "build" the header-only library
 
 `add_library` tells cmake that we want to build a library and to set up the [logical target](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html).  Good practice is to use the project name as a variable `${PROJECT_NAME}` as the name for the library/target for consistency reasons. The target-name is important to remember, as all further options for building and installing are tied to it. The [keyword `INTERFACE`](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html#interface-libraries) makes our target a header only library that does not need to be compiled. 
@@ -104,19 +116,18 @@ So far the target of the library is set up, but it does not contain any files ye
 
 `$<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>` tells cmake that if the library is used directly by another cmake target (such as when building tests for the library or when it is included as a sub directory), then the include path is `${PROJECT_SOURCE_DIR}/include}` which is a nested variable. `${${PROJECT_NAME}_SOURCE_DIR}` contains an automatically generated variable which points to the directory in which the CMakeLists.txt lies that contains the `project()` call. This expands to `/directory/where/CmakeList.txt/is/include`
 
-`$<INSTALL_INTERFACE:include>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects. The target path for installation can be set by setting the `CMAKE_INSTALL_PREFIX` variable. 
+`$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects. The variable `CMAKE_INSTALL_INCLUDEDIR` is provided by the `GNUInstallDirs` package included above. The target path for installation can be set by setting the `CMAKE_INSTALL_PREFIX` variable. 
 
 ```cmake
 target_include_directories(
   ${PROJECT_NAME}
   INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
-            $<INSTALL_INTERFACE:include>)
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 ```
 
 As the code of the SI-library uses some features of the C++17 standard, this dependency is passed along using `target_compile_features`. This specifies compiler features to be enabled in a compiler-agnostic way. Again the target is the by now familiar `${PROJECT_NAME}` and the keyword `INTERFACE` again marks this feature to be exposed and required when using the library. `cxx_std_17` is the catch-all feature to enable the whole C++17 standard, here individual features such as use of `constexpr` or `auto` could also be specified. 
 
 If a compiler does not support the specified feature, building the library will fail. 
-
 
 ```cmake
 target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
@@ -134,17 +145,16 @@ Next the folders for the installation-artifacts are set. The folder names are re
 * `ARCHIVE` - All files that are neither executables, shared libraries (.so), header files or executables. 
 * `LIBRARY` - All shared libraries (.so/.dll) files, tyically all binaries produced by a `add_library` call
 * `RUNTIME` - All executables built by an `add_excutable` call
-* `INCLUDE` - All public header files. For our header only library these are all files. 
-  
- Technically for a header only library only the `INCLUDES` would be needed, but it is good practice to supply the other locations as well. 
+* `INCLUDE` - All public header files, which is omitted here because the `INSTALL_INTERFACE`already specifies this.
+
+The target paths are again provided by `GNUInstallDirs`
 
 ```cmake
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}_Targets
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        RUNTIME DESTINATION bin
-        INCLUDES DESTINATION include)
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}))
 ```
 
 The next two lines are a shortcut to avoid having to write the boilerplate cmake code to manage version comparison. First the cmake package containing the macros parsing versions is included. This is deliverd with the standard cmake installations since 3.5. Then the macro `write_basic_package_version_file` is called and instructed to create a file `SIConfigVersion.cmake`. The version specified is the one supplied in the `project` dierective at the beginning of the file and since semantic versioning is used versions of the same major digit are considerd compatible. 
@@ -172,14 +182,14 @@ check_required_components("@PROJECT_NAME@")
 </details>
 
 All the placeholders marked with `@` in the input file are replaced with the explicit values and the file is written to the target `.cmake` file. 
-By specifying `INSTALL_DESTINATION` cmake is told where to place it when creating the installation artifact.
+By specifying `INSTALL_DESTINATION` cmake is told where to place it when creating the installation artifact. Usually these go to `/usr/share` or similar, but since the exact path is provided by `GNUInstallDirs` we do not have to care. 
 
 ```cmake
 configure_package_config_file(
   "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
   "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
   INSTALL_DESTINATION
-  lib/cmake/${PROJECT_NAME})
+  ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 ```
 
 ## Selecting targets and files to install
@@ -192,7 +202,7 @@ First the file containing the installation-targets as defined above, is created 
 install(EXPORT ${PROJECT_NAME}_Targets
         FILE ${PROJECT_NAME}Targets.cmake
         NAMESPACE ${PROJECT_NAME}::
-        DESTINATION lib/cmake/${PROJECT_NAME})
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 ```
 
 The created `.cmake` files containing the build configuration and informartion about version compatibilty are to be installed to the install folder as well. By providing the `FILES` keyword a list of files is given to be saved in a folder specified by `DESTINATION`. 
@@ -200,7 +210,7 @@ The created `.cmake` files containing the build configuration and informartion a
 ```cmake
 install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-        DESTINATION lib/cmake/${PROJECT_NAME})
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 ```
 
 Finally the header files are copied to the installation folder. For header only libraries ususally all header files are supplied, so instead of providing individual files the whole include directory is copied using the `DIRECTORY` keyword. 
@@ -230,4 +240,4 @@ target_link_libraries(${PROJECT_NAME} SI::SI)
 
 ```
 
-[the cmake file of the SI library at the time of writing](https://github.com/bernedom/SI/blob/f0410c09e94d35ced0ae7a7a94ed6af9fddacb47/CMakeLists.txt)
+[the cmake file of the SI library at the time of writing](https://github.com/bernedom/SI/blob/9342c4109f924f33e139a25bf20f6ebaeabab10d/CMakeLists.txt)
