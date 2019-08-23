@@ -70,7 +70,7 @@ bis zu
 Über die Jahre habe ich das Scheitern selbst etwas genauer unter die Lupe genommen. 
 
 Das fängt beim "hups ich hab mich am Haken festgehalten" and und endet dort wo jemand verletzt wird oder stirbt. 
-Kleine unschönheiten in der Software bis zu, boing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstören. 
+Kleine unschönheiten in der Software bis zu, boeing 737 debakel, Fehler die unternehmen und Lebensgrundlagen zerstören. 
 
 Klettern gibt Einblicke in wie wir scheitern. Das Scheitern ist dort oft unmittelbarer und greifbarer als in der Software. Das Restrisiko spielt mit, aber man hat es selbst in de hand. 
 
@@ -147,6 +147,54 @@ background-image: url(images/Falling.jpeg)
 # Aber wo ist die Freude?
 
 ---
+background-image: url(images/rega.jpg)
+# Warum wird es gefährlich?
+
+![](images/inherent_risk.png)
+
+.credit[  ["Staying alive" by John Dill of the YSAR ](http://www.bluebison.net/yosar/alive.htm)]
+
+???
+
+Warum geraten wir in die orange oder rote Zone? 
+
+Wir haben ein Restrisiko/Inherentes Risiko. 
+* Steinschlag, Materialfehler trotz redundanz, freak accidents
+* Finanzkrise, Heartbleed, Meltdown und Spectre, Konkurrenz ist schon viel weiter
+
+- Können wir nicht Kontrollieren, die Umstände geben das vor
+* Kletterhalle vs Alpin 
+* Standard-Problem vs Forschung, Unkritische Software - Business oder lebenswichtige Software
+
+Was tun wir um das Restrisiko zu vermindern? Wir ändern die Umstände.
+Korrelation, je mehr ich kann, desto schwierigere Bedingungen, desto mehr Restrisiko. 
+
+# Nur - Das Restrisiko ist meistens sehr klein
+
+---
+
+background-image: url(images/rega.jpg)
+# Warum wird es gefährlich?
+
+![](images/accidents-reasons.png)
+
+
+???
+
+Die Gründe für die meisten Unfälle. Darum befindet man sich auch der miesen Seite des Problems
+Ignorance - Ignoranz, Unwissen
+Casualness - Fahr-) lässigkeit
+Distraction - Ablenkung
+
+# Die Spielen zusammen
+
+* Ignorance - Ich weiss einfach nicht genug. Kann die Knöpfe nicht - Kenn die Technologie nicht, hab meine Marktforschung nicht gemacht etc. 
+  * Ganz Gemein - Unknown unknowns
+* Causalness - Das passt schon so, das kann ich ungesichert. Redundanz brauch ich hier nicht. Das lern ich während ichs mache. 
+  * Auch Arroganz sich selbst gegenüber
+* Distraction - Nicht aufs Ziel/Problem/Hier-und-jetzt fokussiert/hab zu viel auf der Platte. - Geh nicht mit frischen Mamas und Papas klettern. Mach keine kritische Software wenn du verliebt bist. Auch momentane ablenkung. Manche Probleme brauchen ununterbrochene Aufmerksamkeit
+
+---
 background-image: url(images/Falling.jpeg)
 # Zu weit gehen
 
@@ -192,7 +240,7 @@ ohne Abstieg auf den Boden nicht mehr werden.
 
 # Retrospektive - Revue passieren lassen & lernen
 
-## Offen und erhlich 
+## Offen und ehrlich 
 ## Wie gerieten wir in diese Situation
 ### Wie haben wir uns verhalten - wo müssen wir lernen
 ### Wer fühlte sich im Orangen bereich, wer im roten, wer im grünen
