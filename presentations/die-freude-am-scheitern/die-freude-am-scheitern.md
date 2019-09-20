@@ -8,7 +8,7 @@ background-size: contain
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 class: center, middle, inverse
-background-image: url(images/title_background.jpg)
+background-image: url(images/steep-cliff.jpg)
 
 # Die Freude am Scheitern
 
