@@ -14,21 +14,55 @@ Kann diese  Absicht nun auch formal verifiziert werden wird der wartbarkeit auch
 
 # Was ist nun design by contract? 
 
-Design by contract ist ein Mittel, wie Programmierer formelle, präzise und verfizierbare interface-spezifikationen für Softwarekomponententen definieren können. [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) hat den Begriff "Design by Contract" im zusammenhang mit der von ihm entwickelten Programmiersprache Eiffel bekannt gemacht. Das Konzept ist auch unter *Contract Programming*, *Programming by Contracts* oder einfach kurz als *Contracts* bekannt.
+Design by contract ist ein Mittel, wie Programmierer formelle, präzise und verfizierbare interface-spezifikationen für Softwarekomponententen definieren können. [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) hat den Begriff "Design by Contract" im zusammenhang mit der von ihm entwickelten Programmiersprache Eiffel bekannt gemacht. Das Konzept ist auch unter *Contract Programming*, *Programming by Contracts* oder einfach kurz als *Contracts* bekannt. Im wesentlichen beschreibt es eine Umsetzung des [Hoare Kalküls](https://de.wikipedia.org/wiki/Hoare-Kalk%C3%BCl) zur Überprüfung der Korrektheit von Software. 
 
 
+Der "Contract" - zu Deutsch Vertrag - ist eine Metapher für die Beziehung zwischen dem Programmierer als "Konsument" und einer Software als "Anbieter" von code. Der so aufgesetzte sinngemässe vertrag regelt die zu erwarteten Nutzen und die Verpflichtungen der beiden Vertragsparteien. Ein Beispiel für eine Funktion um Wurzeln zu ziehen könnte lauten: 
 
+ |               | **Verpflichtung**                                              | **Nutzen**                                                                   |
+ | ------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+ | **Konsument** | *Muss Vorbedingung erfüllen* Der Eingabewert muss positiv sein | *Darf die Nachbedingung erwarten* Erhalte die Quadratwurzel des Eingabewerts |
+ | ** Anbieter** | *Muss Nachbedingung erfüllen* Berechne die Quadratwurzel       | *Darf die Vorbedingung erwarten* Muss imaginäre Zahlen nicht implementieren  |
+
+Oder als code formuliert, wobei `require` und `ensure` Schlüsselwörter aus design by contract sind: 
 ```cpp
 
 float square_root(float f)
 {
     require(f => 0); // precondition
-     /// implentatoin
+     /// implementation
     ensure((result * result) - f < std::numeric_limimts<float>::epsilon); // post condition
     return result; 
 }
-
 ```
+Nebst der formalen Überprüfung (meist zur laufzeit) kann design by contract auch als dokumentation gelesen werden. Durch die konsequente Anwendung wird der Design-prozess unterstützt, dadurch das Schnittstellen bereits früh formal definiert werden. Zudem wird der vorgesehene Verwendungskontext der Software beschrieben und eingegengt, was einer falschen Verwendung entgegen wirkt. So wird der Verwendungskontext unserer Funktion zum Wurzelziehen auf die "Nicht-Negative Fliesskommazahlen" reduziert. Dadurch erübrigt sich eine aufwändige Fehlerbehandlung von Zahlen, die nicht in unserem Verwendungskontext sind. 
+
+Dabei ist aber anzumerken, dass Contracts eine Hilfestellung bzw. ein Werkzeug für Softwareentwickler sind und keine Fehlermeldungen für den Endbenutzer. 
+
+## Umsetzung von Design by contract
+
+Es existieren verschieden Implementierungen für Design-by-contract, einei Sprachen beinhalten das Konzept sogar als natürliche Sprachfeature. Die einfachst denkbare Implementation ist die verwendung von `asserts` als contracts, evtl unter maskierung mit den spezifischen Schlüsselwörtern `require`, `ensure` und `invariant`. 
+
+Wird ein Contract nicht erfüllt, stoppt das Programm unmittelbar mit einem Fehler/Nicht-0 Rückgabewert. Eine ganz triviale Implementation könnte wie folgt aussehen. 
+
+```cpp
+#ifndef NDEBUG
+#include <cassert>
+#define require(ARG) assert(ARG)
+#define ensure(ARG) assert(ARG)
+#define invariant(ARG) assert(ARG)
+#else
+#define require(ARG) (void(0))
+#define ensure(ARG) (void(0))
+#define invariant(ARG) (void(0))
+#endif
+```
+
+## Zusammenspiel mit dem (unit-) Testing
+
+Design by contract ersetzt das Testing nicht, sondern ergänzt es. Während klassisches Testing, wie z.b. Unit-Testing überprüft ob sich eine Software korrekt verhält, überprüfen contracts ob eine Software vom Programmierer richtig verwendet wird. Schlägt ein contract fehl, darf als Konsequenz auch einem positiven Testergebnis nicht vertraut werden. Typischerweise setzen contracts aber durchgängig bei allen Stufen der Testpyramide, von einfachen unit-test bis hin zum komplexen Systemtest an. 
+
+Da die Überprüfung der Contracts oft nicht ohne Einfluss auf die Laufzeit geschieht, werden contracts üblicherweise aus der ausgelieferten, getesteten Software entfernt. 
 
 
 [^1]: Contracts sollten ursprünglich in C++20 integriert werden, wurden jedoch im Juli 2019 beim Komittetreffen in Köln wieder herausgestrichen
@@ -47,5 +81,10 @@ Gliederung
 * Wie setzte ich das mit C++ in der Praxis um?
 * Wie sieht das C++20 vor?
 * Wie spielt dies mit meinem Testing zusammen? 
+
+
+Nutzen und Besonderheiten
+Die Teilnehmer erhalten eine Einführung in "Design by Contract" sowie konkrete Hinweise zur Anwendung in bestehendem C++ Code. Nebst der Anwendung auf kleiner Stufe wird der Einsatz im kompletten Entwicklungszyklus besprochen. Die Teilnehmer erhalten die Möglichkeit Fragen zum Konzept von "Design by Contract" zu stellen und das Konzept kritisch zu diskutieren.
+
 
 https://www.javaworld.com/article/2074956/icontract--design-by-contract-in-java.html
