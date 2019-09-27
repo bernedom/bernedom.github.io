@@ -14,17 +14,16 @@ Kann diese  Absicht nun auch formal verifiziert werden wird der wartbarkeit auch
 
 # Was ist nun design by contract? 
 
-Design by contract ist ein Mittel, wie Programmierer formelle, präzise und verfizierbare interface-spezifikationen für Softwarekomponententen definieren können. [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) hat den Begriff "Design by Contract" im zusammenhang mit der von ihm entwickelten Programmiersprache Eiffel bekannt gemacht. Das Konzept ist auch unter *Contract Programming*, *Programming by Contracts* oder einfach kurz als *Contracts* bekannt. Im wesentlichen beschreibt es eine Umsetzung des [Hoare Kalküls](https://de.wikipedia.org/wiki/Hoare-Kalk%C3%BCl) zur Überprüfung der Korrektheit von Software. 
+Design by contract ist ein Mittel, wie Programmierer formelle, präzise und verfizierbare interface-spezifikationen für Softwarekomponententen definieren können. [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) hat den Begriff "Design by Contract" im zusammenhang mit der von ihm entwickelten Programmiersprache Eiffel bekannt gemacht. Das Konzept ist auch unter *Contract Programming*, *Programming by Contracts* oder einfach kurz als *Contracts* bekannt. Im wesentlichen beschreibt das Konzept die Umsetzung bzw. eine Analogie für des [Hoare Triple](https://de.wikipedia.org/wiki/Hoare-Kalk%C3%BCl) zur Überprüfung der Korrektheit von Software. Dieses wird definiert als `{P}C{Q}` wobei `P` und `Q` assertions sind und `C` das ausführende Programm. Ist die Vorbedingung `P` gegeben wird durch die Ausführung von `C` die Nachbedingung `Q` sichergestellt.  
 
-
-Der "Contract" - zu Deutsch Vertrag - ist eine Metapher für die Beziehung zwischen dem Programmierer als "Konsument" und einer Software als "Anbieter" von code. Der so aufgesetzte sinngemässe vertrag regelt die zu erwarteten Nutzen und die Verpflichtungen der beiden Vertragsparteien. Ein Beispiel für eine Funktion um Wurzeln zu ziehen könnte lauten: 
+Der "Contract" - zu Deutsch Vertrag - ist eine Metapher für die Beziehung zwischen dem Programmierer als "Konsument" und einer Software als "Anbieter" von code. Der so aufgesetzte sinngemässe vertrag regelt die zu erwarteten Nutzen unter der Voraussetzung der erfüllung der Verpflichtungen der beiden Vertragsparteien. Ein Beispiel für einen Vertrag für eine Funktion um Wurzeln zu ziehen könnte lauten: 
 
  |               | **Verpflichtung**                                              | **Nutzen**                                                                   |
  | ------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------- |
  | **Konsument** | *Muss Vorbedingung erfüllen* Der Eingabewert muss positiv sein | *Darf die Nachbedingung erwarten* Erhalte die Quadratwurzel des Eingabewerts |
  | ** Anbieter** | *Muss Nachbedingung erfüllen* Berechne die Quadratwurzel       | *Darf die Vorbedingung erwarten* Muss imaginäre Zahlen nicht implementieren  |
 
-Oder als code formuliert, wobei `require` und `ensure` Schlüsselwörter aus design by contract sind: 
+Oder als Code formuliert: 
 ```cpp
 
 float square_root(float f)
@@ -35,13 +34,21 @@ float square_root(float f)
     return result; 
 }
 ```
-Nebst der formalen Überprüfung (meist zur laufzeit) kann design by contract auch als dokumentation gelesen werden. Durch die konsequente Anwendung wird der Design-prozess unterstützt, dadurch das Schnittstellen bereits früh formal definiert werden. Zudem wird der vorgesehene Verwendungskontext der Software beschrieben und eingegengt, was einer falschen Verwendung entgegen wirkt. So wird der Verwendungskontext unserer Funktion zum Wurzelziehen auf die "Nicht-Negative Fliesskommazahlen" reduziert. Dadurch erübrigt sich eine aufwändige Fehlerbehandlung von Zahlen, die nicht in unserem Verwendungskontext sind. 
+`require` und `ensure` sind Schlüsselwörter aus design by contract und dienen zur überprüfung der Verpflichtungen. 
+
+Ein weiteres Schlüsselwort ist `invariant` dieses Zeigt an, dass diese Bediungung zu keinem Punkt der Laufzeit verletzt werden darf und ist somit als eine Art Axiom im Programmkontext zu verstehen. Diese invarianten treten häufig im Zusammenhang mit Klassen aus der Objektorientierten Programmierung auf um sicherzustellen, dass der Zustand eines Objekts konsitent ist. Zudem liefern solche invarianten oft auf wertvolle hinweise zum erwarteten Verhalten. 
+
+In einer Containerklasse muss zum beispiel die Anzahl der gespeicherten Elemente immer kleiner-gleich der Speicherkapazität sein, ansonsten funktioniert die Software nicht mehr korrekt. Festzustellen ob diese Invariante nun durch einen Fehler in der Implementierung oder durch einen äusseren Einfluss  verletzt wurde ist jedoch aufgabe des Programmierers. 
+
+Der primäre Nutzen von Contracts besteht darin, dass Programmierfehler früh aufgedeckt werden und zielgerichteter gefunden werden können. Ausgefeiltere Implementationen bieten dem Programmierer hier wertvolle Hinweise wie an werlcher Zeile des Codes ein Contract verletzt wurde, Stack-Traces oder sogar die Möglichkeit direkt mit dem Debugger an die richtie Stelle zu springen.     
+
+Nebst der formalen Überprüfung (meist zur Laufzeit) kann design by contract auch als Dokumentation gelesen werden. Durch die konsequente Anwendung wird der Design-prozess unterstützt, dadurch das Schnittstellen bereits früh formal definiert werden. Zudem wird der vorgesehene Verwendungskontext der Software beschrieben und eingegengt, was einer falschen Verwendung entgegen wirkt. So wird der Verwendungskontext unserer Funktion zum Wurzelziehen auf die "Nicht-Negative Fliesskommazahlen" reduziert. Dadurch erübrigt sich eine aufwändige Fehlerbehandlung von Zahlen, die nicht in unserem Verwendungskontext sind. 
 
 Dabei ist aber anzumerken, dass Contracts eine Hilfestellung bzw. ein Werkzeug für Softwareentwickler sind und keine Fehlermeldungen für den Endbenutzer. 
 
 ## Umsetzung von Design by contract
 
-Es existieren verschieden Implementierungen für Design-by-contract, einei Sprachen beinhalten das Konzept sogar als natürliche Sprachfeature. Die einfachst denkbare Implementation ist die verwendung von `asserts` als contracts, evtl unter maskierung mit den spezifischen Schlüsselwörtern `require`, `ensure` und `invariant`. 
+Es existieren verschieden Implementierungen für Design-by-contract, einei Sprachen beinhalten das Konzept sogar als natürliche Sprachfeature. Die einfachst denkbare Implementation ist die verwendung von `asserts` als contracts und die Maskierung mit den spezifischen Schlüsselwörtern `require`, `ensure` und `invariant`. 
 
 Wird ein Contract nicht erfüllt, stoppt das Programm unmittelbar mit einem Fehler/Nicht-0 Rückgabewert. Eine ganz triviale Implementation könnte wie folgt aussehen. 
 
@@ -68,6 +75,8 @@ Da die Überprüfung der Contracts oft nicht ohne Einfluss auf die Laufzeit gesc
 [^1]: Contracts sollten ursprünglich in C++20 integriert werden, wurden jedoch im Juli 2019 beim Komittetreffen in Köln wieder herausgestrichen
 
 --- 
+
+Quellen: https://www.eiffel.com/values/design-by-contract/introduction/
 
 
 Vertraglich zugesicherte Code-Robustheit
