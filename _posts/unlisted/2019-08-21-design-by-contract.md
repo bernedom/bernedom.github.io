@@ -68,8 +68,17 @@ Wird ein Contract nicht erfüllt, stoppt das Programm unmittelbar mit einem Fehl
 ## Zusammenspiel mit dem (unit-) Testing
 
 Design by contract ersetzt das Testing nicht, sondern ergänzt es. Während klassisches Testing, wie z.b. Unit-Testing überprüft ob sich eine Software korrekt verhält, überprüfen contracts ob eine Software vom Programmierer richtig verwendet wird. Schlägt ein contract fehl, darf als Konsequenz auch einem positiven Testergebnis nicht vertraut werden. Typischerweise setzen contracts aber durchgängig bei allen Stufen der Testpyramide, von einfachen unit-test bis hin zum komplexen Systemtest an. 
+Die verwendung von Design by contracts vermindert oft die Komplexität der Tests, weil nicht jeder Edge case getestet werden muss, sondern zum mit contracts abgefangen werden kann. 
 
-Da die Überprüfung der Contracts oft nicht ohne Einfluss auf die Laufzeit geschieht, werden contracts üblicherweise aus der ausgelieferten, getesteten Software entfernt. 
+Da die Überprüfung der Contracts oft nicht ohne Einfluss auf die Laufzeit geschieht, werden contracts üblicherweise aus der ausgelieferten, getesteten Software entfernt. Der Programmierer muss sich diesem Einfluss bewusst sein um so klar funktionales Testing von nicht-funktionalem Testing wie Speicherverbrauch, laufzeit- und Echtzeitverhalten zu trennen.
+
+## Fazit
+
+Design by contract ist eine - leider - sehr wenig beachtete Methode um Software qualitativ besser zu machen. Dies einerseits durch das hinzufügen einer weiteren Stufe zur "Qualitätskontrolle" die Orthogonal zum klassischen Test-Ansatz steht, aber auch durch einen Eingriff in die Softwareentwicklungspraxis selbst. Der Programmierer wird mit Nachdruck dazu angehalten sich Gedanken zu machen in welchem Kontext seine Software funktionieren soll und dies dann explizit und überprüfbar auszudrücken. Dies erlaubt unter anderem eine differenziertere Diskussion über den Code beim Pair-Programming oder bei code reviews. 
+
+Und schlussendlich treibt design by contract die "Fail early, fail hard" mentalität vorwärts. Eine Software lässt sich beim Entdecken von Qualitätsmängel nicht mehr weiterbetreiben bzw. weiterentwicklen bevor diese Qualitätsmängel nicht behoben sind. Bevor Festgestellt wird ob eine Software das tut was sie soll, wird so sichergestellt dass sie zumindest so funktioniert wie definiert. 
+
+Alles in Allem ist Design by contract eine Methode um Code mit wenig Aufwand robuster im Betrieb und in der Wartung zu machen. 
 
 
 [^1]: Contracts sollten ursprünglich in C++20 integriert werden, wurden jedoch im Juli 2019 beim Komittetreffen in Köln wieder herausgestrichen
