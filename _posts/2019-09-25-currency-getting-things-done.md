@@ -4,7 +4,7 @@ title: The currency of getting things done
 thumbnail: images/currency/thumbnail.png
 ---
 
-**What is your organizations currency of getting things done?** When trying to change things or getting things outside daily business done, every organization reacts to different kind of arguments and incentives. "Paying" in the right kind of arguments is often the key to get ones concerns put into action. 
+**What is your organizations currency of getting things done?** When trying to getting things outside daily business done, every organization reacts to different kind of arguments and incentives. "Paying" in the right kind of arguments is often the key to get ones concerns put into action. 
 
 Let's look at this like a mini economy, where getting ones concerns being put into action can be bought by spending arguments. The amount of arguments for your cause would be the amount of cash you have at your disposal, while the content of the arguments would be the currency the cash is in. So as in real life some currencies carry stronger than others while others are so inflated that no matter how much cash there is, the buying power is almost zero. 
 
