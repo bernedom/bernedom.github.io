@@ -6,7 +6,7 @@ unlisted: true
 ---
 
 **99.9% der Softwarefehler werden von Programmierer verursacht.** Testen und Code Reviews helfen zwar, sind aber nicht immer genug. Viel schöner wäre es, wenn ich als Programmierer eine falsche Verwendung meines Codes von vornherein Abfangen könnte. Mit "Design by Contract" kriegen wir Softwareingenieure ein Werkzeug für genau diesen Zweck in die Hände. 
-Programmcode wird durch "Design by Contract" aber nicht nur korrekter, sondern auch lesbarer und somit wartbarer. Und nicht zuletzt wird mit diesem Werkzeug Code auch robuster gegenüber Regressionsfeher. 
+Programmcode wird durch "Design by Contract" aber nicht nur korrekter, sondern auch lesbarer und somit wartbarer. Und nicht zuletzt wird mit diesem Werkzeug Code auch robuster gegenüber Regressionsfehler. 
 Einige Programmiersprachen kennen das Konzept bereits als natürliche Spracheigenschaft[^1], aber auch wenn dies nicht der Fall ist, lässt sich die Unterstützung für "Contracts" leicht einbauen. 
 
 ## Wartbarer und robuster Code
@@ -28,7 +28,7 @@ Der "Contract" - zu Deutsch Vertrag - ist eine Metapher für die Beziehung zwisc
  | **Konsument** | *Muss Vorbedingung erfüllen* <br>Der Eingabewert muss positiv sein | *Darf die Nachbedingung erwarten*<br> Erhalte die Quadratwurzel des Eingabewerts |
  | **Anbieter**  | *Muss Nachbedingung erfüllen* <br>Berechne die Quadratwurzel       | *Darf die Vorbedingung erwarten*<br> Muss imaginäre Zahlen nicht implementieren  |
 
-Typischerweise werden `require` und `ensure` als Schlüsselwörter für die Vor- und die Nachbedingungen gewählt. der "Vertragsinhalt" ist dabei ein konstanter boolscher Ausdruck. 
+Typischerweise werden `require` und `ensure` als Schlüsselwörter für die Vor- und die Nachbedingungen gewählt. der "Vertragsinhalt" ist dabei ein konstanter boolscher Ausdruck. [^2] 
 
 Oder als Code formuliert: 
 ```cpp
@@ -90,25 +90,6 @@ Nebst der formalen Überprüfung (meist zur Laufzeit) kann Design by Contract au
 
 Dabei ist aber anzumerken, dass Contracts eine Hilfestellung bzw. ein Werkzeug für Softwareentwickler sind und keine Fehlermeldungen für den Endbenutzer. 
 
-## Umsetzung von Design by Contract
-
-Es existieren verschieden Implementierungen für Design by Contract, eine Sprachen beinhalten das Konzept sogar als natürliche Sprachfeature. Die einfachst denkbare Implementation ist die Verwendung von `asserts` als contracts und die Maskierung mit den spezifischen Schlüsselwörtern `require`, `ensure` und `invariant`. 
-
-Wird ein Contract nicht erfüllt, stoppt das Programm unmittelbar mit einem Fehler/Nicht-0 Rückgabewert. Eine ganz triviale Implementation könnte wie folgt aussehen. 
-
-```cpp
-#ifndef NDEBUG
-#include <cassert>
-#define require(expression) assert(expression)
-#define ensure(expression) assert(expression)
-#define invariant(expression) assert(expression)
-#else
-#define require(expression) (void(0))
-#define ensure(expression) (void(0))
-#define invariant(expression) (void(0))
-#endif
-```
-
 ## Zusammenspiel mit (unit-) Testing
 
 Design by Contract ersetzt das Testing nicht, sondern ergänzt es. Während klassisches Testing, wie z.b. Unit-Testing überprüft ob sich eine Software korrekt verhält, überprüfen contracts ob eine Software vom Programmierer richtig verwendet wird. Schlägt ein contract fehl, darf als Konsequenz auch einem positiven Testergebnis nicht vertraut werden. Typischerweise setzen Contracts aber durchgängig bei allen Stufen der Testpyramide an. 
@@ -123,6 +104,11 @@ Design by Contract ist eine - leider - sehr wenig beachtete Methode um Software 
 Und schlussendlich treibt Design by Contract die "Fail early, fail hard" Mentalität vorwärts. Eine Software lässt sich beim Entdecken von Qualitätsmängel nicht mehr weiter betreiben bzw.. weiter  entwickeln bevor diese Qualitätsmängel nicht behoben sind. Bevor Festgestellt wird ob eine Software das tut was sie soll, wird so sichergestellt dass sie zumindest so funktioniert wie definiert. 
 
 Alles in Allem ist Design by Contract eine Methode um Code mit wenig Aufwand robuster im Betrieb und in der Wartung zu machen. 
+
+
+[^1]: Contracts sollten ursprünglich in C++20 integriert werden, wurden jedoch im Juli 2019 beim Komiteetreffen in Köln wieder herausgestrichen
+
+[^2]: Eine simple Beispielimplementation für Contracts findet sich hier: https://github.com/bernedom/bertrand/ 
 
 --- 
 
