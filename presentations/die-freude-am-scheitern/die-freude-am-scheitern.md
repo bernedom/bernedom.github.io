@@ -229,8 +229,8 @@ Schritt für Schritt wird die Lösung erarbeitet
 **Bis man wieder im gelben ist.** 
 
 ---
-background-image: url(images/retro.jpg)
-# Runterkommen - Retrospektive
+background-image: url(images/runterkommen.jpeg)
+# Runterkommen 
 
 
 ???
