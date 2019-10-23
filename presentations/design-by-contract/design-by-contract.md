@@ -18,6 +18,8 @@ Vertraglich zugesicherte code-robustheit
 
 # Begrüssung
 
+Worum geht es? Architektur/Software-engineering praxis für besseren code. Code muss heute nicht nur einmal geschrieben werden, sondern auch für ide Zukunft wartbar sein. 
+
 ---
 
 # Dominik Berner
@@ -43,7 +45,8 @@ Vertraglich zugesicherte code-robustheit
 
 # 10+ Jahre erfahrung mit C++
 # Seit Anfang an auf c++11 (Cx::TR1)
-# Bürokollege der an Eiffel mitgearbeitet hat
+# Bürokollege der an Eiffel mitgearbeitet hat - Intro in Design by COntract
+# Grafik- und Simulationsengine ca 300'000 Zeilen Code mit Design by Contract
 
 Computergrafik, Medtech
 
@@ -57,12 +60,31 @@ Computergrafik, Medtech
 
 # Guter Code? 
 
+```cpp
+double squareroot(double x) {
+  static constexpr int num_iterations = 10;
+  if (x == 0)
+    return 0;
+
+  double guess = x;
+  for (int i = 0; i < num_iterations; i++)
+    guess -= (guess * guess - x) / (2 * guess);
+  return guess;
+}
+```
+
 ???
 
-* lässt die absicht dahinter erkennen
-* Falsche verwendung durch programmierer schwierig
+Guter Code
+* lässt die Absicht dahinter erkennen
+* Falsche Verwendung durch Programmierer schwierig
 * Korrekt - tut was er soll, in dem Kontext den er soll
 
+Newtonsches Wurzelziehen
+Probleme hier: Negative zahlen? Performance optimierung = weniger iterationen = resultat falsch 
+Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives beispiel 
+
+Was nun tun 
 
 ---
 
@@ -179,3 +201,5 @@ Die Teilnehmer erhalten eine Einführung in "Design by Contract" sowie konkrete 
 Über den Referenten
 	
 Dominik Berner ist ein Senior Software-Ingenieur bei der bbv Software Services AG mit einer Leidenschaft für modernes C++. Die Wartbarkeit von Code ist für ihn kein Nebeneffekt, sondern ein primäres Qualitätsmerkmal das für die Entwicklung von langlebiger Software unabdingbar ist. Als Blogger und Speaker and Konferenzen und Meetups weiss er wie Inhalte zu verpacken sind, damit für das Publikum ein Mehrwert entsteht.
+
+http://docplayer.org/4165643-Design-by-contract-in-java.html
