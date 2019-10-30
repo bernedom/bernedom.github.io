@@ -37,7 +37,11 @@ Worum geht es? Architektur/Software-engineering praxis für besseren code. Code 
 [![github](github_icon.png) bernedom](https://github.com/bernedom)
 
 [![mail](mail_icon.png) dominik.berner@bbv.ch](mailto:dominik.berner@bbv.ch)
+
+
+
 ]
+.center[![bbv_logo](logo_bbv_thumb.png)]
 ]
  
 
