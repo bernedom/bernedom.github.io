@@ -41,7 +41,9 @@ Worum geht es? Architektur/Software-engineering praxis für besseren code. Code 
 
 
 ]
-.center[![bbv_logo](logo_bbv_thumb.png)]
+.center[
+  ![bbv_logo](logo_bbv_thumb.png)
+  ]
 ]
  
 
@@ -63,7 +65,7 @@ Computergrafik, Medtech
 ---
 
 # Guter Code? 
-
+.left[
 ```cpp
 double squareroot(double x) {
   static constexpr int num_iterations = 10;
@@ -76,6 +78,7 @@ double squareroot(double x) {
   return guess;
 }
 ```
+]
 
 ???
 
@@ -87,12 +90,34 @@ Guter Code
 Newtonsches Wurzelziehen
 Probleme hier: Negative zahlen? Performance optimierung = weniger iterationen = resultat falsch 
 Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives beispiel 
+--
 
-Was nun tun 
+### Nicht schlecht, aber...
+
+* Was passiert mit negativen Zahlen? 
+* Kann der mit NaN umgehen?
+* Wartbarkeit? Refactorings & Optimierungen?
+
+???
+
+Fragen über Fragen, hier hilft design by contract
+
+# Robuster code == Gegen regression bugs und falsche verwendung geschützt
 
 ---
 
 # Design by Contract?!
+
+### "Der 'Contract' ist eine Metapher für die Beziehung zwischen dem Programmierer als 'Konsument' und einer Software als 'Anbieter' von Code."
+
+.left[
+* Formale Software-Spezifikation
+* Dokumentation
+* Hilfestellung beim Design-Prozess
+* Definition vom Verwendungskontext der Softwarefunktionen
+]
+
+#### Und das alles im Code drin!
 
 ???
 
@@ -115,7 +140,16 @@ Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artike
 
 ---
 
-# ein Vertrag 
+# Ein Hoare-Tripel als Vertrag 
+
+#### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`'
+
+ |               | **Verpflichtung**             | **Nutzen**                        |
+ | ------------- | ----------------------------- | --------------------------------- |
+ | **Konsument** | *Muss Vorbedingung erfüllen*  | *Darf die Nachbedingung erwarten* |
+ | **Anbieter**  | *Muss Nachbedingung erfüllen* | *Darf die Vorbedingung erwarten*  |
+
+???
 
 https://www.eiffel.com/values/design-by-contract/introduction/
 
@@ -135,14 +169,40 @@ No need to carry passenger who is late, has unacceptable baggage, or has not pai
 
 ---
 
-# Beispiel
+# Beispiel - Quadratwurzel
 
-TBD
+ |               | **Verpflichtung**                 | **Nutzen**                                 |
+ | ------------- | --------------------------------- | ------------------------------------------ |
+ | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts |
+ | **Anbieter**  | Berechne die Quadratwurzel        | Muss imaginäre Zahlen nicht implementieren |
 
-??? 
 
-Beispiel simple funktion
-Beispiel klasse, objekt invariante
+???
+
+---
+
+# Beispiel - Als Code
+ |               | **Verpflichtung**                 | **Nutzen**                                 |
+ | ------------- | --------------------------------- | ------------------------------------------ |
+ | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts |
+ | **Anbieter**  | Berechne die Quadratwurzel        | Muss imaginäre Zahlen nicht implementieren |
+
+.left[
+```cpp
+double squareroot(double x) {
+*  require(x >= 0);
+  static constexpr int num_iterations = 101;
+  if (x == 0)
+    return 0;
+
+  double guess = x;
+  for (int i = 0; i < num_iterations; i++)
+    guess -= (guess * guess - x) / (2 * guess);
+*  ensure(std::fabs(guess * guess - x) < std::numeric_limits<double>::epsilon());
+  return guess;
+}
+```
+]
 
 ---
 
