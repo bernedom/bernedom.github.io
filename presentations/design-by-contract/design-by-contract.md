@@ -68,7 +68,7 @@ Computergrafik, Medtech
 .left[
 ```cpp
 double squareroot(double x) {
-  static constexpr int num_iterations = 10;
+  static constexpr int num_iterations = 101;
   if (x == 0)
     return 0;
 
@@ -81,6 +81,8 @@ double squareroot(double x) {
 ]
 
 ???
+
+# TODO tabelle mit ergebnissen
 
 Guter Code
 * lässt die Absicht dahinter erkennen
@@ -121,6 +123,8 @@ Fragen über Fragen, hier hilft design by contract
 
 ???
 
+# Fail early, fail hard
+
 Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artikel beschrieben
 
 * formale software spezifikation und verifikation
@@ -142,7 +146,9 @@ Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artike
 
 # Ein Hoare-Tripel als Vertrag 
 
-#### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`'
+#### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`' 
+Oder als Contract formuliert
+#### **require** `P`, so execution of `C` **ensures** `Q`
 
  |               | **Verpflichtung**             | **Nutzen**                        |
  | ------------- | ----------------------------- | --------------------------------- |
@@ -151,21 +157,6 @@ Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artike
 
 ???
 
-https://www.eiffel.com/values/design-by-contract/introduction/
-
- 	Obligations 	Benefits
-Client 	(Must ensure precondition)
-
-Be at the Santa Barbara airport at least 5 minutes before scheduled departure time. Bring only acceptable baggage. Pay ticket price.
-	(May benefit from postcondition)
-
-Reach Chicago.
-Supplier 	(Must ensure postcondition)
-
-Bring customer to Chicago.
-	(May assume precondition)
-
-No need to carry passenger who is late, has unacceptable baggage, or has not paid ticket price.
 
 ---
 
@@ -198,40 +189,97 @@ double squareroot(double x) {
   double guess = x;
   for (int i = 0; i < num_iterations; i++)
     guess -= (guess * guess - x) / (2 * guess);
-*  ensure(std::fabs(guess * guess - x) < std::numeric_limits<double>::epsilon());
+*  ensure(fabs(guess * guess - x) < numeric_limits<double>::epsilon());
   return guess;
 }
 ```
 ]
 
----
-
-# Umsetzung
-
 ???
 
-triviale umsetzung mit Asserts, boost.contract
-
-# Fail hard, fail early 
-
-C++20 proposal
-
-Bei failure korrekte funktion der software nicht garantiert
-
-Dokumentation
+require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 
 ---
 
-# Gefahren
+# Eine Vertraglich abgesicherte Klasse
+
+.left[
+```cpp
+class uniqueIntList {
+public:
+  void add(int element) {
+*    require(!has_element(element));
+    list_.emplace_back(element);
+*    invariant(count() <= capacity());
+
+*    ensure(has_element(element));
+  }
+
+  bool has_element(int element) const {
+    return std::find(list_.begin(), list_.end(), element) != list_.end();
+  }
+  size_t capacity() const { return list_.capacity(); }
+  size_t count() const { return list_.size(); }
+
+private:
+  vector<int> list_;
+};
+```
+]
+
+---
+
+# Objektorientierung und Contracts
+
+Bei Vererbung: 
+
+.left[
+* **Invarianten** bleiben erhalten
+* **Vorbedingungen** dürfen abgeschwächt werden, aber nicht stärker werden
+* **Nachbedingungen** dürfen stärker sein, aber nicht abgeschwächt werden
+]
+
+---
+
+# Implementierung in C++
+
+* In wenigen Sprachen nativer support (Eiffel, D, Kotlin...) :(
+* Als natürliches Sprachfeature vielleicht in ~~C++20~~ C++23
+* Oft Support durch externe Libraries z.b. Boost.Contract
+* Eigene triviale implementation als `contract` entspricht `assert`
+
+
 
 ???
 
-Langsam, sollten im echten leben draussen sein
-- Vererbung: Subklassen dürfen preconditions abschwächen und post conditions und invarianten stärken
+triviale Umsetzung mit Asserts, boost.contract
 
+--
+
+.left[
+```cpp
+#include <cassert>
+#define require assert
+```
+]
+---
+
+# Schön, aber was jetzt
+
+Nutzen in der Praxis
+
+ * Fail early, fail hard
+ * Dokumentation - Verwendungskontext schaffen
+ * Weitere elemente z.b. Text zum Contract und Stack traces
+ * Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
+ * Komplexität des Codes wird reduziert
+
+###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
 ---
 
 # Ist das nicht testing?
+
+@TODO grafik testing
 
 ???
 
@@ -239,6 +287,14 @@ DbC ersetzt (unit) testen nicht, sondern komplementiert
 Tests werden simpler, weil edge cases anders abgefangen
 
 Wenn contracts failen, soll nicht getestet werden
+
+---
+
+# Fazit
+
+* Starkes Mittel für Codequalität
+* Leider zu wenig gebraucht
+
 
 ---
 
