@@ -5,12 +5,12 @@ class: center, middle, inverse
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 
-Vertraglich zugesicherte code-robustheit
+Vertraglich zugesicherte code-Robustheit
 ===
 
-## Robuster, Lesbarer Code mit Design by Contract
+### Robuster, Lesbarer Code mit Design by Contract
 
-### Dominik Berner - Coder, Agilist, rock Climber
+#### Dominik Berner - Coder, Agilist, rock Climber
 
 ![](logo_bbv_thumb.png)
 
