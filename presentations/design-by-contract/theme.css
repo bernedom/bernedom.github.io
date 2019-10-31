@@ -58,7 +58,7 @@ body {
     font-family: 'Open Sans';
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Yanone Kaffeesatz';
     font-weight: normal;
     color: #00838F;
@@ -77,6 +77,8 @@ h3 {
     font-style: italic;
 }
 
+
+
 p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -93,11 +95,16 @@ a {
     color: #CC071E;
     text-shadow: 0 0 0px black;
 }
-.inverse h1, .inverse h2, .inverse h3 {
+.inverse h1, .inverse h2, .inverse h3, .inverse h4 {
     color: #CC071E;
     line-height: 0.8em;
     text-shadow: 0 0 8px gray;
 }
+
+.inverse h4 {
+    text-shadow: 0 0 0;
+}
+
 .inverse a {
     color: #CC071E;
     text-decoration: none;
