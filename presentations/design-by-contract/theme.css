@@ -72,10 +72,10 @@ h2 {
     margin-top: 0.5em;
     margin-bottom: 0.25em;
 }
-
+/* 
 h3 {
-    font-style: italic;
-}
+    font-style: ;
+} */
 
 
 
@@ -99,6 +99,11 @@ a {
     color: #CC071E;
     line-height: 0.8em;
     text-shadow: 0 0 8px gray;
+}
+
+.inverse h3
+{
+    text-shadow: 0 0 0;
 }
 
 .inverse h4 {
