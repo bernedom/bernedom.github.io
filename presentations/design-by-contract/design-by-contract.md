@@ -170,18 +170,12 @@ Oder als Contract formuliert
 
 ???
 
----
-
-# Beispiel - Als Code
- |               | **Verpflichtung**                 | **Nutzen**                                 |
- | ------------- | --------------------------------- | ------------------------------------------ |
- | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts |
- | **Anbieter**  | Berechne die Quadratwurzel        | Muss imaginäre Zahlen nicht implementieren |
+--
 
 .left[
 ```cpp
 double squareroot(double x) {
-*  require(x >= 0);
+* require(x >= 0);
   static constexpr int num_iterations = 101;
   if (x == 0)
     return 0;
@@ -189,7 +183,7 @@ double squareroot(double x) {
   double guess = x;
   for (int i = 0; i < num_iterations; i++)
     guess -= (guess * guess - x) / (2 * guess);
-*  ensure(fabs(guess * guess - x) < numeric_limits<double>::epsilon());
+* ensure(fabs(guess * guess - x) < numeric_limits<double>::epsilon());
   return guess;
 }
 ```
@@ -208,15 +202,16 @@ require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 class uniqueIntList {
 public:
   void add(int element) {
-*    require(!has_element(element));
+*   require(!has_element(element));
     list_.emplace_back(element);
-*    invariant(count() <= capacity());
 
-*    ensure(has_element(element));
+*   ensure(has_element(element));
+*   invariant(count() <= capacity());
   }
 
   bool has_element(int element) const {
-    return std::find(list_.begin(), list_.end(), element) != list_.end();
+    return std::find(list_.begin(), list_.end(), element) \
+      != list_.end();
   }
   size_t capacity() const { return list_.capacity(); }
   size_t count() const { return list_.size(); }
@@ -231,23 +226,28 @@ private:
 
 # Objektorientierung und Contracts
 
-Bei Vererbung: 
+### Klasseninvarianten
 
 .left[
-* **Invarianten** bleiben erhalten
+* Garantieren konsitenten Objektzustand zwischen ausführungen von public Methoden
+]
+
+### Vererbung: 
+
+.left[
+* **Invarianten** bleiben bei bestehen
 * **Vorbedingungen** dürfen abgeschwächt werden, aber nicht stärker werden
 * **Nachbedingungen** dürfen stärker sein, aber nicht abgeschwächt werden
 ]
 
 ---
 
-# Implementierung in C++
+# Implementierung (in C++)
 
 * In wenigen Sprachen nativer support (Eiffel, D, Kotlin...) :(
 * Als natürliches Sprachfeature vielleicht in ~~C++20~~ C++23
-* Oft Support durch externe Libraries z.b. Boost.Contract
-* Eigene triviale implementation als `contract` entspricht `assert`
-
+* Oft Support durch externe Libraries z.b. Boost.Contract, Loki
+* Eigene triviale implementation als "`contract`" entspricht `assert`
 
 
 ???
@@ -260,19 +260,26 @@ triviale Umsetzung mit Asserts, boost.contract
 ```cpp
 #include <cassert>
 #define require assert
+#define ensure assert
+#define invariant assert
 ```
 ]
+
+Beispiel: https://github.com/bernedom/bertrand/ 
+
 ---
 
-# Schön, aber was jetzt
+# Schön, aber was jetzt - Nutzen in der Praxis
 
-Nutzen in der Praxis
-
- * Fail early, fail hard
- * Dokumentation - Verwendungskontext schaffen
- * Weitere elemente z.b. Text zum Contract und Stack traces
- * Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
- * Komplexität des Codes wird reduziert
+.left[
+ 
+* Fail early, fail hard
+* Dokumentation - Verwendungskontext schaffen
+* Weitere elemente z.b. Text zum Contract und Stack traces
+* Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
+* Komplexität des Codes wird reduziert
+  
+]
 
 ###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
 ---
@@ -282,6 +289,10 @@ Nutzen in der Praxis
 @TODO grafik testing
 
 ???
+
+Dbc - Korrekte verwendung der Software
+Unittesting - Verhält sich die Software korrekt
+Dokumentation - Wie verwende ich das richtig
 
 DbC ersetzt (unit) testen nicht, sondern komplementiert
 Tests werden simpler, weil edge cases anders abgefangen
@@ -293,8 +304,28 @@ Wenn contracts failen, soll nicht getestet werden
 # Fazit
 
 * Starkes Mittel für Codequalität
-* Leider zu wenig gebraucht
+* Leider zu wenig bekannt/gebraucht
+* Formale Spezifikation im code - Regulatorisch interessant
+* Anfangs gewöhnungsbedürftig, dann nicht mehr wegzudenken
 
+---
+
+# Fragen
+
+.left-column[
+ ![Me](profile_picture_presenting.jpg)
+]
+.right-column[
+.left[
+[![web](web_icon.png) dominikberner.me](http://dominikberner.me)
+
+[![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
+
+[![github](github_icon.png) bernedom](https://github.com/bernedom)
+
+[![mail](mail_icon.png) dominik.berner@bbv.ch](mailto:dominik.berner@bbv.ch)
+]
+]
 
 ---
 
