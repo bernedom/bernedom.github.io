@@ -5,7 +5,7 @@ class: center, middle, inverse
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 
-Vertraglich zugesicherte code-Robustheit
+Vertraglich zugesicherte Code-Robustheit
 ===
 
 ### Robuster, Lesbarer Code mit Design by Contract
@@ -18,7 +18,13 @@ Vertraglich zugesicherte code-Robustheit
 
 # Begrüssung
 
-Worum geht es? Architektur/Software-engineering praxis für besseren code. Code muss heute nicht nur einmal geschrieben werden, sondern auch für ide Zukunft wartbar sein. 
+## Die meisten Softwarefehler werden durch Programmierer verursacht
+
+## Code wird heute nicht nur einmal geschrieben, sondern auch in Zukunft oft wieder angefasst
+
+## unerwünschte Nebeneffekte und Regression Bugs sind dabei natürlich unerwünscht. 
+
+# Design by contract ist eine Software-Engineering-Praxis für besseren code. 
 
 ---
 
@@ -49,22 +55,37 @@ Worum geht es? Architektur/Software-engineering praxis für besseren code. Code 
 
 ???
 
-# 10+ Jahre erfahrung mit C++
-# Seit Anfang an auf c++11 (Cx::TR1)
+# 10+ Jahre erfahrung mit (modernem) C++
 # Bürokollege der an Eiffel mitgearbeitet hat - Intro in Design by COntract
 # Grafik- und Simulationsengine ca 300'000 Zeilen Code mit Design by Contract
 
-Computergrafik, Medtech
-
 # Agilist -> Konstantes Refactoren
 
-# Arbeiten mit gutem code ist ein Genuss
 
-### Pfadfinder-mentalität: Lass den Code etwas besser zurück als du ihn angetroffen hast
+## Pfadfinder-mentalität: Lass den Code etwas besser zurück als du ihn angetroffen hast
+
+# Arbeiten mit gutem code ist ein Genuss
 
 ---
 
 # Guter Code? 
+
+
+???
+
+# TODO tabelle mit ergebnissen
+
+Guter Code
+* lässt die Absicht dahinter erkennen
+* Falsche Verwendung durch Programmierer schwierig
+* Korrekt - tut was er soll, in dem Kontext den er soll
+* Kann gewartet werden
+* lesbar 
+
+
+
+--
+
 .left[
 ```cpp
 double squareroot(double x) {
@@ -81,17 +102,14 @@ double squareroot(double x) {
 ]
 
 ???
+## Newtonsches Wurzelziehen
+Wert Konvergiert zum Ergebnis
 
-# TODO tabelle mit ergebnissen
+# Ist das guter code?
 
-Guter Code
-* lässt die Absicht dahinter erkennen
-* Falsche Verwendung durch Programmierer schwierig
-* Korrekt - tut was er soll, in dem Kontext den er soll
+## Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives Beispiel 
 
-Newtonsches Wurzelziehen
-Probleme hier: Negative zahlen? Performance optimierung = weniger iterationen = resultat falsch 
-Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives beispiel 
+
 --
 
 ### Nicht schlecht, aber...
@@ -99,8 +117,12 @@ Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives beispie
 * Was passiert mit negativen Zahlen? 
 * Kann der mit NaN umgehen?
 * Wartbarkeit? Refactorings & Optimierungen?
+* Implementation durch library-funktion ersetzen? 
+* Fehlerbehandlung?
 
 ???
+
+## Probleme hier: Negative zahlen? Performance optimierung = weniger iterationen = resultat falsch 
 
 Fragen über Fragen, hier hilft design by contract
 
@@ -110,7 +132,7 @@ Fragen über Fragen, hier hilft design by contract
 
 # Design by Contract?!
 
-### "Der 'Contract' ist eine Metapher für die Beziehung zwischen dem Programmierer als 'Konsument' und einer Software als 'Anbieter' von Code."
+### "Der 'Contract' bzw. 'Vertrag' ist eine Metapher für die Beziehung zwischen dem Programmierer als 'Konsument' und einer Software als 'Anbieter' von Code."
 
 .left[
 * Formale Software-Spezifikation
@@ -123,7 +145,8 @@ Fragen über Fragen, hier hilft design by contract
 
 ???
 
-# Fail early, fail hard
+# Was ist design by contract?
+
 
 Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artikel beschrieben
 
@@ -142,13 +165,27 @@ Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artike
 
 # hoare Tripple
 
+## Fail early, fail hard
+
 ---
 
-# Ein Hoare-Tripel als Vertrag 
+# Achtung Theorie! - Hoare Logik
 
-#### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`' 
+### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`' 
 Oder als Contract formuliert
-#### **require** `P`, so execution of `C` **ensures** `Q`
+### **require** `P`, so execution of `C` **ensures** `Q`
+
+???
+
+## Hoare-Logik ist ein formales System, um die Korrektheit von Programmen nachzuweisen
+
+# Set von Regeln, die aussagen über Korrektheit von Software zu treffen
+
+# Korrektheit - Verhält sich die Software wie sie soll, nicht ist das was sie tut sinnvoll
+
+## Require und Ensure Schlüsselwörter design by contract
+
+--
 
  |               | **Verpflichtung**             | **Nutzen**                        |
  | ------------- | ----------------------------- | --------------------------------- |
@@ -157,6 +194,48 @@ Oder als Contract formuliert
 
 ???
 
+---
+
+# Beispiel - Quadratwurzel
+
+ |               | **Verpflichtung** | **Nutzen**                                     |
+ | ------------- | ----------------- | ---------------------------------------------- |
+ | **Konsument** | ?                 | **Erhalte die Quadratwurzel des Eingabewerts** |
+ | **Anbieter**  | ?                 | ?                                              |
+
+
+???
+
+# Ich will die Quadratwurzel des Eingabewerts kriegen
+---
+
+# Beispiel - Quadratwurzel
+
+ |               | **Verpflichtung**              | **Nutzen**                                 |
+ | ------------- | ------------------------------ | ------------------------------------------ |
+ | **Konsument** | ?                              | Erhalte die Quadratwurzel des Eingabewerts |
+ | **Anbieter**  | **Berechne die Quadratwurzel** | ?                                          |
+
+???
+
+# Der Anbieter soll mir das liefern
+
+# Unter allen Umständen???
+
+---
+
+# Beispiel - Quadratwurzel
+
+ |               | **Verpflichtung**          | **Nutzen**                                     |
+ | ------------- | -------------------------- | ---------------------------------------------- |
+ | **Konsument** | ?                          | Erhalte die Quadratwurzel des Eingabewerts     |
+ | **Anbieter**  | Berechne die Quadratwurzel | **Muss imaginäre Zahlen nicht implementieren** |
+
+???
+
+# Der Anbieter soll mir das liefern
+
+# Unter allen Umständen???
 
 ---
 
@@ -167,8 +246,9 @@ Oder als Contract formuliert
  | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts |
  | **Anbieter**  | Berechne die Quadratwurzel        | Muss imaginäre Zahlen nicht implementieren |
 
-
 ???
+
+# Konsument, Ok ich fütter dich nur mit positiven Zahlen (und 0)
 
 --
 
@@ -191,15 +271,49 @@ double squareroot(double x) {
 
 ???
 
+# Als code - Require & Ensure
+
+# wird der Vertrag verletzt, beendet das programm mit einem Fehler!
+
 require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 
 ---
 
-# Eine Vertraglich abgesicherte Klasse
+# Eine vertraglich abgesicherte Klasse
 
 .left[
 ```cpp
-class uniqueIntList {
+class UniqueIntList {
+public:
+  void add(int element); 
+
+
+
+  bool has_element(int element) const;
+  
+  size_t capacity() const;
+
+  size_t count() const; 
+
+};
+```
+]
+
+???
+
+# Beispiel, Liste mit einmaligen werden (Macht das nicht selbst!)
+
+# Entweder aufwändige Fehlerbehandlung ODER absicherung mit contracts
+
+# Benutzer soll schauen, dass die Werte einmaligs sind
+
+---
+
+# Eine vertraglich abgesicherte Klasse
+
+.left[
+```cpp
+class UniqueIntList {
 public:
   void add(int element) {
 *   require(!has_element(element));
@@ -222,17 +336,15 @@ private:
 ```
 ]
 
+???
+
+# Mit code befüllt
+
+## Invarianten: Garantieren konsitenten Objektzustand zwischen ausführungen von public Methoden
+
 ---
 
-# Objektorientierung und Contracts
-
-### Klasseninvarianten
-
-.left[
-* Garantieren konsitenten Objektzustand zwischen ausführungen von public Methoden
-]
-
-### Vererbung: 
+# Vererbung und Verträge
 
 .left[
 * **Invarianten** bleiben bei bestehen
@@ -244,10 +356,10 @@ private:
 
 # Implementierung (in C++)
 
-* In wenigen Sprachen nativer support (Eiffel, D, Kotlin...) :(
+* In wenigen Sprachen nativer Support (Eiffel, D, Kotlin...) :(
 * Als natürliches Sprachfeature vielleicht in ~~C++20~~ C++23
-* Oft Support durch externe Libraries z.b. Boost.Contract, Loki
-* Eigene triviale implementation als "`contract`" entspricht `assert`
+* Support durch externe Libraries z.b. Boost.Contract, Loki
+* Eigene triviale Implementation als "`contract`" entspricht `assert`
 
 
 ???
@@ -267,21 +379,7 @@ triviale Umsetzung mit Asserts, boost.contract
 
 Beispiel: https://github.com/bernedom/bertrand/ 
 
----
 
-# Schön, aber was jetzt - Nutzen in der Praxis
-
-.left[
- 
-* Fail early, fail hard
-* Dokumentation - Verwendungskontext schaffen
-* Weitere elemente z.b. Text zum Contract und Stack traces
-* Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
-* Komplexität des Codes wird reduziert
-  
-]
-
-###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
 ---
 
 # Ist das nicht testing?
@@ -301,12 +399,20 @@ Wenn contracts failen, soll nicht getestet werden
 
 ---
 
-# Fazit
+# Schön, aber was jetzt - Nutzen in der Praxis
 
-* Starkes Mittel für Codequalität
-* Leider zu wenig bekannt/gebraucht
+.left[
+ 
+* Umsetzung von "Fail early fail hard" bzw. Stop and Fix
+* Dokumentation - Verwendungskontext schaffen
+* Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
+* Komplexität des Codes wird reduziert
 * Formale Spezifikation im code - Regulatorisch interessant
-* Anfangs gewöhnungsbedürftig, dann nicht mehr wegzudenken
+* Weitere Elemente z.b. Text zum Contract und Stack Traces
+  
+]
+
+###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
 
 ---
 
