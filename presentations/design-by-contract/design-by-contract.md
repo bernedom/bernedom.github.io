@@ -286,7 +286,7 @@ Beispiel: https://github.com/bernedom/bertrand/
 
 # Ist das nicht testing?
 
-@TODO grafik testing
+![Venn diagramm testing, docu, dbc](images/contract_testing_docu.png)
 
 ???
 
