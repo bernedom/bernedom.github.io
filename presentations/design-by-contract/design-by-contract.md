@@ -109,6 +109,13 @@ Wert Konvergiert zum Ergebnis
 
 ## Sollte man ja eigentlich nicht selbst implementieren - Nur illustratives Beispiel 
 
+13
+7.46154
+5.40603
+5.01525
+5.00002
+5
+5
 
 --
 
