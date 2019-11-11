@@ -179,6 +179,20 @@ ol > li:before {
     font-style: italic;
 }
 
+ul {
+    
+    padding-left: 18px;
+	  font-size: 24px;
+}
+
+ul > li:before {
+    display: inline-block;
+    width: 1.7em;
+
+    font-size: 32px;
+    font-style: italic;
+}
+
 img {
     max-width: 100%;
 vertical-align: middle;
