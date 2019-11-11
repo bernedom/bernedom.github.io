@@ -128,6 +128,8 @@ Fragen über Fragen, hier hilft design by contract
 
 # Robuster code == Gegen regression bugs und falsche verwendung geschützt
 
+# Hier hilft Design by Contract
+
 ---
 
 # Design by Contract?!
@@ -147,33 +149,28 @@ Fragen über Fragen, hier hilft design by contract
 
 # Was ist design by contract?
 
+* Hilft genau solche Fragen zu beantworten
 
-Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artikel beschrieben
+# Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artikel beschrieben
 
-* formale software spezifikation und verifikation
-* Dokumentation
-* hilfestellung beim Design-Prozess
-* Klare Abgenzung über verwendungskontext von Softwarefunktionen
+## Programmierer Werkzeug
+
+## Fail early, fail hard
 
 * KEINE Fehlermeldungen, diagnostics
 * Informiert den Programmierer, nicht den benutzer
 
-"contract" ist eine Metapher - Vertrag zwischen benutzer und anbieter von code
-    What does the contract expect?
-    What does the contract guarantee?
-    What does the contract maintain?
+# Wie sieht ein korrekt implementiertes Programm in der Theoretischen Informatik aus?
+# hoare Triple
 
-# hoare Tripple
-
-## Fail early, fail hard
-
+ 
 ---
 
 # Achtung Theorie! - Hoare Logik
 
 ### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`' 
 Oder als Contract formuliert
-### **require** `P`, so execution of `C` **ensures** `Q`
+### **require** that `P`, so execution of `C` **ensures** `Q`
 
 ???
 
@@ -185,6 +182,8 @@ Oder als Contract formuliert
 
 ## Require und Ensure Schlüsselwörter design by contract
 
+## Umgekehrt nicht gültig: Nur weil Q heisst nicht, dass P auch wahr ist
+
 --
 
  |               | **Verpflichtung**             | **Nutzen**                        |
@@ -193,6 +192,8 @@ Oder als Contract formuliert
  | **Anbieter**  | *Muss Nachbedingung erfüllen* | *Darf die Vorbedingung erwarten*  |
 
 ???
+
+# Wenn wir das als Vertrag auslegen: Muss und Darf 
 
 ---
 
@@ -255,7 +256,7 @@ Oder als Contract formuliert
 .left[
 ```cpp
 double squareroot(double x) {
-* require(x >= 0);
+* require(x >= 0); // <-- This is an assert
   static constexpr int num_iterations = 101;
   if (x == 0)
     return 0;
@@ -263,7 +264,8 @@ double squareroot(double x) {
   double guess = x;
   for (int i = 0; i < num_iterations; i++)
     guess -= (guess * guess - x) / (2 * guess);
-* ensure(fabs(guess * guess - x) < numeric_limits<double>::epsilon());
+* ensure(fabs(guess * guess - x) < \
+     numeric_limits<double>::epsilon()); // <-- Also an assert
   return guess;
 }
 ```
@@ -342,6 +344,8 @@ private:
 
 ## Invarianten: Garantieren konsitenten Objektzustand zwischen ausführungen von public Methoden
 
+## Was passiert bei Vererbung?
+
 ---
 
 # Vererbung und Verträge
@@ -352,7 +356,11 @@ private:
 * **Nachbedingungen** dürfen stärker sein, aber nicht abgeschwächt werden
 ]
 
----
+???
+
+Erbende Klassen müssen Verträge der Eltern erfüllen. 
+
+--- 
 
 # Implementierung (in C++)
 
@@ -409,6 +417,7 @@ Wenn contracts failen, soll nicht getestet werden
 * Komplexität des Codes wird reduziert
 * Formale Spezifikation im code - Regulatorisch interessant
 * Weitere Elemente z.b. Text zum Contract und Stack Traces
+* Einfacher Einbau in bestehenden Code
   
 ]
 
