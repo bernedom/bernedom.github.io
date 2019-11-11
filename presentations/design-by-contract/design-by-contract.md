@@ -47,9 +47,7 @@ Vertraglich zugesicherte Code-Robustheit
 
 
 ]
-.center[
-  ![bbv_logo](logo_bbv_thumb.png)
-  ]
+
 ]
  
 
@@ -119,7 +117,7 @@ Wert Konvergiert zum Ergebnis
 
 --
 
-### Nicht schlecht, aber...
+### Naja...
 
 * Was passiert mit negativen Zahlen? 
 * Kann der mit NaN umgehen?
