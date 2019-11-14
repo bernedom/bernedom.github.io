@@ -26,6 +26,10 @@ Vertraglich zugesicherte Code-Robustheit
 
 # Design by contract ist eine Software-Engineering-Praxis für besseren code. 
 
+# Intro - keine vertiefte analyse
+
+# Überblick & Ablauf
+
 ---
 
 # Dominik Berner
@@ -70,8 +74,6 @@ Vertraglich zugesicherte Code-Robustheit
 
 
 ???
-
-# TODO tabelle mit ergebnissen
 
 Guter Code
 * lässt die Absicht dahinter erkennen
@@ -139,7 +141,7 @@ Fragen über Fragen, hier hilft design by contract
 
 # Design by Contract?!
 
-### "Der 'Contract' bzw. 'Vertrag' ist eine Metapher für die Beziehung zwischen dem Programmierer als 'Konsument' und einer Software als 'Anbieter' von Code."
+### "Der 'Contract' bzw. 'Vertrag' ist eine Metapher für die Beziehung zwischen dem Programmierer als *'Konsument'* und einer Software als *'Anbieter'* von Code."
 
 .left[
 * Formale Software-Spezifikation
@@ -284,6 +286,10 @@ double squareroot(double x) {
 
 require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 
+# Negative Zahlen Behandelt, NaN Behandelt
+# Fehlerbehandlung dieser Fälle hat bitteschön ausserhalb zu geschehen
+# Hardening gegen refactoring (auch im umliegenden kontext)
+
 ---
 
 # Eine vertraglich abgesicherte Klasse
@@ -363,21 +369,23 @@ private:
 
 ???
 
-Erbende Klassen müssen Verträge der Eltern erfüllen. 
+# Erbende Klassen müssen Verträge der Eltern erfüllen. 
 
---- 
+# Das ist eigentlich schon das meiste. Require, Ensure, Invariant
+
+---
 
 # Implementierung (in C++)
-
-* In wenigen Sprachen nativer Support (Eiffel, D, Kotlin...) :(
+.left[
+* In wenigen Sprachen nativer Support (Eiffel, D, Kotlin...)
 * Als natürliches Sprachfeature vielleicht in ~~C++20~~ C++23
 * Support durch externe Libraries z.b. Boost.Contract, Loki
 * Eigene triviale Implementation als "`contract`" entspricht `assert`
-
+]
 
 ???
 
-triviale Umsetzung mit Asserts, boost.contract
+# triviale Umsetzung mit Asserts, boost.contract
 
 --
 
@@ -392,10 +400,15 @@ triviale Umsetzung mit Asserts, boost.contract
 
 Beispiel: https://github.com/bernedom/bertrand/ 
 
+???
+
+# Wichtig: Contracts gehören nicht in produktiven code!
+
+
 
 ---
 
-# Ist das nicht testing?
+# Software Qualität garantieren
 
 ![Venn diagramm testing, docu, dbc](images/contract_testing_docu.png)
 
@@ -412,21 +425,25 @@ Wenn contracts failen, soll nicht getestet werden
 
 ---
 
-# Schön, aber was jetzt - Nutzen in der Praxis
+# Nutzen in der Praxis
 
 .left[
  
 * Umsetzung von "Fail early fail hard" bzw. Stop and Fix
-* Dokumentation - Verwendungskontext schaffen
-* Ort der Fehlerbehandlung klar definieren - Weniger Code, Weniger Bugs
-* Komplexität des Codes wird reduziert
-* Formale Spezifikation im code - Regulatorisch interessant
+* Verwendungskontext und Ort der Fehlerbehandlung klar definieren
+  * Komplexität des Codes wird reduziert
+  * Weniger Code, Weniger Bugs
+* Formale Spezifikation im Code - Regulatorisch interessant
 * Weitere Elemente z.b. Text zum Contract und Stack Traces
 * Einfacher Einbau in bestehenden Code
   
 ]
 
 ###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
+
+???
+
+# Fragen und Beispiele für den Verwendungszweck? 
 
 ---
 
