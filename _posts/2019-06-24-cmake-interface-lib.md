@@ -154,7 +154,7 @@ install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}_Targets
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}))
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 ```
 
 The next two lines are a shortcut to avoid having to write the boilerplate cmake code to manage version comparison. First the cmake package containing the macros parsing versions is included. This is deliverd with the standard cmake installations since 3.5. Then the macro `write_basic_package_version_file` is called and instructed to create a file `SIConfigVersion.cmake`. The version specified is the one supplied in the `project` dierective at the beginning of the file and since semantic versioning is used versions of the same major digit are considerd compatible. 
