@@ -10,7 +10,7 @@ Vertraglich zugesicherte Code-Robustheit
 
 ### Robuster, Lesbarer Code mit Design by Contract
 
-#### Dominik Berner - Coder, Agilist, rock Climber
+#### Dominik Berner - Coder, Agilist, Rock Climber
 
 ![](logo_bbv_thumb.png)
 
@@ -24,7 +24,7 @@ Vertraglich zugesicherte Code-Robustheit
 
 ## unerwünschte Nebeneffekte und Regression Bugs sind dabei natürlich unerwünscht. 
 
-# Design by contract ist eine Software-Engineering-Praxis für besseren code. 
+# Design by contract ist eine Software-Engineering-Praxis für besseren Code. 
 
 # Intro - keine vertiefte analyse
 
@@ -82,8 +82,6 @@ Guter Code
 * Kann gewartet werden
 * lesbar 
 
-
-
 --
 
 .left[
@@ -137,20 +135,50 @@ Fragen über Fragen, hier hilft design by contract
 
 # Hier hilft Design by Contract
 
+
 ---
+
+# Asserts!
+
+.left[
+```cpp
+double squareroot(double x) {
+* Require(x >= 0); // <-- This is an assert
+  static constexpr int num_iterations = 101;
+  if (x == 0)
+    return 0;
+
+  double guess = x;
+  for (int i = 0; i < num_iterations; i++)
+    guess -= (guess * guess - x) / (2 * guess);
+* Ensure(fabs(guess * guess - x) < \
+*    numeric_limits<double>::epsilon()); // <-- Also an assert
+  return guess;
+}
+```
+]
+
+### Das ist Design by Contract!
+
+???
+
+# Assert
+
+# wird der Vertrag verletzt, beendet das programm mit einem Fehler!
+
+require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
+
+# Negative Zahlen Behandelt, NaN Behandelt
+# Fehlerbehandlung dieser Fälle hat bitteschön ausserhalb zu geschehen
+# Hardening gegen refactoring (auch im umliegenden kontext)
+
+---
+
+
 
 # Design by Contract?!
 
 ### "Der 'Contract' bzw. 'Vertrag' ist eine Metapher für die Beziehung zwischen dem Programmierer als *'Konsument'* und einer Software als *'Anbieter'* von Code."
-
-.left[
-* Formale Software-Spezifikation
-* Dokumentation
-* Hilfestellung beim Design-Prozess
-* Definition vom Verwendungskontext der Softwarefunktionen
-]
-
-#### Und das alles im Code drin!
 
 ???
 
@@ -258,38 +286,6 @@ Oder als Contract formuliert
 
 # Konsument, Ok ich fütter dich nur mit positiven Zahlen (und 0)
 
---
-
-.left[
-```cpp
-double squareroot(double x) {
-* require(x >= 0); // <-- This is an assert
-  static constexpr int num_iterations = 101;
-  if (x == 0)
-    return 0;
-
-  double guess = x;
-  for (int i = 0; i < num_iterations; i++)
-    guess -= (guess * guess - x) / (2 * guess);
-* ensure(fabs(guess * guess - x) < \
-     numeric_limits<double>::epsilon()); // <-- Also an assert
-  return guess;
-}
-```
-]
-
-???
-
-# Als code - Require & Ensure
-
-# wird der Vertrag verletzt, beendet das programm mit einem Fehler!
-
-require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
-
-# Negative Zahlen Behandelt, NaN Behandelt
-# Fehlerbehandlung dieser Fälle hat bitteschön ausserhalb zu geschehen
-# Hardening gegen refactoring (auch im umliegenden kontext)
-
 ---
 
 # Eine vertraglich abgesicherte Klasse
@@ -329,11 +325,11 @@ public:
 class UniqueIntList {
 public:
   void add(int element) {
-*   require(!has_element(element));
+*   Require(!has_element(element));
     list_.emplace_back(element);
 
-*   ensure(has_element(element));
-*   invariant(count() <= capacity());
+*   Ensure(has_element(element));
+*   Invariant(count() <= capacity());
   }
 
   bool has_element(int element) const {
@@ -375,10 +371,10 @@ private:
 
 ---
 
-# Implementierung (in C++)
+# Aus der Praxis: Implementierung (in C++)
 .left[
 * In wenigen Sprachen nativer Support (Eiffel, D, Kotlin...)
-* Als natürliches Sprachfeature vielleicht in ~~C++20~~ C++23
+* Vielleicht in ~~C++20~~ C++23
 * Support durch externe Libraries z.b. Boost.Contract, Loki
 * Eigene triviale Implementation als "`contract`" entspricht `assert`
 ]
@@ -404,11 +400,9 @@ Beispiel: https://github.com/bernedom/bertrand/
 
 # Wichtig: Contracts gehören nicht in produktiven code!
 
-
-
 ---
 
-# Software Qualität garantieren
+# DbC und Softwarequalität
 
 ![Venn diagramm testing, docu, dbc](images/contract_testing_docu.png)
 
@@ -425,7 +419,7 @@ Wenn contracts failen, soll nicht getestet werden
 
 ---
 
-# Nutzen in der Praxis
+# Fazit
 
 .left[
  
