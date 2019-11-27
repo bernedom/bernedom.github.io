@@ -388,9 +388,9 @@ private:
 .left[
 ```cpp
 #include <cassert>
-#define require assert
-#define ensure assert
-#define invariant assert
+#define Require assert
+#define Ensure assert
+#define Invariant assert
 ```
 ]
 
@@ -399,6 +399,9 @@ Beispiel: https://github.com/bernedom/bertrand/
 ???
 
 # Wichtig: Contracts gehören nicht in produktiven code!
+
+* Weitere Elemente z.b. Text zum Contract und Stack Traces
+* Einfacher Einbau in bestehenden Code
 
 ---
 
@@ -417,31 +420,23 @@ Tests werden simpler, weil edge cases anders abgefangen
 
 Wenn contracts failen, soll nicht getestet werden
 
+## Formale Spezifikation im Code - Regulatorisch interessant
+
 ---
 
-# Fazit
-
-.left[
- 
-* Umsetzung von "Fail early fail hard" bzw. Stop and Fix
-* Verwendungskontext und Ort der Fehlerbehandlung klar definieren
-  * Komplexität des Codes wird reduziert
-  * Weniger Code, Weniger Bugs
-* Formale Spezifikation im Code - Regulatorisch interessant
-* Weitere Elemente z.b. Text zum Contract und Stack Traces
-* Einfacher Einbau in bestehenden Code
-  
-]
-
-###  Contracts sind ein Werkzeug für den Programmierer - Nicht für den Endbenutzer!
+# Defekt entdeckt!...
+![agile cost of change](images/AgileCostChangeCurve.png)
 
 ???
 
-# Fragen und Beispiele für den Verwendungszweck? 
+* Umsetzung von "Fail early fail hard" bzw. Stop and Fix
+* 
+* Komplexität des Codes wird reduziert
+* Weniger Code, Weniger Bugs
 
 ---
 
-# Fragen
+# Fragen & Antworten
 
 .left-column[
  ![Me](profile_picture_presenting.jpg)
