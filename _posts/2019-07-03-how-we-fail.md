@@ -4,27 +4,31 @@ title: The joy of failure
 thumbnail: images/failure/thumbnail.png
 ---
 
-**"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. There is a lot of talk going on about a good failure culture, but is failure in every circumstance a good thing? Probably not. As a software engineer and climber I saw a few fails with sometimes quite drastic consequences. Failure is never the goal but sometimes unavoidable, how can we benefit from it?
+**"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. There is a lot of talk going on about a good failure culture, but is failure in every circumstance a good thing? Probably not. As a software engineer and climber I saw a few fails with sometimes quite drastic consequences. Failure is never the goal but sometimes unavoidable, so how can individuals, teams and companies benefit from it? 
 
-Modern companies and organizations often have a culture where failure is not just accepted, but seen as strong opportunities for learning. Being able to fail without dire consequences, be it as an individual, as a team or the organization itself is a great enabler to foster creative, innovative work. Failures can be of a wide range of severity, ranging from "Ups, that could have gone better" to fatal and disastrous consequences. Over the years I found that the kind of failures roughly can be grouped into four categories, orderd by the possible severity.
+When climbing failure ist usually very apparent and more immediate than when working as a software developer or other office job. If a summit is not reached or one falls a few times during sports climbing one feels the failure. In software engineering failure is usually more abstract but nevertheless very present. Mistakes can have dire consequences as well, just think of defective software for an airplane. 
+
+But is every mistake important and a valuable lesson? Where can we embrace failure and where do we have zero tolerance? Years of climbing and sofware engineering made me categorize failures into four categories. 
 
 ![Danger meter, describing types of failure]({{ site.baseurl }}/images/failure/dangermeter.png)
 
 ## Failing at the sport
 
-At the inconsequetial end is what I call "Failing at the sport". Failing here is usually this is related to **the way we would like to do things**. The intended goal is probably still reachable, but in the way intended. A summit of a mountain might still be reached, but the ascent might not have been "red point"[^1] or by using additional helping equipment. In software engineering we still deliver the feature, but failed to do so by applying TDD or using a certain technology. 
+At the inconsequetial end is what I call "Failing at the sport". Failing here is usually this is related to **the way we would like to do things**. The intended goal is probably still reachable, but not in the way intended. A summit of a mountain might still be reached, but the ascent might not have been "red point"[^1] or by using additional helping equipment. In software engineering we still deliver the feature, but failed to do so by applying TDD or using a certain technology. 
 
 This kind of failure happens very very frequently, and while we still want to be aware of it and learn from it, this should not slow us down in our daily work. Acknowledge the failure, think what could have gone better and move on to the next software feature or the next big rock to climb. 
 
 ## Controlled abort
 
-At the next level, "controlled abort", the goal is no longer achievabl and that fact is recognized early on. The keyword here is **controlled** the climber or software engineer is still in control of the situation and it is a conscious decision not to press on forward. The summit might be unattainable for the moment and rappelling down might be the only option left, or one recognizes that a software feature does not bring any value or faces such immense technical difficulties in implementing that it just is not worth pressing on. Here a conscious decision happens to stop, because else the consequences will be nasty. 
+At the next level, "controlled abort", the goal is no longer achievable and that fact is recognized. The keyword here is **controlled** the climber or software engineer is still in control of the situation and it is a conscious decision not to press on forward. Maybe the climb is just too difficult and the summit is be unattainable, so rappelling down becomes the only option left. Or one recognizes that a software feature does not bring any value or faces such immense technical difficulties in implementing that it just is not worth pressing on. **Here a conscious decision happens to stop, because else the consequences will be nasty.**
 
-Failing this way is migth be frustrating, but it also avoids further damage or injury. It takes some experience to be able to make the decision to turn around and abandoning already done work and it never is easy. Usually this means calling quits, going back to the start and trying again later. 
+Failing this way is often very frustrating, but it also avoids damage or injury. It takes some experience an will to make the decision to turn around and abandon the already done effort. That's never easy.
 
 ## Getting away with it
 
-There are circumstances when one finds in a situation that one can no longer control to the full extent. Succeeding to reach ones goals, from here is very unlikely and the severity of the failure is depending to a large extent on luck. These are he situations where one often asks afterwards, "how did we end up there?". In this zone one needs all his experience, skill and some luck to avoid severe damage, be it financial damage or suffering reputation or in the case of climbing severe injury. 
+If one misses the exit point for a controlled abort the siutation becomes dangerous. Suddenly there is a situation one the moutain where one is out of control and the possibility of broken bones or even death becomes very real. Or one realises that a software-update with a critical security flaw has reached production. 
+
+ Succeeding to reach ones goals, from here is very unlikely and the severity of the failure is depending to a large extent on luck. These are he situations where one often asks afterwards, "how did we end up there?". In this zone one needs all his experience, skill and some luck to avoid severe damage, be it financial damage or suffering reputation or in the case of climbing severe injury. 
 
 ## Catastrophic failure
 
