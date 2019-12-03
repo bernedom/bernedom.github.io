@@ -18,11 +18,12 @@ Vertraglich zugesicherte Code-Robustheit
 
 # Begrüssung
 
-## Die meisten Softwarefehler werden durch Programmierer verursacht
 
 ## Code wird heute nicht nur einmal geschrieben, sondern auch in Zukunft oft wieder angefasst
 
 ## unerwünschte Nebeneffekte und Regression Bugs sind dabei natürlich unerwünscht. 
+
+## Dummerweise werden die meisten Softwarefehler werden durch Programmierer
 
 # Design by contract ist eine Software-Engineering-Praxis für besseren Code. 
 
@@ -49,6 +50,10 @@ Vertraglich zugesicherte Code-Robustheit
 [![mail](mail_icon.png) dominik.berner@bbv.ch](mailto:dominik.berner@bbv.ch)
 
 
+.center[
+![](logo_bbv_thumb.png)
+
+]
 
 ]
 
@@ -138,7 +143,7 @@ Fragen über Fragen, hier hilft design by contract
 
 ---
 
-# Asserts!
+# Design by Contract!
 
 .left[
 ```cpp
@@ -151,6 +156,7 @@ double squareroot(double x) {
   double guess = x;
   for (int i = 0; i < num_iterations; i++)
     guess -= (guess * guess - x) / (2 * guess);
+    
 * Ensure(fabs(guess * guess - x) < \
 *    numeric_limits<double>::epsilon()); // <-- Also an assert
   return guess;
@@ -158,7 +164,6 @@ double squareroot(double x) {
 ```
 ]
 
-### Das ist Design by Contract!
 
 ???
 
@@ -184,8 +189,6 @@ require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 
 # Was ist design by contract?
 
-* Hilft genau solche Fragen zu beantworten
-
 # Bertrand Meyer - Aus der programmiersprache eiffel 1986 erstmals in einem Artikel beschrieben
 
 ## Programmierer Werkzeug
@@ -205,7 +208,7 @@ require handled Nan auch gleich, weil alle vergleiche mit NaN false sind
 
 ### `{P}C{Q}` - Wenn '`P`' dann stellt die Ausführung von '`C`' sicher dass '`Q`' 
 Oder als Contract formuliert
-### **require** that `P`, so execution of `C` **ensures** `Q`
+### *require* that `P`, so that execution of `C` *ensures* `Q`
 
 ???
 
@@ -262,29 +265,31 @@ Oder als Contract formuliert
 
 # Beispiel - Quadratwurzel
 
- |               | **Verpflichtung**          | **Nutzen**                                     |
- | ------------- | -------------------------- | ---------------------------------------------- |
- | **Konsument** | ?                          | Erhalte die Quadratwurzel des Eingabewerts     |
- | **Anbieter**  | Berechne die Quadratwurzel | **Muss imaginäre Zahlen nicht implementieren** |
+ |               | **Verpflichtung**                     | **Nutzen**                                 |
+ | ------------- | ------------------------------------- | ------------------------------------------ |
+ | **Konsument** | **Der Eingabewert muss positiv sein** | Erhalte die Quadratwurzel des Eingabewerts |
+ | **Anbieter**  | Berechne die Quadratwurzel            | ?                                          |
 
 ???
 
 # Der Anbieter soll mir das liefern
 
-# Unter allen Umständen???
+# Das gilt aber nur für positive Zahlen
 
 ---
 
 # Beispiel - Quadratwurzel
 
- |               | **Verpflichtung**                 | **Nutzen**                                 |
- | ------------- | --------------------------------- | ------------------------------------------ |
- | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts |
- | **Anbieter**  | Berechne die Quadratwurzel        | Muss imaginäre Zahlen nicht implementieren |
+ |               | **Verpflichtung**                 | **Nutzen**                                     |
+ | ------------- | --------------------------------- | ---------------------------------------------- |
+ | **Konsument** | Der Eingabewert muss positiv sein | Erhalte die Quadratwurzel des Eingabewerts     |
+ | **Anbieter**  | Berechne die Quadratwurzel        | **Muss imaginäre Zahlen nicht implementieren** |
 
 ???
 
-# Konsument, Ok ich fütter dich nur mit positiven Zahlen (und 0)
+# Anbieter: weniger komplexität zu implementieren
+
+# Und Objektorientiert? 
 
 ---
 
@@ -294,9 +299,9 @@ Oder als Contract formuliert
 ```cpp
 class UniqueIntList {
 public:
-  void add(int element); 
+  void add(int element);
 
-
+  int get_element_at(size_t idx) const; 
 
   bool has_element(int element) const;
   
@@ -327,9 +332,13 @@ public:
   void add(int element) {
 *   Require(!has_element(element));
     list_.emplace_back(element);
-
 *   Ensure(has_element(element));
 *   Invariant(count() <= capacity());
+  }
+
+  int get_element_at(size_t idx) const {
+*   Require(idx < count());
+    return list_[idx];
   }
 
   bool has_element(int element) const {
@@ -355,7 +364,7 @@ private:
 
 ---
 
-# Vererbung und Verträge
+# Vererte Verträge
 
 .left[
 * **Invarianten** bleiben bei bestehen
@@ -403,6 +412,25 @@ Beispiel: https://github.com/bernedom/bertrand/
 * Weitere Elemente z.b. Text zum Contract und Stack Traces
 * Einfacher Einbau in bestehenden Code
 
+# Wie passt das in unseren Entwicklungszyklus?
+
+---
+
+# Defekt entdeckt!...
+![agile cost of change](images/AgileCostChangeCurve.png)
+
+???
+
+* Agile cost of change
+* Hier kommt das "Design" 
+* Explizites Ausrücken der Gedanken erleichtert diskussion
+* Umsetzung von "Fail early fail hard" bzw. Stop and Fix
+* 10% Mehr Fehler im Grünen bereich bringt schon viel! 
+
+* Komplexität des Codes wird reduziert
+* Weniger Code, Weniger Bugs
+
+
 ---
 
 # DbC und Softwarequalität
@@ -422,17 +450,7 @@ Wenn contracts failen, soll nicht getestet werden
 
 ## Formale Spezifikation im Code - Regulatorisch interessant
 
----
-
-# Defekt entdeckt!...
-![agile cost of change](images/AgileCostChangeCurve.png)
-
-???
-
-* Umsetzung von "Fail early fail hard" bzw. Stop and Fix
-* 
-* Komplexität des Codes wird reduziert
-* Weniger Code, Weniger Bugs
+# Probiert das aus! Die Hürde ist klein und ihr werdet schnell eine Verbesserung feststellen
 
 ---
 
