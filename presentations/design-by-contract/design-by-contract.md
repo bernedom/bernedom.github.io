@@ -364,7 +364,7 @@ private:
 
 ---
 
-# Vererte Verträge
+# Vererbte Verträge
 
 .left[
 * **Invarianten** bleiben bei bestehen
@@ -430,7 +430,6 @@ Beispiel: https://github.com/bernedom/bertrand/
 * Komplexität des Codes wird reduziert
 * Weniger Code, Weniger Bugs
 
-
 ---
 
 # DbC und Softwarequalität
@@ -452,6 +451,18 @@ Wenn contracts failen, soll nicht getestet werden
 
 # Probiert das aus! Die Hürde ist klein und ihr werdet schnell eine Verbesserung feststellen
 
+---
+
+# Typische Beispiele
+.left[
+* Require(ptr != nullptr)
+* Aufruf-Reihenfolge z.b. init(), run(), reset()
+* Nur "owner"-Thread darf Statemachine ändern
+* Normalisierte Fliesskommawerte [-1, 1] 
+* Ressource (z.b. File) vorhanden? (und initialisiert)
+* Konsistenz von Daten bei abhängigen Werten
+
+]
 ---
 
 # Fragen & Antworten
