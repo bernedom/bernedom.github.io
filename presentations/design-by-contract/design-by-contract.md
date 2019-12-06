@@ -18,6 +18,7 @@ Vertraglich zugesicherte Code-Robustheit
 
 # Begrüssung
 
+# Thomas Schütz
 
 ## Code wird heute nicht nur einmal geschrieben, sondern auch in Zukunft oft wieder angefasst
 
@@ -232,6 +233,7 @@ Oder als Contract formuliert
 ???
 
 # Wenn wir das als Vertrag auslegen: Muss und Darf 
+# Beispiel Bier kaufen, Will bier, muss genug alt sein und genug geld haben sonst wasser.
 
 ---
 
@@ -288,6 +290,29 @@ Oder als Contract formuliert
 ???
 
 # Anbieter: weniger komplexität zu implementieren
+
+--
+
+.left[
+```cpp
+double squareroot(double x) {
+* Require(x >= 0); // <-- This is an assert
+  static constexpr int num_iterations = 101;
+  if (x == 0)
+    return 0;
+
+  double guess = x;
+  for (int i = 0; i < num_iterations; i++)
+    guess -= (guess * guess - x) / (2 * guess);
+    
+* Ensure(fabs(guess * guess - x) < \
+*    numeric_limits<double>::epsilon()); // <-- Also an assert
+  return guess;
+}
+```
+]
+
+???
 
 # Und Objektorientiert? 
 
@@ -412,6 +437,27 @@ Beispiel: https://github.com/bernedom/bertrand/
 * Weitere Elemente z.b. Text zum Contract und Stack Traces
 * Einfacher Einbau in bestehenden Code
 
+---
+
+# Typische Beispiele
+.left[
+* Require(ptr != nullptr)
+* Aufruf-Reihenfolge z.b. init(), run(), reset()
+* Nur "owner"-Thread darf Statemachine ändern
+* Nur registrierte transitionen und states in Statemachines
+* Normalisierte Werte z.b. [-1.0, 1.0] 
+* Resource (z.b. File) vorhanden?
+* Peripherie angeschlossen und initialisiert?
+* Datenkonsistenz in klassen und structs
+* Default bei switch statements
+* ...
+
+]
+
+???
+
+# Ein paar typische Beispiele 
+
 # Wie passt das in unseren Entwicklungszyklus?
 
 ---
@@ -451,18 +497,6 @@ Wenn contracts failen, soll nicht getestet werden
 
 # Probiert das aus! Die Hürde ist klein und ihr werdet schnell eine Verbesserung feststellen
 
----
-
-# Typische Beispiele
-.left[
-* Require(ptr != nullptr)
-* Aufruf-Reihenfolge z.b. init(), run(), reset()
-* Nur "owner"-Thread darf Statemachine ändern
-* Normalisierte Fliesskommawerte [-1, 1] 
-* Ressource (z.b. File) vorhanden? (und initialisiert)
-* Konsistenz von Daten bei abhängigen Werten
-
-]
 ---
 
 # Fragen & Antworten
