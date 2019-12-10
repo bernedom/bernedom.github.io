@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The joy of failure 
-thumbnail: images/failure/thumbnail.png
+thumbnail: images/failure/thumbnail.jpg
 ---
 
 **"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. There is a lot of talk going on about a good failure culture, but is failure in every circumstance a good thing? Probably not. As a software engineer and climber I saw a few fails with sometimes quite drastic consequences. Failure is never the goal but sometimes unavoidable, so how can individuals, teams and companies benefit from it? 
