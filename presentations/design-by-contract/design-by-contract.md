@@ -18,8 +18,6 @@ Vertraglich zugesicherte Code-Robustheit
 
 # Begrüssung
 
-# Thomas Schütz
-
 ## Code wird heute nicht nur einmal geschrieben, sondern auch in Zukunft oft wieder angefasst
 
 ## unerwünschte Nebeneffekte und Regression Bugs sind dabei natürlich unerwünscht. 
