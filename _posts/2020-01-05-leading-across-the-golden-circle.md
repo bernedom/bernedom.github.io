@@ -1,15 +1,19 @@
 ---
 layout: post
 title: Leading across the golden circle 
-thumbnail: images/leadership-debt/thumbnail.png
+thumbnail: images/golden-circle/golden_circle.png
 ---
-In modern, sociocratic organizations there is not a single leader, but more situational leadership. Whoever "knows best" leads the way. In the book [Start with Why](https://simonsinek.com/product/start-with-why/?ref=home), the author Simon Sinek describes what he calls the "golden circle" consisting of three concentric rings, "Why", "How" and "What". The golden circle is a very good tool to describe "purpose" of what is getting done. This is important, as having a purpose is a great incentive to get things done. 
+In modern, sociocratic organizations there is not a single leader, but more situational leadership. Whoever "knows best" leads the way. In the book [Start with Why](https://simonsinek.com/product/start-with-why/?ref=home), the author Simon Sinek describes what he calls the "golden circle" consisting of three concentric rings, "Why", "How" and "What". The golden circle is a very good tool to describe "purpose" of what is getting done. This is important, as having a purpose is a great incentive to get things done. The model essentially describes that all changes can be broken into three questions: 
+
+* Why are we this change
+* How are we going to bring this change about
+* What actions are we taking and what things are we creating to bring the change
 
 But the questions of "Why", "How", "What" often do not get answered out of thin air. Especially for more complex matters there is often a quite complicated social dynamic at work and very often the people involved are looking for leadership figures to help them answer the questions. In traditional companies this was usually the manager or boss, but as we strife to more sociocratic organizational forms and as knowledge work increases it is very unlikely that there exists a single person bringing all the necessary knowledge and expertise to the table to call the shots (and achieves a good result) across the whole span of the problem. Situational leadership is the answer, so depending on what question(s) we're trying to answer, a different skill set for leading is needed. There are of course lots of leadership skills such as strong communication skills that are transient for all areas.
 
 ## Leading the 'Why' 
 
-At the core of any problem lies the "why". Why are we even doing what we doing sounds philosophical, but teams and organizations that can answer this question satisfactorily tend to display more higher motivation and better alignment between individuals to solve the problem. Finding the answer is often tricky and in order to lead such an answering process a leader has to display **content expertise** often also called **domain knowledge** about the subject at hand. By this is do not mean knowing all the nitty gritty detail of a possible implementation or solution, but having a deeper understanding of the **problem context**. In companies this can be knowledge about the market or users or being the driver behind a [good company vision]({{site.base_url}}/a-good-product-vision/). In small companies and startups this is often, but not necessarily one of the founders, in bigger more taylorism-like companies and large firms this knowledge often lies with middle to upper management. 
+At the core of any problem lies the "why". Why are we even doing what we doing sounds philosophical, but teams and organizations that can answer this question satisfactorily tend to display more higher motivation and better alignment between individuals to solve the problem. Finding the answer is often tricky and in order to lead such an answering process a leader has to display **content expertise** often also called **domain knowledge** about the subject at hand. By this is do not mean knowing all the nitty-gritty detail of a possible implementation or solution, but having a deeper understanding of the **problem context**. In companies this can be knowledge about the market or users or being the driver behind a [good company vision]({{site.base_url}}/a-good-product-vision/). In small companies and startups this is often, but not necessarily one of the founders, in bigger more taylorism-like companies and large firms this knowledge often lies with middle to upper management. 
 
 Important is that whoever can bring the necessary background information needs to be not just involved in the discussion, but also able to lead this. 
 
