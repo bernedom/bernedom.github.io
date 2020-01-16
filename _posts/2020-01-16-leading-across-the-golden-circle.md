@@ -10,8 +10,6 @@ In the book [Start with Why](https://simonsinek.com/product/start-with-why/?ref=
 * How are we going about to bring this 'thing' into live? 
 * What actions are we taking and what things are we creating to bring the change?
 
-![the golden circle](images/../../images/golden-circle/golden_circle.png)
-
 Obviously the answers to "Why?", "How?", "What?" do not appear out of thin air most of the time. Especially for more complex matters there is often a quite complicated social and factual dynamics at work to find the answers. And whenever it gets complicated, people involved start looking for leadership figures to help them to find the way.
 In traditional companies this was usually the manager or boss, but as we strife to more sociocratic organizations and as knowledge work increases, it is very unlikely that there exists a single person bringing all the necessary knowledge and expertise to the table. The challenge in decentralized, situational leadership is often to find whoever is leading - or in other words "who knows best". Looking at the progression through the golden circle, we find a few hints on what knowledge and skills to look for at any given time.
 
