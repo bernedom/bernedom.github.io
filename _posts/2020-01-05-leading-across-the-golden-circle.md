@@ -13,7 +13,7 @@ In the book [Start with Why](https://simonsinek.com/product/start-with-why/?ref=
 ![the golden circle](images/../../images/golden-circle/golden_circle.png)
 
 Obviously the answers to "Why?", "How?", "What?" do not appear out of thin air most of the time. Especially for more complex matters there is often a quite complicated social and factual dynamics at work to find the answers. And whenever it gets complicated, people involved start looking for leadership figures to help them to find the way.
-In traditional companies this was usually the manager or boss, but as we strife to more sociocratic organizations and as knowledge work increases, it is very unlikely that there exists a single person bringing all the necessary knowledge and expertise to the table. The challenge in decentralized, situational leadership is often to find whoever is leading - or in other words "who knows best". Looking at the progression through the golden circle, we find a few hints on what knowledge and skills to look for at any given time.  
+In traditional companies this was usually the manager or boss, but as we strife to more sociocratic organizations and as knowledge work increases, it is very unlikely that there exists a single person bringing all the necessary knowledge and expertise to the table. The challenge in decentralized, situational leadership is often to find whoever is leading - or in other words "who knows best". Looking at the progression through the golden circle, we find a few hints on what knowledge and skills to look for at any given time.
 
 ## Leading the 'Why' 
 
@@ -22,16 +22,23 @@ In companies this can be knowledge about the market or users or being the driver
 
 ## Leading the 'How'
 
-Once the "why" is fairly established bringing up the "how" - often in the form of a plan and methods - is the next to solve. Naturally whoever emerges as a leader in this part has to have a good method competence and process knowledge to formulate such a plan. Typical questions here are who to bring on board at what point, how to facilitate communication and breaking down the big "Why"-problems into smaller chunks. Leading the how has high demands on facilitation skills as well, because defining the how often raises more questions that help sharpening the "why" on one side and the "how" sets constraints on the "what" i.e. the implementation. Leading the how has often a more managerial component than leading the other two circles. 
+Once the "why" is fairly established bringing up the "how" - often in the form of a plan and methods - is the next to solve. Having a good **method competence** and **process knowledge** to formulate such a plan are key skills to lead in this ring. As such leading the "How" is often more managerial than leading the other two circles. 
+How to facilitate communication and breaking down the big "Why"-problems into smaller chunks and who to bring on board at what time are often central questions at this stage. In order to move on often various high-level strategies to solve the problem have to be pitted against each others, so creating room for the experts to toss ideas around without getting bogged down in details is critical. 
+Leading the how has high demands on **facilitation skills**, because defining the how often raises more questions that help sharpening the "why" on one side and the "how" sets constraints on the "what". 
 
 ## Leading the 'What' 
 
-Here one gets down to business and gets the hands dirty with actually implementing things. Leading this part of course needs close collaboration an awareness about the "Why" and "What" but even more so it needs expertise and specialist knowledge. Finding the right solution to the problems posed requires an in-depth knowledge of the mechanics involved. The main task of the "what" is finding and implementing solutions, so a leader of the "what@ should be able to sketch out a feasible solution to the problem and be able to hold a critical dialog about the implementation details of it. 
-Ideally leading the implementation means being placed into a tight feedback loop for observing if the actions taken are having the desired effect. If such a feedback loop does not exist yet or is too weak building them for the people working on the what is an essential task here. 
+The "What" gets down to business and one gets the hands dirty with actually implementing things. Leading this part needs **expertise** and **specialist knowledge**. Keeping awareness and focus about the "Why" and "What" high is a must and often the task of the leading figures. Rabbit holes are deep at the center of the golden circle, beware falling into them. 
+Finding the right solution to the problem posed, requires **an in-depth knowledge of the mechanics involved**. The main task of the "what" is finding and implementing solutions, so a leader of the "what" should be able to sketch out a feasible solution to the problem and be able to hold a critical dialog about the implementation details of it. 
+Ideally leading the implementation means being placed into a tight feedback loop regarding the actions taken. If such a feedback loop does not exist yet or is too weak building them for the people working on the what is an essential task here. 
 
 ## Who can do that? 
 
-The bigger the problems and issues faced, the less likely it is that one single person can lead across the whole circle, but having people who can at least partially take leadership in the different rings is a big plus. The borders between the rings are fuzzy and thinking in one ring will affect the others as well, so creating artificial borders or even stage gates between the three is a bad idea. Frequent "broadband" communication on an eye-level across all rings is essential. But being aware that the different questions require a different credibility in different areas of knowledge will help driving the the acceptance of solutions in the people affected by any change. Being able to explicitly state in which rings a discussion takes place and being aware what kind of knowledge has the most weight here will help finding the right people to lead or building the missing skills to bring change about. 
+The bigger the problems and issues faced, the less likely it is that one single person can lead across the whole circle, so having many people read  who can take partial leadership in the different rings is a must. Being aware that the different questions requires authority in different areas of knowledge will help driving the the acceptance of solutions in the people affected by any change. Explicitly stating in which ring a discussion takes place and raising awareness what kind of knowledge has the most weight right now will help finding the right people to lead. 
+
+There are lots of leadership skills that apply across all rings and in realty there are no sharp borders between them. Strong communication skills, active listening and overall facilitation skills - just to name a few - are the foundation for any leading activity. Failing to train people to be ready for leading activities will lead [leadership debt]({{site.base_url}}/leadership-debt) which will impair creating successful, decentralized leadership.  
+
+Building a pool of people able and willing to take temporary leadership is a key to successfully navigating the golden circle.
 
 ---
 
