@@ -18,6 +18,15 @@ Mit 7 Erfolgsfaktoren organisatorische Veränderungen meistern
 
 # Begrüssung
 
+# Veränderungen sind allgegenwärtig, agile transformationen, digitalisierung
+
+Oft schlecht organisiert, nicht der gewünschte Effekt, Alter Wein in neuen Schläuchen
+"Wir machen mal agil" und dann rennen alle Kopflos davon und bleiben doch stehen
+
+# Erfolgsfaktoren als methode zur reflektion
+
+Keine Checkliste, aber ein Hilfsmittel, damit die richtigen Fragen gestellt und beantwortet werden
+
 
 ---
 
@@ -54,15 +63,28 @@ Mit 7 Erfolgsfaktoren organisatorische Veränderungen meistern
 # Moderne unternehmensformen statt blinde agilität
 # System thinker
 
+Startup von 10 auf 70 mitarbeiter begleitet und gesteuert
+SAFe Einführung am eigenen Leib in grossfirma
+Verschiedene Teams agilisiert
+
 ---
 
 # Die 7 Erfolgsfaktoren
+
+* Veränderungsbedarf
+* Unterstützung und Reflektion
+* Veränderungsfähigkeit und -Bereitschaft
+* Führung und Leitung
+* Vorgehen
+* Widerstand
+* Unternehmenskultur
+
+???
 
 * Keine Checkliste
 * Hypothese - Verifikation - Adaptieren
 * Faktoren sind vernetzt, schrauben an einem beeinflusst die anderen
 * Zu jedem eine explizite Aussage machen können
-
 
 ---
 
@@ -72,19 +94,39 @@ Mit 7 Erfolgsfaktoren organisatorische Veränderungen meistern
 * Warum machen wir das überhaupt
 * Verschiedene Fluglevel
 
+???
+
+# WARUM ist wichtiger als WAS
+
+Gute, nachvollziehbare Gründe müssen her. 
+Weg vom offensichtlichen
+Motor und Anker, Grundannahme auf die wir uns immer wieder beziehen
+Aktive Abgrenzung zum Universum - Das ist der Bedarf den wir Jetzt angehen, den dort drüben der kommt dann später
+Vom groben ins feine und umgekehrt. 
+
+Schlecht: Wir müssen agiler werden
+Besser: Unsere lead time für Projekte ist zu gross
+
 ---
 
-# Führung und Leitung
+# Führung und Leitung - Die Kapitäne
 
 * Explizite Personelle Führung, wer treibt dies
 * "Hält" die vision
 * Auch Change Manager genannt
-* Evtl. Auch führungsgruppe
+* Evtl. Auch Führungsgruppe
 * Gestaltet "Soll" Greifbar - Kapitän auf dem Schiff
+
+???
+
+Führung statt Mangement 
+Wer kann uns wo führen, wer hat inhaltliche autorität? 
+Stellt vision bereit und bindet sie zum Veränderungsbedarf
+
 
 ---
 
-# Veränderungsfähigkeit
+# Veränderungsfähigkeit - Befähigte Crew
 
 * Veränderungsfähigkeit: Können und Wollen
 * Veränderungsbedarf: Müssen
@@ -101,7 +143,7 @@ Harte Constraints: bsp: Medizinsektor: Ohne testing gibts nichts
 
 ---
 
-# Unterstützung und Reflektion
+# Unterstützung und Reflektion - Der Bootsmann
 
 * Bringt methodenkomptenz - Führung und Belegschaft
 * Sounding board für Change Manager
@@ -124,7 +166,7 @@ A propos reflektion - überleitung zu Vorgehen
 
 ---
 
-# Widerstand
+# Widerstand - Der Sturm voraus
 
 * Aktiver & Passiver widerstand
 * Widerstand zeigt, dass die Veränderung wahrgenommen wird
@@ -137,7 +179,7 @@ A propos reflektion - überleitung zu Vorgehen
 
 ---
 
-# Unternehmenskulturen
+# Unternehmenskulturen - Die Meeresfauna
 
 * Haben wir eine Kultur die Veränderungen gutheisst?
 * Top-Down oder Bottom up? 
@@ -157,7 +199,7 @@ Notizen / Backup
 
 ???
 
-ADKAR Modell Googlen 
+ADKAR Modell Googlen VEränderun
 
 
 Ob neue Technologien, (agile) Transformationen, neue Arbeitsmethoden oder die vielbeschworene Digitalisierung und DevOps: Veränderungen in Unternehmen sind heute allgegenwärtig. Das kann mitunter anstrengend und frustrierend sein, denn oft greifen diese Veränderungen tief in den Alltag der Betroffenen ein. Wer kennt nicht mindestens eine Horror-Story von einem gescheiterten Veränderungsprozess? Die Geschichten von ziellosem umherirren im Methodendschungel unstrukturierten Prozessexperimenten oder diktatorischem Umorganisieren mit Brechstangenmethodik sind zahlreich.Doch das muss nicht sein! Veränderungen können und sollen positiv erlebt werden. Im Zusammenspiel von sieben Erfolgsfaktoren ist eine zielgerichtete und nachhaltige Veränderung deutlich leichter zu erreichen. Welche Faktoren das sind und wie sie praxisnah erkannt und umgesetzt werden, können zeige ich in diesem Vortrag. Ihr lernt eine konkrete Methode zur Umsetzung von kleineren und grösseren organisatorischen Veränderungen kennen und nehmt eine Liste von Fragen mit, die in der nächsten Veränderung beantwortet werden wollen.
