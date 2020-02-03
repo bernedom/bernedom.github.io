@@ -36,10 +36,4 @@ The bigger the problems and issues faced, the less likely it is that one single 
 
 There are lots of leadership skills that apply across all rings and in realty there are no sharp borders between them. Strong communication skills, active listening and overall facilitation skills - just to name a few - are the foundation for any leading activity. Failing to train people to be ready for leading activities will lead [leadership debt]({{site.base_url}}/leadership-debt) which will impair creating successful, decentralized leadership.  
 
-Building a pool of people able and willing to take temporary leadership is a key to successfully navigating the golden circle.
-
----
-
-* Why: Content expertise, experience, bigger context
-* How: Method competence, process knowledge
-* What: Technical expertise
+Building a pool of people able and willing to take temporary leadership is a key to successfully navigating the golden circle and having at least a clue about what knowledge to look for is a good start to building such a pool. 
