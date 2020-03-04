@@ -62,18 +62,19 @@ If the *need for change* is one side o the coin, the *ability and will to change
 
 ### Approach suited to complex problems 
 
-Organizational changes are complex problems - cause and effect might be observable in a retrospective, but are not predictable. As such an iterative, exploratory approach of hypothesis - verification - adaptation is a must. 
-Many fast cycles of leaving the status quo, enacting the change and finding stability again are the way to react to changes in the environment and celebrate achievements often.   
+Organizational changes are complex problems, meaning that cause and effect are not fully predictable and might only be observable in retrospective. As such an iterative, exploratory approach of hypothesis - verification - adaptation is a must. 
+Fast cycles of leaving the status quo, enacting the change and then finding stability again are the way to react to changes and verify the original hypothesis.
 
 ### Resistance to change
 
-As opposition to the *ability to change* there is *resistance to change*. Encountering active resistance means that the change is felt, which is a good thing. The lack of any resistance during a change might be a hint that the change is either not having an effect, is stalled or is affecting at the wrong place. 
-Resistance has always to be taken seriously and should be a welcome challenge to check if the *need to change* and vision proposed by the leadership are aligned and valid. The key is to avoid that resistance becomes an insurmountable impediment by hearing people out.
+As opposition to the *ability to change* there is *resistance to change*. Encountering active resistance means that the change is felt by the people affected, which is a good thing. The absence of any resistance during a change should be taken as a hint that the change is either not having an effect, is stalled or is affecting at the wrong place. 
+Resistance usually roots in valid beliefs and concerns, so it has to be taken seriously. Seeing it as a welcome challenge to reevaluate and check the alignment between the *need to change* and vision helps bringing the change forward. Actively participating in the discussion about the concerns of people ensures that resistance becomes an insurmountable impediment to change.
 
 ### Organizational Cultures
 
-Organizational cultures are hard to describe, but are often a major factor in if a change sticks and is sustainable in the long run. SO being keenly aware where a change might challenge the visible or hidden parts of an organizational culture is paramount. On the other hand acting along the established norms and values and using the existing rituals and symbols to bring a change about is of much help. 
+Organizational cultures are hard to describe and are often a major factor for a change to be sustainable in the long run. Being keenly aware where a change might challenge the organizational culture is paramount. 
+On the other hand recognizing established norms and values and using the existing rituals and symbols to bring a change about is of much help. 
 
-## Now what? 
+## The seven factors in practice 
 
-The seven factors are of course not a traditional checklist to be checked of once and then its done. Rather they give a hint to reflect better about a change in process and help preparing the next move. The factors are closely linked and influenced by each others so adapting one will usually have an effect on the others. Changing the formulation of the *need for change* might have dramatic impact on how what kind *resistance* one encounters. Improving the *ability to change* might bring about a shift in the *corporate culture* which in turn might make different people eligible for *leadership* positions.
+The seven factors are not a traditional checklist to be checked of once and then its done. Rather they provide a canvas support reflecting about an ongoing change and help preparing the next move. The factors are closely linked and influenced by each others so adapting one will usually have an effect on the others. Applying system thinking and using the factors as a base to describe the systems in play is a good start to bring change to your organization. 
