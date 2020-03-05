@@ -9,7 +9,7 @@ In order to keep the cmake file as small as possible, few possible optimizations
 
 # Using a header only library 
 
-The usage of our header only library should be as simple as calling `find_package` and then using `target_link_library` on it. See [here for a full example](https://github.com/bernedom/SI/blob/master/example/CMakeLists.txt)
+The usage of our header only library should be as simple as calling `find_package` and then using `target_link_library` on it. See [here for a full example](https://github.com/bernedom/SI/blob/master/test/installation-tests/CMakeLists.txt)
 
 # Overview
 
