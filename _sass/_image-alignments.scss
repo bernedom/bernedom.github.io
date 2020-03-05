@@ -11,3 +11,16 @@
  margin-left: auto;
  margin-right: auto;
 }
+
+.entry img[src*="#floating"]{
+    float:left;
+    max-width: 40%;
+    padding:5px;
+}
+
+.entry img[src*="#smallFloating"]{
+    float:left;
+    max-width: 40%;
+    padding:5px;
+    max-height: 100px;
+}
