@@ -13,15 +13,7 @@ Together with a few colleagues at [bbv Software Services](https://www.bbv.ch) I 
 
 Before digging into how changes are successfully executed, one has to look at what makes a change successful. Regardless of whether an organization moves to grow better or if its moving to fix a wrong situation, successfully executed changes share the same characteristics.
 
-Successful changes are: 
-
-* **target-oriented**: an explicit and measurable target state exists and is clearly communicated
-* **act where they should and how they should**: Consequently the side-effects are minimal
-* **sustainable**: The effects are long-lasting and here to stay without burning out the people involved
-* **accepted in their urgency**: The affected people understand that this change has to happen now
-* **accepted in how they are brought about**: People understand the process on how this change is being enacted
-* **experienced positively**: People see the change not as a "necessary evil" but as an opportunity for a better future
-* **actively supported by the affected people**: People change willingly and actively contribute to bring the change about
+Successful changes have a **clear, well communicated target** that is explicitly measurable. They **affect where and how they should** so the side effects are minimal. The affected people **accept the urgency** and **the way the change is brought about** for it to be implemented successfully. **High sustainability** of the change is achieved if the it is **experienced positively** and consequently **actively supported** by the people affected by.
 
 ## The seven factors for success
 
@@ -91,7 +83,7 @@ On the other hand recognizing established norms and values and using the existin
 
 The seven factors are not a traditional checklist to be checked of once and then its done. Rather they provide a canvas support reflecting about an ongoing change and help preparing the next move. The factors are closely linked and influenced by each others so adapting one will usually have an effect on the others. Applying system thinking and using the factors as a base to describe the systems in play is a good start to bring change to your organization. 
 
---
+---
 
 ![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png#floating) Images published with permission from [bbv software services AG](https://www.bbv.ch)
 
