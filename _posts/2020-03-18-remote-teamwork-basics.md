@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How remote teamwork works
+title: Making remote teamwork work
 thumbnail: images/remote-teamwork/thumbnail.jpg
 ---
 
