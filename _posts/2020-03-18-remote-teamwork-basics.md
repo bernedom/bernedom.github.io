@@ -18,17 +18,17 @@ Along with this make sure that all team members have a decent headsets and a web
 
 When working remotely together availability of each team member is key, so the team chat stays open permanently and response time to messages should be measured in minutes not hours. When starting to work for the team, announce that you're at here now. Drop a "Good morning" in the common channel and sign off actively when done or taking a longer break. This helps to get a feeling of "who is around". 
 
-Most tools support multiple channels, make use of that. Have some for serious, work related discussion, but do not forget the once just for chatter and gossip. 
+Most tools support multiple channels, make use of that. Have some for serious, work related discussion, but do not forget the ones just for chatter and gossip. 
 
 ## Call often
 
-When working remotely most discussions start out as text which is fine, but whenever a discussion thread goes longer than a few minutes  especially switching to a voice call will usually solve the issue faster. This is especially true for 1:1 discussions. Build a team culture where it is naturally for people to speak to each other often. Unfortunately this becomes harder the farther the time zones of the individual team members drift apart, but even then try to speak to each other as often as possible. 
+When working remotely most discussions start out as text. This is fine, but whenever a discussion thread goes longer than a few minutes - especially when emotions are involved - switching to a voice call will usually solve the issue faster. This is especially true for 1:1 discussions. Build a team culture where it is natural for people to speak to each other often. This unfortunately becomes harder the farther the time zones of the individual team members drift apart, but even then, try to speak to each other as often as possible. 
 
 ## Pictures and movies
 
 Turn your webcam on for calls. This is not just to bring the team closer together, but allows for more nuanced communication, especially for hotly-debated, emotionally laden topics. Start by saying "hi" and waving at the camera. Turn on the webcam stream whenever nobody is screen-sharing (as long as the bandwidth of the connection allows it). 
 
-A nice detail is also when people face the webcam directly as it helps with the illusion that people speak directly to each other, rather than into a machine. 
+A nice detail is also when people face the webcam directly as it helps with the illusion that people speak directly to each other rather than into a machine. 
 
 ![Correct positioning in from of a webcam]({{site.baseurl}}/images/remote-teamwork/webcam-position_small.jpg)
 
