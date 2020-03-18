@@ -10,7 +10,7 @@ thumbnail: images/remote-teamwork/thumbnail.jpg
 
 The central piece of software when working remotely is an appropriate communication tool. The three minimal requirements are **text messaging, voice and video chat and screen-sharing capability.** This functionality has to be there for peer-to-peer communication as well as for the whole team at once. 
 
-The tools supporting this are abundant: [Microsoft Teams](https://teams.microsoft.com/start), [Slack](https://slack.com), [Google Hangouts](https://hangouts.google.com/), [Discord](https://discordapp.com/), [Zoom](https://zoom.us/) are just a few. 
+The tools supporting this are abundant: [Microsoft Teams](https://teams.microsoft.com/start), [Slack](https://slack.com), [Google Hangouts](https://hangouts.google.com/), [Discord](https://discordapp.com/), [Zoom](https://zoom.us/)[^1] are just a few. 
 
 Along with this make sure that all team members have a decent headsets and a webcam. Pay special attention to the quality of the microphone of the headset. Noisy chats are an annoying and will make people think twice before calling each other. 
 
@@ -45,5 +45,6 @@ And to not forget the fun side: take breaks together. Get a coffee, switch on th
 Working remotely together takes training and takes a bit of routine. Especially when doing it for the first time it can take a bit to get used to it. The best thing to get good at it is to just start doing it. Set up the virtual team-space and take a quarter of an hour with your team to run through the basic agreement of working remotely and get going. Take ten minutes each day to discuss what to improve and it will feel effortless quickly. 
 
 
-
+---
+[^1]: The list by no means meant to be exhaustive, it is just what I worked with in the past and found decent workable choices.
 
