@@ -4,7 +4,7 @@ title: Making remote teamwork work
 thumbnail: images/remote-teamwork/thumbnail.jpg
 ---
 
-**How does remote teamwork actually work?** Working together remotely has its challenges, but they are not as big as one might think from the cozy office of a co-located team. While the communication bandwidth of physical face-to-face communication still beats everything else, modern technology and a few rules for online behavior can make up for a lot.
+**How does remote teamwork actually work?** Working together remotely has its challenges, but they are not as big as one might think from the cozy office of a co-located team. While the communication bandwidth of physical face-to-face communication still beats everything else, but modern technology and a few rules for online behavior can make up for a lot.
 
 ## Get the tools and infrastructure
 
@@ -12,7 +12,7 @@ The central piece of software when working remotely is an appropriate communicat
 
 The tools supporting this are abundant: [Microsoft Teams](https://teams.microsoft.com/start), [Slack](https://slack.com), [Google Hangouts](https://hangouts.google.com/), [Discord](https://discordapp.com/), [Zoom](https://zoom.us/)[^1] are just a few. 
 
-Along with this make sure that all team members have a decent headsets and a webcam. Pay special attention to the quality of the microphone of the headset. Noisy chats are an annoying and will make people think twice before calling each other. 
+Along with this make sure that all team members have a decent headsets and a webcam. Pay special attention to the quality of the microphone of the headset. Noisy chats are annoying and will make people think twice before calling each other. 
 
 ## Be virtually together
 
