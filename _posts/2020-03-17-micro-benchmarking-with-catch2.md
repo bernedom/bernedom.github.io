@@ -4,7 +4,7 @@ title: Microbenchmarking with catch2 and github actions
 thumbnail: images/cpp_logo.png
 ---
 
-**"Do you have continous benchmarking for your code?"** Is a question I often ask when people talk about optimizing their code for performance. An surprisingly the answer is often a "No" and then some excuses on why not. One of the most common one being that it is hard to set up and run. Granted having a full-blown system-wide testing setup is often tough to do, but if you start small, setting up a reliable performance indicator becomes easy. I will illustrate this by using [Catch2](https://github.com/catchorg/Catch2) for micro-benchmarking and [github actions](https://github.com/features/actions) to build a setup in less than an hour. Check out the [SI library](https://github.com/bernedom/SI) for a running example. 
+**"Do you have continuous benchmarking for your code?"** Is a question I often ask when people talk about optimizing their code for performance. An surprisingly the answer is often a "No" and then some excuses on why not. One of the most common one being that it is hard to set up and run. Granted having a full-blown system-wide testing setup is often tough to do, but if you start small, setting up a reliable performance indicator becomes easy. I will illustrate this by using [Catch2](https://github.com/catchorg/Catch2) for micro-benchmarking and [github actions](https://github.com/features/actions) to build a setup in less than an hour. Check out the [SI library](https://github.com/bernedom/SI) for a running example. 
 
 # A word on virtual environments
 
@@ -67,20 +67,20 @@ assertions: - none -
 ```
 </details>
 
-Benchmarks can be placed in any regular unit test if desired, but I find it good practice to separate the two, in order not to pollute my benchmarks with code only relevant for testing or accidentially running a benchmark on a mocked class. 
+Benchmarks can be placed in any regular unit test if desired, but I find it good practice to separate the two, in order not to pollute my benchmarks with code only relevant for testing or accidentally running a benchmark on a mocked class. 
 Check out the [official documentation of catch2](https://github.com/catchorg/Catch2/blob/master/docs/benchmarks.md) to get all the possibilities. 
 
-# Setting up github actions 
+# Setting up the github action 
 
 To get continous benchmark with [Github actions](https://github.com/features/actions) I'm using (and low-key contributing to) [Continous Benchmark github action](https://github.com/marketplace/actions/continuous-benchmark). This action allows us to collect benchmark results and [display them on the github pages](https://si.dominikberner.ch/dev/bench/). 
 
 1. build the benchmarks
 2. run the benchmarks and store the results in a file
 3. pasre the file and store the results 
-   1. If the results are slower than a certain threshold notify the user
+   1. If the results are slower than a certain threshold (200% in this example) notify the user
 4. let github generate a new page 
 
-An excerp from the `.yml` file for running the action: 
+An excerpt from the `.yml` file for running the action: 
 ```yml
 name: Build and run benchmarks with Catch2
 run: |
@@ -95,20 +95,23 @@ with:
     name: Catch2 Benchmark
     tool: "catch2"
     output-file-path: build/benchmark_result.txt
-    # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push/td-p/26869/highlight/false
     github-token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
     auto-push: true
-    # Show alert with commit comment on detecting possible performance regression
     alert-threshold: "200%"
     comment-on-alert: true
     fail-on-alert: true
     alert-comment-cc-users: "@bernedom"
 ```
 
-### Hint on setting up personal github tokens
+In order to be able to store the results, the action needs permission to push commits to the `ghpages` branch. Notice the `secrets.PERSONAL_GITHUB_TOKEN` in the yml file. This is a [personal access token](https://github.com/settings/tokens) created in you github account. 
+
+Enabling the results to be published as a web site is as simple as [setting up github pages](https://pages.github.com/)
 
 # Getting results
 
+This is all that is needed to set up. I usually set the action up to run on each push on `master` or when manually triggered. The results are notoriously shaky because of the virtual environment they are running in. Nevertheless After a few run it is usually possible to read a few trends out of the result. This allows for instance to compare run times before and after a refactoring or comparison of alternative approaches for the same functionality.
+
+
 ---
 
-[^1]: Different formats such as xml can be used, buth the current github action only supports parsing of text output
+[^1]: Different formats such as xml are supported by catch, but the current github action only supports parsing of text output
