@@ -4,21 +4,26 @@ title: The art of slicing stories
 thumbnail: images/remote-teamwork/thumbnail.jpg
 ---
 
-**Work serially and in small batch sizes.** is one of the cornerstones of working lean. Whatever agile framework you're using all of them make use of a backlog to define and prioritize work. In order to visibly track progress and make forecasts it helps when when the cycle time of backlog items is as short as possible. The concept of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) as primary item is widely distributed. The primary goal of using user stories is that each backlog item should bring some kind of value to the customer. One of the tough problems encountered is often slicing stories in small but valuable and workable chunks. Slicing is a skill that needs to be trained and constantly honed, but when it comes to creating and maintaining a good backlog it is THE central skill. All other come later. So how does one get along with slicing?
+**Breaking down stories in small, manageable chunks is an essential skill to maintaining a good backlog.** Sounds good, but how does one actually do the slicing? Splitting is a skill that involves a lot of thinking, but it can also be learned and there are a few techniques to get going. 
+
+## Having a "good" backlog
+
+A good backlog defines what a product will be and allows to visibly track progress and make forecasts. As such short cycle time of backlog items essential to gather that information often. A lot of teams I know over time us some form of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) as product backlog items (often abbeviates as PBI). 
+The primary goal of using user stories is that each backlog item should bring some kind of value to the customer. One of the tough problems encountered is often slicing stories in small but valuable and workable chunks. 
 
 Image *** Typical value chain: come up with an idea, refine and slice, work, review, done **
 
-A good backlog item follows the (INVEST)[https://en.wikipedia.org/wiki/INVEST_(mnemonic)][^1]. Even if the backlog item is not written as a user story following the **As an X I want to Y in order to Z** format the information hidden in this sentence should still be present. 
+The original definition of a "user story" suggest to write in the **As an X I want to Y in order to Z** format. In this sentence several things are encoded:
 
 * Who is the main beneficiary?
 * What do they want to achieve?
 * Why do they want to achieve that?
 
-This information is often a very good indicator for slicing stories. As such it is important that the people working on this backlog **know their stakeholders** and have a good grasp on the **business- or use-case of a product.**
+Even if a team does not follow that format, having that information present and easily accessible in a PBI helps. To do this people working on this backlog need **to know their stakeholders** and have a good grasp on the **business- or use-case of a product.**
 
 ## Trivial slicing by language
 
-A very crude but surprisingly effective way to slice stories is by simple language, especially when using the story format. Just slice on every "and", "or" and comma. This by itself will of course not yet yield very good stories, but it is fast and can be done without much discussion. And even if the odd case where this ends up in unusable stories happens, merging stories again is often easier than slicing. 
+A very crude but surprisingly effective way to slice stories is by simple language, especially when using the story format. Just slice on every "and", "or" and comma. This by itself will of course not yet yield very good stories, but it is very fast and can be done without much discussion. There will be the odd case where this ends up in unusable stories happens, merging stories again is often easier than slicing. Formulating stories is an iterative process, so do not fear producing a few "dead-end-stories" in the process.
 
 ## Slicing along technical boundaries - bad idea
 
@@ -52,5 +57,3 @@ If your stories have long cycle times or if you spend too much time estimating a
 
 
 ---
-
-[^1]: The movement of #noEstimates the challenges the 'E' strongly
