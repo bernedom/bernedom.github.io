@@ -8,7 +8,7 @@ thumbnail: images/remote-teamwork/thumbnail.jpg
 
 ## Having a "good" backlog
 
-A good backlog defines what a product will be and allows to visibly track progress and make forecasts. As such short cycle time of backlog items essential to gather that information often. A lot of teams I know over time us some form of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) as product backlog items (often abbeviates as PBI). 
+A good backlog defines what a product will be and allows to visibly track progress and make forecasts. As such short cycle time of backlog items essential to gather that information often. A lot of teams I know over time us some form of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) as product backlog items (often abbreviated as PBI). 
 The primary goal of using user stories is that each backlog item should bring some kind of value to the customer. One of the tough problems encountered is often slicing stories in small but valuable and workable chunks. 
 
 Image *** Typical value chain: come up with an idea, refine and slice, work, review, done **
@@ -19,7 +19,7 @@ The original definition of a "user story" suggest to write in the **As an X I wa
 * What do they want to achieve?
 * Why do they want to achieve that?
 
-Even if a team does not follow that format, having that information present and easily accessible in a PBI helps. To do this people working on this backlog need **to know their stakeholders** and have a good grasp on the **business- or use-case of a product.**
+Even if a team does not follow that format, having that information present and easily accessible in a PBI helps. To do this, people working on this backlog need **to know their stakeholders** and have a good grasp on the **business- or use-case of a product.**
 
 ## Trivial slicing by language
 
@@ -32,7 +32,7 @@ A common mistake when slicing PBIs is splitting along technical layers, often re
 ## Slicing along stakeholders - better
 
 A very good and often quite easy practice is, to ensure that each story is tailored to exactly one stakeholder group. While it is tempting to create stories that cater to many stakeholder groups at once in the hope of creating more value t often bloats the PBI.
-Most of the time the use-cases of the different stakeholder groups do not match exactly if one looks close enough. Maybe the look and feel of the end product might be the same for all, but often different groups to the same thing but want to achieve different results. This of course needs a reasonably detailed analysis of the stakeholders. Having a stakeholder map or personas are good tools for this.
+Most of the time the use-cases of the different stakeholder groups do not match exactly if one looks close enough. Maybe the look and feel of the end product might be the same for all, but often different groups to the same thing but want to achieve different results. This of course needs a reasonably detailed analysis of the stakeholders. A stakeholder map or user-personas are good tools for this.
 Using the word "user" in stories to describe an actor should ring an alarm bell, that the team does not have a clear picture of who the beneficiary of a story is. 
 
 ## Splitting by what - tedious but rewarding
@@ -51,14 +51,14 @@ Especially for functionality that is common in many apps I noticed a tendency to
 ## Slicing robustness and sophistication - being clumsy on purpose
 
 Proper handling of exceptions and misbehavior is necessary, but handling every edge case individually often blows up stories beyond proportion. Splitting stories explicitly into how gracefully they handle failures can help reducing the implementation complexity and thus make it smaller. 
-First implementing the success case and creating individual stories for handling the failures gives movement in how many of the rare edge cases actually need proper handling. A good monitoring to track those failures in production further helps with prioritizing. This of course does not mean to let the system crash, but often having the user interact more than necessary with the system to fix an error. 
+First implementing the success case and creating individual stories for handling the failures gives movement in how many of the rare edge cases actually need proper handling. Good monitoring to track those failures in production further helps with prioritizing. This of course does not mean to let the system crash, but often having the user interact more than necessary with the system to fix an error. 
 
 ## Training, training, training - while doing it
 
-Slicing stories is a skill that needs training. But luckily when working in an agile way we can practice it often. Make "how could we have sliced this better" a standing question, whenever a story takes more than a few days to complete. 
-How much slicing is enough? Each team I know have it's own "comfortable" story size, most measuring cycle times for in progress between one and three days. Of course there are some stories which take much longer and some that take a lot less time to complete, but the mean average should fall into that range. But generally I advise to slice as much as possible by content and track afterwards, not setting a time as goal for slicing. The question should be "how do we decompose the value delivered more", not "~~how do we get faster~~". If estimating is still done for such stories it is advisable to slice first and give the estimate later bias on when to stop and to avoid the overhead of re-estimation. In fact I if a team gets good at slicing they often find it easier to ditch the estimation effort completely and go #NoEstimates. 
+Luckily slicing stories is a skill that can quite easily be acquired while doing it. Make "how could we have sliced this better" a standing question, whenever a backlog item is completed and try to find patterns. 
+How much slicing is enough? Smaller is better and most teams usually find a comfortable story size soon. Most successful teams I know have mean cycle times for "in progress" between one and three days for a PBI. With a tendency of going smaller if they can. 
+Of course there are some PBIs which take much longer and some that take a lot less time to complete and that is OK as long as the vast majority falls into the comfortable rang. 
+Slicing relentlessly smaller and tracking afterward is often better than setting time as a goal for slicing. The question is "how do we decompose the value delivered more", not "~~how do we get faster~~". 
+If estimating is still done for such stories it is advisable to slice first and give the estimate later to avoid stopping when a magical number is reached. I observed that when teams get good at slicing they often find it easier to ditch the estimation effort completely and go #NoEstimates. 
+For teams suffering long cycle times, radical slicing is one of the first things to optimize before anything else. 
 
-If your stories have long cycle times or if you spend too much time estimating and tracking progress try out radical slicing before optimizing anything other. 
-
-
----
