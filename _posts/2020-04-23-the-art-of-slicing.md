@@ -8,7 +8,8 @@ thumbnail: images/slicing/thumbnail.png
 
 ## Good user stories
 
-A *good* backlog defines what a product will be and enables the tracking of progress and making forecasts. To gather the needed information often and be able to react to change, short cycle times of the backlog items are essential.
+A *good* backlog defines what a product will be and enables continuous tracking of progress and making forecasts. To gather the needed information often and be able to react to change, short cycle times of the backlog items are essential. 
+While short a short average cycle time does not increase capacity, it means that ideas go faster into production. And being quickly in production generates feedback often as it reduces the risk of doing the wrong thing and gives frequent opportunities to adjust the direction development takes.[^1]
 
 The form of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) is widely used to describe the content of product backlog items (PBI) and "PBI" and "story" are often used interchangeably. 
 The goal is that all PBIs produce value for any of the beneficiaries of a product while being as small as possible. A tough combination, which is why slicing stories is such an essential and valuable skill to have as a team. 
@@ -64,3 +65,6 @@ Slicing relentlessly smaller and tracking afterward is often better than setting
 If estimating is still done for such stories it is advisable to slice first and give the estimate later to avoid stopping when a magical number is reached. I observed that when teams get good at slicing they often find it easier to ditch the estimation effort completely and go #NoEstimates. 
 For teams suffering long cycle times, radical slicing is one of the first things to optimize before anything else. 
 
+---
+
+[^1]: ["small is beautiful" good article explaining the importance of small batch sizes](https://medium.com/faun/small-is-beautiful-the-importance-of-batch-size-ea968ed8d477)
