@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The art of slicing stories
-thumbnail: images/remote-teamwork/thumbnail.jpg
+thumbnail: images/slicing/thumbnail.png
 ---
 
 **Breaking down stories in small, manageable chunks is an essential skill when maintaining a good backlog.** Sounds good, but how does one actually do the slicing? Splitting backlog items is not magic, but a skill that can be learned. All it needs is a bit of thinking and a few techniques to get going. 
@@ -13,7 +13,7 @@ A *good* backlog defines what a product will be and enables the tracking of prog
 The form of [user-stories](https://www.mountaingoatsoftware.com/agile/user-stories) is widely used to describe the content of product backlog items (PBI) and "PBI" and "story" are often used interchangeably. 
 The goal is that all PBIs produce value for any of the beneficiaries of a product while being as small as possible. A tough combination, which is why slicing stories is such an essential and valuable skill to have as a team. 
 
-Image *** Typical value chain: come up with an idea, refine and slice, work, review, done ** 
+![Slice backlog items to valuable but easy to digest bits]({{site.baseurl}}/images/slicing/slicing-apples.png)
 
 The original definition of a "user story" suggests to write them in the **As an X I want to Y in order to Z** format. In this sentence several things are encoded:
 
