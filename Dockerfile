@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.9.6
 
 # open jekyll port to the outside
 EXPOSE 4000
