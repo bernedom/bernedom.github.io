@@ -10,7 +10,8 @@ RUN apk add libatomic readline readline-dev libxml2 libxml2-dev \
         libxslt libxslt-dev zlib-dev zlib \
         yaml yaml-dev \
         libffi-dev build-base git nodejs \
-        ruby ruby-dev ruby-io-console ruby-irb ruby-json ruby-rake ruby-bundler ruby-rdoc 
+        ruby ruby-dev ruby-io-console ruby-irb ruby-json ruby-rake ruby-bundler ruby-rdoc \
+        libffi-dev
 
 # configure and install github pages 
 RUN gem install jekyll bundler bigdecimal webrick
@@ -18,7 +19,7 @@ RUN gem update bundler
 RUN gem install github-pages
 
 # clean up all dependencies no longer used for running the container
-RUN apk del zlib-dev yaml-dev libffi-dev libxml2-dev libxslt-dev readline-dev ruby-dev build-base ruby-rdoc git
+RUN apk del zlib-dev yaml-dev libxml2-dev libxslt-dev readline-dev ruby-dev build-base ruby-rdoc git
 
 WORKDIR /home/jekyll
 CMD jekyll serve --watch -d /_site --force_polling -H 0.0.0.0 -P 4000
