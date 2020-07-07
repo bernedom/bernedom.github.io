@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reliable forecasting with NoEstimates 
+title: Ditch the estimates and start forecasting 
 thumbnail: images/noestimates/NoEstimates.jpg
 ---
 
