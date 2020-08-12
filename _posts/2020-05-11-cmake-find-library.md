@@ -35,9 +35,9 @@ The project structure looks something like this>
 
 ```
 
-In the main `CMakeLists.txt` finding the package is invoked as shown below. Cmake looks into the paths stored in the ${CMAKE_MODULE_PATH} variable for the files with the find-instructions. The find-files have to be [named according to a certain convention](https://cmake.org/cmake/help/latest/command/find_package.html#id5) but it essentially boils down to name them as `<libraryname>.cmake` 
+In the main `CMakeLists.txt` finding the package is invoked as shown below. Cmake looks into the paths stored in the `${CMAKE_MODULE_PATH}` variable for the files with the find-instructions. The find-files have to be [named according to a certain convention](https://cmake.org/cmake/help/latest/command/find_package.html#id5) but it essentially boils down to name them as `<libraryname>.cmake` 
 
-Once the libray is found it can be linked to targets as usual using `target_link_libraries`
+Once the library is found it can be linked to targets as usual using `target_link_libraries`
 
 ```cmake
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
@@ -60,16 +60,17 @@ Click here to expand the full FindLibrary.cmake
 
 ```cmake
 include(GNUInstallDirs)
+
 find_library(
     LIBIMAGEPIPELINE_LIBRARY
     NAMES LibImagePipeline
-    HINTS ${PROJECT_BINARY_DIR}/prebuilt/ ${CMAKE_INSTALL_LIBDIR}
+    HINTS ${PROJECT_BINARY_DIR}/prebuilt/
     PATH_SUFFIXES LibImagePipeline/nativ-linux-x64-static/)
 
 find_path(LIBIMAGEPIPELINE_INCLUDE_DIR
-  NAMES imagepipeline/Pipeline.hpp
+  NAMES Pipeline.hpp
   HINTS ${PROJECT_BINARY_DIR}/prebuilt/ ${CMAKE_INSTALL_INCLUDEDIR}
-  PATH_SUFFIXES LibImagePipeline/native-linux-api/)
+  PATH_SUFFIXES LibImagePipeline/native-linux-api/imagepipeline/ LibImagePipeline/imagepipeline)
 
 include(FindPackageHandleStandardArgs)
 
@@ -95,31 +96,41 @@ endif()
 
 ## Finding the location of the package
 
-First thing is finding some files belonging to the package in likely locations to determine where the library is saved. Let's assume that dependencies are either put into the build-dir in the folder `prebuilt` or installed in the unix default location. The default locations are provided by `GNUInstallDirs` which the first thing to include.
+Let's assume that dependencies are either put into the build-dir in the folder `prebuilt` or installed in the unix default location. The default locations are provided by `GNUInstallDirs` which the first thing to include.
 
 ```cmake
 include(GNUInstallDirs)
 ```
 
+First thing is finding some files belonging to the package in likely locations to determine where the library is saved. Let's assume that dependencies are either put into the build-dir in the folder `prebuilt` or installed in the default locations. The default locations are searched by default, so we do not have to add them manually
+
 ```cmake
 find_library(
     LIBIMAGEPIPELINE_LIBRARY
     NAMES LibImagePipeline
-    HINTS ${PROJECT_BINARY_DIR}/prebuilt/ ${CMAKE_INSTALL_LIBDIR}
+    HINTS ${PROJECT_BINARY_DIR}/prebuilt/
     PATH_SUFFIXES LibImagePipeline/native-linux-x64-static/)
 ```
 
 Next thing is to find the binary library package. For header-only libraries this step can be omitted. 
-`find_library` tells cmake that we're looking for a library and once we have found it, the path to it is stored in `LIBIMAGEPIPELINE_LIBRARY`. Likely filenames are passed with `NAMES LibImagePipeline`. Here we're only looking for a single name but alternative spellings could also be passed. 
-`HINTS ${PROJECT_BINARY_DIR}/prebuilt/` is again a list of folders to look for and `PATH_SUFFIXES` are appended to that. 
+`find_library` tells cmake that we're looking for a library and once we have found it, the path to it is stored in `LIBIMAGEPIPELINE_LIBRARY`. Likely filenames are passed with `NAMES LibImagePipeline`. It is good practice to pass the names without the file extension like `.so`, `.dll`, `.a` etc. and without version suffix first, so locally-built packages are found before installed ones. Here we're only looking for a single name but alternative spellings could also be passed.
+`HINTS ${PROJECT_BINARY_DIR}/prebuilt/` is a list of folders in which to search for the library in addition to the default locations. 
+`PATH_SUFFIXES` are locations below to the paths specified in `HINTS` to look for the library. If the library file is not found the variable `LIBIMAGEPIPELINE_LIBRARY-NOTFOUND` is created. 
 
-After the binary files next is finding the headers:
+Once the binary files are located the we do a similar thing to find headers:
 
 ```cmake
 find_path(LIBIMAGEPIPELINE_INCLUDE_DIR
-  NAMES imagepipeline/Pipeline.hpp
+  NAMES Pipeline.hpp
   HINTS ${PROJECT_BINARY_DIR}/prebuilt/ ${CMAKE_INSTALL_INCLUDEDIR}
-  PATH_SUFFIXES LibImagePipeline/native-linux-api/)
+  PATH_SUFFIXES LibImagePipeline/native-linux-api/imagepipeline/ LibImagePipeline/imagepipeline)
 ```
 
-This call tells cmake to 
+The `find_path` is used to find a specific file in multiple locations. The behavior is similar to `find_library` above. The first argument `LIBIMAGEPIPELINE_INCLUDE_DIR` is the variable we would like to store the result in. `NAMES Pipeline.hpp` specifies a file we're looking for. As `find_path` does not have default locations (such as `/usr/include/`) to look in we pass it manually by adding the `CMAKE_INSTALL_INCLUDEDIR` variable which is defined in the `GNUInstallDirs` include above. `PATH_SUFFIXES` are paths that are appended to the directories specified under `HINTS`. The HINTS take precedence over the suffixes in search order.
+
+So in our case the search list resolves to the following paths and order>
+
+* `${PROJECT_BINARY_DIR}/prebuilt/LibImagePipeline/native-linux-api/imagepipeline/Pipeline.hpp`
+* `${PROJECT_BINARY_DIR}/prebuilt/LibImagePipeline/imagepipeline/Pipeline.hpp`
+* `${CMAKE_INSTALL_INCLUDEDIR}/LibImagePipeline/native-linux-api/imagepipeline/Pipeline.hpp`
+* `${CMAKE_INSTALL_INCLUDEDIR}/LibImagePipeline/imagepipeline/Pipeline.hpp`
