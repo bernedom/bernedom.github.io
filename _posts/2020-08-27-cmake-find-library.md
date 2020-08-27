@@ -6,6 +6,7 @@ description: how to use the find.cmake mechanism to include library into your cm
 ---
 
 **cmake is awesome, but it can be hard to figure out.** Over the last few years, cmake has become one of the most popular ways to build C++ applications and libraries. Unfortunately, you might be stuck with an existing piece of software that is built entirely differently - be it makefiles, gradle, Qmake or even a completely custom-built way to compile software - you name it. So what if you want to move your codebase to cmake without rewriting the way all these old dependencies are built?
+
 Fortunately, cmake's [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html) allows you to mix a cmake project with artifacts built by some other build system. This is essential if you want to shift your codebase to cmake without the need to migrate the whole ecosystem of a software portfolio at once.
 
 ## Find_package in a nutshell
