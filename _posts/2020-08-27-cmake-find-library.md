@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cmake line by line - finding a non-cmake library
+title: Cmake line by line - using a non-cmake library
 thumbnail: images/cmake-logo.png
 description: how to use the find.cmake mechanism to include library into your cmake project, even if it is not built with cmake itself. By combining find_package with a custom .cmake file we can migrate any library to be usable with a cmake project. 
 ---
