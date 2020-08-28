@@ -1,13 +1,13 @@
 ---
 layout: post
 title: CMake line by line - using a non-CMake library
-thumbnail: images/CMake-logo.png
+thumbnail: images/cmake-logo.png
 description: how to use the find.cmake mechanism to include library into your CMake project, even if it is not built with CMake itself. By combining find_package with a custom .cmake file we can migrate any library to be usable with a CMake project. 
 ---
 
 **CMake is awesome, but it can be hard to figure out.** Over the last few years, CMake has become one of the most popular ways to build C++ applications and libraries. Unfortunately, you might be stuck with an existing piece of software that is built entirely differently - be it makefiles, gradle, Qmake or even a completely custom-built way to compile software - you name it. So what if you want to move your codebase to CMake without rewriting the way all these old dependencies are built?
 
-Fortunately, CMake's [`find_package`](https://CMake.org/CMake/help/latest/command/find_package.html) allows you to mix a CMake project with artifacts built by some other build system. This is essential if you want to shift your codebase to CMake without the need to migrate the whole ecosystem of a software portfolio at once.
+Fortunately, CMake's [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html) allows you to mix a CMake project with artifacts built by some other build system. This is essential if you want to shift your codebase to CMake without the need to migrate the whole ecosystem of a software portfolio at once.
 
 ## Find_package in a nutshell
 
@@ -18,11 +18,11 @@ In a nutshell, the mechanism often referred to as `find.cmake`, "find package" o
 3. Set up targets for the imported package
 4. Set the properties for the targets
 
-For the full documentation and inner workings head over to the [official CMake documentation.](https://CMake.org/CMake/help/latest/command/find_package.html#search-procedure)
+For the full documentation and inner workings head over to the [official CMake documentation.](https://cmake.org/cmake/help/latest/command/find_package.html#search-procedure)
 
 ## Setting up to use find.cmake
 
-Let's assume we have a CMake project that depends on an non-CMake built dynamically shared library called `LibImagePipeline`. For building, the `.so` or `.dll` file and header files are downloaded to a location inside the build folder (i.e. by using [cmakes "fetchContent" mechanism](https://CMake.org/CMake/help/latest/module/FetchContent.html)]).
+Let's assume we have a CMake project that depends on an non-CMake built dynamically shared library called `LibImagePipeline`. For building, the `.so` or `.dll` file and header files are downloaded to a location inside the build folder (i.e. by using [cmakes "fetchContent" mechanism](https://cmake.org/cmake/help/latest/module/FetchContent.html)]).
 
 The project structure looks something like this>
 
@@ -37,7 +37,7 @@ The project structure looks something like this>
 
 ```
 
-In the main `CMakeLists.txt` finding the package is invoked with `find_package(libImagePipeline)` as shown below. CMake looks into the paths stored in the `${CMAKE_MODULE_PATH}` variable for the files with the find-instructions. The find-files have to be [named according to a certain convention](https://CMake.org/CMake/help/latest/command/find_package.html#id5) which essentially boils down to `<libraryname>.cmake`.
+In the main `CMakeLists.txt` finding the package is invoked with `find_package(libImagePipeline)` as shown below. CMake looks into the paths stored in the `${CMAKE_MODULE_PATH}` variable for the files with the find-instructions. The find-files have to be [named according to a certain convention](https://cmake.org/cmake/help/latest/command/find_package.html#id5) which essentially boils down to `<libraryname>.cmake`.
 
 Once the library is found it can be linked to targets using `target_link_libraries`. The details on how to use it is explained at the end of this article, but it looks something like this:
 
@@ -186,7 +186,7 @@ By this point all that is left is the configuration of the target. Setting the p
       IMPORTED_LOCATION ${LIBIMAGEPIPELINE_LIBRARY})
 ```
 
-Properties for targets can be manipulated with the `set_target_properties` command. There are [quite a few variables for targets](https://CMake.org/CMake/help/latest/manual/CMake-properties.7.html#target-properties) available, but most often only the include dir and the location of the library-files itself are needed.
+Properties for targets can be manipulated with the `set_target_properties` command. There are [quite a few variables for targets](https://cmake.org/cmake/help/latest/manual/CMake-properties.7.html#target-properties) available, but most often only the include dir and the location of the library-files itself are needed.
 
 `PROPERTIES` takes a list of pairs of property names and values.
 * `INTERFACE_INCLUDE_DIRECTORIES "${LIBIMAGEPIPELINE_INCLUDE_DIR}"` is a list of public include folders. The value is the path we found in the call to `find_path` at the beginning of the find.cmake. 
@@ -213,4 +213,4 @@ add_executable(${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} PRIVATE libImagePipeline::libImagePipeline)
 ```
 
-That is all that is to know to get started. Of course CMake being what it is there are a lot of inner workings and edge cases which can be covered when using [`find_package`](https://CMake.org/CMake/help/latest/command/find_package.html), so be sure to refer to the original documentation if stuck. 
+That is all that is to know to get started. Of course CMake being what it is there are a lot of inner workings and edge cases which can be covered when using [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html), so be sure to refer to the original documentation if stuck. 
