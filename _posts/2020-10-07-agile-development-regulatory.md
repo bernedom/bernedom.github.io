@@ -72,4 +72,6 @@ Talk to the QA people about what is needed for testing and help each other to bu
 Developing in a regulatory environment will never be as carefree and lightweight as developing yet another casual game for mobile phones. However, [the twelve principles for agile development](https://agilemanifesto.org/principles.html) work just the same, the context is just a bit different. Taking an agile approach will ease the pain of late testing significantly and help to provide more value for the end-users. Despite the regulatory requirements that might make the act of releasing to the customer expensive, bringing agile development into play will help to create better products that reach the customer earlier.
 Do not fall in the trap of believing that regulatory software development has to be slow and cumbersome, just because regulations and the regulatory bodies such as the FDA are known to be.
 
+---
+
 [^1]: For instance [IEC 62304](https://en.wikipedia.org/wiki/IEC_62304) which regulates software for medical devices.
