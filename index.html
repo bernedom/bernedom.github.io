@@ -9,20 +9,23 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       
-      <div style="display: grid; width: 100%; grid-template-columns: 25% 1fr; grid-gap: 1%">
-<div>
-	    {% if post.thumbnail != null %}
-	       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">
-                <img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}" style="max-width:100%;height:auto;display:block"/>
-               </a>
-        {% endif %}
-	</div>
+      <div style="display: grid; width: 100%; grid-template-columns: 25% 1fr; grid-gap: 1%; padding-bottom: 2.5em;">
         <div>
-          {{ post.excerpt }}
+        {% if post.thumbnail != null %}
+          <a href="{{ site.baseurl }}{{ post.url }}">
+              <img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}" style="max-width:100%;height:auto;display:block"/>
+            </a>
+          {% endif %}
+        </div>
+        <div>
+            {{ post.excerpt }}
+            <div class="read-more">
+              <a href="{{ site.baseurl }}{{ post.url }}">Read More</a>
+            </div>
+            
         </div>
       </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      
     </article>
   {% endif %}
   {% endfor %}
