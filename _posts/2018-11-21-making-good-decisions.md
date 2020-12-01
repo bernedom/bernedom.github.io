@@ -4,24 +4,26 @@ title: Decide to decide better
 thumbnail: images/decisions/thumbnail.jpg
 ---
 
-**How good are your decisions?** - Every day we decide a lot of things small and big. At work or any professional setting we often have clear deciders. This can be a senior subject matter expert, the traditional "boss" or some collaborative process in an empowered team - it does not really matter. Contrary to our private live, in business we often have to make decisions more explicit and documented, for instance in the form of meeting minutes. Some people are good at deciding, others find it very hard.
+**Every day we decide a lot of things small and big - but how good are we at making decisions?** Contrary to our private lives where decisions are often implicitly made, we often have to make decisions more explicit and documented when at work. There we often have clear deciders and decision proceses. Decisions might be made by a senior subject matter expert, the traditional "boss" or through some collaborative process in an empowered team - The variety is large. And often we observe that some people are good at deciding while others find it very hard.
 
 ## Good decisions are valuable decisions
  
-There are certain qualities which make decisions "good" in the sense that taking it added some value to an existing situation. This value is often not primarily defined by the outcome of the decision taken, but how important it was to take that decision at that moment. In general I see **any decision which fails to trigger a distinct action in those involved is a worthless decision. Valuable decisions are explicit and well understood by the people involved and even if not everybody agrees there is at least consent to act on that decision for the time being.** Bad decisions are fuzzy, heavily disputed and implemented grudgingly if at all by the people affected. There are even invisible decisions - those where people affected by it are not even aware that it has been taken. The consequences are again failure to implement the decision or even worse acting involuntarily against it.
+Decisions are "good" when taking it added some value to an existing situation. The value is often not primarily defined by the outcome of the decision taken, but how important it was to take that decision at that moment. 
+Valuable decisions are explicit and well understood by the people involved and even if not everybody agrees there is at least consent to act on that decision for the time being. If a decision fails to trigger a distinct action by those involved it is most likely quite worthless. 
+Bad decisions are fuzzy, heavily disputed, and implemented grudgingly if at all by the people affected. There are even invisible decisions - those where people affected by it are not even aware that it has been taken. The consequences are often a failure to implement the decision or even worse acting involuntarily against it.
 
 ## Reflect on how you arrived at a decision
 
-Often when things go wrong past decisions are put under scrutiny and are contested to find out how one arrived at the present situation. The reflex is often to put the content of the decision into the line of firing and ignore the circumstances that led to getting that decision made. However finding the context of how one arrived at that decision is at least equally if not more important.
-Doing so helps spotting where things went not as expected better and thus is of much more long term value to any actions to improve the situation as it can help avoiding making the same mistakes again next time. By reflecting about the decision process itself, my experience is that very often the finding is not that the decision per se was bad, but that expectations about its implementation differed between people involved. 
+Often when things go wrong, past decisions are put under scrutiny and are contested to find out how one arrived at the present situation. The reflex is often to put the content of the decision into the line of firing and ignore the circumstances that led to getting that decision made. However, finding the context of how one arrived at that decision is at least equally important.
+Doing so helps to spot where things went not as expected and thus is of much more long-term value to any actions to improve the situation by avoiding making the same mistakes again next time. By reflecting about the decision process itself, my experience is that very often the finding is not that the decision itself was bad, but that expectations about its implementation differed between people involved. 
 
-Reflecting about your personal decision habits is a good way to start. From there a collective reflection about this can be started and this allows to find gaps of how different people perceive decisions made by others. This kind of reflection is quite simple, a good set of questions to ask yourself or inside a team is: 
+Getting aware about your very personal decision habit is a good way to start. From there start a collective retrospective about decision making and for finding gaps of how different people perceive decisions made by others. A good set of questions to ask yourself or inside a team is: 
 
 1. Was a decision taken at all? 
 1. Was it clear that a decision was taken (and who took it)? 
 1. Did it trigger a distinct and timely action in those affected?
 
-Only if these three questions can be answered with "yes" by all people involved this was a "valuable" decision in the sense that is was a good thing to take that decision. If any of the questions where answered with "no", tackle to turn that into a yes in the future first.
+If these three questions can be answered with "yes" by all people involved it was was "valuable" to take that decision. If any of the questions were answered with "no", look for opportunities to turn that into a yes in the future.
 Only when the first two questions about the thought process behind the decisions are answered focusing on the content of the decision becomes relevant. 
 
 ## How people decide
