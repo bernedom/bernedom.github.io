@@ -1,0 +1,24 @@
+figcaption {
+    display: block;
+
+    padding: 0.1em 0.2em 0.2em 0;
+    position: relative;
+    font-size: 95%;
+    line-height: 1.2;
+    font-style: italic;
+
+    text-align: left;
+    
+}
+figcaption::before {
+    content: “201C”; /*Unicode for Left Double Quote*/
+    font-size: 110%;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+figcaption::after {
+    content: “”;
+}
