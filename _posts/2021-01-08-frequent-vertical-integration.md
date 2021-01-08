@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Early and frequent integration for the win
-description: How early and frequnet vertical integration will increase the quality of embedded products and help projects running on schedule
+title: Frequent vertical integration for the win
+description: How early and frequent vertical integration will increase the quality of embedded products and help projects running on schedule
 thumbnail: images/vertical_integration/thumbnail.jpg
 ---
 
-**"The software is almost done, we *just* need to integrate it on the device."** Is one of the biggest self-deceptions in embedded software development. What often follows are failed deadlines and weeks and months of everybody taking shortcuts and hacks to finally ship that device. And often enough what could have been an awesome product often severely lacks quality in the end. Early and frequent vertical integration is a THE way out of this deadlock and often a huge game-changer towards better products and agility.
+**"The software is almost done, we *just* need to integrate it on the device."** Is one of the biggest self-deceptions in embedded software development. What often follows are failed deadlines and weeks or months of everybody taking shortcuts and hacks to finally ship that device. And often enough, what could have been an awesome product severely lacks quality in the end. Early and frequent vertical integration is THE way out of this deadlock and often a huge game-changer towards better products and agility.
 
 The people involved in embedded software development are often very well aware that integration is often the tricky part of product development. Nevertheless, lots of companies still develop various parts of an embedded device - OS, hardware, and applications - side by side with only occasional handovers and only integrate once everything is "done". While this might work, I have yet to see this approach succeed on schedule and without a painful reduction in product quality. 
 
