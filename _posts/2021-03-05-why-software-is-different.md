@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why software engineering is different
-description: Why software engineering is different than other engineering disciplines from the MINT field.
+description: Why running software projects is different than other engineering disciplines from the MINT field and why agile software development is needed to leverage the full potential of software in a product.
 thumbnail: images/software-is-different/thumbnail.jpg
 ---
 
