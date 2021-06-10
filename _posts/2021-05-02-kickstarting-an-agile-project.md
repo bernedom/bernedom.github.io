@@ -19,7 +19,21 @@ The first thing to understand when starting a new software project or taking ove
 
 ## Stakeholder map - Who is involved
 
-Ok, so we have a rough idea where we want to go with the product, but let's have a look at who benefits from the project. Very often I see the stakeholders just grouped together als "our users" or "our customers" and it is rarely that easy. 
+Ok, so we have a rough idea where we want to go with the product, but let's have a look at who benefits from the project. Very often I see the stakeholders just grouped together als "our users" or "our customers" and it is rarely that easy. Looking closely the stakeholders are often a far more heterogenous group than initially assumed. Listing all the stakeholders is one part but the far more intersting part is to classify them by how immediate they are affect or interact with the product and grouping by the different organizations or groups they belong to. 
+My tool of choice is to create a stakeholder map where the core users are at the center and the farther out the less direct the interaction and interest in the product is. 
+By identifying the impact the product has on which stakeholder group and where their "allegiance" lies is a first step to ensure that the product will be able to satisfy the various expectations. It also helps later to prioritize what to do first. A good rule of thumb is to do anything that concerns the directly involved parties first and then work outwards in the circle. 
+
+[IMAGE stakeholder map]
+
+## Quality metrics - What does good mean
+
+Once we know for who we create the product, let's figure out what makes the product good. For this I like to collect the quality attributes that the product should satisfy and prioritize them against each other. Coming from the med-tech industry I often start out from the [iso25000 quality attributes](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010) but depending on the situation I do not limit myself to these attributes i.e by adding scalability or patient/operator saftety to it. 
+If there are already requirements formulated I then pitch the requirements against the quality attributes to figure out If the assumption about the importance of the quality attributes matches the formulated requirements. While I consider a full blown [QFD analysis](https://de.wikipedia.org/wiki/Quality_Function_Deployment) an overkill at that stage, creating a QFD-like matrix of pitching the requirements against the prioritized quality attributes often yields vital information on which features should be done first. Having the quality metrics prioritized against each other comes in very handy again later when the software architecture is designed. 
+
+## Story mapping - building a narrative 
+
+Finally we're talking stories. My method of choice to create a backlog and to define an MVP/Walking skeleton is [story mapping](https://medium.com/@priyank.it/user-story-mapping-product-backlog-creation-7ea9a54f7f0e). Usually the all core stakeholders from our stakeholder map should be reprerented in the story. The goal of the story map is to be able to bring the desired features of a product into a narrative and into context with each other. Story mapping is also done not just once but many, many times during the product lifecycle. My first goal here is to be able to tell the high-level narrative and only then start formulating stories. While formulating a first prioritization already takes place. Anything not strictly necessary, including convenience features, to make the product function either gets chucked out or deferred to later. Since we're at the beginning of development the user stories are still very coarse and lack acceptance criteria etc. and that is ok for now. Creating the [lean backlog](https://dominikberner.ch/lean-backlog-handling/) will come later. Right now the goal is to define the **minimal** set of features needed to determine if the base use case is viable or not. Anything that either concerns stakeholders not in the core circle or that concerns special cases gets deferred to later  for now.
+
 
 
 1. Project vision - Why does our client (or we) want to create that product?  What is the deeper motivation? what is the business case? How does it fit with the strategy of the organization? 5 Whys, "Just let them talk"
