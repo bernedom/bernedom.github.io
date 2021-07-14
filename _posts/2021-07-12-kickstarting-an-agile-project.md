@@ -29,7 +29,7 @@ My tool of choice is to create a stakeholder map where the core users are at the
 
 Explicitely identifying the impact the product has on the different stakeholder groups is a first step to ensure we will be able to satisfy the various expectations later. A good rule of thumb is to prioritize anything first that concerns the stakeholders at the center of the map. 
 
-## Quality metrics - What does good meangra
+## Quality metrics - What does good mean?
 
 By now we know what we want to do and for who we do it, so the next step is to figure out what makes the product *good*. For this I like to collect the quality attributes that the product will satisfy and prioritize them against each other. Coming from the med-tech industry starting out from the [iso25000 quality attributes](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010) is kind of natural for me. 
 Maybe add a few further attributes like scalability or patient safety to it, but keep the number of quality attributes to consider small.
