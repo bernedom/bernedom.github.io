@@ -8,9 +8,9 @@ figcaption {
     font-style: italic;
 
     text-align: left;
-    
-    
 }
+
+
 figcaption::before {
     content: “201C”; /*Unicode for Left Double Quote*/
     font-size: 110%;
@@ -22,4 +22,9 @@ figcaption::before {
 
 figcaption::after {
     content: “”;
+}
+
+
+figcaption .source-annotation {
+    font-size: 85%;
 }
