@@ -59,7 +59,7 @@ Building and distributing leadership skills needs strong feedback culture. Growi
 Building successful leadership by making time, enabling feedback, and finding the right people is hard and complex work, but the rewards are huge. Recognizing that one might suffer from leadership debt is often the first step towards getting rid of it. As with technical debt, leadership debt will never be completely avoidable but if it is being acknowledged and the interest is paid upfront, later costs can be greatly reduced. As each organization has its own context there is of course no "guaranteed to work"-recipe to minimize leadership debt, but the measures described above are often a very good starting point. 
 
 
---
+---
 
 [^1]: There is of course much more to DevOps, don't hate me for simplifying this ;)
 
