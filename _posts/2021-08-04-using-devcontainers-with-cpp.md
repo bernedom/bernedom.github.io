@@ -13,11 +13,15 @@ This allows to set up a complete dev-environment inside a docker container and f
 
 ## A 10000-mile overview
 
-Having the build environment inside a container is a major game changer. First it helps to ensure that all developers have exactly the same dependencies installed, but it goes further. All major CI systems include support for container based building, the same container that runs on a developers machine can be used to build your code on the server. This kind of consistency makes it very easy to create consistent builds. Using dev-containers helps even more, because the definition of the container is stored along the code in a `Dockerfile` and the `devcontainer.json`. So if this is put under version control each build provides the information about the respective build system set up as well. So how does this magic work? 
+Having the build environment inside a container is a major game changer. First it helps to ensure that all developers have exactly the same dependencies installed, but it goes further. All major CI systems include support for container based building, the same container that runs on a developers machine can be used to build your code on the server. This kind of consistency makes it very easy to create consistent builds. Using dev-containers helps even more because the definition of the container is stored along with the code in a `Dockerfile` and the `devcontainer.json`. So if this is put under version control each build provides the information about the respective build system set up as well. So how does this magic work? 
 
 ## Devcontainers in a nutshell
 
-What you need is a docker (podman would also work) container containing all your requirements and a `devcontainer.json` file describing how to use your container. In our example, we will set up a customized container for creating and debugging a qt-application. For extra convenience, we will also include some developer tools and vscode extensions into the container. Once set up vscode will connect to the container, install all specified extensions and run a server to accept it's commands. After that all operations will be done in the running container. 
+What you need is a docker (podman would also work) container containing all your requirements and a `devcontainer.json` file describing how to use your container. In our example, we will set up a customized container for creating and debugging a qt-application. For extra convenience, we will also include some developer tools and vscode extensions into the container. Once set up vscode will connect to the container, install all specified extensions and run a server to accept it's commands. After that, all operations will be done in the running container. 
+
+The extension can be installed by pressing `CTRL+P` and then typing `ext install remote-containers` in the command bar. 
+
+{%include figure.html url="images/devcontainer/installing.png" description="Installing the `remote container` extension in visual studio code" %}
 
 ## Project structure
 
@@ -33,7 +37,9 @@ The devcontainer configuration is stored in a `devcontainer.json` file either in
     └── main.cpp
 ```
 
-Let's start with a simple `Dockerfile`
+## defining the container
+
+Let's start with a simple `Dockerfile` that uses a predefined container and applies some customization. Additionally to what is provided I install a few more packages, notably `gdb` for debugging the application easily inside the container and some tools like `curl`, `vim`, and the `bash-completion` to make working in the console easier. Since the container from conan comes with a predefined user `conan` I briefly switch to root for installing and afterwards switch back to conan.  
 
 ```Dockerfile
 FROM conanio/clang10:1.39.0
@@ -42,12 +48,7 @@ USER root
 
 RUN  apt-get update; \
     apt-get -y install --fix-missing \
-    gdb \
-    sudo \
-    curl \
-    bash-completion \
-    vim 
-    
+    gdb curl bash-completion vim 
 
 USER conan
 
@@ -55,6 +56,14 @@ USER conan
 RUN curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git && echo "source ~/.bash_git" >> ~/.bashrc
 RUN sed -Ei 's/(PS1=.*)(\\\[\\033\[00m\\\]\\\$.*)/\1\\[\\033[01;33m\\]$(__git_ps1)\2/p' ~/.bashrc
 ```
+
+For even more convenience I then add I the `git-ps1` to get the current branch name as part of the console stub. I use this frequently, but there are of course many more customization that can be done. 
+
+{%include figure.html url="images/devcontainer/PS1_console.png" description="The console blurb inside the container after installing the git PS1" %}
+
+## Telling vscode to use the container
+
+Now that the docker image to be used is defined, we need to tell vscode how to use it. For that we place a `devcontainer.json` file and place it in the folder `.devcontainer`. 
 
 ```json
 {
@@ -67,18 +76,11 @@ RUN sed -Ei 's/(PS1=.*)(\\\[\\033\[00m\\\]\\\$.*)/\1\\[\\033[01;33m\\]$(__git_ps
         "vadimcn.vscode-lldb",
         "cheshirekow.cmake-format"
     ],
-    "remoteEnv": {
-        "DISPLAY": ":0"
-    },
-    "runArgs": [
-        "--net=host",
-        "--device=/dev/dri:/dev/dri"
-    ],
+  
 }
 
 
 ```
-## Dockerfile
 
 
 
@@ -87,5 +89,5 @@ RUN sed -Ei 's/(PS1=.*)(\\\[\\033\[00m\\\]\\\$.*)/\1\\[\\033[01;33m\\]$(__git_ps
 * reopen in container - done
 
 
-* Show example dockerfile (small)
+
 * Show devcontainer.json
