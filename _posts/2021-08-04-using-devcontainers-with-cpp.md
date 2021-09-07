@@ -2,7 +2,7 @@
 layout: post
 title: Reproducable build environments for C++ using docker
 description: How to set up a build environment for building C++ applications with docker and visual studio codes remote container environment (devcontainer)
-thumbnail: images/kickstart-agile-project/thumbnail.jpg
+thumbnail: images/devcontainer/thumbnail.png
 ---
 
 **"But it compiles on MY machine!"** Is one of the phrases that every C++ coder hates. Even with CMake building a C++ app is often hard, because of missing system dependencies, or people have different compiler runtimes installed or are just building with another flavor of make, ninja etc. But thanks to the [remote container extension](https://code.visualstudio.com/docs/remote/containers-tutorial) of visual studio code this has gotten much easier. 
@@ -39,13 +39,15 @@ The devcontainer configuration is stored in a `devcontainer.json` file either in
 
 ## defining the container
 
-Let's start with a simple `Dockerfile` that uses a predefined container and applies some customization. Additionally to what is provided I install a few more packages, notably `gdb` for debugging the application easily inside the container and some tools like `curl`, `vim`, and the `bash-completion` to make working in the console easier. Since the container from conan comes with a predefined user `conan` I briefly switch to root for installing and afterwards switch back to conan.  
+Let's start with a simple `Dockerfile` that uses a predefined container and applies some customization. Additionally to what is provided I install a few more packages, notably `gdb` for debugging the application easily inside the container and some tools like `curl`, `vim`, and the `bash-completion` to make working in the console easier. Since the container from conan comes with a predefined user `conan` I briefly switch to root for installing and afterward switch back to conan. Adding this customization is not strictly necessary, but it makes working inside the container easier. 
 
 ```Dockerfile
 FROM conanio/clang10:1.39.0
 
+# switch to root
 USER root
 
+# install a few tools for more convenient developing
 RUN  apt-get update; \
     apt-get -y install --fix-missing \
     gdb curl bash-completion vim 
@@ -63,7 +65,7 @@ For even more convenience I then add I the `git-ps1` to get the current branch n
 
 ## Telling vscode to use the container
 
-Now that the docker image to be used is defined, we need to tell vscode how to use it. For that we place a `devcontainer.json` file and place it in the folder `.devcontainer`. 
+Now that the docker image to be used is defined, let's tell vscode how to use it. For this, we place a `devcontainer.json` file and place it in the folder `.devcontainer`. 
 
 ```json
 {
@@ -79,15 +81,30 @@ Now that the docker image to be used is defined, we need to tell vscode how to u
   
 }
 
-
 ```
+First we tell vscode that it needs to build the container itself and then we pass the relative path to the `Dockerfile` to it. Afterwards there is the extension block, that tells vscode which extension to install *inside* the container once it is built. For a C++ project I consider the following the minimum set of extensions to install. 
 
+   * `ms-vscode.cpptools`: The C++ language support for vscode
+   * `ms-vscode.cmake-tools`: cmake support for vscode
+   * `vadimcn.vscode-lldb`: lldb debugger support for easy debugging by pressing F5
+   * `cheshirekow.cmake-format`: cmake-format is not strictly necessary, but nobody wants to read ugly code
 
+And that is all that is needed to be ready to get going. 
 
-## How to use 
+#### using a container from a container registry
 
-* reopen in container - done
+Defining the docker image locally over a `Dockerfile` allows for customization, but the container has to be built locally each time it changes. Depending on the complexity of the image this might be tedious, so an alternative is to pull the image from an image repository such as [dockerhub](https://hub.docker.com/). In that case instead of adding a `build` information to the `devcontainer.json` we can directly specify the image to use. 
+In the example below I'm pulling an existing image that includes Qt and gcc9 ready to be used. 
 
-
-
-* Show devcontainer.json
+```json
+{
+    "image": "bbvch/conan_qt-5.15.2_builder_gcc9",
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "vadimcn.vscode-lldb",
+        "cheshirekow.cmake-format"
+    ],
+  
+}
+```
