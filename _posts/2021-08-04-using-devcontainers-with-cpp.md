@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reproducable build environments for C++ using docker
+title: Reproducable build environments for C++ using docker and vscode
 description: How to set up a build environment for building C++ applications with docker and visual studio codes remote container environment (devcontainer)
 thumbnail: images/devcontainer/thumbnail.png
 ---
@@ -37,7 +37,7 @@ The devcontainer configuration is stored in a `devcontainer.json` file either in
     └── main.cpp
 ```
 
-## defining the container
+## Defining the container
 
 Let's start with a simple `Dockerfile` that uses a predefined container and applies some customization. Additionally to what is provided I install a few more packages, notably `gdb` for debugging the application easily inside the container and some tools like `curl`, `vim`, and the `bash-completion` to make working in the console easier. Since the container from conan comes with a predefined user `conan` I briefly switch to root for installing and afterward switch back to conan. Adding this customization is not strictly necessary, but it makes working inside the container easier. 
 
@@ -91,7 +91,7 @@ First we tell vscode that it needs to build the container itself and then we pas
 
 And that is all that is needed to be ready to get going. 
 
-#### using a container from a container registry
+### Using a container from a container registry
 
 Defining the docker image locally over a `Dockerfile` allows for customization, but the container has to be built locally each time it changes. Depending on the complexity of the image this might be tedious, so an alternative is to pull the image from an image repository such as [dockerhub](https://hub.docker.com/). In that case instead of adding a `build` information to the `devcontainer.json` we can directly specify the image to use. 
 In the example below I'm pulling an existing image that includes Qt and gcc9 ready to be used. 
@@ -108,3 +108,19 @@ In the example below I'm pulling an existing image that includes Qt and gcc9 rea
   
 }
 ```
+
+## Starting the container
+
+Once the devcontainer is set up and the image is built (or downloaded) we're ready to go. You can either actively switch to the container by pressing `CTRL+P` and selecting "Rebuild and Reopen in Container" command. 
+
+{%include figure.html url="images/devcontainer/cmd-reopen.png" description="Reopening the container using the vscode command line" %}
+
+Or just restart vscode in which case you will be asked if you want to switch to the devcontainer. 
+
+{%include figure.html url="images/devcontainer/reopen-in-container.png" description="vscode will prompt you to open a workspace in a devcontainer" %}
+
+In the lower left corner a green sign appears that tells you whenever you're working in a devcontainer. Clicking on it will bring up the command palette for dev containers. 
+
+{%include figure.html url="images/devcontainer/container-indicator.png" description="the devcontainer indicator" %}
+
+And that's it for setting it up. Your devcontainer is up and running and you can start to work without worrying about diverging build environments. Happy coding! 
