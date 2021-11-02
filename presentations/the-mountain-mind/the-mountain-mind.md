@@ -8,30 +8,39 @@ background-size: contain
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 class: center, middle, inverse
-background-image: url(images/steep-cliff.jpg)
+background-image: url(images/gletscher.jpg)
 
-# The Mountain Mind - Dare to commit yourself
+# The Mountain Mind
+# Dare to commit yourself
 
-## Dominik Berner
-### Software Engineer, Agilist, Rock Climber
+### Dominik Berner - Software Engineer, Agilist, Rock Climber
 
 
 ![](logo_bbv_thumb.png)
 
 ???
- 
 
----
-background-image: url(images/oben_sein.jpg)
-# Jetzt gilts ernst
+It is one thing to decide to climb a mountain. It is quite another to be on top of it. ~Herbert A. Simon
+
+Every mountain top is within reach if you just keep climbing. ~Barry Finlay
+
+Only those who will risk going too far can possibly find out how far they can go. ~T.S. Eliot
 
 ???
+
+# Guten Morgen mitenander
+
+---
+background-image: url(images/early_sunrise.jpg)
+# Let's go!
+
+???
+
+# Stellt euch vor...
 
 Gestern losgegangen in die hütte die besorgte freundin noch "seid ihr sicher, dass ihr das packt?" Heute Vor sonnenaufgang los, frühstück, zustieg, sonnenaufgang, ein paar Seillängen geklettert alles OK. Doch nun gilts ernst "Ab hier kein Zurück mehr" 
 
 Software, aquisegespräch, offerte raus, SUM fragt seid ihr sicher, dass ihr das packt? Erstes Projekt setup, erste refinement and review meetings, und jetzt gehts ans eingemachte. Jetzt wirds schwierig
-
-
 
 ---
 
