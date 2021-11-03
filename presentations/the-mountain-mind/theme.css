@@ -110,6 +110,19 @@ a {
     font-family: monospace;
 }
 
+.fat {
+    font-size: 2em;
+    opacity: 0.85;
+    color: #111;
+    background-color: rgb(196, 196, 196);
+    
+    position: absolute;
+    left: 20px;
+    top: 250px;
+    
+  
+}
+
 .bgimg h1, .bgimg h2 {
     /* 5 shadows for extra contrast on top of background image */
     text-shadow:  0px  0px 2px #111, -2px -2px 4px #111, -2px 2px 4px #111, 2px 2px 4px #111, 2px -2px 4px #111;
