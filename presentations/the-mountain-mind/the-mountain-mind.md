@@ -20,15 +20,11 @@ background-image: url(images/gletscher.jpg)
 
 ???
 
-It is one thing to decide to climb a mountain. It is quite another to be on top of it. ~Herbert A. Simon
-
-Every mountain top is within reach if you just keep climbing. ~Barry Finlay
+# Guten Morgen mitenander
 
 Only those who will risk going too far can possibly find out how far they can go. ~T.S. Eliot
 
-???
-
-# Guten Morgen mitenander
+Oder: Man muss wissen wie weit man zu weit gehen kann
 
 ---
 background-image: url(images/early_sunrise.jpg)
@@ -37,49 +33,41 @@ background-image: url(images/early_sunrise.jpg)
 
 # Stellt euch vor...
 
-Gestern losgegangen in die Hüttte die besorgte freundin noch "seid ihr sicher, dass ihr das packt?" Heute Vor sonnenaufgang los, frühstück, zustieg, sonnenaufgang, ein paar Seillängen geklettert alles OK. Doch nun gilts ernst "Ab hier kein Zurück mehr". 
+Gestern losgegangen in die Hüttte die besorgte freundin noch "seid ihr sicher, dass ihr das packt?" Heute Vor sonnenaufgang los, frühstück, zustieg, sonnenaufgang, ein paar Seillängen geklettert alles OK. 
 
 oder anders: 
 
-Software, aquisegespräch, offerte raus, SUM fragt seid ihr sicher, dass ihr das packt? Erstes Projekt setup, erste refinement and review meetings, und jetzt gehts ans eingemachte. Jetzt wirds schwierig, es steht eine z.b architekturentscheidung an die nur schwer Rückgängig gemacht werden kann. Oder dieses eine Feature, dass man nicht so genau weiss wie umsetzen, aber wenns klappt ist das Produkt der Hammer. 
+Software, aquisegespräch, offerte raus, SUM fragt seid ihr sicher, dass ihr das packt? Erstes Projekt setup, erste refinement and review meetings, und jetzt gehts ans eingemachte. 
 
 ---
 background-image: url(images/committed.jpg)
 # "Committed sein"
 
 ???
+
+Doch nun gilts ernst "Ab hier kein Zurück mehr". Und in der steilwand, schaut man sich an und sagt sich, wenn wir hier Weiterklettern ist schluss mit abseilen. Dann müssen wir oben raus. 
+
+ Jetzt wirds schwierig, es steht eine z.b architekturentscheidung an die nur schwer Rückgängig gemacht werden kann. Oder dieses eine Feature, dass man nicht so genau weiss wie umsetzen, aber wenns klappt ist das Produkt der Hammer. 
 
 Und? Könnt ihr euch hier committen? Fragt der Scrum Master im Planning meeting? 
-
-Und in der steilwand, schaut man sich an und sagt sich, wenn wir hier Weiterklettern ist schluss mit abseilen. Dann müssen wir oben raus. 
-
----
-background-image: url(images/committed.jpg)
-# "Committed sein"
-
-# Was heisst das überhaupt?
-
-???
 
 * Was heisst committed sein? 
 
 Übersetzt "Bindung", Engagement aber auch Hingabe, Verpflichtung. 
 Erscheint uns etwas einfach und ist der Weg klar, fällt uns die Entscheidung oft einfach.
 
+* Committed sein bedeutet involvement. Auf dem Berg ist man erst "Committed" wenn man bereits voll drin steckt. 
 * Committed sein heisst: Ich will da rauf, und ich bin bereit dafür zu "beissen"
 * Committed sein heisst nicht, ich will das tun. Sondern, ich tue das
-* Committed sein bedeutet involvement. Auf dem Berg ist man erst "Committed" wenn man bereits voll drin steckt. 
-* Im klettergarten kann ich noch nicht im selben grad committed sein
 * Committment hat etwas finales und bedeutet vollen fokus auf etwas. Halbpatziges Commitment ist nichts
-
-“The committed person doesn’t play by the rules of the game. He is responsible for the game. If the rules of the game stand in the way of achieving the vision, he will find ways to change the rules.” 
 
 ---
 background-image: url(images/committed.jpg)
 # "Committed sein"
 
-### “The committed person doesn’t play by the rules of the game. He is responsible for the game. If the rules of the game stand in the way of achieving the vision, he will find ways to change the rules.” 
- Peter Senge
+.fat[ “The committed person doesn’t play by the rules of the game. He is responsible for the game."
+
+Peter Senge ]
 
 ???
 
@@ -95,18 +83,6 @@ Spannend wird es dort, wo wir uns auf Neuland begeben.
 Dort wo wir in der Situation sind, dass wir sagen"
 
 * Das Ziel kennen wir, den Weg dahin nur begrenzt
-
----
-
-# Risiko und Zuversicht
-
-### Die Riskowahrnehmung ist oft subjektiv
-
-.center[![](images/fine_not_fine.png)]
-
-???
-
-Risiko ist subjektiv. "Risiko ist die Angst dass es schief gehen könnte."
 
 ---
 background-image: url(images/rega.jpg)
@@ -141,6 +117,22 @@ Was hilft:
 Ignorance? Training, Erfahrung
 Casualness: Reflektieren, System awareness, Kontext beobachten
 Distraction: Committment - Fokus
+
+---
+
+# Risikowahrnehmung
+
+### Die Riskowahrnehmung ist oft subjektiv
+
+.center[![](images/fine_not_fine.png)]
+
+???
+
+Risiko ist subjektiv. "Risiko ist die Angst dass es schief gehen könnte."
+
+aber ich habe versprochen Über comittment und Zuversicht zu sprechen. 
+Zuversicht ist das Schmerzmittel zur Risikowahrnehmung
+
 
 ---
 background-image: url(images/schnee-aufstieg.jpg)
@@ -205,15 +197,11 @@ background-image: url(images/sunset.jpg)
 
 ???
 
-Wenn alles zusammen spielt kommen wir in den Flow. Lange strecken von hoher konzentration und Leistungsfähigkeit. Dann wirds auch wenns mal gefährlicher wird spannend. 
+Und dann schaut man am Abend oder am Projektende auf wirklich coole Arbeit zurück. Nicht nur auf ein Spannendes ergebnis, sondern auch darauf dass der Weg dahin exzellent war. 
 
-- Dann fass ich mir ein HErz un überkletter die Schwierige Stelle. Ich kann das mobilisieren. Oftmals mit Anfeuern vom Kletterpartner
-- Dann wage ich mich an ein Projekt mit unsicherheiten. Weil ich weiss, dass ich den nötigen Fokus aufbringen kann. Weil meine Kollegen schlau sind und gut ausgebildet. Weil ich mit meinem Mandatsleiter den Kontext schaffen kann - z.b. Ist ein Absturz Lebensgefährlich oder nur sehr unangenehm? Geht die bbv kaputt, wenn wir das Projekt versemmeln? 
+Aber Bevor wir vom Abend sprechen, geniesst das weitere Programm. 
 
-Man muss sich diese Umgebung schaffen. 
-
-Wenn das stimmt, dann kann man sich an die grossen Berge wagen. Dann ist Bergsteigen und Softwareentwicklung nicht einfach nur ein teures, gefährliches wagniss, sondern ein Lustvolles Abenteuer, bei dem absolut unglaubliche Momente entstehen können. 
-
+Vielen Dank fürs Zuhören
 
 ---
 # HALDE
