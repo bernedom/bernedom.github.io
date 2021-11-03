@@ -98,17 +98,18 @@ Dort wo wir in der Situation sind, dass wir sagen"
 
 ---
 
-# Risiko und Zuversicht / Fix images
+# Risiko und Zuversicht
 
-.left[![](images/this-is-fine.0.jpg)]
-.right[![](images/thisisnotfine.jpg)]
+### Die Riskowahrnehmung ist oft subjektiv
+
+.center[![](images/fine_not_fine.png)]
 
 ???
 
 Risiko ist subjektiv. "Risiko ist die Angst dass es schief gehen könnte."
 
 ---
-
+background-image: url(images/rega.jpg)
 # Was sind denn Risiken?
 
 
@@ -121,7 +122,7 @@ Beim Programmieren kann eine kritische Sicherheitslücke erscheinen
 Der Kunde kann in Finanznot geraten und das Projekt killen
 
 ---
-
+background-image: url(images/rega.jpg)
 # Was sind denn Risiken?
 
 
@@ -142,8 +143,8 @@ Casualness: Reflektieren, System awareness, Kontext beobachten
 Distraction: Committment - Fokus
 
 ---
-
-# Wie spielt das nun zusammen
+background-image: url(images/schnee-aufstieg.jpg)
+# Risiko und Commitment
 
 ![](images/comittment-risk-cycle.png)
 
@@ -157,8 +158,8 @@ Dies verhindert wieder commitment und so weiter. Oder auch anders rum, ist das R
 
 
 ---
-
-# Wie spielt das nun zusammen
+background-image: url(images/schnee-aufstieg.jpg)
+# Risiko und Commitment
 
 ![](images/comittment-risk-cycle_influences.png)
 
@@ -172,8 +173,8 @@ Beim Klettern, Kletterhalle, Ernsthaftigkeit der Route, Team kollegen etc. Und d
 Beim Arbeiten, Ingenierusarbeit, Kontext, "Warum"
 
 ---
-
-# Den Zyklus durchbrechen
+background-image: url(images/safety.jpg)
+# Sicherheit schaffen - Fokus erhöhen
 
 
 ???
@@ -184,8 +185,8 @@ SKill level - Ich kann das, oder ich hab Leute um mich herum die das können.
 System Context - Ich weiss was um mich herum geschieht, ich kann die Situation einschätzen. Ich weiss wie viel spatzig wir haben
 
 ---
-
-# in den Fkow kommen
+background-image: url(images/flow.jpg)
+# in den Flow kommen
 
 ???
 
@@ -197,6 +198,22 @@ Wenn alles zusammen spielt kommen wir in den Flow. Lange strecken von hoher konz
 Man muss sich diese Umgebung schaffen. 
 
 Wenn das stimmt, dann kann man sich an die grossen Berge wagen. Dann ist Bergsteigen und Softwareentwicklung nicht einfach nur ein teures, gefährliches wagniss, sondern ein Lustvolles Abenteuer, bei dem absolut unglaubliche Momente entstehen können. 
+
+---
+background-image: url(images/sunset.jpg)
+# Vielen Dank
+
+???
+
+Wenn alles zusammen spielt kommen wir in den Flow. Lange strecken von hoher konzentration und Leistungsfähigkeit. Dann wirds auch wenns mal gefährlicher wird spannend. 
+
+- Dann fass ich mir ein HErz un überkletter die Schwierige Stelle. Ich kann das mobilisieren. Oftmals mit Anfeuern vom Kletterpartner
+- Dann wage ich mich an ein Projekt mit unsicherheiten. Weil ich weiss, dass ich den nötigen Fokus aufbringen kann. Weil meine Kollegen schlau sind und gut ausgebildet. Weil ich mit meinem Mandatsleiter den Kontext schaffen kann - z.b. Ist ein Absturz Lebensgefährlich oder nur sehr unangenehm? Geht die bbv kaputt, wenn wir das Projekt versemmeln? 
+
+Man muss sich diese Umgebung schaffen. 
+
+Wenn das stimmt, dann kann man sich an die grossen Berge wagen. Dann ist Bergsteigen und Softwareentwicklung nicht einfach nur ein teures, gefährliches wagniss, sondern ein Lustvolles Abenteuer, bei dem absolut unglaubliche Momente entstehen können. 
+
 
 ---
 # HALDE
