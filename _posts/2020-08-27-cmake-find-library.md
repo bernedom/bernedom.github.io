@@ -45,9 +45,9 @@ Once the library is found it can be linked to targets using `target_link_librari
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake/")
 find_package(libImagePipeline REQUIRED)
 ...
-add_executable(${PROJECT_NAME})
+add_executable(SomeExecutable)
 ...
-target_link_libraries(${PROJECT_NAME} PRIVATE libImagePipeline::libImagePipeline)
+target_link_libraries(SomeExecutable PRIVATE libImagePipeline::libImagePipeline)
 ```
 
 ## Find.cmake line by line
@@ -209,8 +209,8 @@ find_package(libImagePipeline REQUIRED)
 Now, the library is available like a normal target defined in CMake and can be linked to any other existing target with `target_link_libraries`.
 
 ```CMake
-add_executable(${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME} PRIVATE libImagePipeline::libImagePipeline)
+add_executable(SomeExecutable)
+target_link_libraries(SomeExecutable PRIVATE libImagePipeline::libImagePipeline)
 ```
 
 That is all that is to know to get started. Of course CMake being what it is there are a lot of inner workings and edge cases which can be covered when using [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html), so be sure to refer to the original documentation if stuck. 
