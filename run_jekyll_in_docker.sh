@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -ti -p 4000:4000 -v $(pwd):/home/jekyll --rm ghpages
+docker run -it --rm -v $(pwd):/usr/src/app -p "4000:4000" starefossen/github-pages
