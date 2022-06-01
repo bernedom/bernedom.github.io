@@ -99,11 +99,9 @@ Risiko ist subjektiv. "Risiko ist die Angst dass es schief gehen könnte."
 aber ich habe versprochen Über comittment und Zuversicht zu sprechen. 
 Zuversicht ist das Schmerzmittel zur Risikowahrnehmung
 
-
 ---
 background-image: url(images/rega.jpg)
-# Was sind denn Risiken?
-
+# Risikofaktoren = Gründe für Fehlschläge
 
 ![](images/inherent_risk.png)
 
@@ -115,7 +113,7 @@ Der Kunde kann in Finanznot geraten und das Projekt killen
 
 ---
 background-image: url(images/rega.jpg)
-# Was sind denn Risiken?
+# Risikofaktoren = Gründe für Fehlschläge
 
 
 ![](images/accidents-reasons.png)
@@ -204,6 +202,10 @@ Und dann schaut man am Abend oder am Projektende auf wirklich coole Arbeit zurü
 Aber Bevor wir vom Abend sprechen, geniesst das weitere Programm. 
 
 Vielen Dank fürs Zuhören
+
+---
+
+![](images/dangermeter_catastrophic.png)
 
 ---
 # HALDE
