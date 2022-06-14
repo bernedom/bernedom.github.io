@@ -2,35 +2,45 @@
 layout: post
 title: Writing "CMake Best Practices" - A writing journey
 description: From August 2021 to May 2022 I spent quit some time writing the Book CMake Best Practices with Packt Publishing. This article contains a highly subjective and opinionated story of the writing journey.  
-thumbnail: images/mountain-mind/thumbnail.jpg
+thumbnail: images/writing-cmake-best-practices/thumbnail.jpg
 ---
 
-When packt publishing approached me in august 2021 with the idea of writing a book about CMake I immediately was all for it and ten of the most intense months later "CMake Best Practices" finally hit the shelves. The writing journey during these ten months were super interesting but also very exhausting and a constant emotional rollercoaster. In the end having been able to write a book with packt publishing was a very valuable experience and seeing the book being sold and receiving the first reviews is very satisfing but there were quite a few moments of doubt in these ten months. So how was writing the book? 
+When packt publishing approached me in august 2021 with the idea of writing a book about CMake I immediately was all for it and ten of the most intense months later "[CMake Best Practices](https://www.amazon.com/CMake-Best-Practices-maintaining-programming-ebook/dp/B09QKYQ6SZ)" finally hit the shelves. The writing journey during these ten months were super interesting but also very exhausting and a constant emotional rollercoaster. In the end having been able to write a book with packt publishing was a very valuable experience and seeing the book being sold and receiving the first reviews is very satisfing but there were quite a few moments of doubt in these ten months. So how was writing the book? 
 
 # How does packt go about writing books
 
-1. Write a pitch for the book, target audience and rough contents
-1. Write an outline and give an approximate number of pages - Source of much grief and discussion later on
-1. Contract  - OK, small writing fee and royalties - No idea if this is fair or not
-1. Go on writing, chapter by chapter 
-   1. Write a first draft & code examples
-   1. Corrections
-   1. Technical review 
-   1. Rewrites
-   1. Done - Extra rounds not really planned in, but possible
-1. Finishing touches, publishing and promotion
+Since Packt publishing is capitalizing on the print-on-demand and digital market, its mode of operation is geared towards high output of technical litarature in a very short time. And this shows in the way how they approach book projects. In my case I was approached by someone from Packt over linkedin and flat out asked if I wanted to write a book about CMake. After a few days of thinking I said yes and soon was paired up with my co-author-to-be. Being paired with a complete stranger was a bit weird, especially as there was very little effort in introducing us to each other or helping us set up a productive work environment. We essentially got the a-mail addresses of each other and a brief bio and then it was up to us to figure out who writes which chapter and how to coordinate the work on the shared documents. It was by luck that my co-author Mustafa and me have a similar writing style and that we agreed quickly on a lot of the content that we wanted to write. 
 
-Thoughts? 
+After the initial contact by the publishing product manager the first thing to do was to write a pitch for the book including a rough outline of the contents covered and a description of the target audience. This pitch would then be used internally by packt for a Go/No-Go decision. Once this passed the publishing manager came back to us authors to write an outline, of all the chapters we wanted to write, including tentative titles for the sections and an estimated page count. At this point we authors also had to agree who writes which chapters to evaulate who would get how much of the royalties in case the book would be eventually published. We intended to split roughly 50/50 so splitting the royalties 50/50 seemed fair then. This would later cause a bit of grief on our side, as the first exstimated page count was off quite a bit. For packt this page count is very important to the editors at packt and we had quite some discussions with our editors about it during writing. The thing is, as first time authors we had absolutely no clue how much information we could fit into a chapter. In the end we had chapter that overrun the estimation twice and others that would end up being only a third of the estimated size. 
 
-* Packts writing process
-* time pressure and schedule
-* contract negotiations
-* communication
-* writing partner - it either works or not
-* tooling - Ugh 
-    - Grammarly, spell checker
-    - Word review is aweful
+The outline was then evaluated by packt for another Go/No-Go decision and to draft out an approximate timeline for the project. Luckily we passed that stage as well and by this time we were offered a proper writing contract - up to this point, there was no formal working agreement or contract. The contract signing was more or less uneventful and according to my research with other publishers is more or less what is to be expected as a first time author. My co-author and I each got 8% royalties and roughly 1000$ writing fee, paid out upon timely completion of parts of the book. And then it was "go" for writing. 
 
-# Would I do it again? 
+The actual writing was done chapter by chapter, with each chapter being assigned to an author and having a predefined deadline for the first draft and for final completion. Each chapter would go through the following stages:
 
-Mixed feelings, interesting experience for first time authors. Improved my writing skills and approach to get things written. Writing again besides a full time job? probably not with this timeframe. 
+1. Write a first draft and create any code examples on github
+1. Hand the first draft over to the main editor 
+1. After a few days we would get the annotated document back and have a few days for corrections
+1. Send the corrected document to the technical reviewers 
+1. After a few weeks get the annotated document back from the technical reviewers
+1. Rewrite any parts and code examples that were deemed not OK by the technical reviewers
+1. Hand the corrected documents back to the editor
+1. Receive a final draft to sign it off for production
+
+The process itself was straightforward, but it was also tied closely to the project schedule and overshooting a date would mean questions and increased pressure from the project team at packt. The very tight schedule would also not allow to take extra iterations with the technical reviewers or editor for most chapters. We did this for a few of the more complex chapters, but it would mean that we would need to pick up the pace on writing later on. This was a trade-off for packt between pushing books out fast enough and getting the quality right. As an author the writing schedule is quite demanding - even grueling - if done besides a full-time job. For me it often meant putting in 2-4 extra hours of writing into the day, and even then we barely kept on schedule. 
+
+Fixing a rough timeline for writing up front has the advantage that there is less danger of putting the book away because the writing gets tough sometimes but the expected 1.5 pages a day (including weekends) is a very tough thing to do. Just writing the chapters might have worked, but on top of that you need to come up with easy to understand examples and especially later in the book there was always at least one chapter under review which needed additional time to work in the feedback. 
+
+A very big advantage when working with packt is that we got very competent and fast editors. We would hand in a first draft and a few days later we would get the document back with corrections, questions and annotations. A downside here is that the book was written in word and all data exchange was done over sharepoint. Both tools are only halfway suited for such a heavy project - Especially if one is used to work with git and markdown, asciidoc or restructured text. Especially if the review would take more than one turn or if a document passed through multiple hands tracking the changes in word would become almost impossible. Especially since it was never clear who is responsible to accept the suggestion. Was it us authors or was it the editors? Paired to this mess working with sharepoint was a nightmare. Documents would vanish without a trace because somebody was moving them somewhere, there would be multiple copies of different versions of the document lying around and at least on one occassion changes were completely lost. For me the choice of the toolset for such as technical book was one of the biggest disappointments. 
+
+The technical reviews were amongst the most helpful things to increase the quality of the book. Our reviewers were absolutely superb and very thorough when it came to checking the technical correctness of the book. They often came up with very good suggestions on how we could change examples or reshuffle the sections to make more sense. On the other hand working with them was unneccessary difficult because of the setup.  From the four different technical reviewers that worked with us, only one was finally invited to our slack channel so we could interact directly with him. For the other three we had no other means of communication than over the comments in the chapters or by mail-relay over our editors. Something that I know now was also not very well received from our technical reviewers. Nevertheless one of the big advantages was that packt presented us with such competent reviewers. 
+
+Once most of the final drafts were done, there were some last finishing touches to be done. Writing author bios, acknowledgementsm blurb and various texts and summaries of the book to go on to the product page at amazon and other stores. This was pretty straight forward and painless, but since the publishing date was fixed by this time this meant again to keep a very tight schedule. On the other hand here having a professional, big publishing house backing the book was a very big advantage, as most of the tedious small things like aligning the content with page breaks, creating an index and a glossary was done by people at packt. For us newbie-authors this was very convenient. 
+
+# Thoughts 
+
+All in all, I liked writing the book and I am quite proud what came out of it. Would I do it again? Yes, but I would probably either push for a more relaxed schedule, reduce my contribution or see if I can take some time off work and my other obligations to write the book. All in all I think the writing process works reasonably well and has a high guarantee that books are going to be published and not left halfway through. There are a few things that I think could be improved to get more quality into the writing, first starting with facilitating closer collaboration between the technical reviewers and the authors. Being able to discuss examples and concepts with the technical reviewers before they go into the book would not just reduce the amount of rewriting needed but also ensure that the examples are understandable with as little context as possible. 
+
+Being paired up for such a large project with someone you do not know bears also quite a risk. I was lucky in the way that my co-author Mustafa and me mostly agreed on how we would write things and structure the code. But I can imagine that this might be quite difficult if there is no such fit. Added to this is that it is entirely up to the authors to establish a reliable communication channel, something that took us a while to figure out. It also pays if you talk early and frequently about your expectation of each other, i.e. how much you review each other's work, and whether you do sparring sessions for the tougher chapters or not. This is one thing that we, unfortunately, neglected quite a bit as the pressure increased because we were late in delivering some of the chapters. 
+
+Nevertheless pairing up with a large publishing house such as packt has many advantages - especially for first time authors. I am sure that without the coordination from packt and the many additional resources such as editors, reviewers and layouters "CMake Best Practices" would still be unwritten. I underestimated how many people are involved in creating such a book and Packt's ability to bring all the necessary skills together is very helpful. So, if I ever want to write another technical book, going with Packt again is definitively an option for me. 
+
