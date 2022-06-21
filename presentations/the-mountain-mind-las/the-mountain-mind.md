@@ -39,6 +39,7 @@ oder anders:
 
 Software, aquisegespräch, offerte raus, CEO fragt seid ihr sicher, dass ihr das packt? Erstes Projekt setup, erste refinement and review meetings, und jetzt gehts ans eingemachte. 
 
+
 ---
 background-image: url(images/committed.jpg)
 # "Committed sein"
@@ -51,6 +52,13 @@ Jetzt wirds schwierig, es steht eine z.b architekturentscheidung an die nur schw
 
 Und? Könnt ihr euch hier committen? Fragt der Scrum Master im Planning meeting? 
 
+
+---
+background-image: url(images/nebel.jpg)
+# "Committed sein heisst beissen"
+
+???
+
 # Was heisst committed sein? 
 
 Übersetzt "Bindung", Engagement aber auch Hingabe, Verpflichtung. 
@@ -61,9 +69,12 @@ Erscheint uns etwas einfach und ist der Weg klar, fällt uns die Entscheidung of
 * Committed sein heisst nicht, ich will das tun. Sondern, ich tue das
 * Committment hat etwas finales und bedeutet vollen fokus auf etwas. Halbpatziges Commitment ist nichts
 
+
+
+
 ---
-background-image: url(images/committed.jpg)
-# "Committed sein"
+background-image: url(images/nebel.jpg)
+# "Committment heisst Verantwortung"
 
 .fat[ “The committed person doesn’t play by the rules of the game. He is responsible for the game."
 
@@ -83,6 +94,7 @@ Kenne ich eine Kletterroute schon oder habe ich eine Feature schon mal ganz ähn
 Spannend wird es dort, wo wir uns auf Neuland begeben. 
 
 Die grosse Frage, ist "traue ich mir das zu?" bzw. traue ich das meinem Team zu? Oder auch traue ich das DIESEM Team zu?
+
 
 ---
 
@@ -110,6 +122,8 @@ background-image: url(images/rega.jpg)
 Diese Risiken kriegen wir nicht weg, sie sind Systembedingt. Beim Bergsteigen kann ich Steinschlag ausgesetzt sein. 
 Beim Programmieren kann eine kritische Sicherheitslücke erscheinen
 Der Kunde kann in Finanznot geraten und das Projekt killen
+
+# Diese Risiken sind oft klein
 
 ---
 background-image: url(images/rega.jpg)
