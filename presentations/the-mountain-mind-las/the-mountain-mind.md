@@ -16,7 +16,7 @@ background-image: url(images/gletscher.jpg)
 ### Dominik Berner - Software Engineer, Agilist, Rock Climber
 
 
-![](logo_bbv_thumb.png)
+![](logo_bbv_thumb.png) ![](images/wingtra.png)
 
 ???
 
@@ -25,6 +25,10 @@ background-image: url(images/gletscher.jpg)
 Only those who will risk going too far can possibly find out how far they can go. ~T.S. Eliot
 
 Oder: Man muss wissen wie weit man zu weit gehen kann
+
+# kurze vorstellung 
+
+Dominik, Bergsteigen als Hobby, SW als Beruf
 
 ---
 background-image: url(images/early_sunrise.jpg)
@@ -218,55 +222,24 @@ Aber Bevor wir vom Abend sprechen, geniesst das weitere Programm.
 Vielen Dank fürs Zuhören
 
 ---
+class: left, middle
+# Dominik Berner
+
+### C++ Coder, Agilist & Rock Climber
+
+
+[![web](web_icon.png) dominikberner.ch](http://dominikberner.ch)
+
+[![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
+
+[![github](github_icon.png) bernedom](https://github.com/bernedom)
+
+[![mail](mail_icon.png) dominik.berner@wingtra.com](mailto:dominik.berner@wingtra.com)
+ 
+
+
+
+---
 
 ![](images/dangermeter_catastrophic.png)
 
----
-# HALDE
-
-Wenn wir nicht wissen auf welchen Gipfel es geht, können wir auch nicht sagen, das schaffen wir. 
-
-Wenn uns die Produktvision fehlt, können wir uns nur in der Anstrenung verlieren. 
-Das Ziel kann natürlich sein "Ich lerne das", dann ist das Tun eine gute variante
-
-
-* Dafür müssen wir uns uns unser team kennen. Nicht nur dann wenns einfach ist, sondern in krisensituationen
-
-* (Selbst-) Vertrauen schaffen - Im laufe unserer Karriere auch mal risiken eingehen und auf die schnauze fallen
-
-* Ziel "Bewusst handlen" - Etwas konkretes tun ist der zentrale aspekt im leben - Von Konzepten alleine wird nichts erledigt
-   * Stop sharpening the saw and start cutting shit
-
-* Die Vorbereitung ist - gerade bei komplexen dingen - nie gut genug
-
-
-
-
-* Nur kletterführer wälzen bringt nichts. Nur Requirements und projektpläne definieren bringt kein commitment. 
-* Committment entsteht beim tun. 
-
----
-
-* Und wenns schief geht? Dann hoffen wir, dass es nicht katatrophal schiefgeht. 
-* Wir trainieren unsere craft, reflektieren unsere erfahrungen und lösen unsere konflikte früh und im sicheren rahmen. 
-* So schaffen wir es, dass wir drohende fehlschläge zuverlässiger früh erkennen
-
----
-
-* Ohne committment geh ich nicht auf die schwierigen und schönen berge, sondern bleibe im Flachland. Das ist auch schön, aber nicht das selbe
-* Langweilige repetitive projekte können wir ohne commmitment machen. Wollen wir krasse sachen machen, brauchen wir commitment und fokus
-
-
---- 
-)(Passts?)
-* Klettern ist wie Software engineering - Lange die Konzentration halten, flow basiert, ab und zu momente wos wirklich tough wird und jeder handgriff zählt. 
-
----
-
-* Kommt ins tun, vertraut den PErsonen um euch herum und macht das gemeinsam
-
-
-The most effective people are those who can "hold" their vision while remaining committed to seeing current reality clearly”  Peter Senge
-
-
-“The committed person doesn’t play by the rules of the game. He is responsible for the game. If the rules of the game stand in the way of achieving the vision, he will find ways to change the rules.” 
