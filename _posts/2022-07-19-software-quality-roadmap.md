@@ -2,7 +2,7 @@
 layout: post
 title: Bringing software quality into roadmaps
 description: How to asses software quality and how to bring software quality topics into a roadmap? 
-thumbnail: images/writing-cmake-best-practices/thumbnail.jpg
+thumbnail: images/software-quality/Quality.png
 ---
 
 "We really struggle to bring engineering topics into the roadmap! When do we finally get the time to improve our code quality?" Is a gripe that many software engineering teams have when doing roadmaps. Improving or working on software quality often comes second when software roadmaps are formulated. After all, it is often very hard to argue what the direct customer value for improved maintainability is. Nevertheless creating quality software is a necessity if products are expected to perform on the market and be developed for a long time. It is not that the business-facing people in software development such as POs, marketing, sales and so on are not interested in having a quality product at their hand. The reason is more often than we engineers are very badly prepared to hold a constructive dialog on software quality with people with a less technical focus. 
@@ -44,6 +44,8 @@ An example scale could look like this
 
 Once the scale is established drawing a spider graph of how the characteristics are rated as well with an expected goal value or relevance for the product helps to visualize the current state and gap for each characteristic. It is of course tempting to put all goal values to the highest value so a good approach is to weigh the goal values by relevance. An embedded system without any user interface might have a low relevance in the usability part, or software running in a very isolated environment might put the compatibility or portability part to a very high number. Another good way of getting more realistic values is to place the goal number at the value that we want to achieve with the next product increment. 
 
+{%include figure.html url="images/software-quality/quality_assessment.png" description="An example for a spider graph of a quality assessment showing the actual assessment (red) and the target value for the next product increment (blue)" %}
+
 Assessing the gap in software quality from an engineering perspective is a good starting point to start the discussion on how to get actual work items regarding improving quality into a prioritized backlog. 
 
 ## Preference Matrix 
@@ -52,13 +54,17 @@ Quality assessments will often yield several areas where one could invest work t
 
 Go through the matrix from the top left to the bottom right always asking: "If you have to choose, would you rather invest into A or into B in the next product increment" and note down the more important quality characteristic. Afterward, you count the number of mentions and divide it by the total sum of all combinations to get a percentage value. The higher the percentage, the more important a quality characteristic is. By comparing the characteristics against each other you avoid having all characteristics with an equal right. I usually end up with one or two top contenders, so I prioritize any work that shifts the needle for those characteristics before any other. The ranking of the quality aspects can serve to show how relevant they are. 
 
+{%include figure.html url="images/software-quality/preference_matrix.png" description="An example of a preference matrix done in a spreadsheet software"%}
+
 The last and final step to getting work that benefits the product quality the most into the roadmap is mapping any planned backlog item to the preference matrix. 
 
 ## Mapping Quality Characteristics to Features and Epics
 
 To find out which feature or story pays for which metric, I like doing a stripped-down version of the [Quality Function Deployment (QFD) method](https://www.sciencedirect.com/topics/engineering/quality-function-deployment). For this method, we try to assess the influence of each feature on each quality metric. Those features that influence the quality characteristics that got the highest scores in the preference matrix are prioritized first. 
 
-And finally, we close the circle to the quality assessment we did at the beginning, by checking wheter the prioritized actions are closing the gaps we determined at first. If this is the case: good, go on with the backlog. If not, either rethink the assessment or find out where there is a conflict between the importance of the quality characteristic as determined in the preference matrix and the target goals set by the quality assessment. 
+{%include figure.html url="images/software-quality/QFD.png" description="Example for mapping features to the quality characteristics. The weights of each characteristic is taken from the preference matrix above." %}
+
+And finally, we close the circle to the quality assessment we did at the beginning, by checking whether the prioritized actions are closing the gaps we determined at first. If this is the case: good, go on with the backlog. If not, either rethink the assessment or find out where there is a conflict between the importance of the quality characteristic as determined in the preference matrix and the target goals set by the quality assessment. 
 
 ## Quality evolves
 
