@@ -4,19 +4,21 @@ title: CMake line by line - creating a header-only library
 thumbnail: images/cmake-logo.png
 ---
 
-**CMake can be hard to figure out.** I love CMake, but unfortunately its documentation is more focused on completeness than on providing hands-on-examples. Since I found it hard to find a comprehensive example of how a header only library can be set up, I decided to provide an example of a CMakeLists.txt file for such a library here and analyze it line by line. The example is taken from [SI, a header only library that provides strongly typed physical units](https://github.com/bernedom/SI).
-In order to keep the CMake file as small as possible, few possible optimizations are omitted. Notably I stripped any information relating to testing out of the project.
+**CMake can be hard to figure out.** I love CMake, but unfortunately, its documentation is more focused on completeness than on providing hands-on-examples. Since I found it hard to find a comprehensive example of how a header-only library can be set up, I decided to provide an example of a CMakeLists.txt file for such a library here and analyze it line by line. The example is taken from [SI, a header-only library that provides strongly typed physical units](https://github.com/bernedom/SI).
+In order to keep the CMake file as small as possible, a few possible optimizations are omitted. Notably, I stripped any information relating to testing out of the project.
 
-# Using a header only library 
+{% include cmake-best-practices-ad.html %}
 
-The usage of our header only library should be as simple as calling `find_package` and then using `target_link_library` on it. See [here for a full example](https://github.com/bernedom/SI/blob/master/test/installation-tests/CMakeLists.txt)
+# Using a header-only library 
+
+The usage of our header-only library should be as simple as calling `find_package` and then using `target_link_library` on it. See [here for a full example](https://github.com/bernedom/SI/blob/master/test/installation-tests/CMakeLists.txt)
 
 # Overview
 
 In order to make the interface library usable, the following things have to be done. 
 
 1. Set up the cmake project
-1. Define the library to be built as a header only library and adding files
+1. Define the library to be built as a header-only library and adding files
 1. Define installation properties
 1. Specify which files to copy into the installation directory
 
@@ -32,7 +34,7 @@ project(
   "SI"
   VERSION 1.0.1
     DESCRIPTION
-    "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
+    "A header-only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
     HOMEPAGE_URL  "https://github.com/bernedom/SI")
 
 include(GNUInstallDirs)
@@ -84,21 +86,21 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
 
 # Setting up the project 
 
-The first line of all cmake files is the minimum required version. Here version `3.12` Generally I try to pick the lowest version number that supports all the features I'm using. As SI is using C++17 features, I chose 3.12 because it supplies the necessary keywords and allows to define targets without specifying the source files up front.
+The first line of all CMake files is the minimum required version. Here I used version `3.12` Generally I try to pick the lowest version number that supports all the features I'm using. As SI is using C++17 features, I chose 3.12 because it supplies the necessary keywords and allows to define targets without specifying the source files upfront.
 
 ```cmake
 cmake_minimum_required(VERSION 3.12)
 ```
 
-The next line denotes the name of the project `"SI"` in our case and the version (1.0.1) of the package. Generally usage of [semantic versioning](https://semver.org/) is recommended. Then there is a package description and the link to the project homepage, which is the github repo in this case.
+The next line denotes the name of the project `"SI"` in our case and the version (1.0.1) of the package. Generally, usage of [semantic versioning](https://semver.org/) is recommended. Then there is a package description and the link to the project homepage, which is the github repo in this case.
 
 ```cmake
 project("SI" VERSION 1.0.1
-             DESCRIPTION "A header only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
+             DESCRIPTION "A header-only c++ library that provides type safety and user defined literals for handling pyhsical values defined in the International System of Units."
              HOMEPAGE_URL "https://github.com/bernedom/SI")
 ```
 
-Since this library will be platform independent but still be installable following best practices, before we wet anything up, we include [`GNUInstallDirs`](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html) (included in cmake) which will provide us with a set of variables containing installation directories for various artifacts. The variables will be used later. 
+Since this library will be platform independent but still be installable following best practices, before we wet anything up, we include [`GNUInstallDirs`](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html) (included in CMake) which will provide us with a set of variables containing installation directories for various artifacts. The variables will be used later. 
 
 ```cmake
 include(GNUInstallDirs)
@@ -106,15 +108,15 @@ include(GNUInstallDirs)
 
 # Defining how to "build" the header-only library
 
-`add_library` tells CMake that we want to build a library and to set up the [logical target](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html) with the name *SI*. The target-name is important to remember, as all further options for building and installing are tied to it. The [keyword `INTERFACE`](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html#interface-libraries) makes our target a header only library that does not need to be compiled. 
+`add_library` tells CMake that we want to build a library and to set up the [logical target](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html) with the name *SI*. The target name is important to remember, as all further options for building and installing are tied to it. The [keyword `INTERFACE`](https://cmake.org/cmake/help/v3.14/manual/cmake-buildsystem.7.html#interface-libraries) makes our target a header-only library that does not need to be compiled. 
 
 ```cmake
 add_library(SI INTERFACE)
 ```
 
-So far the target of the library is set up, but it does not contain any files yet. `target_inlcude_directories` lets us add them. The first parameter `SI` is again the target name, next the keyword `INTERFACE` tells CMake that the files are to be exposed in the library interface, which means they are publicly visible when using the library. What follows is a list of include directories wrapped in [generator expressions](https://cmake.org/cmake/help/v3.14/manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)). The Generator expressions are evaluated at the time when the build system is generated and allow to have different values for when the library is used directly over CMake or when it is installed. 
+So far the target of the library is set up, but it does not contain any files yet. `target_inlcude_directories` lets us add them. The first parameter `SI` is again the target name, next the keyword `INTERFACE` tells CMake that the files are to be exposed in the library interface, which means they are publicly visible when using the library. What follows is a list of include directories wrapped in [generator expressions](https://cmake.org/cmake/help/v3.14/manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)). The Generator expressions are evaluated at the time when the build system is generated and allowed to have different values for when the library is used directly over CMake or when it is installed. 
 
-`$<BUILD_INTERFACE:SI_SOURCE_DIR}/include>` tells CMake that if the library is used directly by another CMake target (such as when building tests for the library or when it is included as a sub directory), then the include path is `${PROJECT_SOURCE_DIR}/include}` which is a nested variable. `${CMAKE_CURRENT_SOURCE_DIR}` contains an automatically generated variable which points to the directory in which the CMakeLists.txt that is currently passed lies. This expands to `/directory/that/contains/CmakeList.txt/include`
+`$<BUILD_INTERFACE:SI_SOURCE_DIR}/include>` tells CMake that if the library is used directly by another CMake target (such as when building tests for the library or when it is included as a subdirectory), then the include path is `${PROJECT_SOURCE_DIR}/include}` which is a nested variable. `${CMAKE_CURRENT_SOURCE_DIR}` contains an automatically generated variable that points to the directory in which the CMakeLists.txt that is currently passed lies. This expands to `/directory/that/contains/CmakeList.txt/include`
 
 `$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>` defines the path if the project is installed. The paths are relative to the install-root chosen when installing projects. The variable `CMAKE_INSTALL_INCLUDEDIR` is provided by the `GNUInstallDirs` package included above. The target path for installation can be set by setting the `CMAKE_INSTALL_PREFIX` variable. 
 
@@ -134,18 +136,17 @@ target_compile_features(SI INTERFACE cxx_std_17)
 ```
 
 # Installation instructions
-
-By this point the project itself is set up an can be built locally. However it cannot yet be installed to the system. For this we specify where to install by using the [`install` command](https://cmake.org/cmake/help/latest/command/install.html).
+By this point, the project itself is set up and can be built locally. However, it cannot yet be installed in the system. For this, we specify where to install by using the [`install` command](https://cmake.org/cmake/help/latest/command/install.html).
 
 First CMake needs to know which targets to install so the library target is passed as `TARGETS SI`. 
-The`EXPORT` associates the installation with an export-form named `${PROJECT_NAME}_Targets`, built using the variable `${PROJECT_NAME}` that contains the project name. This export is defined later in an `install(EXPORT...)` call. 
+The `EXPORT` associates the installation with an export-form named `${PROJECT_NAME}_Targets`, built using the variable `${PROJECT_NAME}` that contains the project name. This export is defined later in an `install(EXPORT...)` call. 
  
-Next the folders for the installation-artifacts are set. The folder names are relative to what the user defines in the `CMAKE_INSTALL_PREFIX` variable.
+Next, the folders for the installation artifacts are set. The folder names are relative to what the user defines in the `CMAKE_INSTALL_PREFIX` variable.
 
 * `ARCHIVE` - All files that are neither executables, shared libraries (.so), header files. 
-* `LIBRARY` - All shared libraries (.so/.dll) files, typically all binaries produced by a `add_library` call
+* `LIBRARY` - All shared libraries (.so/.dll) files, typically all binaries produced by a call to `add_library`
 * `RUNTIME` - All executables built by an `add_excutable` call
-* `INCLUDE` - All public header files, which is omitted here because the `INSTALL_INTERFACE`already specifies this.
+* `INCLUDE` - All public header files, which is omitted here because the `INSTALL_INTERFACE` already specifies this.
 
 The target paths are again provided by `GNUInstallDirs`
 
@@ -157,7 +158,7 @@ install(TARGETS SI
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 ```
 
-The next two lines are a shortcut to avoid having to write the boilerplate CMake code to manage version comparison. First the CMake package containing the macros parsing versions is included. This is delivered with the standard CMake installations since 3.5. Then the macro `write_basic_package_version_file` is called and instructed to create a file `SIConfigVersion.cmake`. The version specified is the one supplied in the `project` directive at the beginning of the file and since semantic versioning is used versions of the same major digit are considered compatible. 
+The next two lines are a shortcut to avoid having to write the boilerplate CMake code to manage version comparison. First, the CMake package containing the macros parsing versions is included. This is delivered with the standard CMake installations since 3.5. Then the macro `write_basic_package_version_file` is called and instructed to create a file `SIConfigVersion.cmake`. The version specified is the one supplied in the `project` directive at the beginning of the file and since semantic versioning is used versions of the same major digit are considered compatible. 
 
 ```cmake
 include(CMakePackageConfigHelpers)
@@ -196,7 +197,7 @@ configure_package_config_file(
 
 After setting up the configuration for installing the library, the files to be installed can be passed to CMake by using the `install` function. 
 
-First the file containing the installation-targets as defined above, is created and copied to the installation folder. The `EXPORT` keyword at the beginning tells CMake to export the installation targets which are defined in the file `SITargets.cmake` which is created in the build folder when building the project to the `DESTINATION` specified. All targets are to be placed in the `NAMESPACE` `SI::`.
+First, the file containing the installation targets as defined above is created and copied to the installation folder. The `EXPORT` keyword at the beginning tells CMake to export the installation targets which are defined in the file `SITargets.cmake` which is created in the build folder when building the project to the `DESTINATION` specified. All targets are to be placed in the `NAMESPACE` `SI::`.
 
 ```cmake
 install(EXPORT ${PROJECT_NAME}_Targets
@@ -213,7 +214,7 @@ install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 ```
 
-Finally the header files are copied to the installation folder. For header only libraries usually all header files are supplied, so instead of providing individual files the whole include directory is copied using the `DIRECTORY` keyword. 
+Finally, the header files are copied to the installation folder. For header-only libraries usually, all header files are supplied, so instead of providing individual files, the whole include directory is copied using the `DIRECTORY` keyword. 
 
 ```cmake
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/SI DESTINATION include)
