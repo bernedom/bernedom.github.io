@@ -4,9 +4,9 @@ title: Quick and easy unpacking in C++ with structured bindings
 thumbnail: images/cpp_logo.png
 ---
 
-**Unpacking a fixed size container in C++ can be tedious, and require you to fiddle around with `std::get` or `std::tie`.** But not anymore, thanks to the new *structured bindings* introduced in C++17. Unpacking anything with a fixed size into named variables never has been easier. 
+**Unpacking a fixed-size container in C++ can be tedious, and require you to fiddle around with `std::get` or `std::tie`.** But not anymore, thanks to the new *structured bindings* introduced in C++17. Unpacking anything with a fixed size into named variables never has been easier. 
 
-Strcutured bindings provide a syntax without boilerplate to allow unpacking any data structure whose size is known during compile time. And yes even works with `structs` and public members of `classes`.
+Structured bindings provide a syntax without boilerplate to allow unpacking any data structure whose size is known during compile time. And yes even works with `structs` and public members of `classes`.
 
 ```cpp
 auto tuple = std::make_tuple(1, 'a', 2.3);
@@ -18,7 +18,7 @@ const auto[i, c, d] = tuple;
 auto[x,y,z] = a; 
 ```
 
-Structured bindings always have to be declared using `auto` and may have all the possible decorations like `const` or reference (`&`). This removes the possibility of explicitly casting the data into a different or more specific datatype than what is known at compile time. But as explicit casting should generally be avoided as often as possible, this limitation rather helps writing strongly typed code than being a hindrance. All bindings have the same `const`-ness and are all either copied or referenced, which means partially mutable access to a data structure is also ruled out.
+Structured bindings always have to be declared using `auto` and may have all the possible decorations like `const` or reference (`&`). This removes the possibility of explicitly casting the data into a different or more specific data type than what is known at compile time. But as explicit casting should generally be avoided as often as possible, this limitation rather helps writing strongly typed code than being a hindrance. All bindings have the same `const`-ness and are all either copied or referenced, which means partially mutable access to a data structure is also ruled out.
 
 Extracting classes and structs is, as mentioned, possible but has a few possible pitfalls.
 
@@ -83,6 +83,8 @@ namespace std{
 ```
 
 
-A sidenote is that so far structured bindings do not cover partial extraction as was possible with `std::tie`and `std::ignore`, so one has to create dummy variables if only interested in parts of a tuple. However due the guaranteed copy elision introduced in c++17 this should be side-effect free if compiled with any kind of compile-time optimization enabled. 
+A side note is that so far structured bindings do not cover partial extraction as was possible with `std::tie`and `std::ignore`, so one has to create dummy variables if only interested in parts of a tuple. However, due the guaranteed copy elision introduced in c++17, this should be side-effect free if compiled with any kind of compile-time optimization enabled. 
 
-To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templates. They are the linear "evolution" of `auto` and help bringing datatypes like `std::tuple` or `std::array` more naturally into the code.  
+To conclude one can say that structured bindings are a nice way to lighten the syntax of handling and extracting fixed size containers, without the need to fiddle with templates. They are the linear "evolution" of `auto` and help bring datatypes like `std::tuple` or `std::array` more naturally into the code.  
+
+{% include cmake-best-practices-ad.html %}
