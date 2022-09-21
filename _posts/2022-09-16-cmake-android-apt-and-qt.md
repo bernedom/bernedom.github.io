@@ -11,11 +11,46 @@ thumbnail: images/cmake-logo.png
 
 In order to build an Android APK, you need the following:
 
-* [Android SDK](https://developer.android.com/studio) - Either install it via Android Studio or download it from the website.
+* [Android SDK](https://developer.android.com/studio) and [Android SDK Tools](https://developer.android.com/studio/releases/platform-tools) - Either install it via Android Studio or download it from the website.
 * [Android NDK](https://developer.android.com/ndk) version 20 or newer - Either install it via Android Studio or download it from the website.
-* [Qt5 for Android](https://www.qt.io/download-qt-installer) Version 5.15 - Either install it with the installer, build it yourself or use [aqtinstall](https://github.com/miurahr/aqtinstall) to install it
-* [CMake](https://cmake.org/) at least 3.21
+* [Qt5 for Android](https://www.qt.io/download-qt-installer) Version 5.15 - Either install it with the installer, build it yourself or use [aqtinstall](https://github.com/miurahr/aqtinstall) to install it.
+* [CMake](https://cmake.org/) at least version 3.21
+
+Since the dependencies are quite heavy for building an Android APK with CMake, I recommend using [development containers](https://dominikberner.ch/using-devcontainers-with-cpp/) to set up your development environment. This way you can use the same environment on your local machine and on your CI server.
+
+{% include cmake-best-practices-ad.html %}
+
+# Project setup 
+
+In a nutshell running a C++/Qt Application on Android works by wrapping the C++ application in Java code. This Java code is then compiled into an Android APK, the instructions for it are provided by a AndroidManifest.xml. Under the hood the C++ code is compiled into a shared library that is then loaded by the Java code at runtime. The C++ code is compiled with the Android NDK, while the Java code is compiled with the Android SDK. The CMake toolchain file for Android is provided by the Android NDK and is used to configure the C++ compiler and linker. 
+
+The example builds a small slideshow application that rotates through a set of image. All the code for this example can be found on [GitHub](https://github.com/bernedom/CMakeQtAPK/). The project is structured as follows:
+
+`
+├── android
+│   └── AndroidManifest.xml
+├── CMakeLists.txt
+├── CMakePresets.json
+└── src
+    ├── main.cpp
+    ├── qml
+    │   ├── <various qml resources>
+    │   ├── main.qml
+    │   └── qml.qrc
+    ├── slideshow.cpp
+    └── slideshow.h
+`
 
 
+# CMakeLists.txt
 
-# The CMakeLists.txt
+<details>
+<summary markdown="span">
+Click here to expand the full FindLibrary.cmake
+</summary>
+
+```CMake
+goes here
+```
+
+</details>
