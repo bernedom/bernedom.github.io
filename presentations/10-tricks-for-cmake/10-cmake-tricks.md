@@ -211,7 +211,9 @@ CMake presets (From 3.17) are the best thing since introduction of targets
 
 ---
 
-#
+# Presets - Organisation
+
+![CMake Presets](Preset-Organisation.drawio.png)
 
 ---
 
