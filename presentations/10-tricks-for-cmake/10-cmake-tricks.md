@@ -26,29 +26,10 @@ CMake in a nutshell
 * CMake is a build-system generator or meta-build-system
 * **Inputs**: source files, compiler-toolchain, build-environments and logical build targets 
 * **Outputs**: instructions for build-systems (make, ninja, visual studio, xcode) 
-* Additional features include running tests, static code analysis, packaging and installing
+* Additional features include running tests, packaging, installing and custom commands like static code analysis etc.
 ]
 
 ![CMake configuration process in a nutshell](build_process.png)
-
-
----
-
-CMake Best Practices - The book
-===
-
-.left-column[
- ![CMake Best Practices Cover](book_cover.png)
-]
-.right-column[
-.left[
-Get it from [packt](https://www.packtpub.com/product/cmake-best-practices/9781803239729)
-QR Code
-10% voucher
-]
-]
-
-
 
 ---
 
@@ -72,20 +53,36 @@ target_link_libraries(myProject PRIVATE myLib.cpp)
 
 ---
 
+CMake Best Practices - The book
+===
+
+.left-column[
+ ![CMake Best Practices Cover](book_cover.png)
+]
+.right-column[
+.left[
+Get it from [packt](https://www.packtpub.com/product/cmake-best-practices/9781803239729)
+QR Code
+10% voucher
+]
+]
+
+---
+
 General good practice
 ===
 
 .left[
 
 1. **Platform-agnostic `CMakeLists.txt`**
-1. presets > toolchain files > command line > env variables.
-1. Leave decision for shared or static libraries to the user. 
-1. Use `target_*` commands over global ones.
-1. pakage managers > FetchContent > ExternalProject > `add_subdirectory`
-1. Favor `add_subdirectory` over `include`.
-1. Make building of tests optional.
-1. Frequently update CMake to the newest version.
-1. Please do not `add_exectuable(${PROJECT_NAME}`) - Projects and targets are semantically different things!
+2. presets > toolchain files > command line > env variables.
+3. Leave decisions for `SHARED` or `STATIC` libraries to the user. 
+4. Use `target_*` commands over global ones.
+5. package managers > FetchContent > ExternalProject > `add_subdirectory`
+6. Favor `add_subdirectory` over `include`.
+7. Make building of tests optional.
+8. Frequently update CMake to the newest version.
+9. ~~`add_exectuable(${PROJECT_NAME}`)~~ - Projects and targets are semantically different things!
 
 ]
 
@@ -97,6 +94,33 @@ optional ones such as -Wall etc presets
 
 ---
 
+# Structure of a CMake Project
+
+.left[
+```bash
+
+├── cmake
+│   ├── MyModule.cmake
+    └── myTarget_sources.cmake # optional sources lists
+*├── CMakeLists.txt #project, targets, dependencies, install & package instructions
+├── doc
+├── include  #for libraries only
+│   └── projectname
+│       └── public_header.h
+├── src
+│   └── code.cpp
+└── test
+*   ├── CMakeLists.txt # Test targets, test-only dependencies 
+    └── src
+        └── test.cpp
+```
+]
+
+
+
+---
+
+
 CMake Presets
 ===
 
@@ -107,9 +131,9 @@ CMake Presets
 * Presets are stored in a `CMakePresets.json` file -> Version this
   * `CMakeUserPresets.json` for user-specific settings -> Do not version this
 * Configure presets are the most useful 
-* Use build presets for multi-config generators
-* Aggregate and inherit and use invisible presets
-* Override variables
+  * Use build presets for multi-config generators
+* Aggregate and inherit (invisible) presets
+* Use the override mechanism to change settings
 * use env and variable expansion (.i.e. `${sourceDir}`
 ]
 ---
@@ -145,7 +169,7 @@ CMake Presets
   Examples:
   * `ci-linux-clang12-x86_64-debug` 
   * `ci-linux-gcc10-x86_64-release`
-  * `dev-linux-release*` -> No compiler specified, use system default
+  * `dev-linux-release` -> No compiler specified, use system default
   * `ci-windows-msvc2019-x86_64` -> No build type specified, use build preset
 ]
 
@@ -188,7 +212,41 @@ cmake -S <sourceDir> -B <buildDir> --profiling-output
 
 ---
 
-Speeding up CMake - Unity Builds
+Speeding up compilation - ccache
+===
+
+.left[
+
+CMakeLists.txt
+```CMake
+
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+    set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+endif()
+
+```
+
+CMakePresets.json
+```json
+
+{
+  "name": "ccache-env",
+  "hidden": true,
+  "environment": {
+      "CCACHE_BASEDIR": "${sourceDir}",
+      "CCACHE_SLOPPINESS": "pch_defines,time_macros"
+  }
+},
+```
+
+]
+
+---
+
+
+Speeding up compilation - Unity Builds
 ===
 
 .left[
@@ -214,7 +272,7 @@ set_source_files_properties(src/eratosthenes.cpp PROPERTIES
 
 ---
 
-Speeding up CMake - Unity Builds
+Speeding up compilation - Unity Builds
 ===
 
 .left[
@@ -231,7 +289,7 @@ Speeding up CMake - Unity Builds
 
 ---
 
-Speeding up CMake - Precompiled Headers
+Speeding up compilation - Precompiled Headers
 ===
 
 .left[
@@ -246,30 +304,6 @@ src/fibonacci.h <cstdint> <vector> src/eratosthenes.h)
   * Disclaimer: It does not always work if there are external dependencies included.
 ]
 
-]
-
-
----
-
-Speeding up CMake - ccache
-===
-
-.left[
-
-```CMake
-
-find_program(CCACHE_PROGRAM ccache)
-if(CCACHE_PROGRAM)
-    set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
-    set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
-endif()
-
-```
-
-* "Most bang for the buck"
-
-]
-
 ---
 
 Symbol visibility in DLLs
@@ -282,27 +316,27 @@ add_library(hello SHARED)
 set_property(TARGET hello PROPERTY CXX_VISIBILITY_PRESET
 "hidden")
 
-* include(GenerateExportHeader)
+*include(GenerateExportHeader)
 
-* generate_export_header(hello EXPORT_FILE_NAME export/hello/
+*generate_export_header(hello EXPORT_FILE_NAME export/hello/
 export_hello.hpp)
 
-* target_include_directories(hello PUBLIC "${CMAKE_CURRENT_
+*target_include_directories(hello PUBLIC "${CMAKE_CURRENT_
 BINARY_DIR} /export")
 
   ```
 ]
 
-* `CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS` - Boooh!
+* ~~`set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True)`~~
 * Don't forget to add the generated header to the install instructions!
 
 ---
 
-# Brainstorming
+# Your turn -  Questions!
 
 ### C++ Coder, Agilist & Rock Climber
 .left-column[
- ![Me](profile_picture_presenting.jpg)
+ ![Me](questions.jpg)
 ]
 .right-column[
 .left[
