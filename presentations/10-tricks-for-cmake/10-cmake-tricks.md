@@ -5,17 +5,20 @@ class: center, middle, inverse
 .footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
 ---
 
-CMake best practices
+CMake Best Practices
 ===
 
-
 ### Dominik Berner
+
+![CMake Logo](Cmake.svg.png)
 
 ???
 
 # Welcome
 
 * ask about experience with CMake 
+* Typical struggles, or concrete problems
+* Tiniest of tiny introductions to CMake, then a few good practices and principles and then some nifty tricks
 
 ---
 
@@ -25,7 +28,7 @@ CMake in a nutshell
 .left[
 * CMake is a build-system generator or meta-build-system
 * **Inputs**: source files, compiler-toolchain, build-environments and logical build targets 
-* **Outputs**: instructions for build-systems (make, ninja, visual studio, xcode) 
+* **Outputs**: instructions for build-systems (make, ninja, visual studio, xcode...) 
 * Additional features include running tests, packaging, installing and custom commands like static code analysis etc.
 ]
 
@@ -33,7 +36,7 @@ CMake in a nutshell
 
 ---
 
-A minimal CMakeLists.txt
+A typical CMakeLists.txt
 ===
 
 .left[
@@ -42,18 +45,25 @@ A minimal CMakeLists.txt
 
 project(myProject VERSION 1.0.0 LANGUAGES CXX)
 
+find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+
 add_library(myLib lib.cpp)
 
-add_executable(myProject main.cpp)
+add_executable(myApp main.cpp)
 
-target_link_libraries(myProject PRIVATE myLib.cpp)
+target_link_libraries(myApp PRIVATE myLib OpenSSL::Crypto)
 
 ```
+
 ]
+
+???
+
+define a project, find dependencies, add targets, link targets 
 
 ---
 
-CMake Best Practices - The book
+CMake Best Practices - The Book
 ===
 
 .left-column[
@@ -61,28 +71,27 @@ CMake Best Practices - The book
 ]
 .right-column[
 .left[
-Get it from [packt](https://www.packtpub.com/product/cmake-best-practices/9781803239729)
-QR Code
-10% voucher
-]
-]
+ Get it from [packt](https://www.packtpub.com/product/cmake-best-practices/9781803239729): [https://cutt.ly/hMzUpiy](https://cutt.ly/hMzUpiy)
 
+ ![CMake Best Practices URL](cmake-best-practices-url.jpeg)
+]
+]
 ---
 
-General good practice
+Overall Good Practice
 ===
 
 .left[
 
 1. **Platform-agnostic `CMakeLists.txt`**
 2. presets > toolchain files > command line > env variables.
-3. Leave decisions for `SHARED` or `STATIC` libraries to the user. 
-4. Use `target_*` commands over global ones.
+3. Use `target_*` commands over global ones.
 5. package managers > FetchContent > ExternalProject > `add_subdirectory`
-6. Favor `add_subdirectory` over `include`.
-7. Make building of tests optional.
-8. Frequently update CMake to the newest version.
-9. ~~`add_exectuable(${PROJECT_NAME}`)~~ - Projects and targets are semantically different things!
+4. Leave decisions for `SHARED` or `STATIC` libraries to the user for library projects. 
+5. `include` for modules, `add_subdirectory` for subprojects.
+6. Make building of tests optional.
+7. Frequently update CMake to the newest version.
+8. ~~`add_exectuable(${PROJECT_NAME}`)~~
 
 ]
 
@@ -91,6 +100,8 @@ General good practice
 Compiler options: 
 mandatory ones -> toolchain
 optional ones such as -Wall etc presets 
+
+BUILD_SHARED_LIBS
 
 ---
 
@@ -101,7 +112,7 @@ optional ones such as -Wall etc presets
 
 ├── cmake
 │   ├── MyModule.cmake
-    └── myTarget_sources.cmake # optional sources lists
+│   └── myTarget_sources.cmake # optional sources lists
 *├── CMakeLists.txt #project, targets, dependencies, install & package instructions
 ├── doc
 ├── include  #for libraries only
@@ -109,13 +120,25 @@ optional ones such as -Wall etc presets
 │       └── public_header.h
 ├── src
 │   └── code.cpp
-└── test
-*   ├── CMakeLists.txt # Test targets, test-only dependencies 
-    └── src
-        └── test.cpp
+├── test
+*│   ├── CMakeLists.txt # Test targets, test-only dependencies 
+│   └── src
+│       └── test.cpp
+└── CMakePresets.json
 ```
 ]
 
+---
+
+# Platform agnostic custom commands
+
+.left[
+* Use `cmake -E` to execute platform agnostic commands
+  * `cmake -E <command>`
+  * copy stuff, hashes, comparing files, etc
+* For more complex ones use CMake in script mode
+  * `cmake -P someScript.cmake` 
+]
 
 
 ---
@@ -124,18 +147,23 @@ optional ones such as -Wall etc presets
 CMake Presets
 ===
 
-"CMake presets (From 3.17) are the best thing since introduction of targets" - Unknown Source
+"CMake presets (From 3.17) are the best thing since introduction of targets" - "CMake Best Practice"
 
 .left[
 * Presets define configuration settings for CMake
-* Presets are stored in a `CMakePresets.json` file -> Version this
-  * `CMakeUserPresets.json` for user-specific settings -> Do not version this
-* Configure presets are the most useful 
+* Presets are stored in a `CMakePresets.json` file -> *Put this into git*
+  * `CMakeUserPresets.json` for user-specific settings -> *Do not version this*
+* Configure presets are the most common 
   * Use build presets for multi-config generators
 * Aggregate and inherit (invisible) presets
 * Use the override mechanism to change settings
-* use env and variable expansion (.i.e. `${sourceDir}`
+* use `$env{HOME}` and variable expansion (i.e. `${sourceDir}`
 ]
+
+???
+
+* Who knows Presets? 
+
 ---
 
 ## CMake Presets - Configure example
@@ -175,40 +203,79 @@ CMake Presets
 
 ---
 
-# Platform agnostic custom commands
-
-.left[
-* Use `cmake -E` to execute platform agnostic commands
-  * `cmake -E <command>`
-  * copy stuff, hashes, comparing files, etc
-* For more complex ones use CMake in script mode
-  * `cmake -P someScript.cmake` 
-]
-
----
-
-Plot dependency graphs
-===
-
-`cmake --graphviz=my-project.dot /path/to/build/dir`
-
-![CMake dependency graph](dependency_graph.png)
-
----
-
-Speeding up CMake - profiling
+Symbol Visibility in Libraries (DLLs)
 ===
 
 .left[
-```CMake
+  ```CMake
 
-cmake -S <sourceDir> -B <buildDir> --profiling-output
-./profiling.json --profiling-format=google-trace
+add_library(hello SHARED) # Prefer to let the user set SHARED or STATIC
+*set_property(TARGET hello PROPERTY CXX_VISIBILITY_PRESET "hidden")
+*set_property(TARGET hello  PROPERTY VISIBILITY_INLINES_HIDDEN True)
+
+*include(GenerateExportHeader)
+
+*generate_export_header(hello EXPORT_FILE_NAME export/hello/export_hello.hpp)
+
+*target_include_directories(hello PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/export")
+
+set_target_properties(hello
+    PROPERTIES VERSION ${PROJECT_VERSION}
+               SOVERSION ${PROJECT_VERSION_MAJOR}
+)
+
 
 ```
 ]
 
-![CMake profiling output](profile_output.png)
+* ~~`set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True)`~~
+* Don't forget to add the generated header to the install instructions!
+
+---
+
+# Large Codebases over multiple repos
+
+.left[
+* Use `FetchContent` to fetch centralized scripts, macros and presets
+* Use a package manager for 3rd-Party dependencies
+* Use build-containers and toolchain files for defining (cross-compilation) toolchains
+* Make subprojects build standalone
+* Use `ExternalProject` for non-CMake projects (i.e. autotools)
+  * Use `FetchContent` for CMake projects
+* CI runs should trigger downstream builds frequently
+]
+---
+
+# Superbuilds With Non-CMake parts
+
+.left[
+```CMake
+project(SuperbuildExample)
+include(ExternalProject)
+set(installDir ${CMAKE_CURRENT_BINARY_DIR}/install)
+
+ExternalProject_Add(AnAutoToolsProject
+  INSTALL_DIR ${installDir}
+*  CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix <INSTALL_DIR>
+*  BUILD_COMMAND make -j # Use find_program to find make first 
+  ...
+)
+
+ExternalProject_Add(someDep2
+  ...
+  INSTALL_DIR ${installDir}
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>
+
+)
+*ExternalProject_Add_StepDependencies(someDep2 configure AnAutoToolsProject)
+``` 
+]
+
+???
+
+The configure step of somedep depends on the completion of AnAutoTOolsProject
+
+# Warning, ExternalProject happens during configuration time
 
 ---
 
@@ -241,6 +308,28 @@ CMakePresets.json
 },
 ```
 
+]
+
+---
+
+
+Speeding up compilation - Precompiled Headers
+===
+
+.left[
+```CMake 
+target_precompile_headers(ch14_precompiled_headers PRIVATE 
+                          src/fibonacci.h
+                          <cstdint>
+                          <vector>
+                          src/eratosthenes.h
+                          )
+```
+
+* Generates a `cmake_pch.hxx.gch` in the build dir
+* it is automatically included in all `.cpp` files
+* automatically recompiled if the header changes
+  * Disclaimer: It does not always work if there are external dependencies included.
 ]
 
 ---
@@ -289,50 +378,23 @@ Speeding up compilation - Unity Builds
 
 ---
 
-Speeding up compilation - Precompiled Headers
+Speeding up CMake - profiling
 ===
 
 .left[
-```CMake 
-target_precompile_headers(ch14_precompiled_headers PRIVATE 
-src/fibonacci.h <cstdint> <vector> src/eratosthenes.h)
+```CMake
+
+cmake -S <sourceDir> -B <buildDir> \ 
+    --profiling-output ./profiling.json --profiling-format=google-trace
+
 ```
-
-* Generates a `cmake_pch.hxx.gch` in the build dir
-* it is automatically included in all `.cpp` files
-* automatically recompiled if the header changes
-  * Disclaimer: It does not always work if there are external dependencies included.
 ]
+
+![CMake profiling output](profile_output.png)
 
 ---
 
-Symbol visibility in DLLs
-===
-
-.left[
-  ```CMake
-
-add_library(hello SHARED)
-set_property(TARGET hello PROPERTY CXX_VISIBILITY_PRESET
-"hidden")
-
-*include(GenerateExportHeader)
-
-*generate_export_header(hello EXPORT_FILE_NAME export/hello/
-export_hello.hpp)
-
-*target_include_directories(hello PUBLIC "${CMAKE_CURRENT_
-BINARY_DIR} /export")
-
-  ```
-]
-
-* ~~`set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True)`~~
-* Don't forget to add the generated header to the install instructions!
-
----
-
-# Your turn -  Questions!
+# Your turn -  Questions?
 
 ### C++ Coder, Agilist & Rock Climber
 .left-column[
@@ -346,7 +408,7 @@ BINARY_DIR} /export")
 
 [![github](github_icon.png) bernedom](https://github.com/bernedom)
 
-[![mail](mail_icon.png) dominik.berner@bbv.ch](mailto:dominik.berner@bbv.ch)
+[![mail](mail_icon.png) dominik.berner@wingtra.com](mailto:dominik.berner@wingtra.com)
 ]
 ]
  
@@ -406,3 +468,16 @@ Small but useful
 * ccmake and cmake-gui (console yay)
   * Tweaking environment variables
 * conan integration instead of fetch content
+
+---
+
+
+Keep the overview with dependency graphs
+===
+
+`cmake --graphviz=my-project.dot /path/to/build/dir`
+
+![CMake dependency graph](dependency_graph.png)
+
+
+---
