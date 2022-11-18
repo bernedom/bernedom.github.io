@@ -17,14 +17,14 @@ With **Design by Contract** robustness of code can be enhanced quite easily and 
 ## Design by contract - the background 
 
 [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) coined the term "Design by contract" in the late 80ies in the programming language Eiffel. *contract programming* or *programming by contract* are other, less frequently used names of the same concept. At the core, the concept describes the implementation of the [hoare triplet](https://en.wikipedia.org/wiki/Hoare_logic) for ensuring the correctness off software. 
-Defined as `{P}C{Q}`, the triplpet and says if the precondition `P` is true, then the post condition `Q` becomes true through the execution of the code `C`. As such `P` and `Q` are thus assertions and `C` is the program logic. 
+Defined as `{P}C{Q}`, the triplet and says if the precondition `P` is true, then the post condition `Q` becomes true through the execution of the code `C`. As such `P` and `Q` are thus assertions and `C` is the program logic. 
 
 The "contract" is a metaphor for the programmer as "consumer" and the software as "supplier" for code. The contract regulates the obligations and expected benefits between two parties. An example contract for a function for calculating the square root of a value could look like this:
 
 |               | **Obligation**                                                  | **Benefit**                                                                       |
  | ------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
  | **Consumer** | *Must ensure precondition* <br>The input has to be positive | *May benefit from the post-condition*<br>Get the square root of the input value |
- | **Supplier**  | *Must ensure postcondition* <br>Calculate the square root | *May expect pre-condition*<br>No need to implement imaginary numbers  |
+ | **Supplier**  | *Must ensure post-condition* <br>Calculate the square root | *May expect pre-condition*<br>No need to implement imaginary numbers  |
 
 Typically the keywords `Require` and `Ensure` are used for the pre- and post-condition and the content of the contract is a boolean expression. 
 
@@ -83,10 +83,10 @@ By decorating the class with contracts. It is explicitly stated that the user ha
 
 ### Polymorphism
 
-The [Liskov substitution princliple](https://en.wikipedia.org/wiki/Behavioral_subtyping) states that child-classes may work in a more loose context than their parents, but they have to ensure the same post-conditions. Formulated as Contracts the following rules apply:
+The [Liskov substitution principle](https://en.wikipedia.org/wiki/Behavioral_subtyping) states that child-classes may work in a more loose context than their parents, but they have to ensure the same post-conditions. Formulated as Contracts the following rules apply:
 
-* **Preconditions** for methods are allowed to be softer, but most not be strengthened
-* **Postconditions** are allowed to be stronger, but must not be weakened
+* **Preconditions** for methods are allowed to be softer, but must not be strengthened
+* **Post-conditions** are allowed to be stronger, but must not be weakened
 * **Invariants** are kept as is
 
 
