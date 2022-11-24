@@ -5,7 +5,7 @@ description: A line by line explanation of how to build an Android APK with CMak
 thumbnail: images/qml_on_android/cmake-android-qt-logo.png
 ---
 
-**If you build a GUI applications with C++ and Qt, chances are that you have to create a mobile version of it.** While the discussion, if Qt and C++ or the native Android SDK is the right technology to use is certainly worth a tought, there are situations where it makes sense to stick with Qt and C++. In this article I will show you line by line how to build an Android APK with *CMake* from a Qt/QML application using the Android NDK and SDK. 
+**If you build a GUI applications with C++ and Qt, chances are that you have to create a mobile version of it.** While the discussion, if Qt and C++ or the native Android SDK is the right technology to use is certainly worth a tought, there are situations where it makes sense to stick with Qt and C++. This article illustrates line by line how to build a C++/Qt application for android with *CMake* and how to pack it into an android APK. 
 
 This post will walk through the `CMakeLists.txt` file for a to build a Qt application for desktop and android and then pack it into an APK.
 
