@@ -19,7 +19,7 @@ CMake presets are a way to store information on how to configure, build and test
 
 While Test, Package and especially workflow presets are useful, in this article we will focus on organizing the configure and build presets as they are the most important ones for building the project. For the full documentation on CMake presets see the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html). 
 
-
+{% include cmake-best-practices-ad.html %}
 
 
 
