@@ -2,7 +2,7 @@
 layout: post
 title: Handling CMake Presets to build a project
 description: CMake presets are a big help on how to configure CMake. This article shows how to set up and organize them.
-thumbnail: images/qml_on_android/cmake-logo.png
+thumbnail: images/cmake-logo.png
 ---
 
 **[CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) are arguably one of the biggest improvements in CMake since the introduction of targets.** They are a big help for managing different configurations for CMake and can be of tremendous help for handling various compilers and platforms. In a nutshell, CMake presets contain information on how to configure, build, test and package a CMake project. They are stored in a JSON file and can be used to configure CMake with a single command. This article shows how to set up and organize and use them so they are most effective and easy to maintain. 
@@ -13,14 +13,25 @@ CMake presets are a way to store information on how to configure, build and test
 
 * **Configure presets**: describe how to configure a CMake project. They specify the generator, toolchain file, CMake cache variables and the build folder among other options.
 * **Build presets**: describe how to build a CMake project. They may specify the build targets and the configuration for multi-configuration toolchains such as MSVC or ninja-multi.
-* **Test presets**: describe the envoronment and conditions for running tests. They may specify the test executable and the test filter.
+* **Test **presets**describe the environment and conditions for running tests. They may specify the test executable and the test filter.
 * **Package presets**: describe how to package a CMake project. They may specify the package type and the package destination.
 * **Workflow presets**: describe a sequence of actions to be executed. They may specify the presets to be executed and the order in which they are executed.
 
-While Test, Package and especially workflow presets are useful, in this article we will focus on organizing the configure and build presets as they are the most important ones for building the project. For the full documentation on CMake presets see the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html). 
+While Test-, Package- and Workflow-presets are useful, in this article we will focus on organizing the configure and build presets as they are the most important ones for building the project. For the full documentation on CMake presets see the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html). 
 
 {% include cmake-best-practices-ad.html %}
 
+# Organizing CMake presets
+
+As projects grow, especially when they are cross-platform, the number of CMake presets can grow quickly. This can make it hard to keep track of them and to find the right one. To keep things organized, it is a good idea to get some organization into the presets, so it is easy to find the right preset for the platform and compiler you are using.
+
+I generally recommend having presets for each compiler and platform and combining them by using further presets. This makes it easy to find the right preset and to keep the individual presets small and simple. I tend to use a naming scheme like this: `<ci>-<generator>-<toolchain>-<buildType>` where the prefix is either `ci` or `dev` depending on whether the preset is intended for CI or for local development. Generally, all `ci`` presets are located in the `CMakePresets.json` and are checked in, while `dev` presets tend at least partially to come from the `CMakeUserPresets.json`. 
+The generator is the CMake generator, the toolchain is a combination of the platform, compiler and operating system like `clang12-armv7-linux` and the build type is the build type. For multi-configuration generators like MSVC or ninja-multi, the build type is omitted and configured over build presets. 
+
+{%include figure.html url="images/cmake-presets/Preset-Organisation.drawio.png" description="Example scheme how to organize presets for single configuration compilers"%}
+
+Some example configuration presets that I use frequently in my projects are `ci-ninja-x86_64-linux-debug`, `ci-ninja-x86_64-linux-release`, `ci-msvc19-x86_64-windows`. Note that the msvc preset does not specify the build type as it is configured in the build preset. 
 
 
-{%include figure.html url="images/cmake-presets/Preset-Organisation.drawio.png" description="CMake presets are a big help on how to configure CMake."%}
+
+The downside is that this can lead to a lot of presets to manage, so it might be helpful to split these up into multiple files and use includes to manage them.
