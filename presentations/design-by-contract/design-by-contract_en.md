@@ -2,7 +2,9 @@ name: title
 layout: true
 class: center, middle, inverse
 
-.footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)]
+.footer[ [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
+         [![mastodon](mastodon-icon.png) @doeme@tooting.ch](https://tooting.ch/@doeme)]
+
 ---
 
 Brutally robust code with Design by Contract
@@ -352,7 +354,7 @@ private:
 * **Invariants** are retained
 * **Preconditions** May be weakended, but not strengthened
 * **Postconditions** may be strengthened, but not weakened
-]
+
 ]
 
 ???
@@ -420,7 +422,7 @@ Example: [https://github.com/bernedom/bertrand/](https://github.com/bernedom/ber
 ---
 
 # Find defects earlier!...
-![agile cost of change](images/AgileCostChangeCurve.png)
+![agile cost of change](images/AgileCostChangeCurve_en.png)
 
 ???
 
@@ -466,6 +468,8 @@ Wenn contracts failen, soll nicht getestet werden
 [![web](web_icon.png) dominikberner.me](http://dominikberner.me)
 
 [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
+
+[![mastodon](mastodon-icon.png) @doeme@tooting.ch](https://tooting.ch/@doeme)
 
 [![github](github_icon.png) bernedom](https://github.com/bernedom)
 
