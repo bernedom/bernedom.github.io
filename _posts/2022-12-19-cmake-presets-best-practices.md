@@ -5,17 +5,24 @@ description: CMake presets are a big help on how to configure CMake. This articl
 thumbnail: images/cmake-logo.png
 ---
 
-**[CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) are arguably one of the biggest improvements in CMake since the introduction of targets.** They are a big help for managing different configurations for CMake and can be of tremendous help for handling various compilers and platforms. In a nutshell, CMake presets contain information on how to configure, build, test and package a CMake project. They are stored in a JSON file and can be used to configure CMake with a single command. This article shows how to set up and organize and use them so they are most effective and easy to maintain. 
+**[CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) are arguably one of the biggest improvements in CMake since the introduction of targets.** They are a big help for managing different configurations in CMake and for handling various compilers and platforms. In a nutshell, CMake presets contain information on how to configure, build, test and package a CMake project. They are stored in a JSON file and can be used to configure CMake with a single command. This article shows how to set up and organize and use them so they are most effective and easy to maintain. 
 
 # CMake presets in a nutshell
 
-CMake presets are a way to store information on how to configure, build and test a CMake project. They are stored in JSON files that can be named `CMakePresets.json` or `CMakeUserPresets.json`. The former is intended to be checked into version control and the latter is intended to be used by the user and is often very system specific. The files are located at the root of the CMake project. Various types of presets describe the different steps of building a CMake project: 
+CMake presets were introduced to CMake with version 3.19 so if you are using an older version I strongly recommend updating to a newer version, even if it is just for the sake of being able to use presets. As of early 2023 the built-in support in editors and IDEs for CMake presets is still in its infancy, but there is a noticeable push to accommodate them in most tools. 
+
+As mentioned above, CMake presets are a way to store information on how to configure, build, test and package a CMake project. CMake presets are stored in JSON files that can be named `CMakePresets.json` or `CMakeUserPresets.json`. The former is intended to be checked into version control and the latter is intended to be used by the user and is often very system specific. The files are located at the root of the CMake project. Various types of presets describe the different steps of building a CMake project: 
 
 * **Configure presets**: describe how to configure a CMake project. They specify the generator, toolchain file, CMake cache variables and the build folder among other options.
 * **Build presets**: describe how to build a CMake project. They may specify the build targets and the configuration for multi-configuration toolchains such as MSVC or ninja-multi.
-* **Test **presets**describe the environment and conditions for running tests. They may specify the test executable and the test filter.
+* **Test presets** describe the environment and conditions for running tests. They may specify the test executable and the test filter.
 * **Package presets**: describe how to package a CMake project. They may specify the package type and the package destination.
 * **Workflow presets**: describe a sequence of actions to be executed. They may specify the presets to be executed and the order in which they are executed.
+
+ The command to configure CMake with a preset is `cmake --preset <preset-name>`. The command to build with a preset use  `cmake --build --preset <preset-name>` and test presets can be invoked over ctest by using `ctest --preset <preset-name>` or over CMake with  `cmake --build --preset <preset-name> --target test`. The command to package with a preset is `cmake --build --preset <preset-name> --target package` unfortunately the `cpack` command line utility so far lacks preset support.
+
+ #EXAMPLE rought structure
+
 
 While Test-, Package- and Workflow-presets are useful, in this article we will focus on organizing the configure and build presets as they are the most important ones for building the project. For the full documentation on CMake presets see the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html). 
 
@@ -42,8 +49,8 @@ So what goes into which presets? A typical preset for my CMake projects contains
   * ccache-env (hidden): A preset that defines some environment variables for ccache. This is used in CI and dev builds where ccache is used to speed up the build.
   * clang-tidy (hidden): A preset that defines the clang-tidy checks to be used. This is used mainly in CI builds where clang-tidy is used to check the code.
   * [iwyu](https://include-what-you-use.org/): A preset that defines the include-what-you-use checks to be used. This is used mainly in CI builds where include-what-you-use is used to check the code.
-*  **Generator presets**: These presets define the generator and the build directory. I usually also keep them `hidden` and use them in other presets.
-   *  Ninja: My generator of choice when building for linux and mac. This preset defines the build directory and the generator.
+*  **Generator presets**: These presets to define the generator and the build directory. I usually also keep them `hidden` and use them in other presets.
+   *  Ninja: My generator of choice when building for Linux and mac. This preset defines the build directory and the generator.
    *  MSVC: for building on windows
    *  Any other generator required to build on other platforms
 * **Toolchain presets**: These contain specific compiler versions and flags. These presets are also marked `hidden` and are used in other presets. They might also contain library locations such as for Qt or Boost. I often prefix them with either `ci` if they contain information that is specific to the ci environment or the [devcontainer](https://dominikberner.ch/using-devcontainers-with-cpp/) bundled with the project. These might (re-)define the build directory. 
@@ -60,7 +67,7 @@ So what goes into which presets? A typical preset for my CMake projects contains
 
 The downside is that this can lead to a lot of presets to manage, so it might be helpful to split these up into multiple files and use includes to manage them. Overall this setup usually gives me a very good mix of being open enough to be used in different environments and specific enough to be conveniently useful.
 
-## Presets in real live
+## Presets in real life
 
 in my opinion CMake presets are one of the most powerful features of CMake and a great addition to the tool. Especially if you're working with an editor or IDE that supports them natively it reduces the complexity for using CMake drastically as I no longer have to memorize the specific options and flags for each project. They are also a great way to keep the CMakeLists.txt clean and independent of the build environment. By having the presets the temptation to put specific compiler flags or other build environment-specific information into the CMakeLists.txt is greatly reduced which is a very good thing when it comes to maintainability. The downside is of course that the complexity handling of multi-platform projects is not reduced but just shifted to a different file and that one now has to manage not just the CMakeLists.txt but also the presets files. 
 
