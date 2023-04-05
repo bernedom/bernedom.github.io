@@ -17,9 +17,23 @@ The underlying principle of good testing strategies when hardware is to try to i
 
 {% include figure.html url="images/testing-with-hardware/TestingPyramid.png" description="The testing pyramid if hardware is involved" %}
 
-I advise to run all automatic tests should be automated and run on every commit to the main branch of your repo or even on every commit if the time frame allows that. This means that you should have a CI setup that runs the tests on every commit. I generally prefer a set up which runs all unit tests and some of the fast integration tests on every pushed commit and runs all tests except the manual ones on every commit to the main branch. This way you get fast feedback on the state of your code and you can catch regressions early. While writing code I usually only run the unit tests concerning the code I'm currently touching.
+I advise running all automatic tests on every commit to the main branch of your repo or even on every commit if the time frame allows that. This means that you should have a CI setup that runs the tests on every commit. I generally prefer a set up which runs all unit tests and some of the fast integration tests on every pushed commit and runs all tests except the manual ones on every commit to the main branch. This way you get fast feedback on the state of your code and you can catch regressions early. While writing code I usually only run the unit tests concerning the code I'm currently touching.
 
-An important thing is that even if the test pyramid shows emulators, simulators etc. That the setup should be so the most of the tests can be run on the actual hardware itself as well and this should also be done on a regular basis to catch hardware induced regressions. The same applies for the development machines all emulator- or simulator based tests should be runnable on the devs machine for easy debugging and the devs should have easy access to the hardware for debugging. 
+An important thing is that even if the test pyramid shows emulators, simulators etc. That the setup should be so the most of the tests can be run on the actual hardware itself as well and this should also be done regularly to catch hardware-induced regressions. The same applies for the development machines, all emulator- or simulator-based tests should be runnable on the dev's machine for easy debugging and the devs should have easy access to the hardware for debugging. Let's look at the different levels of the testing pyramid in more detail.
+
+### The foundation: Cross-Compiling and Unit tests
+
+At the very bottom of the test, pyramid sit the smallest but most numerous unit tests. These are intended to be run frequently. When doing test driven development (which you should) these are the workhorses regarding software quality. And because the developers need to be able to run them frequently at the very base of the pyramid is also the ability to cross-compile your code so it can be tested on the developer's machine and the target hardware. There will be parts that are hard to test without the actual hardware, but usually, the majority of the code can be tested very well by mocking the hardware away. 
+
+// Add image highlighting the part of the pyramid
+
+## The middle: Emulators and component tests
+
+The boundary between unit- and component tests is often fluid. Component tests are usually a bit more complex than unit tests and they test a larger part of the system but are still pretty localised regarding the code. They are usually still fast enough to run on the developer's machine and they can be run on the CI as well. The main difference between unit- and component tests is that component tests are more likely to require some system awareness. Emulators are a great way to enable low-cost automation and bring some of the behavior of the hardware into play. Emulators mimick the hardware on a low level but often without the full setup of all running services etc. One downside of the emulators is that they cannot give any indication about runtime performance of the hardware, for this only the real hardware can be used.
+
+
+
+
 
 * Have it in CI - run the tests on every commit
 * Cross compile - run it on dev machine and target machine
