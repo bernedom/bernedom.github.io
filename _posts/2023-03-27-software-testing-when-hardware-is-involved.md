@@ -25,34 +25,32 @@ An important thing is that even if the test pyramid shows emulators, simulators 
 
 The base of the test pyramid consists of the smallest and most basic unit tests. Usually, they are also the most numerous and are intended to be run very frequently - so the individual test should be fast. When doing test-driven development (which you should!) these are the workhorses regarding software quality. Because the developers need to be able to run them frequently, the ability to easily cross-compile your code so it can be tested on the developer's machine and the target hardware is a must. There usually are some unit tests that require some information about the hardware environment, but often a lot of the functionality of the code can be tested very well by mocking the hardware away. 
 
-{% include figure.html url="images/testing-with-hardware/TestingPyramid_unit_test.png" description="The base for successful testing with hardware is the ability to cross-compile your code" %}
+{% include figure.html url="images/testing-with-hardware/TestingPyramid_unit_test.png" description="The base for successful testing with hardware is the ability to cross-compile your code" resize="60" %}
 
 ## The middle: Emulators and component tests
 
 Component tests are usually a bit more complex than unit tests and they test a larger part of the system but are still pretty localized regarding the code. They are usually still fast enough to run on the developer's machine and they can be run very frequently on the CI as well. The main difference between unit- and component tests is that component tests are more likely to require some system awareness. Emulators are a great way to enable low-cost automation and bring some of the behavior of the hardware into play. Emulators mimic the hardware on a low level but often without the full setup of all running services etc. One downside of the emulators is that they cannot give any indication about the runtime performance of the hardware, for this only the real hardware can be used. 
 
-{% include figure.html url="images/testing-with-hardware/TestingPyramid_component_test.png" description="Running tests on emulators shortens the feedback loop as it allows developers to run tests on their machines" %}
+{% include figure.html url="images/testing-with-hardware/TestingPyramid_component_test.png" description="Running tests on emulators shortens the feedback loop as it allows developers to run tests on their machines" resize="60" %}
 ## Integration testing: Simulators 
 
 As soon as the components cannot be tested in isolation there is usually also some more surrounding logic needed. This is where integration tests come into play. Integration tests are again more complex than component tests and they test a larger part of the system. They are usually a combination of multiple components but still do not need the full system setup. The way to tackle this is to use simulators on top of the emulators. The main difference between emulation and simulation is that simulators can play back some input or act as peripherals or mimic a changing environment. This means that they can be used to test the interaction between the software and the hardware up to the system boundaries. The distinction between emulation and simulation is not always clear cut and there are often some gray areas. Although not always possible, being able to run the simulator not only on emulation but also on the non-native environment helps generate faster feedback as well. A very useful addition that comes in somewhere at the boundary between simulators and the real hardware is that here we can also test the deployment of the software on the target device, although some might this consider already a system test rather than an integration test.
 
-{% include figure.html url="images/testing-with-hardware/TestingPyramid_integration_test.png" description="Simulators are a good way to test with controlled input and complicated workflows" %}
+{% include figure.html url="images/testing-with-hardware/TestingPyramid_integration_test.png" description="Simulators are a good way to test with controlled input and complicated workflows" resize="60" %}
 
 ## The top: Hardware in the loop is mandatory
 
 The closer we get to the very complex system tests the more the need for hardware. While the unit-, component- and integration tests should be runnable on the real hardware running the more complex tests yields the most benefit from running on the hardware. It still pays to invest in automation and having system tests running regularly and frequently on your code to avoid some nasty surprises when deploying the software for real. As the availability of the full hardware setup is often a limiting factor and a bottleneck having the hardware in relatively late is a trade-off between the cost of the hardware and the amount of information gained from running on the hardware and the effort of integrating hardware into CI. However, for running the system tests that effort should be taken on to create at least one full set of the system for testing. 
 
-{% include figure.html url="images/testing-with-hardware/TestingPyramid_system_test.png" description="When testing the whole system hardware is mandatory" %}
+{% include figure.html url="images/testing-with-hardware/TestingPyramid_system_test.png" description="When testing the whole system hardware is mandatory" resize="60" %}
 
 ## The tip of the pyramid: Involve Humans
 
 Automatic testing is a tremendous cost saver and a very good way to get fast feedback back to the developers. But at some point, nothing beats a human tester. This is also where you want to be as close to the real, completely assembled device as possible. While manual tests might still need faking of some parts of the system, it is a very good way to get a feeling for the system as a whole. Often with manual tests the boundary between testing and quality assurance becomes a bit blurry, especially if the automated tests are solid and already cover a lot of the functionality. Nevertheless, it is often human testers that catch some of the more subtle bugs or point out where things are not optimal. And for that having the whole set up in a close-to-real environment is a huge benefit. Another huge benefit of having such a system around is that it can be shown to customers and stakeholders to get feedback on the usability of the system or to train them in operation.
 
-{% include figure.html url="images/testing-with-hardware/TestingPyramid.png" description="Complement the automatic tests on the hardware with human interaction." %}
+{% include figure.html url="images/testing-with-hardware/TestingPyramid.png" description="Complement the automatic tests on the hardware with human interaction." resize="60" %}
 
 ## Balance is key
 
 Investing heavily into testing is a great way to ensure that your software is of high quality but as always there is a balance between effort and gain and there is no catch-all solution for testing strategies regarding hardware. Talking with your team about the testing pyramid and how you want to structure your testing strategy around it is a good starting point. Have a look at the different levels of the pyramid and see where you can get the most bang for your buck. For pure software projects starting to build the pyramid from the base on upward is often a good idea. When hardware is involved it can sometimes be beneficial to build the tip first and then start at the bottom, just make sure that the pyramid does not get top heavy regarding the number of tests. Even if the approach described in this article might not work for your specific situation, I hope that it gives you something to start a conversation about setting up your tests in a meaningful and cost-effective way. 
-
-{% include figure.html url="images/testing-with-hardware/TestingPyramid.png" description="The testing pyramid if hardware is involved" %}
 
