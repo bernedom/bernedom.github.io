@@ -13,6 +13,27 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/images/favicon.ico">
   <script src="{{ site.url }}/jquery/jquery-3.6.0.min.js"></script>
   <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
+<!-- script to set display property -->
+<script>
+  // Get the img object using its Id
+
+  // Function to increase image size
+  function enlargeImg(id) {
+    img = document.getElementById(id);
+    // Set image size to 1.5 times original
+    img.style.transform = "scale(1.5)";
+    // Animation effect
+    img.style.transition = "transform 0.25s ease";
+  }
+  // Function to reset image size
+  function resetImg(id) {
+    // Set image size to original
+    img = document.getElementById(id);
+    img.style.transform = "scale(1)";
+    img.style.transition = "transform 0.25s ease";
+  }
+</script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   {% include plausible.html %}
 </head>
