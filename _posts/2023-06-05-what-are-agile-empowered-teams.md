@@ -1,0 +1,52 @@
+---
+layout: post
+title: The four core powers of an empowered agile team
+description: "The term empowered teams is often used in the context of agile software development. But what does it mean? There are many variations of this but there is a definitive set of 'minimum powers' that a team needs to be able to be agile."
+thumbnail: images/testing-with-hardware/thumbnail.jpg
+---
+
+**Empowering Teams is a key aspect to create high performing teams in an agile setting.** Ever since [Extreme Programming](http://www.extremeprogramming.org/) was introduced into the world of software development this statement or a variety of it has been carried over to almost all agile frameworks. And there is a multitude of articles about how to create them. But what does "empowered" exactly mean? What are the minimum powers that a team needs to be able to be agile?
+
+As with a lot of things in agile, the bandwidth how far one wants to go with empowering the team depends heavily on the context and the organisation a team lives in. This can range from choosing their own agile framework to budget allocations up to teams doing their own hiring. However, if we focus on the process perspective of delivering quality software effectively, there are surprisingly few things that a team needs to be able to do to significantly change the game of agile software delivery.
+
+## Minimum Empowerment and Performance
+
+If we define *performance as "the ability of a team to constantly deliver value to the customer in a timely fashion"* then we can derive the minimum empowerment that a team needs to be able to do this. 
+
+> Performance is "the ability of a team to constantly deliver value to the customer in a timely fashion"
+
+From this definition we can deduct the minimum ort core powers that a team needs to be able to be performant:
+
+* Being able to prioritize their backlog and have the final word on what is in it - this including the ability to say no to backlog items and delete them
+* Being able to allocate capacity and work 
+* Setting the pace for releases and deciding when to release what
+* Shaping their development and testing infrastructure to their needs without organisational hurdles
+
+In short this can be summarized as "The team is able to decide what to do, who does it when and how". It is almost impossible for one empowerement to work out without the others being there, but if one has to start building up the empowerement starting with the ability to [prioritize and maintain their lean backlog](https://dominikberner.ch/lean-backlog-handling/) is often a good first power to gain. If it is clear for the team what do do next, then the team can decide "how much" of the backlog in can or wants to deliver in a given amount of time, which boils down to capacity allocation withing the team.
+The team usually has a good overview about what non-backlog-related task are on their plate - such as maintaining infrastructure, taking care of individual education or fixing things discovered in a retro. All this has to be taken into account and who can do this better than the team itself? Power to allocate capacity for working on the backlog directly translates to the ability to set the pace for releases. I still stand on the point that releasing often and in small increments is superior to rare big-bang releases, quality assurance and releasing need to be highly automated tasks that need little to no human interaction. This directly leads to the team's need to be able to shape their infrastructure after their fashion. This includes the ability to decide what tools to use and how to use them. In reality there are often some organizational constraints to this, but again the fewer the better. Let's look at each of these powers in more detail and how they work together.
+
+### The power of prioritizing the backlog
+
+The backlog is the central artifact in agile software development and as such it is a prioritized *list of problems to be solved*. Some of them might not yet be fully understood and for most of them there might exist several solutions.  
+
+> The backlog is a list of *problems to be solved* - not a list of task to be done
+
+Software development is a flow-based activity, which needs focus to be done effectively and efficiently and as the team knows best how to get into the flow, they need the power to say what they want to work on next and to *assign a unique priority* to the backlog items. While the team should have the final say on what goes to the top of the backlog, they need t obe acutely aware of their customers needs and the team has the obligation to respect and manage stakeholder expectations about what is important for who. As such teams need to be keenly aware about the different stakeholder groups regarding their product and understand their needs and expectations and they need the clout so stakeholders accept it if the teams says "No - We're not doing this (yet)". 
+Long term a team should strive to have some kind of fairness regarding the prioritization of the needs of each stakeholder group - including the teams own needs. By determining what part of the backlog the team should do next, they can align that with their capacity to do work. 
+
+### The power of allocating capacity and work
+
+Once the priority of problems to solve is established, the team should be able to determine how much of the backlog they want to tackle at the same time. This is independent of the agile framework chosen, be it kanban where the team sets their work-in-progress limits or scrum where the single sprints give a limited timeframe to tackle problems. Part of being able to allocate work is [slicing backlog items](https://dominikberner.ch/the-art-of-slicing/) to workable size and to break down the problems into smaller chunks that can be solved iteratively and incrementally. This is a skill that can easiliy be learned on the job and most teams master it relatively quickly. The number of problems solved and time invested has a direct relation to when solutions can be released to the customer and since the teams decide what to do with which capacity they naturally are in charge of setting the pace for their releases. On the other hand teams often also have some tasks that are inward facing such as maintaining their infrastructure, fixing bugs, mentoring each other or learn new things. These tasks also need to be taken into account when allocating capacity and the team is in the best position to do so.
+
+### The power of setting the pace for releases
+
+There is a saying that the grass doesn't grow faster if you pull on it. And software is not delivered faster by setting arbitrary deadlines. Sure there are often outside constraints that determine good time windows for releasing to the public, but generally the teams should be in charge of saying when and how often they see their product fit for releasing to the public. Generally I advise teams to rather release often and in small increments than going for long-planned big bang releases. This allows for faster feedback loops and a more agile approach to software development. The point here is that the team should be able to decide when to release what if necessary by employing techniques such as staged releases or feature toggles etc. This is important because it allows the team to decide when to release a feature and not be forced to release it before it is ready. Determining wheter a feature is ready requires feedback from the stakeholders and oftentimes the only way to get this from them is by exposing them to the feature in production. The other side of the coin is that the team has to ensure the necessary [quality of the software](https://dominikberner.ch/software-quality-roadmap/) to be confident that a release will work as expected. This is where the power of shaping the development and testing infrastructure comes into play.
+
+### The power of shaping the development and testing infrastructure
+
+As the teams are expected to take over responsibility for the quality of their software, they should get the power to shape and extend their development and testing infrastructure on their own. This includes the ability to decide what tools to use and how to use them, although there might be limitations on the organisational level, but it generally pays to have as few restrictions ragarding what tool and technology to use as possible. With modern approaches like github actions or azure devops pipelines and similar spinning up a new build and test environment is a matter of minutes and the team should be able to do this on their own. While it might be tempting to consolidate all these services in one place for a better overview, this often adds an unnecessary layer of bureaucracy and handovers which often takes more time to navigate through than to set up a new environment. The other side of this empowerment means that the teams have to have the skill for building and maintaining their build and test environments, which can take a significant amount of time and effort to master. But once a team has mastered this skill, adding new quality tools or upgrading existing ones to fit a new need is a matter of hours and not days or weeks. 
+It is also crucial that since the teams are in charge of setting the pace for their releases that they are in charge of maintaining the CD infrastructure that acutally creates and delivers the software to the customer. As the empowered team has the power to decide when to release what, they also have to be able to do it. This includes the ability to deploy to production and to roll back if necessary if customer feedback is not as expected which closes the circle to the power of prioritizing the backlog.
+
+## Conclusion
+
+If a team can do these four things more or less autonomously they gain a lot of flexibility in how they work and how they deliver value to the customer. This is the basis for high performing teams and it is the basis for agile software development. There are more aspects of empowering teams to reach peak performance, like being involved in the hiring, shaping overall team composition and managing personal growth of their members, but if one wants to start somewhere starting with backlog prioritization, capacity allocation, release planning and shaping the development and testing infrastructure are a good choice to have first. 
