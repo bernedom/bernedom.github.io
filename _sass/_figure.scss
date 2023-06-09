@@ -28,3 +28,12 @@ figcaption::after {
 figcaption .source-annotation {
     font-size: 85%;
 }
+figure img {
+    /* (A) OPTIONAL DIMENSIONS */
+    //width: 600px;
+    //height: auto;
+
+    /* (B) ANIMATE ZOOM */
+    /* ease | ease-in | ease-out | linear */
+    transition: transform ease-in-out 0.3s;
+}
