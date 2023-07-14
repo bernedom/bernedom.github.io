@@ -1,15 +1,15 @@
 ---
 layout: post
-title: The four core powers of an empowered agile team
+title: The four core powers for empowered agile teams
 description: "The term empowered teams is often used in the context of agile software development. But what does it mean? There are many variations of this but there is a definitive set of 'minimum powers' that a team needs to be able to be agile."
-thumbnail: images/testing-with-hardware/thumbnail.jpg
+thumbnail: images/empowered-teams/thumbnail.jpg
 ---
 
 **Empowering Teams is a key aspect to create high-performing teams in an agile setting.** Ever since [Extreme Programming](http://www.extremeprogramming.org/) was introduced into the world of software development this statement or a variety of it has been carried over to almost all agile frameworks. And there is a multitude of articles about how to create them. But what does "empowered" exactly mean? What are the minimum powers that a team needs to be able to be agile?
 
 As with a lot of things in agile, the bandwidth of how far one wants to go with empowering the team depends heavily on the context and the organization a team lives in. This can range from choosing their agile framework to budget allocations up to teams doing their hiring. However, if we focus on the process perspective of delivering quality software effectively, there are surprisingly few things that a team needs to be able to do to significantly change the game of agile software delivery.
 
-## Minimum Empowerment and Performance
+## Empowerment and Performance
 
 If we define *performance as "the ability of a team to constantly deliver value to the customer in a timely fashion"* then we can derive the minimum empowerment that a team needs to be able to do this. 
 
@@ -36,7 +36,7 @@ Long term a team should strive to have some kind of fairness regarding the prior
 
 ### The power of allocating capacity and work
 
-Once the priority of problems to solve is established, the team should be able to determine how much of the backlog they want to tackle at the same time. This is independent of the agile framework chosen, be it kanban where the team sets their work-in-progress limits, or scrum where the single sprints give a limited timeframe to tackle problems. Part of being able to allocate work is [slicing backlog items](https://dominikberner.ch/the-art-of-slicing/) to a workable size and breaking down the problems into smaller chunks that can be solved iteratively and incrementally. This is a skill that can easily be learned on the job and most teams master it relatively quickly. The number of problems solved and time invested has a direct relation to when solutions can be released to the customer and since the teams decide what to do with which capacity they naturally are in charge of setting the pace for their releases. On the other hand teempowered teamsams often also have some tasks that are inward facing such as maintaining their infrastructure, fixing bugs, mentoring each other, or learning new things. These tasks also need to be taken into account when allocating capacity and the team is in the best position to do so.
+Once the priority of problems to solve is established, the team should be able to determine how much of the backlog they want to tackle at the same time. This is independent of the agile framework chosen, be it kanban where the team sets their work-in-progress limits, or scrum where the single sprints give a limited timeframe to tackle problems. Part of being able to allocate work is [slicing backlog items](https://dominikberner.ch/the-art-of-slicing/) to a workable size and breaking down the problems into smaller chunks that can be solved iteratively and incrementally. This is a skill that can easily be learned on the job and most teams master it relatively quickly. The number of problems solved and time invested has a direct relation to when solutions can be released to the customer and since the teams decide what to do with which capacity they naturally are in charge of setting the pace for their releases. On the other hand empowered teams often also have some tasks that are inward facing such as maintaining their infrastructure, fixing bugs, mentoring each other, or learning new things. These tasks also need to be taken into account when allocating capacity and the team is in the best position to do so.
 
 ### The power of setting the pace for releases
 
