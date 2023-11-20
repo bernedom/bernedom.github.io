@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LLMs and AI make software development hard
+title: LLMs and AI make software development harder
 description: "AI code assistants like copilot or chatgpt are a great help for developers, but they also make our job harder by stripping away the easy parts of our job."
 thumbnail: images/code-assistants/thumbnail.jpg
 ---
