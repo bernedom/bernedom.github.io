@@ -225,13 +225,35 @@ set_target_properties(
     Greeter
     PROPERTIES VERSION ${PROJECT_VERSION}
                SOVERSION ${PROJECT_VERSION_MAJOR}
-)```
+)
+```
 
 The `VERSION` property sets the version of the library to the project version. The `SOVERSION` property sets the compatibility version of the library to the major version of the project. Generally you should try to use [semantic versioning](https://semver.org/) for libraries and set the `SOVERSION` to the major version of the library and determines API compatibility. Generally I advise to use the following rules for versioning:
 
 * If your change the public API by removing or changing an interface class or function, increase the major version
 * If new symbols are added to the API but nothing is changed or remove increase the minor version
 * For implementation changes that do not affect the API increase the patch version
+
+Once the target is created and the properties are set, we can add the sources to the library target with `target_sources()`. This command takes the target name and a list of source files and adds them to the target. The sources are added as private sources, which means they are only visible to the target itself. This is important to hide implementation details from the library interface. 
+
+Next we need to set up the include directories for the library. For the public include directories, there are two things to consider here, first the headers need to be available to the library itself and second, the headers need to be available to users of the library. This makes the `target_include_directories()` command a bit more complicated. 
+
+```CMake
+target_include_directories(
+    Greeter
+    PRIVATE src
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+```
+
+This command takes the target name and a list of include directories. The `PRIVATE` keyword means that the include directory is only visible to the target itself. We add the `src` folder here which contains all the internal headers/
+The `PUBLIC` keyword means that the include directory is visible to the target and to users of the library, to differ the include path during building the library and when it is installed, a [generator expression](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html) is used. If we're building the library itself the `$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>` expression will be evaluated to the `include` folder in the source directory. If the library is installed, the expression `$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>` will be evaluated to the install include directory. This makes sure that the correct include directory is used when building the library and when it is installed.
+
+Separating the headers into private and public is one step to define the library interface, we can go a step further by defining the symbol visibility of the library. This is important to hide implementation details from the library interface and to reduce the size of the library. CMake has a built-in module called `GenerateExportHeader` that can be used to generate a header file that sets the symbol visibility according to the compiler settings, which is included with `include(GenerateExportHeader)`. 
+
+Next we set the default visibility of the library to hidden with `set_property(TARGET Greeter PROPERTY CXX_VISIBILITY_PRESET "hidden")`. This means that all symbols are hidden by default and need to be explicitly exported. On Windows this is already the default, on linux und mac the default is that everything is visible. Additionally we can hide inlined functions with `set_property(TARGET Greeter PROPERTY VISIBILITY_INLINES_HIDDEN TRUE)`. This will reduce the size of the library some more but it also means that inlined functions need to be explicitly exported.
+
 
 
 ```CMake
@@ -242,12 +264,6 @@ target_sources(
     PRIVATE src/hello.cpp src/internal.cpp
 )
 
-# define the C++ standard needed to compile this library and make it visible to
-# dependers
-target_compile_features(
-    Greeter
-    PUBLIC cxx_std_17
-)
 
 # set the include directories
 target_include_directories(
@@ -326,3 +342,4 @@ install(
     NAMESPACE Greeter::
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
+```
