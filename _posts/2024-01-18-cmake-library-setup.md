@@ -200,6 +200,8 @@ install(
 ```
 </details>
 
+## Setting up the library
+
 As usual the `CMakeLists.txt` starts with `cmake_minimum_required` which specifies the minimum CMake version to be used and the `project()` call. 
 
 ```CMake 
@@ -250,60 +252,51 @@ target_include_directories(
 This command takes the target name and a list of include directories. The `PRIVATE` keyword means that the include directory is only visible to the target itself. We add the `src` folder here which contains all the internal headers/
 The `PUBLIC` keyword means that the include directory is visible to the target and to users of the library, to differ the include path during building the library and when it is installed, a [generator expression](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html) is used. If we're building the library itself the `$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>` expression will be evaluated to the `include` folder in the source directory. If the library is installed, the expression `$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>` will be evaluated to the install include directory. This makes sure that the correct include directory is used when building the library and when it is installed.
 
-Separating the headers into private and public is one step to define the library interface, we can go a step further by defining the symbol visibility of the library. This is important to hide implementation details from the library interface and to reduce the size of the library. CMake has a built-in module called `GenerateExportHeader` that can be used to generate a header file that sets the symbol visibility according to the compiler settings, which is included with `include(GenerateExportHeader)`. 
+## Setting symbol visibility
 
-Next we set the default visibility of the library to hidden with `set_property(TARGET Greeter PROPERTY CXX_VISIBILITY_PRESET "hidden")`. This means that all symbols are hidden by default and need to be explicitly exported. On Windows this is already the default, on linux und mac the default is that everything is visible. Additionally we can hide inlined functions with `set_property(TARGET Greeter PROPERTY VISIBILITY_INLINES_HIDDEN TRUE)`. This will reduce the size of the library some more but it also means that inlined functions need to be explicitly exported.
-
+Separating the headers into private and public is one step to define the library interface, we can go a step further by defining the symbol visibility of the library. This is important to hide implementation details from the library interface and to reduce the size of the library. First the default visibility of the library is set to hidden: 
 
 
 ```CMake
+set_target_properties(Greeter PROPERTIES CXX_VISIBILITY_PRESET "hidden"
+                                         VISIBILITY_INLINES_HIDDEN TRUE)
+```
 
-# add sources to the library target
-target_sources(
-    Greeter
-    PRIVATE src/hello.cpp src/internal.cpp
-)
+This means that all symbols are hidden by default and need to be explicitly exported. On Windows this is already the default, on linux und mac the default is that everything is visible. Additionally we can hide inlined functions by default, which will reduce the size of the library some more but it also means that inlined functions need to be explicitly exported.
 
+CMake has a built-in module called `GenerateExportHeader` that can be used to generate a header file that sets the symbol visibility according to the compiler settings, which is included with `include(GenerateExportHeader)`. This gives us the `generate_export_header()` command which generates the export macro header file for a target. 
 
-# set the include directories
-target_include_directories(
-    Greeter
-    PRIVATE src
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-)
-
-# if using limited visibility, set CXX_VISIBILILTY_PRESET to "hidden"
-include(GenerateExportHeader)
-set_property(
-    TARGET Greeter
-    PROPERTY CXX_VISIBILITY_PRESET "hidden"
-)
-# Hide inlined functions by default, reducing the size of the library
-set_property(
-    TARGET Greeter
-    PROPERTY VISIBILITY_INLINES_HIDDEN TRUE
-)
-# this command generates a header file in the CMAKE_CURRENT_BINARY_DIR which
-# sets the visibility attributes according to the compiler settings
+```CMake
 generate_export_header(
     Greeter
     EXPORT_FILE_NAME
     export/greeter/export_greeter.hpp
 )
-# Add CMAKE_CURRENT_BINARY_DIR to the include path so the generated header can
-# be found
+```
+
+By default the export header will be created in the `${CMAKE_CURRENT_BINARY_DIR}` directory unless an absolute path is passed to `EXPORT_FILE_NAME`, in this case exporting to the default location is fine, but we define the folder structure and the file name to be  `export/greeter/export_greeter.hpp`. Putting the export file into its own subfolder helps later with finding and installing it. The generated header file contains the necessary macros to export symbols from the library. 
+
+In order to use the included file with `#include <greeter/export_greeter.hpp>` we need to add the `${CMAKE_CURRENT_BINARY_DIR}` to the include path. This is done with the `target_include_directories()` command again. Again we use the generator expression to differ between building the library and installing it. 
+
+```CMake
+
 target_include_directories(
     Greeter
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/export>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     
 )
+```
+This concludes the setup of the library target and it can be built and used in other projects by using `add_subdirectory()` and `target_link_libraries()`. However for a library to be useful it needs to be installed and usable with `find_package()`.
 
-# include the GNUInstallDirs module to get the canonical install paths defined
-include(GNUInstallDirs)
+## Defining installation behavior
 
-# Install the library and export the CMake targets
+To make the library usable with `find_package()` we need to install the library and create a CMake package file. The first step is to define where the library should be installed. This is done with the `install()` command. The CMake module `GNUInstallDirs` defines the canonical install paths for different platforms which should be used except for special cases. 
+
+The first thing to set is the install destination for the library itself. This is done with the `LIBRARY`, `ARCHIVE` and `RUNTIME` keywords. The `LIBRARY` keyword is used for shared libraries, the `ARCHIVE` keyword is used for static libraries and the `RUNTIME` keyword is used for executables. The `INCLUDES` keyword is used to install the include directories. 
+
+```CMake
+
 install(
     TARGETS Greeter
     EXPORT GreeterTargets
@@ -312,14 +305,32 @@ install(
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
-# install the public headers
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-# install the generated export header
+
+```
+
+This tells CMake to install the target `Greeter` the the paths specified below. the `EXPORT GreeterTargets` keyword tells CMake to export the target information to an export set called `GreeterTargets` which will be used later to create the CMake package file in order to make the installation usable with `find_package`. 
+The `CMAKE_INSTALL_LIBDIR`, `CMAKE_INSTALL_BINDIR` and `CMAKE_INSTALL_INCLUDEDIR` variables are defined by the `GNUInstallDirs` module. 
+
+The public headers and the export-header need to be installed explicitly in a similar manner:
+
+```CMake   
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(
     FILES "${CMAKE_CURRENT_BINARY_DIR}/export/greeter/export_greeter.hpp"
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/greeter
 )
+```
+
+For normal usage in a system as runtime library this would be already enough, but since this is a CMake package we want this to be usable as easily as possible by other devs. This means we need to create a CMake package file that can be used with `find_package()`.
+
+### Making the library usable with `find_package()`
+
+
+
+
+```CMake
+
 
 # configure the CMake package file so the libray can be included with find_package() later
 include(CMakePackageConfigHelpers)
