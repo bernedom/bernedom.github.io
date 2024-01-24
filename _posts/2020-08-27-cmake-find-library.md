@@ -44,7 +44,7 @@ In the main `CMakeLists.txt` finding the package is invoked with `find_package(l
 
 Once the library is found it can be linked to targets using `target_link_libraries`. The details on how to use it is explained at the end of this article, but it looks something like this:
 
-```CMake
+```cmake
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake/")
 find_package(libImagePipeline REQUIRED)
 ...
@@ -62,7 +62,7 @@ Let's look at how the `FindLibImagePipeline.cmake` looks like:
 Click here to expand the full FindLibrary.cmake
 </summary>
 
-```CMake
+```cmake
 include(GNUInstallDirs)
 
 find_library(
@@ -100,13 +100,13 @@ endif()
 
 Let's assume that dependencies are either put into the build-dir in a folder `prebuilt` or installed in the [GNU default directories](http://www.gnu.org/prep/standards/html_node/Directory-Variables.html). The default locations are provided by the CMake module `GNUInstallDirs` which the first thing to include.
 
-```CMake
+```cmake
 include(GNUInstallDirs)
 ```
 
 After this bit of boilerplate we start looking some files belonging to the package to determine where the library is saved. Let's assume that dependencies are either put into the build-dir in the folder `prebuilt` or installed in the default locations. The default locations are searched by default, so we do not have to add them manually. For header-only libraries the call to `find_library` can be omitted.
 
-```CMake
+```cmake
 find_library(
     LIBIMAGEPIPELINE_LIBRARY
     NAMES LibImagePipeline
@@ -120,7 +120,7 @@ If the library file is not found the variable `LIBIMAGEPIPELINE_LIBRARY-NOTFOUND
 
 Once the binary files are located the we do a similar thing to find headers:
 
-```CMake
+```cmake
 find_path(LIBIMAGEPIPELINE_INCLUDE_DIR
   NAMES Pipeline.hpp
   HINTS ${PROJECT_BINARY_DIR}/prebuilt/ ${CMAKE_INSTALL_INCLUDEDIR}
@@ -138,13 +138,13 @@ The resulting search order is the following:
 
 Once we know the likely paths to the files needed, CMake is ready to set it up as a package. `find_package` has lots of parameters that are only needed in rare cases, we're taking a shortcut by including `FindPackageHandleStandardArgs` from the standard CMake distribution to make the call simpler.
 
-```CMake
+```cmake
 include(FindPackageHandleStandardArgs)
 ```
 
 This include provides the `find_package_handle_standard_args` convenience function:
 
-```CMake
+```cmake
 find_package_handle_standard_args(libImagePipeline DEFAULT_MSG
                                   LIBIMAGEPIPELINE_LIBRARY
                                   LIBIMAGEPIPELINE_INCLUDE_DIR)
@@ -157,13 +157,13 @@ The first argument `libImagePipeline` is the name of the package we're going to 
 If all went well, the searching of the package is now done. But before this library can be used it needs to be configured as a CMake-target.
 By declaring out internally generated variables as advanced, they do not show up in any of the GUIs. This is not strictly necessary, but a nice touch anyway. 
 
-```CMake
+```cmake
 mark_as_advanced(LIBIMAGEPIPELINE_LIBRARY LIBIMAGEPIPELINE_INCLUDE_DIR)
 ```
 
 To configure the library and its targets we make sure that it is found and not already configured for instance by multiple calls to `find_package(LibImagePipeline)` within the same CMake project.
 
-```CMake
+```cmake
 if(LIBIMAGEPIPELINE_FOUND AND NOT TARGET libImagePipeline::libImagePipeline)
   ...
 endif()
@@ -173,7 +173,7 @@ The variable `LIBIMAGEPIPELINE_FOUND` is set if the by the call of `find_package
 
 Inside the `if` the declaration and the configuration of the target is done:
 
-```CMake
+```cmake
 add_library(libImagePipeline::libImagePipeline SHARED IMPORTED)
 ```
 
@@ -181,7 +181,7 @@ add_library(libImagePipeline::libImagePipeline SHARED IMPORTED)
 
 By this point all that is left is the configuration of the target. Setting the properties can be a bit tricky if it the inner layout and the way of building the library is not known. So this is often the hardest part of writing a `find.cmake` file.
 
-```CMake
+```cmake
   set_target_properties(
     libImagePipeline::libImagePipeline
     PROPERTIES
@@ -199,19 +199,19 @@ Properties for targets can be manipulated with the `set_target_properties` comma
 
 Having defined all of the above CMake is able to find the required parts of a library except where to find the `find.cmake` file itself. This is done by appending folder where the file is located to `CMAKE_MODULE_PATH`.
 
-```CMake
+```cmake
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake/")
 ```
 
 From here on the package can be included by calling `find_package`. The `REQUIRED` keyword marking that the library is essential for the build and that CMake will stop with an error if the package is not found.
 
-```CMake
+```cmake
 find_package(libImagePipeline REQUIRED)
 ```
 
 Now, the library is available like a normal target defined in CMake and can be linked to any other existing target with `target_link_libraries`.
 
-```CMake
+```cmake
 add_executable(SomeExecutable)
 target_link_libraries(SomeExecutable PRIVATE libImagePipeline::libImagePipeline)
 ```

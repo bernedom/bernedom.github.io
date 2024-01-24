@@ -5,10 +5,11 @@ description: "How to set up a library with CMake, including proper symbol visibi
 thumbnail: images/cmake-logo.png
 ---
 
-**Creating a library with CMake is simple. To make it easy portable, we will also add proper symbol visibility and installation.** 
-CMake is arguably one of the most popular build systems for C++ projects and many open source projects and companies use it. Creating a library is as simple as invoking the `add_library()` command and adding the sources to it. However, there are a few things to consider when creating a library with CMake. In this post, we will go through the steps to create a library with CMake, including proper symbol visibility and installation. All the code for this post is available as [a template on GitHub](https://github.com/bernedom/CMake_Library_Template)
+**Creating a clean library that has proper symbol visibility and installation instructions mit sound difficult.** However with CMake it is relatively straight forward to set up, even if there are a few things to consider. Actually creating creating a library is as simple as invoking the `add_library()` command and adding the sources to it. When it comes to setting up the installation instructions and symbol visibility properly there is a bit more to it. There are also some small, but useful things like defining the version compatibility of the library that make the life of developers a lot easier if done properly. 
 
-## Creating a library in a nutshell
+In this post, we will go through the steps to create a library with CMake, including proper symbol visibility and installation. All the code for this post is available as [a template on GitHub](https://github.com/bernedom/CMake_Library_Template)
+
+## Creating a library with CMake - A quick overview
 
 When configuring for a library with CMake we need to do the following things:
 
@@ -25,7 +26,7 @@ For detailed documentation on the commands used in this post, please refer to th
 
 ## Setting up the project
 
-Choosing the right file structure for a project is alsways important. It makes it easier to find files and helps to keep the project organized. For libraries it is even more important, because choosing the right structure makes it easier for others to use the library and to only install the files that are needed. For this post, we will create a library called "Greeter" or "libGreeter" and use the following file structure:
+Choosing the right file structure for a project is always important as it makes it easier to find files and helps to keep the project organized. For libraries it is even more important, most likely others will want to use the library as well. Additionally not all files needed to build a library are necessary to use the library, so a clean separation helps to only install the files that are needed. For this post, we will create a library called "Greeter" or "libGreeter" and use the following file structure:
 
 
 ```bash
@@ -43,7 +44,7 @@ Choosing the right file structure for a project is alsways important. It makes i
     └── internal.hpp
 ```
 
-The library will expose a class `Greeter::Hello` that contains a `greet()` function that prints "Hello <name> from a library". This class is declared in the `include/hello/hello.hpp`. Internally it uses a private function called `print_impl` which is defined in The `internal.cpp` and `internal.hpp` files are used to demonstrate how to hide symbols from the library interface. The `GreeterConfig.cmake.in` file is used to configure the CMake package file that will be used to make the library usable with `find_package()`.
+The library will expose a class `Greeter::Hello` that contains a `greet()` function that prints "Hello ${name} from a library". This class is declared in the `include/hello/hello.hpp`. Internally it uses a private function called `print_impl` which is defined in The `internal.cpp` and `internal.hpp` files are used to demonstrate how to hide symbols from the library interface. The `GreeterConfig.cmake.in` file is used to configure the CMake package file that will be used to make the library usable with `find_package()`.
 
 Let's have a look at the public header file `include/greeter/hello.hpp`:
 
@@ -78,7 +79,7 @@ Let's have a look at the `CMakeLists.txt` file line by line.
 Click here to expand the full FindLibrary.cmake
 </summary>
 
-```CMake
+```cmake
 cmake_minimum_required(VERSION 3.17)
 
 project(
@@ -204,7 +205,7 @@ install(
 
 As usual the `CMakeLists.txt` starts with `cmake_minimum_required` which specifies the minimum CMake version to be used and the `project()` call. 
 
-```CMake 
+```cmake 
 project(
     Greeter
     VERSION 1.0.0
@@ -222,7 +223,7 @@ After that the library target is created with `add_library(Greeter)`. This will 
 
 Once the target is defined we can set the properties for the library. 
 
-```CMake
+```cmake
 set_target_properties(
     Greeter
     PROPERTIES VERSION ${PROJECT_VERSION}
@@ -240,7 +241,7 @@ Once the target is created and the properties are set, we can add the sources to
 
 Next we need to set up the include directories for the library. For the public include directories, there are two things to consider here, first the headers need to be available to the library itself and second, the headers need to be available to users of the library. This makes the `target_include_directories()` command a bit more complicated. 
 
-```CMake
+```cmake
 target_include_directories(
     Greeter
     PRIVATE src
@@ -257,7 +258,7 @@ The `PUBLIC` keyword means that the include directory is visible to the target a
 Separating the headers into private and public is one step to define the library interface, we can go a step further by defining the symbol visibility of the library. This is important to hide implementation details from the library interface and to reduce the size of the library. First the default visibility of the library is set to hidden: 
 
 
-```CMake
+```cmake
 set_target_properties(Greeter PROPERTIES CXX_VISIBILITY_PRESET "hidden"
                                          VISIBILITY_INLINES_HIDDEN TRUE)
 ```
@@ -266,7 +267,7 @@ This means that all symbols are hidden by default and need to be explicitly expo
 
 CMake has a built-in module called `GenerateExportHeader` that can be used to generate a header file that sets the symbol visibility according to the compiler settings, which is included with `include(GenerateExportHeader)`. This gives us the `generate_export_header()` command which generates the export macro header file for a target. 
 
-```CMake
+```cmake
 generate_export_header(
     Greeter
     EXPORT_FILE_NAME
@@ -278,7 +279,7 @@ By default the export header will be created in the `${CMAKE_CURRENT_BINARY_DIR}
 
 In order to use the included file with `#include <greeter/export_greeter.hpp>` we need to add the `${CMAKE_CURRENT_BINARY_DIR}` to the include path. This is done with the `target_include_directories()` command again. Again we use the generator expression to differ between building the library and installing it. 
 
-```CMake
+```cmake
 
 target_include_directories(
     Greeter
@@ -295,7 +296,7 @@ To make the library usable with `find_package()` we need to install the library 
 
 The first thing to set is the install destination for the library itself. This is done with the `LIBRARY`, `ARCHIVE` and `RUNTIME` keywords. The `LIBRARY` keyword is used for shared libraries, the `ARCHIVE` keyword is used for static libraries and the `RUNTIME` keyword is used for executables. The `INCLUDES` keyword is used to install the include directories. 
 
-```CMake
+```cmake
 
 install(
     TARGETS Greeter
@@ -314,7 +315,7 @@ The `CMAKE_INSTALL_LIBDIR`, `CMAKE_INSTALL_BINDIR` and `CMAKE_INSTALL_INCLUDEDIR
 
 The public headers and the export-header need to be installed explicitly in a similar manner:
 
-```CMake   
+```cmake   
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(
     FILES "${CMAKE_CURRENT_BINARY_DIR}/export/greeter/export_greeter.hpp"
@@ -330,7 +331,7 @@ CMake provides the [CMakePackageConfigHelpers](https://cmake.org/cmake/help/late
 
 The first step is to create the version information file with `write_basic_package_version_file()`.
 
-```CMake 
+```cmake 
 write_basic_package_version_file(
     "GreeterConfigVersion.cmake"
     VERSION ${PROJECT_VERSION}
@@ -341,7 +342,7 @@ This command takes the name of the file to be created, the version of the packag
 
 Next we generate the package file from a template:
 
-```CMake
+```cmake
 configure_package_config_file(
     "${CMAKE_CURRENT_LIST_DIR}/cmake/GreeterConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/GreeterConfig.cmake"
@@ -351,7 +352,7 @@ configure_package_config_file(
 
 internally calls `configure_file()` to generate the package file from the template. The generated file will be called `GreeterConfig.cmake` and will be installed to `${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter`. The template file is a generic file that looks like this:
 
-```CMake
+```cmake
 @PACKAGE_INIT@
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
@@ -362,7 +363,7 @@ The `@PACKAGE_INIT@` macro is replaced by the `CMakePackageConfigHelpers` module
 
 The last step is to install the CMake targets:
 
-```CMake
+```cmake
 install(
     EXPORT GreeterTargets
     FILE GreeterTargets.cmake
