@@ -326,27 +326,43 @@ For normal usage in a system as runtime library this would be already enough, bu
 
 ### Making the library usable with `find_package()`
 
+CMake provides the [CMakePackageConfigHelpers](https://cmake.org/cmake/help/latest/module/CMakePackageConfigHelpers.html) module which - as the name suggests - contains helper functions that can be used to create a CMake package file. A CMake package consists of a version information file, a configuration file and a list of exported targets. The version information file is used to check if the correct version of the package is installed and the package file is used to make the package usable with `find_package()`.
 
+The first step is to create the version information file with `write_basic_package_version_file()`.
 
-
-```CMake
-
-
-# configure the CMake package file so the libray can be included with find_package() later
-include(CMakePackageConfigHelpers)
-
+```CMake 
 write_basic_package_version_file(
     "GreeterConfigVersion.cmake"
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion)
+```
 
+This command takes the name of the file to be created, the version of the package and the compatibility mode. The compatibility mode is used to determine if the package is compatible with the requested version. In this case we use `SameMajorVersion` which means that the package is compatible if the major version is the same. 
+
+Next we generate the package file from a template:
+
+```CMake
 configure_package_config_file(
     "${CMAKE_CURRENT_LIST_DIR}/cmake/GreeterConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/GreeterConfig.cmake"
     INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
+```
 
-# install the CMake targets
+internally calls `configure_file()` to generate the package file from the template. The generated file will be called `GreeterConfig.cmake` and will be installed to `${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter`. The template file is a generic file that looks like this:
+
+```CMake
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
+check_required_components("@PROJECT_NAME@")
+```
+
+The `@PACKAGE_INIT@` macro is replaced by the `CMakePackageConfigHelpers` module with the necessary code to initialize the package. The `@PROJECT_NAME@` macro is replaced with the project name. It includes the file containing the targets and checks if the required components are available.
+
+The last step is to install the CMake targets:
+
+```CMake
 install(
     EXPORT GreeterTargets
     FILE GreeterTargets.cmake
@@ -354,3 +370,16 @@ install(
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
 ```
+
+This takes the export set `GreeterTargets` which we created above with the `install(EXPORT)` command and installs it to `${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter`. Then the namespace `Greeter::` is added to the targets in the export set. This means that the targets can be used with `Greeter::Greeter` instead of just `Greeter`.
+
+With this the library is ready to be, built installed and used with `find_package()`. To build and install the library call.
+    
+```bash
+cmake -B build -S .
+cmake --build build --target install
+```
+
+By default this will create a static library, to create a shared library add `-DBUILD_SHARED_LIBS=ON` to the `cmake` command to configure the project. 
+
+The setup described here is the bare minimum to create a clean library with CMake. There are a few more things that can be done to make the library more usable and portable, like adding [packaging information](https://cmake.org/cmake/help/latest/module/CPack.html) and of course it pays to set up proper [testing](https://cmake.org/cmake/help/latest/module/CPack.html) as well. 
