@@ -41,7 +41,7 @@ A typical CMakeLists.txt
 
 .left[
 
-```CMake
+```cmake
 
 project(myProject VERSION 1.0.0 LANGUAGES CXX)
 
@@ -207,7 +207,7 @@ Symbol Visibility in Libraries (DLLs)
 ===
 
 .left[
-  ```CMake
+  ```cmake
 
 add_library(hello SHARED) # Prefer to let the user set SHARED or STATIC
 *set_property(TARGET hello PROPERTY CXX_VISIBILITY_PRESET "hidden")
@@ -249,7 +249,7 @@ set_target_properties(hello
 # Superbuilds With Non-CMake parts
 
 .left[
-```CMake
+```cmake
 project(SuperbuildExample)
 include(ExternalProject)
 set(installDir ${CMAKE_CURRENT_BINARY_DIR}/install)
@@ -285,7 +285,7 @@ Speeding up compilation - ccache
 .left[
 
 CMakeLists.txt
-```CMake
+```cmake
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
@@ -317,7 +317,7 @@ Speeding up compilation - Precompiled Headers
 ===
 
 .left[
-```CMake 
+```cmake 
 target_precompile_headers(ch14_precompiled_headers PRIVATE 
                           src/fibonacci.h
                           <cstdint>
@@ -339,7 +339,7 @@ Speeding up compilation - Unity Builds
 ===
 
 .left[
-  ```CMake
+  ```cmake
 
 add_executable(my_unity_build)
 
@@ -382,7 +382,7 @@ Speeding up CMake - profiling
 ===
 
 .left[
-```CMake
+```cmake
 
 cmake -S <sourceDir> -B <buildDir> \ 
     --profiling-output ./profiling.json --profiling-format=google-trace
