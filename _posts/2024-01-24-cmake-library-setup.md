@@ -5,7 +5,7 @@ description: "How to set up a library with CMake, including proper symbol visibi
 thumbnail: images/cmake-logo.png
 ---
 
-**Creating a clean library that has proper symbol visibility and installation instructions mit sound difficult.** However with CMake it is relatively straight forward to set up, even if there are a few things to consider. Actually creating creating a library is as simple as invoking the `add_library()` command and adding the sources to it. When it comes to setting up the installation instructions and symbol visibility properly there is a bit more to it. There are also some small, but useful things like defining the version compatibility of the library that make the life of developers a lot easier if done properly. 
+**Creating a clean library that has proper symbol visibility and installation instructions might sound difficult.** However with CMake it is relatively straight forward to set up, even if there are a few things to consider. Actually creating creating a library is as simple as invoking the `add_library()` command and adding the sources to it. When it comes to setting up the installation instructions and symbol visibility properly there is a bit more to it. There are also some small, but useful things like defining the version compatibility of the library that make the life of developers a lot easier if done properly. 
 
 In this post, we will go through the steps to create a library with CMake, including proper symbol visibility and installation. All the code for this post is available as [a template on GitHub](https://github.com/bernedom/CMake_Library_Template)
 
