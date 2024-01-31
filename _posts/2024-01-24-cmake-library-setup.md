@@ -26,7 +26,7 @@ For detailed documentation on the commands used in this post, please refer to th
 
 ## Setting up the project
 
-Choosing the right file structure for a project is always important as it makes it easier to find files and helps to keep the project organized. For libraries it is even more important, most likely others will want to use the library as well. Additionally not all files needed to build a library are necessary to use the library, so a clean separation helps to only install the files that are needed. For this post, we will create a library called "Greeter" or "libGreeter" and use the following file structure:
+Choosing the right file structure for a project is always important as it makes it easier to find files and helps to keep the project organized. For libraries it is even more important, as others will want to use the library as well. Usually, not all files needed to build a library are necessary to use the library, so a clean separation helps to only install the files that are needed. For this post, we will create a library called "Greeter" or "libGreeter" and use the following file structure:
 
 
 ```bash
@@ -44,7 +44,7 @@ Choosing the right file structure for a project is always important as it makes 
     └── internal.hpp
 ```
 
-The library will expose a class `Greeter::Hello` that contains a `greet()` function that prints "Hello ${name} from a library". This class is declared in the `include/hello/hello.hpp`. Internally it uses a private function called `print_impl` which is defined in The `internal.cpp` and `internal.hpp` files are used to demonstrate how to hide symbols from the library interface. The `GreeterConfig.cmake.in` file is used to configure the CMake package file that will be used to make the library usable with `find_package()`.
+The library will expose a class `Greeter::Hello` that contains a `greet()` function that prints "Hello ${name} from a library" and it is declared in the `include/hello/hello.hpp`. Internally it uses a private function called `print_impl` which is defined in The `internal.cpp` and `internal.hpp` files. These are used to demonstrate how to hide symbols from the library interface. The `GreeterConfig.cmake.in` file is used to configure the CMake package file that will be used to make the library usable with `find_package()`.
 
 Let's have a look at the public header file `include/greeter/hello.hpp`:
 
