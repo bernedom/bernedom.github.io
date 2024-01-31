@@ -106,7 +106,7 @@ project(
   LANGUAGES CXX)
 
 find_package(Qt5 REQUIRED COMPONENTS Core Quick)
-set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android" CACHE INTERNAL "" FORCE)
 
 
 set(CMAKE_AUTOMOC ON)
@@ -133,7 +133,7 @@ The first line `cmake_minimum_required(VERSION 3.21)` sets the minimum required 
 The call to `project()` sets up the basic project information. In this case, the project is called `CMakeQtAPKExample` and we tell CMake that it is a C++ project by setting the `LANGUAGES` to `CXX`. Qt will later use the project name for the generated APK. 
 
 Before we start defining our application, tell CMake to look for the necessary Qt libraries with the call to `find_package(Qt5 REQUIRED COMPONENTS Core Quick)`. This tells CMake to look for the package `Qt5` which is required for building this project, and inside the package the modules `Core` and `Quick` should be present. If any of the modules or the package itself is not found, CMake will stop with an error. Since Qt for android is usually not installed in the default location, we added the path to Qt to the `CMAKE_PREFIX_PATH` variable in the `CMakePresets.json`. 
-Next, we tell CMake where to find the Android-specific files by setting the `ANDROID_PACKAGE_SOURCE_DIR` variable to the `android` subfolder. Since this is a very simple project the directory only contains the `AndroidManifest.xml` but for more complex projects `build.gradle` and other gradle scripts, as well as custom java code, can be placed there. 
+Next, we tell CMake where to find the Android-specific files by setting the `ANDROID_PACKAGE_SOURCE_DIR` variable to the `android` subfolder. Since this is a very simple project the directory only contains the `AndroidManifest.xml` but for more complex projects `build.gradle` and other gradle scripts, as well as custom java code, can be placed there. You'll notice that this variable is set as an internal cache variable that will be force-overwritten by each configuration step. This is needed so the Qt AndroidExtras module is forced to use our custom `AndroidManifest.xml` file instead of the generated one. This is a somewhat hacky solution caused by the Qt Android extras from Qt5 not respecting the variable otherwise. 
 
 The next two lines `set(CMAKE_AUTOMOC ON)` and `set(CMAKE_AUTORCC ON)` tell CMake to automatically generate the `moc`-files and compile any `qrc` files attached to any CMake target. 
 
