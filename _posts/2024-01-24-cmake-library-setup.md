@@ -96,8 +96,9 @@ set(CMAKE_DEBUG_POSTFIX
     d
 )
 
-# add the library target
+# add the library target and an alias
 add_library(Greeter)
+add_library(Greeter::Greeter ALIAS Greeter)
 
 # set properties for the target. VERSION set the library version to the project
 # version * SOVERSION set the compatibility  version for the library to the
@@ -219,7 +220,9 @@ For libraries the `VERSION` field is important, as this is used to determine the
 
 The next thing to do is to set a debug postfix for the library with `set(CMAKE_DEBUG_POSTFIX d)`. This means when building the library in debug mode, it will append a "d" to the resulting library file. This is useful to distinguish between debug and release builds of the library, but it is an optional step. This is a global option for the project, so it will affect all libraries and executables inside the project. 
 
-After that the library target is created with `add_library(Greeter)`. This will create a library target called `Greeter` which can be used to add sources, set properties and link against other libraries. 
+After that the library target is created with `add_library(Greeter)`. This will create a library target called `Greeter` which can be used to add sources, set properties and link against other libraries. To make the library usable with `find_package()` the same way as if it was included with `add_subdirectory` or with `FetchContent` we also create an alias for the library with `add_library(Greeter::Greeter ALIAS Greeter)`.  
+
+That way all targets that use the library can use `Greeter::Greeter` instead of just `Greeter`. This is useful to avoid name clashes and to make it clear that the target is a library.
 
 Once the target is defined we can set the properties for the library. 
 
