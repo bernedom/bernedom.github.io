@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Preventive vs. Corrective Planning in Software Development: Striking the Balance
+title:  "Preventive vs. Corrective Planning in Software Development: Striking the Balance"
 description: "Striking the balance between preventive & corrective planning in software development is helps navigating critical decisions and uncertainties effectively."
-thumbnail: images/cmake-logo.png
+thumbnail: images/preventive_planning/preventive_planning.png
 ---
 
 **In software development, the way we do planning plays a crucial role in determining the success or failure of a project or product**. It's a dance between trying to foresee every possible scenario and being agile enough to navigate uncertainties as they pop up. On a high level, two primary approaches dominate this landscape: preventive planning and corrective planning. While classical project management methodologies often favor preventive planning, the agile movement has brought corrective planning to the forefront, emphasizing adaptability and responsiveness.
@@ -11,13 +11,17 @@ thumbnail: images/cmake-logo.png
 
 Preventive planning operates on the principle of anticipating as much as possible. It aims to foresee and address potential issues, edge cases, and uncertainties before they materialize. In this approach, meticulous effort is invested upfront to cover all bases, in the hope to leave little room for surprises during the development process. Even with agile methodologies, safety-critical systems or projects with regulatory requirements might necessitate this thorough approach at least for some parts. 
 
-Imagine building software for a medical device or an autonomous vehicle. Here, the stakes are high, and even the smallest oversight could have catastrophic consequences. Preventive planning becomes imperative in such scenarios to ensure that every possible scenario is considered and addressed preemptively.
+> Preventive planning becomes a necessity in safety-critical systems.
+
+Imagine building software for a medical device or an autonomous vehicle. Here, the stakes are high, and even the smallest oversight could have catastrophic consequences. Preventive planning becomes imperative in such domains to ensure that every possible scenario is considered and addressed preemptively.
 
 On the other hand, preventive planning can also lead to analysis paralysis, where teams get bogged down in planning and lose sight of the bigger picture. The risk of over-engineering or building unnecessary features looms large when the focus is solely on preventing every conceivable issue upfront. This can lead to delays, increased costs, and a lack of adaptability when faced with changing requirements or market conditions. Additionally preventive planning is time consuming without tangible or sellable results, this bears a high risk that late but necessary changes might not be considered because of the sunk cost fallacy of the effort already invested.
 
 ## Corrective Planning: Navigating Uncertainty
 
 On the flip side, corrective planning thrives in environments characterized by uncertainty and rapid change. Instead of trying to predict and mitigate every potential issue upfront, corrective planning focuses on delivering value quickly and iteratively. It embraces the idea that it's more efficient to course-correct as you go rather than attempting to chart the perfect path from the outset.
+
+> Agile methodologies exemplify corrective planning in action
 
 This approach is particularly well-suited for software development, where requirements evolve, technologies advance, and market dynamics often shift quickly. Agile methodologies exemplify corrective planning in action, emphasizing flexibility, continuous feedback, and incremental delivery.
 
@@ -31,7 +35,9 @@ For example, selecting the appropriate technology stack or defining underlying a
 
 Moreover, domain-specific requirements may demand a more cautious approach. Industries like healthcare, finance, and aerospace have stringent regulations and compliance standards that leave little room for error. Here, preventive planning becomes not just a preference but a necessity to ensure adherence to industry norms and mitigate risks effectively.
 
-The dichotomy between preventive and corrective planning isn't a matter of choosing one over the other but rather finding the right balance between the two based on the project's unique characteristics and constraints. Here are some strategies to strike this balance effectively:
+> Expertise and trust are key to striking the right balance between preventive and corrective planning.
+
+The difference between preventive and corrective planning isn't a matter of choosing one over the other but rather finding the right balance between the two based on the project's unique characteristics and constraints. Here are some strategies to strike this balance effectively:
 
 * **Risk Assessment**: Conduct a comprehensive risk assessment to identify critical areas where preventive planning is non-negotiable. Allocate resources and attention accordingly to mitigate these risks proactively.
 
