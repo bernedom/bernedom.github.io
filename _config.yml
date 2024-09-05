@@ -19,8 +19,9 @@ avatar: https://avatars3.githubusercontent.com/u/15666436?s=460&v=4
 footer-links:
   dribbble:
   email: dominik.berner@gmail.com
-  facebook:
-  flickr:
+  mastodon:
+  - username: doeme
+    instance: hachyderm.io
   github: bernedom
   instagram:
   linkedin: dominik-berner-275529b5
@@ -29,7 +30,6 @@ footer-links:
   twitter: BernerDominik
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
