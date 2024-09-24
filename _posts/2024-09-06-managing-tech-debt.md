@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "A Little Bit of Tech Debt Has Hurt Nobody"
+title: "Tech Debt and Tech Equity: How to Manage Your Technical Debt"
 description: "Tech debt is a common problem in software development. It can slow down development, increase the risk of bugs, and make the codebase harder to maintain. In this post, we'll explore what tech debt is, why it's important to manage, and how to prevent it from becoming a problem in the first place."
 thumbnail: images/cmake-conan-logo.png
 ---
 
-**It's OK to have tech debt in your software product.** This statement might sound counterintuitive, but there's some truth to it. While the unchecked buildup of tech debt is a common problem for many software teams, if managed properly, having some tech debt isn't necessarily a bad thing. 
+**If there is tech debt, then there is also tech equity.** Managing tech debt is one of the big themes that permeates every discussion about (agile) software development.  While the unchecked buildup of tech debt is a common problem for many software teams, successful teams are constantly trading off removing tech debt against keeping the product running. If we're talking about tech debt, then we should also talk about *tech equity* as well.
 
-## What Is Tech Debt?
+## Tech Debt vs Tech Equity?
 
-The term *tech debt* is one of those fuzzy buzzwords we software engineers like to throw around whenever a feature takes longer than expected to develop or when we disagree with the decisions of our product owners or project managers. But what does it actually mean? Tech debt refers to the accumulation of shortcuts, workarounds, and suboptimal or short-sighted design decisions made during software development. These shortcuts are usually taken because of constraints like time pressure, lack of knowledge, an unknown context, or sometimes, simply because we were too lazy to do it properly and just wanted to be done with that #%$%^ feature.
+If *tech debt* is the amount of time lost yak shaving or just maintaining a system, then *tech equity* is the ability of a team to deliver new features quickly and reliably. Tech equity is the sum of all the good decisions made in the past that make it easier to deliver new features. It's the opposite of tech debt.
 
-Like financial debt, tech debt must be paid off at some point. Meanwhile, the interest must be paid. In the case of tech debt, the interest is the time and effort it takes to maintain and extend the software product. The more tech debt you accumulate, the more time you’ll need to spend fixing bugs, refactoring code, and implementing new features. 
+The term *tech debt* is a fuzzy buzzword we software engineers use a lot, it is the accumulation of shortcuts, workarounds, and suboptimal or short-sighted design decisions made during software development. These shortcuts are usually taken because of constraints like time pressure, lack of knowledge, an unknown context, or sometimes, simply because we were too lazy to do it properly and just wanted to be done with that #%$%^ feature.
+
+On the other side we have the ability of a team to deliver new features quickly and reliably. If we stick to the financial terms, let's call this *tech equity*. In finance, equity is usually defined as "the worth of a company, if all assets would be liquidated". In that sense, tech equity would be the worth of a software product, if all engineers would move to another product. 
+
+
+Like financial debt, interst must be paid and tech debt might be paid off at some point. A too large debt is detrimental to the equity of a product. In the case of tech debt, the interest is the excess time and effort it takes to maintain and extend the software product. The more tech debt you accumulate, the more time you’ll need to spend fixing bugs, refactoring code, and implementing new features. A common theme for teams with large technical debt is that even keeping the software running becomes a challenge.  
 
 --- **TODO GRAPH DEBT** ---
 
@@ -25,9 +30,11 @@ As engineers, we hate tech debt, while product owners seem to love it. Throughou
 
 Over the years, I’ve realized that accepting some tech debt is a viable strategy to get user feedback earlier and, ultimately, deliver more effectively. The key is managing tech debt properly and paying it back in a controlled way. One of my big "AHA" moments came when talking to people in the finance sector who deal with the risks of lending. A key factor is that **it's not the amount of debt that’s the problem, but the ability of the debtor to pay it back on time**. Taking on debt is even a viable business strategy for growth in some cases. The same applies to tech debt in software development.
 
+--- Graph tech debt curve over the lifetime of a project ---
+
 There’s the well-known iron triangle of software development that states you can have two of the following three: fast, good, or cheap. If you want to deliver a product fast and cheap, you’ll have to compromise on the quality of the code. Business typically leans toward fast and cheap, while engineers lean toward good. As the Agile Manifesto states, delivering working software is the primary measure of progress, and the best way to get feedback—and money—from customers is by delivering software to them. This doesn’t mean pushing out poorly made code at breakneck speed, but rather releasing at a "good enough" level and iterating from there.
 
-## Don't Let the Thugs Break Your Legs
+## Manage your technical equity
 
 As mentioned earlier, taking on debt is a viable business strategy—as long as you can pay the interest. When paying the interest becomes a burden, the debtor will need to pay off the debt or face bankruptcy. This can sometimes be done by taking on more or different debt at a better rate, selling assets, or restructuring the debt. The same principle applies to tech debt.
 
