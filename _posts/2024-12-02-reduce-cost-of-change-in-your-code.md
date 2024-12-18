@@ -52,11 +52,27 @@ Once you found the code, the fun part starts - changing the code and implementin
 
 When implementing a change having invested in good software practices up front pays off a lot. But even if you have not, then start with that change. It might as well be that when the original code was written there were no proper unit tests around, TDD was not practiced and no code reviews were done. So what? Start doing that now! One of the most important things you can do at that stage is to further reduce the cost of change. I tend to say that every implementation should start with a refactoring first. Maybe the code is not following the current coding standard, has the wrong level of abstraction or is not using any of the patterns you have chosen for that particular module. Refactor the code first, so it is easier to understand and change. 
 
-> Every implementation should strive to further reduce the cost of change.
+> Every implementation should strive to further reduce the cost of change (or at least not increase it significantly).
 
-There is of course a trade-off on how much can be done, at one point we might have to accept that some parts of the code are just too costly to repair and that we hit a flat spot on how much we can reduce the cost of change. The trade off here is usually wheter to sacrifice internal coherence of a module but improving decoupling and isolation of "bad code" more. On a whim I usually try to isolate first rather than to keep coherence, but that is a personal preference and depends on a lot of factors.
+There is of course a trade-off on how much can be done, at one point we might have to accept that some parts of the code are just too costly to repair and that we hit a flat spot on how much we can reduce the cost of change. The trade off here is usually whether to sacrifice internal coherence of a module but improving decoupling and isolation of "bad code" more. On a whim I usually try to isolate first rather than to keep coherence, but that is a personal preference and depends on a lot of factors. 
+
+A very good practice to make sure the cost of change stays manageable when implementing new features is to use a TDD approach and relentlessly apply the full cycle, which includes refactoring of the original code. To skip the last step in the TDD cycle is a direct invitation to increase the cost of change. The other benefit of a TDD approach is that test coverage of new code stays high. Which helps with verifying that the change is correct and that no regression bugs are introduced.
+
+### Testing and validating the changes
+
+When thinking about the cost of a new feature, the testing and validation cost is often forgotten or underestimated. This often goes back to the segmentation of the system and how localized the change is. The splash radius of a change is often a very good indicator on how high the testing and validation cost will be. If the change is localized, the testing effort is usually low, the wider the effects the more expensive testing goes. For instance optimizing the performance of a single algorithm is usually a very localized change and testing through an benchmark of before/after can be sufficient. Optimizing or changing a full workflow in the business logic could have a much wider effect and require a lot more testing, often involving manual testing - which is expensive.
+
+While the verification of a feature - aka it works as defined - can often be automated, the validation - aka it works as expected - is often a manual process. The more manual the validation process is, the higher the cost of change. It often pays off to think of what kind of validation is needed for a feature before actually implementing it. Sometimes validation of a change can only be done by the end user, so an easy way for (selectively) deploying changes to a subset of users can be a good strategy to reduce the cost of change.
+
+### Deploying the changes
+
+So the change is now implemented and tested! Very good, now let's ask the developers to roll it out to the production environment. This is where the cost of change can skyrocket. If the deployment process is manual, error prone and time consuming, the cost of change is high even for the tiniest change. The deployment process is often a neglected part of the software development process, but it is a very important part of the cost of change. If deployment to production is hard and involves jumping through seven hoops to get it done, a common pattern is that multiple changes are bundled together to reduce the cost of deployment. The problem here arises that at one point the feedback loop gets a lot longer and that big releases have a much higher chance to introduce hidden regression. 
+
+Also as long as a feature is not deployed it only generates cost, but no value. The most beautiful feature is worthless if no-one is using it. One of the major problems in software engineering is that it is often viewed as expensive and the cost factor is the main discussion point. While it might be true, that software development is not cheap, holding back the work done and not letting if generate value is even more expensive. 
 
 
+
+Braindump:
 
 Cost of change in software is driven by a number of factors. Some of the most common factors include:
 
@@ -67,8 +83,6 @@ Cost of change in software is driven by a number of factors. Some of the most co
 * **Lack of visible intent**: Code that doesn't clearly express its intent is difficult to change. If you can't tell what the code is supposed to do, you can't be sure that your changes are correct.
 
 
-
-Braindump:
 
 * Fixed cost drivers- Changing OS, changing language, changing framework, changing architecture... (external, technical factors)
     * Keep add it, keeping it in small increments, keep it up to date reduces future cost of change
