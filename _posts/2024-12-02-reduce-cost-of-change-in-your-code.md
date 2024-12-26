@@ -16,11 +16,12 @@ When running and maintain software there is always a base layer of effort needed
 The *controllable cost of change* on the other hand is driven by the amount of defects reported, the amount of feature requests and changes, changes in personnel (knowledge shift), volatility of the user base and evolving user needs. While these factors that are often difficult to predict and plan, a development team can usually exert some control over these factors through deciding when, how or if to implement a change or by accepting certain limitations in functionality or stability instead of fixing a defect. The other way to exert control over the cost of change is by by rigorously applying good software development practices and principles.
 
 Looking at the typical software development process, any change made on an existing codebase usually involves the following steps:
+
 1. identifying the requirements of the change
 1. looking for the parts of the code that need to be changed
 1. changing the code and implementing the change
 1. testing and validating the changes
-1. deploying the changes to the production environment 
+1. deploying the changes to the production environment
 
 Each of these steps can be a source of cost and each of them can be optimized to reduce the cost of change. An important factor here is also, that not just the amount of time spent actually doing these steps is a cost driving factor, but also the speed at which these steps can be done. The faster a change can be implemented, tested and deployed the faster the feedback loop can be closed and the faster value is generated. Nothing costs more than a change that is lying around for weeks or months before it is deployed and validated.
 
