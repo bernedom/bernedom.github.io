@@ -11,7 +11,7 @@ thumbnail: images/cmake-conan-logo.png
 
 When talking about the cost of change in software as part of the total cost of ownership (TCO) of software, we are talking about the cost of maintaining and changing the software over time. While the cost of operating a software for instance in the cloud can be a significant cost factor contributing to the TCO, another driving cost factor is the amount of time software developers spend changing the code, improving or adding features and fixing defects.
 
-When running and maintain software there is always a base layer of effort needed, just to keep the software running and up to date. This is what I refer as the *fixed cost of change*. This cost is driven by external factors such as operating system updates, evolving programming languages and changing frameworks or changes in the underlying hardware. These are factors that are often outside of the control of the software developers an usually require some effort to adapt the software to these changes without bringing more visible features to the software. 
+When running and maintain software there is always a base layer of effort needed, just to keep the software running and up to date. This is what I refer as the *fixed cost of change*. This cost is driven by external factors such as operating system updates, evolving programming languages and changing frameworks or changes in the underlying hardware. These are factors that are often outside of the control of the software developers an usually require some effort to adapt the software to these changes without bringing more visible features to the software.
 
 The *controllable cost of change* on the other hand is driven by the amount of defects reported, the amount of feature requests and changes, changes in personnel (knowledge shift), volatility of the user base and evolving user needs. While these factors that are often difficult to predict and plan, a development team can usually exert some control over these factors through deciding when, how or if to implement a change or by accepting certain limitations in functionality or stability instead of fixing a defect. The other way to exert control over the cost of change is by by rigorously applying good software development practices and principles.
 
@@ -35,7 +35,7 @@ When it comes to the controllable cost of change, there are a number of strategi
 
 ### Identify requirements - Say "No" to a change
 
-Let's start at the very beginning at *identifying requirements*. The biggest cost saver here is saying "No" to a change. One of the twelve principles of the agile manifesto is "Simplicity--the art of maximizing the amount of work not done--is essential." The equation is simple, the less features and code there is in a product, the less there is to maintain. To do so a clear discussion about the value of the change is necessary,  Ask "do we (or one of our stakeholders) benefit if we do this?" if the answer is not a clear "yes", then don't do it. A frequent mistake here is that teams at this point are not talking about the value, but about the predicted cost only. A typical pattern I observe is that developers are asked to estimate the change and if they give a low enough number, the change is applied. 
+Let's start at the very beginning at *identifying requirements*. The biggest cost saver here is saying "No" to a change. One of the twelve principles of the agile manifesto is "Simplicity--the art of maximizing the amount of work not done--is essential." The equation is simple, the less features and code there is in a product, the less there is to maintain. To do so a clear discussion about the value of the change is necessary,  Ask "do we (or one of our stakeholders) benefit if we do this?" if the answer is not a clear "yes", then don't do it. A frequent mistake here is that teams at this point are not talking about the value, but about the predicted cost only. A typical pattern I observe is that developers are asked to estimate the change and if they give a low enough number, the change is applied.
 
 > A common mistake when deciding whether to fix a defect or add a feature is to talk about cost only instead of value first.
 
@@ -47,15 +47,15 @@ Once the decision is made to implement a change, the next step is to find the pa
 On a higher level, are you using a consistent architecture pattern like MVC, MVVM, Clean Architecture or Hexagonal Architecture? Are you using a consistent way to structure your codebase, like for instance grouping code by feature or by layer? Again consistency is more important than the actual choice of the pattern, although choosing the completely wrong architecture can be a major cost driver. However, here the cost of change can also by reducing by going for low coupling, high cohesion and high modularity.
 
 Stick to your chosen design within a module, but decouple modules as much as possible. If your code is tightly coupled, you will have to change many other parts of the code when you change one part. This is a major cost driver in software development. The more code changed, the more likely you are to introduce bugs and the higher the testing effort will be. This of course has a backwards effect on the decision whether to implement the changed requirement or not. If you are sure that the change will be localized and not affect other parts of the code, it's way easier to say "yes" to a change.
-Once you found the code, the fun part starts - changing the code and implementing the change. 
+Once you found the code, the fun part starts - changing the code and implementing the change.
 
 ### Implementing the change
 
-When implementing a change having invested in good software practices up front pays off a lot. But even if you have not, then start with that change. It might as well be that when the original code was written there were no proper unit tests around, TDD was not practiced and no code reviews were done. So what? Start doing that now! One of the most important things you can do at that stage is to further reduce the cost of change. I tend to say that every implementation should start with a refactoring first. Maybe the code is not following the current coding standard, has the wrong level of abstraction or is not using any of the patterns you have chosen for that particular module. Refactor the code first, so it is easier to understand and change. 
+When implementing a change having invested in good software practices up front pays off a lot. But even if you have not, then start with that change. It might as well be that when the original code was written there were no proper unit tests around, TDD was not practiced and no code reviews were done. So what? Start doing that now! One of the most important things you can do at that stage is to further reduce the cost of change. I tend to say that every implementation should start with a refactoring first. Maybe the code is not following the current coding standard, has the wrong level of abstraction or is not using any of the patterns you have chosen for that particular module. Refactor the code first, so it is easier to understand and change.
 
 > Every implementation should strive to further reduce the cost of change (or at least not increase it significantly).
 
-There is of course a trade-off on how much can be done, at one point we might have to accept that some parts of the code are just too costly to repair and that we hit a flat spot on how much we can reduce the cost of change. The trade off here is usually whether to sacrifice internal coherence of a module but improving decoupling and isolation of "bad code" more. On a whim I usually try to isolate first rather than to keep coherence, but that is a personal preference and depends on a lot of factors. 
+There is of course a trade-off on how much can be done, at one point we might have to accept that some parts of the code are just too costly to repair and that we hit a flat spot on how much we can reduce the cost of change. The trade off here is usually whether to sacrifice internal coherence of a module but improving decoupling and isolation of "bad code" more. On a whim I usually try to isolate first rather than to keep coherence, but that is a personal preference and depends on a lot of factors.
 
 A very good practice to make sure the cost of change stays manageable when implementing new features is to use a TDD approach and relentlessly apply the full cycle, which includes refactoring of the original code. To skip the last step in the TDD cycle is a direct invitation to increase the cost of change. The other benefit of a TDD approach is that test coverage of new code stays high. Which helps with verifying that the change is correct and that no regression bugs are introduced.
 
@@ -67,34 +67,11 @@ While the verification of a feature - aka it works as defined - can often be aut
 
 ### Deploying the changes
 
-So the change is now implemented and tested! Very good, now let's ask the developers to roll it out to the production environment. This is where the cost of change can skyrocket. If the deployment process is manual, error prone and time consuming, the cost of change is high even for the tiniest change. The deployment process is often a neglected part of the software development process, but it is a very important part of the cost of change. If deployment to production is hard and involves jumping through seven hoops to get it done, a common pattern is that multiple changes are bundled together to reduce the cost of deployment. The problem here arises that at one point the feedback loop gets a lot longer and that big releases have a much higher chance to introduce hidden regression. 
+So the change is now implemented and tested! Very good, now let's ask the developers to roll it out to the production environment. This is where the cost of change can skyrocket. If the deployment process is manual, error prone and time consuming, the cost of change is high even for the tiniest change. This can go up to the point, where developers avoid even the tiniest fixes, for fear of the cost of deployment. 
+The deployment process is often a neglected part of the software development process, but it is a very important part of the cost of change. If deployment to production is hard and involves jumping through seven hoops to get it done, a common pattern is that multiple changes are bundled together to reduce the cost of deployment. The problem here arises that at one point the feedback loop gets a lot longer and that big releases have a much higher chance to introduce hidden regression. The other pattern I frequently observe if deployment is expensive, is that only big and heavy changes are even passing the decision threshold, because why spend days deploying a small change that might not even be needed? The result is software that might just do what it is supposed to do, but the many small kinks and annoyances that are never fixed make it a pain to use.
 
-Also as long as a feature is not deployed it only generates cost, but no value. The most beautiful feature is worthless if no-one is using it. One of the major problems in software engineering is that it is often viewed as expensive and the cost factor is the main discussion point. While it might be true, that software development is not cheap, holding back the work done and not letting if generate value is even more expensive. 
+As long as a feature is not deployed it only generates cost, but no value, so early deployment of any change will bring more value over time. This leads to one of the most destructive and behavioral patterns in software engineering. Only discussing software development from the cost perspective when evaluating whether to apply a change or not. While it might be true, that software development is not cheap, holding back the work done and not letting if generate value is even more expensive. This closes the cycle of the cost of change, because if features are never deployed, the cost of change for the next feature might be even higher. 
 
+## Optimizing for reduced cost of change is a systemic problem
 
-
-Braindump:
-
-Cost of change in software is driven by a number of factors. Some of the most common factors include:
-
-* **Poor readability**: Code that is difficult to read and understand is difficult to change. If you can't understand what the code is doing, you can't change it without introducing bugs.
-* **Poor test coverage and very coarse tests**: Code that is not well tested is difficult to change. Without tests, you can't be sure that your changes haven't introduced new bugs.
-* **High coupling**: Code that is tightly coupled is difficult to change. When you change one part of the code, you have to change many other parts as well.
-* **High complexity**: Code that is overly complex is difficult to change. The more complex the code, the more likely you are to introduce bugs when you change it.
-* **Lack of visible intent**: Code that doesn't clearly express its intent is difficult to change. If you can't tell what the code is supposed to do, you can't be sure that your changes are correct.
-
-
-
-* Fixed cost drivers- Changing OS, changing language, changing framework, changing architecture... (external, technical factors)
-    * Keep add it, keeping it in small increments, keep it up to date reduces future cost of change
-* Variable cost drivers - Amount of defects reported, amount of feature requests and changes, change in personell (knowledge shift), volatilty of user base, evolving user needs
-* Cost: Time identifying requirements, looking for parts to change, time changing code (amount of code & localisation), testing, validation, deployment cost 
-* Changes frequently on a "as needed basis" - Hard to plan ahead
-* Measure: Amount of features per time, amount of defects returned, cycle time from When a change is requested to when it is deployed
-
-Measures:
-* Modularize and decouple your code as much as possible
-* Write clean, readable code, pair programming, code reviews
-* Write tests, test driven development - Don't skip the refactoring step, small tests to zoom in on probles caused by refactorings fast
-* Frequent deployments (keeps you informed on the state of CI/CD), CI/CD, deploy per feature (feature toggles)?
-* Detect accidential changes (linters, static analysis, code coverage), minimize regression
+Being aware of the cycle that drives the cost of change is the first step to reduce it. The cost of change in software engineering is not just a technical problem, but a systemic problem that involves the whole team or even larger parts of an organization. Optimizing the cycle can be a challenging task, however if the cycle is observed then one can usually spot the major bottlenecks quickly. Improve it by questioning the decision process on what to do, invest in good software practices to make the change easier to test, modularize and decouple your code to make it easier to find the parts that need to be changed, invest in a good deployment process to make the change easier to deploy and validate.
