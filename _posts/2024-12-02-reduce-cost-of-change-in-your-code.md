@@ -5,16 +5,15 @@ description: ""
 thumbnail: images/cmake-conan-logo.png
 ---
 
-**Software development is an expensive business.** Measured over the lifespan of a product, the cost of maintaining and changing the code over time greatly outweighs the initial cost spent to bring a first usable version of a product to the market. Successful software products nowadays often have lifespans measured in decades rather than years and often they are kept under active development throughout the whole period. So while the initial project might be a success and the product might be well received by the market, the real challenge is to keep the product relevant and competitive over time.
-Evolving technology, fixing defects, adaptation to customer needs or pressure from competition are common needs why software needs change. In the view of this it is paramount that when designing software and writing code you should optimize for reducing future cost of change first before anything else. In this post, we'll explore some strategies for optimizing your code to reduce the cost of change and improve the overall quality of your software.
+**Software development is an expensive business.** Measured over the lifespan of a product, the cost of maintaining and changing the code over time often greatly outweighs the initial development cost. Successful software products nowadays often have lifespans measured in decades rather than years and often they are kept under active development throughout the whole period. Evolving technology, fixing defects, adaptation to customer needs or pressure from competition are common needs why software needs change. In the view of this, it is paramount that *when designing software and writing code you should optimize for reducing future cost of change first before anything else*.
 
 ## What drives cost of change in software?
 
-When talking about the the cost of software products companies often talk about total cost of ownership (TCO). in simple terms, "How much does it cost to keep the software running and up to date. While the cost of operating a software can be a significant cost factor contributing to the TCO, often a much larger driving cost factor is the amount of time software developers spend changing the code, improving or adding features and fixing defects.
+When talking about the the cost of software products companies often talk about total cost of ownership (TCO), which means simple terms means, "How much does it cost to keep the software running and up to date". While the cost of operating a software can be a significant cost factor contributing to the TCO, often the far larger cost factor is the amount of time software developers spend changing the code, improving or adding features and fixing defects.
 
 > Changing and adapting software can be the major cost driver in software development, even before operational costs.
 
-When running and maintain software there is always a base layer of effort needed, just to keep the software running and up to date. This is what I refer as the *fixed cost of change*. This cost is driven by external factors such as operating system updates, evolving programming languages and changing frameworks or changes in the underlying hardware. These are factors that are often outside of the control of the software developers an usually require some effort to adapt the software to these changes without bringing more visible features to the software.
+When maintaining software over time, there is always a base layer of effort needed, just to keep the software running and up to date. This is what I refer as the *fixed cost of change*. This cost is driven by external factors such as operating system updates, evolving programming languages and changing frameworks or changes in the underlying hardware. These are factors that are often outside of the control of the software developers an usually require some effort to adapt the software to these changes without bringing more visible features to the software. Yet doing this kind of housekeeping is an important investment into keeping the cost of change low.
 
 The *controllable cost of change* on the other hand is driven by the amount of defects reported, the amount of feature requests and changes, changes in personnel (knowledge shift), volatility of the user base and evolving user needs. While these factors that are often difficult to predict and plan, a development team can usually exert some control over these factors through deciding when, how or if to implement a change or by accepting certain limitations in functionality or stability instead of fixing a defect. The other way to exert control over the cost of change is by by rigorously applying good software development practices and principles.
 
@@ -26,7 +25,9 @@ Looking at the typical software development process, any change made on an exist
 1. testing and validating the changes
 1. deploying the changes to the production environment
 
-Each of these steps can be a source of cost and each of them can be optimized to reduce the cost of change. An important factor here is also, that not just the amount of time spent actually doing these steps is a cost driving factor, but also the speed at which these steps can be done. The faster a change can be implemented, tested and deployed the faster the feedback loop can be closed and the faster value is generated. Nothing costs more than a change that is lying around for weeks or months before it is deployed and validated.
+TODO IMAGE of circle of change
+
+Each of these steps can be a source of cost and each of them can be optimized to reduce the cost of change. Generally, the faster a change can be implemented, tested and deployed the faster the feedback loop can be closed and the faster value is generated - This includes also the waiting time between the steps. Nothing costs more than a finished change that is lying around for weeks or months before it is deployed and validated.
 
 ## How to reduce the cost of change in your code?
 
