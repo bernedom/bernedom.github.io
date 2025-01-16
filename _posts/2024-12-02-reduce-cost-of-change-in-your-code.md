@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Optimize your code for reduced cost of change"
-description: ""
-thumbnail: images/cmake-conan-logo.png
+description: "Software products might live for a long time, after the initial cost the cost of change is the major cost driver. Optimize your code for reduced cost of change is paramount."
+thumbnail: images/cost-of-change/thumbnail-cost-of-change.jpg
 ---
 
 **Software development is an expensive business.** Measured over the lifespan of a product, the cost of maintaining and changing the code over time often greatly outweighs the initial development cost. Successful software products nowadays often have lifespans measured in decades rather than years and often they are kept under active development throughout the whole period. Evolving technology, fixing defects, adaptation to customer needs or pressure from competition are common needs why software needs change. In the view of this, it is paramount that *when designing software and writing code you should optimize for reducing future cost of change first before anything else*.
@@ -15,17 +15,19 @@ When talking about the the cost of software products companies often talk about 
 
 When maintaining software over time, there is always a base layer of effort needed, just to keep the software running and up to date. This is what I refer as the *fixed cost of change*. This cost is driven by external factors such as operating system updates, evolving programming languages and changing frameworks or changes in the underlying hardware. These are factors that are often outside of the control of the software developers an usually require some effort to adapt the software to these changes without bringing more visible features to the software. Yet doing this kind of housekeeping is an important investment into keeping the cost of change low.
 
+{% include cmake-best-practices-ad.html %}
+
 The *controllable cost of change* on the other hand is driven by the amount of defects reported, the amount of feature requests and changes, changes in personnel (knowledge shift), volatility of the user base and evolving user needs. While these factors that are often difficult to predict and plan, a development team can usually exert some control over these factors through deciding when, how or if to implement a change or by accepting certain limitations in functionality or stability instead of fixing a defect. The other way to exert control over the cost of change is by by rigorously applying good software development practices and principles.
 
 Looking at the typical software development process, any change made on an existing codebase usually involves the following steps:
 
-1. identifying the requirements of the change
+1. identifying the requirements of the change and decide for or against implementing it
 1. looking for the parts of the code that need to be changed
 1. changing the code and implementing the change
 1. testing and validating the changes
 1. deploying the changes to the production environment
 
-TODO IMAGE of circle of change
+{% include figure.html url="images/cost-of-change/cost-of-change-cycle.png" description="The circle of managing cost of change in software."%}
 
 Each of these steps can be a source of cost and each of them can be optimized to reduce the cost of change. Generally, the faster a change can be implemented, tested and deployed the faster the feedback loop can be closed and the faster value is generated - This includes also the waiting time between the steps. Nothing costs more than a finished change that is lying around for weeks or months before it is deployed and validated.
 
