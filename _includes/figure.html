@@ -1,7 +1,7 @@
 <figure markdown="0">
   <img src="{{site.baseurl}}/{{ include.url }}" alt="{{ include.description }}" {%if include.resize !=null %}
     style="width: {{include.resize}}%; height: {{include.resize}}%;" {% endif %} onclick="toggleSize(this)">
-  <figcaption>{{ include.description }} (Click to enlarge)
+  <figcaption>{{ include.description }} (Click to enlarge, click again to reduce the size)
     {% if include.source != null %}
     <div class="source-annotation">Source: {{include.source}}</div>
     {% endif %}
