@@ -15,7 +15,7 @@ The most common sins from my experience are:
 * Using variables instead of targets and packages.
 * writing non-portable CMake code.
 * Omitting CMakePresets to configure the project.
-* Not using toolchain files for cross-compilation or multiplatform builds.
+* Not using toolchain files for cross-compilation or multi-platform builds.
 * incomplete library and target setup, missing versioning and messing up PUBLIC/PRIVATE/INTERFACE usage.
 * Incorrect testing setup.
 
@@ -33,11 +33,16 @@ Using `find_package` is the preferred way to look for dependencies in CMake. Mov
 
 Closely related to hard coding dependencies is the practice of using variables to store paths or settings instead of using CMake's built-in targets and packages. This can lead to confusion and inconsistencies, as different parts of the project may use different paths or settings for the same dependency.
 
-### 2. Using Variables Instead of Targets and Packages
+### 2. Using global configuration and variables instead of targets and properties
 
-In CMake, it's important to use targets and packages instead of plain variables for dependencies. This is because targets provide a higher level of abstraction and better encapsulation of build properties. When you use variables, you risk introducing inconsistencies and making your build system harder to understand and maintain.
+It is now over ten years since CMake 3.0 - often referred as "Modern CMake" - came out, which introduced the concept of targets and properties. The introduction of the concept of targets was a major paradigm shift and a big enabler to create maintainable and portable CMake projects. With targets and properties, definition and configuration of libraries, executables, and other build artifacts became much more structured and manageable and notably mostly side-effect free. 
 
-For example, instead of using a variable to store the path to a library, you should create a CMake target for that library using `add_library()` or `add_executable()`. Then, you can use `target_link_libraries()` to specify dependencies between targets. This approach makes it clear which targets depend on each other and allows CMake to manage the build process more effectively.
+However, many projects still use global variables and configuration instead of targets, which can lead to a lot of confusion and issues. The problem with this is that it is easy to accidentally overwrite existing variables or settings, leading to unexpected behavior. Also variables have unclear scoping, while targets and their properties are inherently scoped, making it easier to combine existing projects and libraries without conflicts. 
+
+Using the `target_*` commands in CMake, such as `target_link_libraries`, `target_include_directories`, and `target_compile_options`, allows you to define dependencies and settings for specific targets, making your build scripts more modular and easier to understand. Especially, because with the keywords `PUBLIC`, `PRIVATE`, and `INTERFACE` one can control which properties are transient when linking against a target and which ones are not.
+
+While there are a few places such as `options()` where global variables are still useful, they should be used sparingly and only when absolutely necessary. After all, one key feature of CMake is that it allows you to define your build process in a modular way, which makes it easier to combine different projects or create build instructions that can be reused across different platforms.
+
 ### 3. Writing Non-Portable CMake Code  
 
 CMake is designed to be cross-platform, but many projects still write non-portable CMake code that only works on specific platforms or compilers. This can lead to issues when trying to build the project on different systems or with different toolchains.
