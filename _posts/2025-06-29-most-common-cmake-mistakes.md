@@ -41,15 +41,33 @@ However, many projects still use global variables and configuration instead of t
 
 Using the `target_*` commands in CMake, such as `target_link_libraries`, `target_include_directories`, and `target_compile_options`, allows you to define dependencies and settings for specific targets, making your build scripts more modular and easier to understand. Especially, because with the keywords `PUBLIC`, `PRIVATE`, and `INTERFACE` one can control which properties are transient when linking against a target and which ones are not.
 
-While there are a few places such as `options()` where global variables are still useful, they should be used sparingly and only when absolutely necessary. After all, one key feature of CMake is that it allows you to define your build process in a modular way, which makes it easier to combine different projects or create build instructions that can be reused across different platforms.
+While there are a few places such as `options()` where global variables are still useful, they should be used sparingly and only when absolutely necessary. After all, one key feature of CMake is that it allows you to define your build process in a modular way, which makes it easier to combine different projects or create build instructions that can be reused across different platforms. Nevertheless, keeping track of all the different configurations can be a challenge, which is where CMakePresets come in handy.
 
-### 3. Writing Non-Portable CMake Code  
 
-CMake is designed to be cross-platform, but many projects still write non-portable CMake code that only works on specific platforms or compilers. This can lead to issues when trying to build the project on different systems or with different toolchains.
-To avoid this, always use CMake's built-in functions and variables that are designed to be portable. For example, use `CMAKE_CXX_STANDARD` to specify the C++ standard instead of hardcoding compiler flags. Additionally, avoid using platform-specific paths or commands in your CMake scripts. Instead, use CMake's cross-platform features, such as `CMAKE_SYSTEM_NAME`, to conditionally include platform-specific code when necessary.
+### 3. Not using CMakePresets
 
-### 4. Omitting CMakePresets
-CMakePresets provide a standardized way to configure and build projects, making it easier for new contributors to get started and for CI systems to build consistently. Omitting them means every developer must figure out their own configuration, leading to inconsistencies and wasted time. Good projects provide `CMakePresets.json` files with common configurations for development, testing, and release builds. Always include and maintain presets for your project.
+CMake presets are arguably one of the most powerful features introduced in CMake since the introduction of targets. They allow you to define and manage different build configurations in a structured way, making it easier to switch between different build setups without having to modify the CMake scripts directly.
+
+> CMake presets are one of the most impactful features introduced in CMake since the introduction of targets.
+
+Managing different build configurations with CMake can be a complex task, especially when dealing with multiple platforms, compilers, and build types. [CMakePresets provide a way to define these configurations](https://dominikberner.ch/cmake-presets-best-practices/) in a single file, making it easier to maintain and share them across different developers and CI systems.
+
+By providing a standardized way to configure good build configurations for development, testing, and release builds, CMakePresets can significantly reduce the entry barrier for new contributors and help ensure that everyone is using the same build settings. Not using CMakePresets means that every developer has to figure out their own configuration, leading to inconsistencies and wasted time. Good projects provide `CMakePresets.json` files with common configurations for development, testing, and release builds. Always include and maintain presets for your project, and encourage contributors to use them or create their own `CMakeUserPresets.json` files for their specific needs.
+
+CMake presets are a game changer for managing build configurations, but they rely on the underlying CMake scripts to be as platform-agnostic and modular as possible. This means that the CMake scripts should not contain hardcoded paths or platform-specific commands, but rather use CMake's built-in functions and variables to ensure portability across different platforms and compilers.
+
+### 4. Using non-portable scripts or commands
+
+CMake's possibility to call external commands or scripts is very powerful, but it can also lead to non-portable code if not used carefully. Many projects still write CMake scripts that are tailored to specific platforms or compilers, which can cause issues when trying to build the project on different systems or with different toolchains.
+
+One of the most powerful features of CMake is it's ability to generate build files for different platforms and compilers. However this advantage is often lost when projects are using platform-specific commands or (external) scripts that are not portable across different systems. A few simple rules can help making CMake scripts more portable:
+
+* For custom scripting consider using CMakes built-in scripting capabilities instead of external scripts by calling `CMake -P <script>` or the `CMake -E` commands from the CMake scripts.
+* Compiler-specific flags or options should be set in the CMake presets
+* No hardcoded paths should be used, but rather use CMake's built-in functions to find libraries and include directories.
+* Use CMake's built-in functions and variables to ensure portability across different platforms and compilers.
+
+By following these four rules, you can create more portable and maintainable CMake scripts that work across different platforms and toolchains.
 
 ### 5. Not Using Toolchain Files for Cross-Compilation or Multiplatform Builds
 
