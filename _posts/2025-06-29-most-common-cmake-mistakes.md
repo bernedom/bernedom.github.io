@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "The 7 CMake anti-patterns that keep wasting your time"
-description: "CMake is powerful, but often blamed for bad build experiences. Most of the frustration, though, comes from avoidable mistakes. Here are 7 common CMake anti-patterns that waste your time—and how to fix them."
+description: "CMake is powerful, but often blamed for bad build experiences. Most of the frustration, though, comes from avoidable mistakes. Here are 7 common CMake anti-patterns that waste your time - and how to fix them."
 thumbnail: images/cmake-logo.png
 ---
 
-If that sounds familiar, you're not alone. CMake has a reputation for being painful to use - but most of that pain comes from bad practices, not the tool itself.In this post, I’ll break down 7 of the most common CMake anti-patterns I see in real projects. These issues often creep in from legacy setups or lack of modern CMake knowledge, and they tend to slow teams down, cause frustration, and make build systems nearly unmaintainable.
+
+**"CMake is hard and our builds are a nightmare!"** If that sounds familiar, you're not alone. CMake has a reputation for being painful to use - but most of that pain comes from bad practices, not the tool itself.In this post, I’ll break down 7 of the most common CMake anti-patterns I see in real projects. These issues often creep in from legacy setups or lack of modern CMake knowledge, and they tend to slow teams down, cause frustration, and make build systems nearly unmaintainable.
 
 Let’s fix that.
 
@@ -17,7 +18,7 @@ It bloats your repo, makes updates a hassle, and creates fragile builds. Modern 
 
 {% include cmake-best-practices-ad.html %}
 
-Even better, tools like [Conan or vcpkg](https://dominikberner.ch/conan-as-cmake-dependency-provider/) can take care of dependency management for you. Stop hardcoding paths—let CMake and your package manager handle it.
+Even better, tools like [Conan or vcpkg](https://dominikberner.ch/conan-as-cmake-dependency-provider/) can take care of dependency management for you. Stop hardcoding paths - let CMake and your package manager handle it.
 
 ## 2. Not using CMakePresets
 
@@ -39,23 +40,23 @@ And if you still need global project settings, use `options()` with good descrip
 
 ## 4. Writing Non-Portable Build Scripts
 
-It’s easy to hack together something that works on your machine and CMake's possibility to call external commands and scripts is very powerful. But that doesn't mean it's portable. Using platform-specific paths, scripts, or flags ties your build to a single setup—and breaks everything elsewhere.
+It’s easy to hack together something that works on your machine and CMake's possibility to call external commands and scripts is very powerful. But that doesn't mean it's portable. Using platform-specific paths, scripts, or flags ties your build to a single setup - and breaks everything elsewhere.
 
 Stick to CMake's built-in features:
 
-- Use `target_compile_options`, `target_compile_definitions`, etc., instead of global flags.
 - Stick global compiler flags into CMake presets.
+- Use `target_compile_options`, `target_compile_definitions`, etc., instead of global flags.
 - Use `cmake -P` and `cmake -E` for scripting, not Bash or PowerShell.
-- Set up toolchain files for cross-compilation.
 - Use CMake's built-in function to find things like libraries and include directories - No hardcoded paths in CMakeLists.txt!
+- Set up toolchain files for cross-compilation.
 
-Portability isn’t just for open-source projects. It’ll save you headaches even in single-platform codebases—especially when onboarding new devs or upgrading tools.
+Portability isn’t just for open-source projects. It’ll save you headaches even in single-platform codebases - especially when onboarding new devs or upgrading tools.
 
 ## 5. Half-Baked Library Setup
 
 Ever try using a library only to discover it’s missing version info, has broken exports, or forces a pile of transitive includes on you?
 
-That’s what happens when `target` usage is incomplete or sloppy.
+That’s what happens when the setup of the library target is incomplete or sloppy.
 
 Don’t just make everything `PUBLIC`. Be precise with `PRIVATE`, `PUBLIC`, and `INTERFACE`. Set symbol visibility correctly, especially for shared libs. And always include version info (`VERSION`, `SOVERSION`) for libraries - it helps tools, consumers, and future-you.
 
