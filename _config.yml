@@ -6,7 +6,7 @@
 title: Dominik Berner
 
 # Short bio or description (displayed in the header)
-description: C++ Coder, Agilist, Rock Climber, Potatosalad connoisseur
+description: C++ Coder, Agilist, Rock Climber, Potatosalad Expert
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars3.githubusercontent.com/u/15666436?s=460&v=4
@@ -26,7 +26,7 @@ footer-links:
   linkedin: dominik-berner-275529b5
   pinterest:
   rss: blork
-  twitter: 
+  twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
 
@@ -35,7 +35,7 @@ footer-links:
 disqus: bernedom-github-io
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: 
+google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
