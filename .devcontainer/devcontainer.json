@@ -1,5 +1,5 @@
 {
-    "name": "jekyll-playground",
+    "name": "jekyll devcontainer",
     "build": {
         "dockerfile": "Dockerfile"
     },
