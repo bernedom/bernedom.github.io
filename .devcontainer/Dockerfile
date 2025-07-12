@@ -5,7 +5,7 @@ RUN gem update bundler && \
 
 
 RUN apt-get update && \
-    apt-get install -y sudo bash-completion
+    apt-get install -y sudo bash-completion vim
 
 RUN groupadd -g 1000 builder && \
     useradd -m -u 1000 -g 1000 -s /bin/bash builder && \
