@@ -1,0 +1,10 @@
+{
+    "name": "jekyll-playground",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "forwardPorts": [
+        4000
+    ],
+    "remoteUser": "builder"
+}
