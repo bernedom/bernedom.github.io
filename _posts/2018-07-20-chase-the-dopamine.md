@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Chase the dopamine and get motivated
-thumbnail: images/dopamine/Dopamine.svg.png
+image: /images/dopamine/Dopamine.svg.png
 ---
 
 **"It is really demotivating, nothing gets done here."** A complaint I heard a few times in various settings. Sometimes just as a exclamation to vent steam, sometimes with a sigh and an edge of desperation to it. Surprisingly most of the time I hear this, it is from people that I esteem as far from lazy and quite capable of actually doing and completing things. But lack of motivation can strike the best of us. 
