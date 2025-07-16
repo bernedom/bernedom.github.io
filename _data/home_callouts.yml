@@ -1,0 +1,31 @@
+style: is-light
+height: is-medium
+items:
+  - title: Articles
+    subtitle: CMake, C++, Agile and Software Quality
+    icon: fa-rss
+    description: >
+      Articles about software development, C++, Agile and Software Quality.
+
+    call_to_action_name: See all articles
+    call_to_action_link: /blog/
+  
+  - title: My services
+    subtitle: Trainings, Consulting and project work
+    icon: fa-wrench
+    description: >
+      How I can help you with your software development projects.
+
+    call_to_action_name: Let's make software better
+    call_to_action_link: /services/
+
+  - title: Contact me
+    
+    icon: fa-envelope
+    icon_brand: false
+    description: >
+      Do you have a question, want to discuss a project or just want to say hello?
+      I am looking forward to hearing from you.
+
+    call_to_action_name: Get in touch
+    call_to_action_link: /page-3/
