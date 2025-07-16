@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 10 kleine Dinge die C++ einfacher machen
-thumbnail: images/cpp_logo.png
+image: /images/cpp_logo.png
 unlisted: true
 ---
 

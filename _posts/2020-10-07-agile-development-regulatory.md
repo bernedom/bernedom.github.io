@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Agile software development in a regulatory environment
-thumbnail: images/regulatory_agile/thumbnail.jpg
+image: /images/regulatory_agile/thumbnail.jpg
 description: how to benefit from apply agile software development in a regulatory environment such as ISO 13485 or IEC 62304
 ---
 

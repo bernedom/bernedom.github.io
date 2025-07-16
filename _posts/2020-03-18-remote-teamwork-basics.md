@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Making remote teamwork work
-thumbnail: images/remote-teamwork/thumbnail.jpg
+image: /images/remote-teamwork/thumbnail.jpg
 ---
 
 **How does remote teamwork actually work?** Working together remotely has its challenges, but they are not as big as one might think from the cozy office of a co-located team. While the communication bandwidth of physical face-to-face communication still beats everything else, but modern technology and a few rules for online behavior can make up for a lot.

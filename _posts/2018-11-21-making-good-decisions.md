@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decide to decide better
-thumbnail: images/decisions/thumbnail.jpg
+image: /images/decisions/thumbnail.jpg
 ---
 
 **How good are your decisions?** - Every day we decide a lot of things small and big. At work or any professional setting we often have clear deciders. This can be a senior subject matter expert, the traditional "boss" or some collaborative process in an empowered team - it does not really matter. Contrary to our private live, in business we often have to make decisions more explicit and documented, for instance in the form of meeting minutes. Some people are good at deciding, others find it very hard.
