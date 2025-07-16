@@ -60,3 +60,4 @@ exclude:
   - CNAME
 
 theme: bulma-clean-theme
+disqus.shortname: bernedom-github-io
