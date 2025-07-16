@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The currency of getting things done
-thumbnail: images/currency/thumbnail.png
+image: /images/currency/thumbnail.png
 ---
 
 **What is your organizations currency of getting things done?** When trying to getting things outside daily business done, every organization reacts to different kind of arguments and incentives. "Paying" in the right kind of arguments is often the key to get ones concerns put into action. 

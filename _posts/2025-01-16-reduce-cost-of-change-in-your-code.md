@@ -2,7 +2,7 @@
 layout: post
 title:  "Optimize your code for reduced cost of change"
 description: "Software products might live for a long time. After the initial cost, the cost of change is the major cost driver. Optimizing your code for reduced cost of change is paramount."
-thumbnail: images/cost-of-change/thumbnail-cost-of-change.jpg
+image: /images/cost-of-change/thumbnail-cost-of-change.jpg
 ---
 
 **Software development is an expensive business.** Measured over the lifespan of a product, the cost of maintaining and changing the code over time often greatly outweighs the initial development cost. Successful software products nowadays often have lifespans measured in decades rather than years, and often they are kept under active development throughout the whole period. Evolving technology, fixing defects, adaptation to customer needs, or pressure from competition are common reasons why software needs change. In view of this, it is paramount that *when designing software and writing code, you should optimize for reducing future cost of change first before anything else*.

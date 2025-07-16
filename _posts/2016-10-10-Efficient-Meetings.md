@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Five and a half steps to efficient meetings
-thumbnail: images/efficient-meetings/meeting-types-thumbnail.jpg
+image: /images/efficient-meetings/meeting-types-thumbnail.jpg
 ---
 
 **Meetings are boring, overcrowded, take up much of your valuable time and don't produce the desired results.** Or they can be interactive, efficient, goal-driven, interesting and sometimes even fun. So how to go about planning and running successful meetings?

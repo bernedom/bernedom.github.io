@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Get Professional - A professional skillset for software developers
-thumbnail: images/get-professional/thumbnail.png
+image: /images/get-professional/thumbnail.png
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A commit a day keeps the boredom away
-thumbnail: images/Git-Logo-2Color-thumb.png
+image: /images/Git-Logo-2Color-thumb.png
 ---
 
 **Most hobby projects die at the idea stage - Mine do not.** A while ago I decided to revive an old idea of mine to implement the [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units) as a [strongly typed C++ library](https://github.com/bernedom/SI). In order to try to bring this project forward I tried an experiment: **I would make at least one commit each workday for a month**. A month later I am somewhat proud to say, that I kept this promise to myself with only one "comittless" day. But how does my pet project look now? 
