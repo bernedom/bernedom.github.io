@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Privacy Policy
-permalink: /privacy/
+permalink: /about/privacy/
 ---
 
 This website does not track or store any personal information or personally identifiable information about its visitors.
