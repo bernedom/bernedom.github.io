@@ -2,7 +2,7 @@
 layout: post
 title:  "Using Conan as a CMake Dependency Provider"
 description: "With the addition of dependency providers in CMake 3.24 using Conan to manage dependencies becomes easier and more integrated. This post shows a step-by-step guide on how to use Conan as a CMake dependency provider."
-thumbnail: images/cmake-conan-logo.png
+image: /images/cmake-conan-logo.png
 ---
 
 **Managing dependencies in CMake is hard.** It's a common pain point for C++ developers, especially when working on multi-platform projects or with complex dependencies. The introduction of dependency providers in CMake 3.24 aims to simplify this process by allowing package managers like [Conan](https://conan.io/) to provide dependency information directly to [CMake](https://cmake.org/). Conan and CMake are already a powerful combination for managing C++ dependencies, and this new feature further enhances their integration. In this post, we'll explore how to use Conan as a CMake dependency provider, making dependency management in CMake projects more seamless and efficient. [A sample project can be found on my github account](https://github.com/bernedom/CMake-Conan-Dependency-Provider-Example)

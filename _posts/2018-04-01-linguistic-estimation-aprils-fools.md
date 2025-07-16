@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Better estimates by using applied linguistics
-thumbnail: images/aprils-fool/aprils-fool.jpg
+image: /images/aprils-fool/aprils-fool.jpg
 ---
 
 **Planning poker, magic estimation, T-shirt-size estimation and even the famed \#NoEstiamtes are too inaccurate** - But there is a way to estimate to up to 50% more accurately by using a simple formula  based on empirical measures and applied linguistics. Notice how developers use the same qualifiers for estimating workload over and over again? "It is just a minor bugfix", "This is a huge, complex task", "There is absolutely no way I can put an estimate on this one". Heard this sentences or variations of it in the past? Your best estimations are lying in front of you in plain sight. 

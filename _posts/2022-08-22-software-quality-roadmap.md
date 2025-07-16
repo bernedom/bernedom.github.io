@@ -2,7 +2,7 @@
 layout: post
 title: Bringing software quality into roadmaps
 description: Bringing engineering and quality topics into a development roadmap for software can be tough, especially when the pressure to put out more and more features are high. Leveraging the ISO 25010 standard for software quality there are a few relatively simple methods to bring the topic to the table.
-thumbnail: images/software-quality/Quality.png
+image: /images/software-quality/Quality.png
 ---
 
 "We really struggle to bring engineering topics into the roadmap! When do we finally get the time to improve our code quality?" Many software development teams gripe when it comes to getting engineering topics into a product roadmap. For many, improving the lesser visible aspects of software quality comes second putting more features into a product. Nevertheless, creating quality software is a necessity if products are expected to perform on the market and be developed for a long time. The [ISO 25010 model for software quality](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010) lays a good foundation to discuss the quality topic with the relevant stakeholders and with a few easy-to-learn tools putting features that improve the quality into a backlog becomes much easier. 

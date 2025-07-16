@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What secret agents need to work successfully
-thumbnail: images/james_bond/thumbnail.jpg
+image: /images/james_bond/thumbnail.jpg
 ---
 
 **The core capital of modern companies are their employees**. This fundamental truth is even more important for companies operating in areas that require highly trained and motivated people with a high degree of initiative. It is not just software companies that fit perfectly into that scheme, but almost any engineering-driven company and many, many companies outside classical STEM fields. After all as  Humphrey Watts said: “Every business is a software business”. 

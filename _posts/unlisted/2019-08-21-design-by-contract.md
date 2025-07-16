@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vertraglich zugesicherte Code-Robustheit
-thumbnail: images/cpp_logo.png
+image: /images/cpp_logo.png
 unlisted: true
 ---
 

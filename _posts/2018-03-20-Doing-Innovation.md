@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Do not leave your innovation to the engineers
-thumbnail: images/innovation/innovation_by_people.jpg
+image: /images/innovation/innovation_by_people.jpg
 ---
 
 **We need to be innovative!** - I heard this statement or a variation of it a few times over my past in working as a software engineer. We engineers love this, as we get more time to tinker with anything we find interesting - Which is a lot. The result are often better tools or tool-chains to make our life as developers easier, but **very rarely the output of such initiatives improves something tangible for the users of the product we are working on**. Why? Because on these innovation days we are usually stuck together with other engineers which means that we mainly discuss engineering problems. 

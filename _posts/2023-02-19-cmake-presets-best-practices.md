@@ -2,7 +2,7 @@
 layout: post
 title: Organizing CMake presets
 description: CMake presets are a big help in how to configure CMake. This article shows how to set up and organize them.
-thumbnail: images/cmake-logo.png
+image: /images/cmake-logo.png
 ---
 
 **[CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) are arguably one of the biggest improvements in CMake since the introduction of targets in 2014.** In a nutshell, CMake presets contain information on how to configure, build, test and package a CMake project and they are a tremendous help when managing different configurations for various compilers and platforms. Instead of fiddling with various command-line options, presets are stored in a JSON file and can be used to configure CMake with a single command. This article shows how to set up and organize and use them so they are most effective and easy to maintain. 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The art of slicing stories
-thumbnail: images/slicing/thumbnail.png
+image: /images/slicing/thumbnail.png
 ---
 
 **Breaking down stories in small, manageable chunks is an essential skill when maintaining a good backlog.** Sounds good, but how does one actually do the slicing? Splitting backlog items is not magic, but a skill that can be learned. All it needs is a bit of thinking and a few techniques to get going. 
