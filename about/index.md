@@ -2,7 +2,10 @@
 layout: page
 title: About
 permalink: /about/
+image: /assets/images/portrait.jpg
 ---
+
+I am Dominik, a professional software engineer, blogger, and conference speaker with 20 years of professional software development under my belt. I code mainly in C++ and have worked on many software projects, from writing bleeding-edge software for surgical simulators in a startup, to maintaining large legacy platforms for large corporations in the MedTech industry, to creating IoT solutions and writing pilot software for drones. I believe that well-designed and maintained build environments are one of the key elements to enable teams to write software efficiently and excel at creating quality software. When I am not writing code, I occasionally write articles for my blog or speak at conferences about software development.
 
 Modern software development is a team sport that no longer happens behind closed doors. As a professional C++ developer and agilist I believe that software projects do not have to be painful and risky to execute. 
 
@@ -11,4 +14,4 @@ The articles on this blog have been written by me without the use of any AI like
 
 ### Contact me
 
-Over my github account https://www.github.com/bernedom or dominik.berner at googles mail 
+Over my [github account](https://www.github.com/bernedom) or dominik.berner at googles mail 
