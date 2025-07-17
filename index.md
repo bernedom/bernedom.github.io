@@ -1,6 +1,6 @@
 ---
 title: Dominik Berner
-subtitle: C++ Coder, Agilist, Rock Climber
+subtitle: Software delivery specialist, C++ Coder, Agilist, Rock Climber
 layout: page
 callouts: home_callouts
 show_sidebar: true
