@@ -61,5 +61,5 @@ exclude:
 
 theme: bulma-clean-theme
 disqus.shortname: bernedom-github-io
-paginate: 5
+paginate: 10
 paginate_path: "/blog/page:num"

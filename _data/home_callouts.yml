@@ -11,7 +11,7 @@ items:
     call_to_action_link: /blog/
   
   - title: My services
-    subtitle: Trainings, Consulting and project work
+    subtitle: CMake, Trainings, Consulting and Project Work
     icon: fa-wrench
     description: >
       How I can help you with your software development projects.
