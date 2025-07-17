@@ -1,5 +1,7 @@
 - name: Blog
   link: /blog/
+- name: CMake Best Practices
+  link: /cmake-best-practices/
 - name: About
   link: /about/
   dropdown:
