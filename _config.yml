@@ -63,3 +63,7 @@ theme: bulma-clean-theme
 disqus.shortname: bernedom-github-io
 paginate: 10
 paginate_path: "/blog/page:num"
+
+social:
+  linkedin: https://www.linkedin.com/in/dominik-berner/
+  github: https://github.com/bernedom
