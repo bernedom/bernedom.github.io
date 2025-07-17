@@ -25,7 +25,7 @@ CMake is a powerful tool for managing complex build systems, but it can be chall
 * Migration from legacy build systems to CMake
 * Review your CMake code and provide actionable feedback
 * Help you set up a modern CMake project structure
-* [CMake Best Practices](https://cmake-best-practices.com) - a comprehensive guide to CMake best practices
+* [CMake Best Practices](/cmake-best-practices) - a comprehensive guide to CMake best practices
 
 # Software Modernization in C++
 
