@@ -7,4 +7,10 @@ show_sidebar: true
 hero_image: /assets/images/front_hero.jpg
 ---
 
-# Welcome to my website
+# Get your software delivery on track
+
+Welcome! I'm Dominik Berner, a software delivery specialist with a passion for C++ coding and agile methodologies. Whether you're looking to streamline your development processes or enhance your team's performance, I'm here to help. 
+
+With years of experience in the software industry, I specialize in optimizing workflows, improving code quality, and fostering collaboration within teams. My approach combines technical expertise with lean and agile principles to ensure that your projects are delivered efficiently and effectively.
+
+Let's work together to elevate your software delivery practices. Whether you're a startup or an established enterprise, I can provide the guidance and support you need to achieve your goals.
