@@ -1,5 +1,5 @@
 - name: Services
-  link: /services_alt/
+  link: /services/
   dropdown:
     - name: Workshops
       link: /services/workshops/
