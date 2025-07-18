@@ -11,6 +11,10 @@ description: C++ Coder, Agilist, Rock Climber, Potatosalad Expert
 #
 # Flags below are optional
 #
+languages: ["en", "de"]
+default_lang: "en"
+exclude_from_localization: ["assets/images", "assets/css"]
+parallel_localization: true
 
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
