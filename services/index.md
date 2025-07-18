@@ -2,6 +2,7 @@
 layout: page
 title: Services
 subtitle: Let me help you with your software delivery needs
+callouts: service_callouts
 ---
 
 # Software Delivery Consulting
