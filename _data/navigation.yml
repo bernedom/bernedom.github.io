@@ -1,10 +1,16 @@
-- name: Blog
-  link: /blog/
 - name: Services
-  link: /services/
+  link: /services_alt/
   dropdown:
     - name: Workshops
       link: /services/workshops/
+    - name: Software Delivery Consulting
+      link: /services/software-delivery-consulting/
+    - name: CMake Expertise
+      link: /services/cmake-expertise/
+    - name: C++ Modernization
+      link: /services/cpp-modernization/
+- name: Blog
+  link: /blog/
 - name: CMake Best Practices
   link: /cmake-best-practices/
 - name: About
