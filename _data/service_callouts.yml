@@ -1,0 +1,36 @@
+style: is-light
+height: is-medium
+items:
+  - title: Software Delivery Consulting
+    subtitle: Speed up your release cycles
+    icon: fa-rocket
+    description: >
+      * On site or remote consulting
+      * Assess your current software delivery processes
+      * Identify bottlenecks and areas for improvement
+      * Implement best practices for software development and delivery
+      * Hands-on streamlining of CI/CD systems
+
+
+    call_to_action_name: Read more
+    call_to_action_link: /services_alt/software-delivery-consulting/
+  
+  - title: CMake Expertise
+    subtitle: CMake, Trainings, Consulting and Project Work
+    icon: fa-wrench
+    description: >
+      How I can help you with your software development projects.
+
+    call_to_action_name: Read more
+    call_to_action_link: /services_alt/cmake-expertise/
+
+  - title: Software Modernization
+    subtitle: C++ Modernization, Refactoring and Code Reviews
+    
+    icon: fa-gear
+    icon_brand: false
+    description: >
+      adopt modern C++ standards and practices to improve code quality, maintainability, and performance
+
+    call_to_action_name: Read more
+    call_to_action_link: /services_alt/software-delivery-consulting/
