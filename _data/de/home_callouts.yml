@@ -1,0 +1,30 @@
+style: is-light
+height: is-medium
+items:
+  - title: Dienstleistungen
+    subtitle: CMake, Schulungen, Beratung und Projektarbeit
+    icon: fa-wrench
+    description: >
+      Wie ich Sie bei Ihren Softwareentwicklungsprojekten unterstützen kann.
+
+    call_to_action_name: Lassen Sie uns Software besser machen
+    call_to_action_link: /services/
+
+  - title: Artikel
+    subtitle: CMake, C++, Agile und Softwarequalität
+    icon: fa-newspaper
+    description: >
+      Artikel über Softwareentwicklung, C++, Agile und Softwarequalität.
+
+    call_to_action_name: Alle Artikel ansehen
+    call_to_action_link: /blog/
+
+  - title: Kontakt
+    icon: fa-envelope
+    icon_brand: false
+    description: >
+      Haben Sie eine Frage, möchten ein Projekt besprechen oder einfach nur Hallo sagen?
+      Ich freue mich darauf, von Ihnen zu hören.
+
+    call_to_action_name: Kontakt aufnehmen
+    call_to_action_link: /about/
