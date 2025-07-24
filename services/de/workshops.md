@@ -1,30 +1,31 @@
 ---
 layout: page
 title: Workshops & Trainings
-subtitle: Hands-on workshops to boost your team's skills
-lang: en
+subtitle: Praxisnahe Workshops zur Verbesserung der Teamkompetenzen
+lang: de
 permalink: /services/workshops/
 ---
 
-In the past years, I have conducted numerous workshops and training sessions to help teams improve their software delivery processes and CMake skills. Here are some of the workshops I offer:
+In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software-Delivery-Prozesse und CMake-Kenntnisse zu verbessern. Hier sind einige der Workshops, die ich anbiete:
 
-All workshops can be tailored to your team's needs, ranging from small 2h sessions to full-day or multi-day workshops. Topics include:
+Alle Workshops können individuell auf die Bedürfnisse Ihres Teams zugeschnitten werden – von kurzen 2-Stunden-Sessions bis hin zu ganztägigen oder mehrtägigen Workshops. Themen sind unter anderem:
 
-# CMake Workshops
+# CMake-Workshops
 
-As the author of [CMake Best Practices](/cmake-best-practices), I offer hands-on workshops to help your team master CMake. These workshops are designed to be practical and interactive, ensuring that your team gains real-world skills:
+Als Autor von [CMake Best Practices](/cmake-best-practices) biete ich praxisnahe Workshops an, um Ihr Team im Umgang mit CMake zu schulen. Diese Workshops sind interaktiv gestaltet und vermitteln echte praktische Fähigkeiten:
 
-* Introduction to CMake
-* Advanced CMake techniques
-* Best practices for large CMake project structure
-* CMake for testing and continuous integration
-* Custom CMake modules and scripts
-* *... and more tailored to your team's needs*
+* Einführung in CMake
+* Fortgeschrittene CMake-Techniken
+* Best Practices für die Struktur großer CMake-Projekte
+* CMake für Tests und Continuous Integration
+* Eigene CMake-Module und Skripte
+* *... und weitere Themen nach Bedarf Ihres Teams*
 
-# Lean software delivery workshops
+# Lean Software Delivery Workshops
 
-* Value Stream Mapping - Identify bottlenecks in your software delivery process
-* Backlog management - Prioritize and manage your work effectively
-* Efficient decisions - Techniques for making better decisions faster
-* Continuous improvement - Foster a culture of continuous improvement in your team
-* *... and more tailored to your team's needs*
+* Value Stream Mapping – Engpässe im Software-Delivery-Prozess identifizieren
+* Backlog-Management – Arbeit effektiv priorisieren und verwalten
+* Effiziente Entscheidungen – Techniken für bessere und schnellere Entscheidungen
+* Kontinuierliche Verbesserung – Eine Kultur der kontinuierlichen Verbesserung im Team fördern
+* *... und weitere Themen nach Bedarf Ihres Teams*
+
