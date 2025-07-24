@@ -2,6 +2,8 @@
 layout: page
 title: Workshops & Trainings
 subtitle: Hands-on workshops to boost your team's skills
+lang: en
+permalink: /services/workshops/
 ---
 
 In the past years, I have conducted numerous workshops and training sessions to help teams improve their software delivery processes and CMake skills. Here are some of the workshops I offer:
