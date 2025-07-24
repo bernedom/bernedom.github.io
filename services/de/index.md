@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Dienstleistungen
-subtitle: Lassen Sie mich Ihnen bei Ihren Software-Lieferanforderungen helfen
+subtitle: Effektives Auslieferung von Software
 callouts: service_callouts
 permalink: /services/
 lang: de
