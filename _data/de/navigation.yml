@@ -4,7 +4,7 @@
     - name: Workshops
       link: /services/workshops/
     - name: Software Delivery Consulting
-      link: /services/software-delivery/
+      link: /services/software-delivery-consulting/
     - name: CMake Expertise
       link: /services/cmake-expertise/
     - name: C++ modernisation
@@ -20,4 +20,3 @@
       link: /about
     - name: Datenschutz-Bestimmungen
       link: /about/privacy
-    
