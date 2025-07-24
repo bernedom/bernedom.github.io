@@ -1,0 +1,23 @@
+- name: Dienstleistungen
+  link: /services/
+  dropdown:
+    - name: Workshops
+      link: /services/workshops/
+    - name: Software Delivery Consulting
+      link: /services/software-delivery/
+    - name: CMake Expertise
+      link: /services/cmake-expertise/
+    - name: C++ modernisation
+      link: /services/cpp-modernization/
+- name: Blog
+  link: /blog/
+- name: CMake Best Practices
+  link: /cmake-best-practices/
+- name: Über mich
+  link: /about/
+  dropdown:
+    - name: Über mich
+      link: /about
+    - name: Datenschutz-Bestimmungen
+      link: /about/privacy
+    
