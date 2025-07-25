@@ -16,7 +16,6 @@ default_lang: "en"
 exclude_from_localization: ["assets/images", "assets/css"]
 parallel_localization: true
 
-
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
 url: https://dominikberner.ch/
@@ -32,7 +31,6 @@ baseurl: ""
 #
 
 permalink: /:title/
-
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
