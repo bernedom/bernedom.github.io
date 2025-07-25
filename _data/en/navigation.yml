@@ -18,5 +18,7 @@
   dropdown:
     - name: About
       link: /about
+    - name: Contact
+      link: /about/contact
     - name: Privacy Policy
       link: /about/privacy
