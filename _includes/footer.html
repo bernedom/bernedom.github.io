@@ -1,0 +1,36 @@
+<footer class="footer">
+    <div class="contact-info" style="float: left; text-align: left; margin-right: 2rem;">
+        <p>
+            <a href="mailto:info@dominikberner.ch">
+                <i class="fa fa-envelope" aria-hidden="true"></i> info@dominikberner.ch
+            </a>
+        </p>
+        <p>
+            <a href="tel:+41 78 859 97 70">
+                <i class="fa fa-phone" aria-hidden="true"></i> +41 78 859 97 70
+            </a>
+        </p>
+        <p>
+            <i class="fa fa-mail-bulk" aria-hidden="true"></i> Fabrikstrasse 11, CH-8180 Bülach
+        </p>
+    </div>
+    <div class="container">
+        {% if site.footer_menu %}
+        <div class="columns is-multiline">
+            {% for item in site.data[site.footer_menu] %}
+            <div class="column has-text-centered">
+                <div>
+                    <a href="{{ item.link | relative_url }}" class="link">{{ item.name }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% include follow.html %}
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
