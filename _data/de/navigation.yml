@@ -18,5 +18,7 @@
   dropdown:
     - name: Über mich
       link: /about
+    - name: Kontakt
+      link: /about/contact
     - name: Datenschutz-Bestimmungen
       link: /about/privacy
