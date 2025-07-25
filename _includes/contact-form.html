@@ -1,25 +1,24 @@
 <form action="https://formspree.io/f/mwpqpkzl" method="POST"
-    style="display: flex; flex-direction: column; gap: 1em; max-width: 400px;">
-    <label style="display: flex; flex-direction: column;">
-        Your name:
-        <input type="text" name="name" required>
-    </label>
-    <label style="display: flex; flex-direction: column;">
-        Your email:
-        <input type="email" name="email" required>
-    </label>
-    <label style="display: flex; flex-direction: column;">
-        Your message:
-        <textarea name="message" required></textarea>
-    </label>
-    <input name="subject" type="hidden" value="Please contact {{ name }}" />
-    <button type="submit" style="align-self: flex-start;">Send</button>
+style="display: flex; flex-direction: column; gap: 1em; max-width: 400px;">
+<label style="display: flex; flex-direction: column;">
+Your name:
+<input type="text" name="name" required>
+</label>
+<label style="display: flex; flex-direction: column;">
+Your email:
+<input type="email" name="email" required>
+</label>
+<label style="display: flex; flex-direction: column;">
+Your message:
+<textarea name="message" required></textarea>
+<input name="subject" type="hidden" value="Please contact {{ name }}" />
+<button type="submit" style="align-self: flex-start;">Send</button>
 </form>
 
 <p class="has-text-grey-light is-size-7" style="margin-top: 0.5em;">
-    This form is handled by
-    <a href="https://formspree.io/security/" target="_blank" rel="noopener noreferrer">
-        Formspree.io
-    </a>.
-    Please review their privacy policy.
+This form is handled by
+<a href="https://formspree.io/security/" target="_blank" rel="noopener noreferrer">
+Formspree.io
+</a>.
+Please review their privacy policy.
 </p>
