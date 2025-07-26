@@ -6,9 +6,9 @@ lang: de
 permalink: /services/workshops/
 ---
 
-In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software-Delivery-Prozesse und CMake-Kenntnisse zu verbessern. Hier sind einige der Workshops, die ich anbiete:
+In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software-Delivery-Prozesse und CMake-Kenntnisse zu verbessern. 
 
-Alle Workshops können individuell auf die Bedürfnisse Ihres Teams zugeschnitten werden – von kurzen 2-Stunden-Sessions bis hin zu ganztägigen oder mehrtägigen Workshops. Themen sind unter anderem:
+Alle Workshops können individuell auf die Bedürfnisse Ihres Teams zugeschnitten werden – von kurzen 2-Stunden-Sessions bis hin zu ganztägigen oder mehrtägigen Workshops. Hier sind einige der Workshops, die ich anbiete:
 
 # CMake-Workshops
 
