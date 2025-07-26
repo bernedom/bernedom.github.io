@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Workshops & Trainings
-subtitle: Praxisnahe Workshops zur Verbesserung der Teamkompetenzen
+subtitle: Praxisnahe Workshops zur Verbesserung der Kompetenzen ihres Teams
 lang: de
 permalink: /services/workshops/
 ---
