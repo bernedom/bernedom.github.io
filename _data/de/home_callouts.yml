@@ -2,7 +2,7 @@ style: is-light
 height: is-medium
 items:
   - title: Dienstleistungen
-    subtitle: CMake, Schulungen, Beratung und Projektarbeit
+    subtitle: CMake-Schulungen, Delivery-Consulting und Projektarbeit
     icon: fa-wrench
     description: >
       Wie ich Sie bei Ihren Softwareentwicklungsprojekten unterstützen kann.

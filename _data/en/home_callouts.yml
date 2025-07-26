@@ -1,13 +1,11 @@
 style: is-light
 height: is-medium
 items:
-  
-  
   - title: Services
-    subtitle: CMake, Trainings, Consulting and Project Work
+    subtitle: CMake-Trainings, Delivery-Consulting and Project Work
     icon: fa-wrench
     description: >
-      How I can help you with your software development projects.
+      How I can help you with your software development projects?
 
     call_to_action_name: Let's make software better
     call_to_action_link: /services/
@@ -22,7 +20,7 @@ items:
     call_to_action_link: /blog/
 
   - title: Contact
-    
+
     icon: fa-envelope
     icon_brand: false
     description: >
