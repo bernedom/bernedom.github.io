@@ -4,6 +4,7 @@ items:
   - title: Dienstleistungen
     subtitle: CMake-Schulungen, Delivery-Consulting und Projektarbeit
     icon: fa-wrench
+    icon_brand: false
     description: >
       Wie ich Sie bei Ihren Softwareentwicklungsprojekten unterstützen kann.
 
@@ -13,6 +14,7 @@ items:
   - title: Artikel
     subtitle: CMake, C++, Agile und Softwarequalität
     icon: fa-newspaper
+    icon_brand: false
     description: >
       Artikel über Softwareentwicklung, C++, Agile und Softwarequalität.
 
