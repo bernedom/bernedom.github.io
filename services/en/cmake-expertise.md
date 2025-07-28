@@ -16,3 +16,9 @@ leverage CMake to improve your build processes and increase your team's producti
 * Review your CMake code and provide actionable feedback
 * Help you set up a modern CMake project structure
 * [CMake Best Practices](/cmake-best-practices) - a comprehensive guide to CMake best practices
+
+# Interested in working together?
+
+Get in touch to discuss how I can help you improve your CMake skills and build systems.
+
+{%include contact-form.html %}
