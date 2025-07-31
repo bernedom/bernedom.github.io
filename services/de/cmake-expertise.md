@@ -16,3 +16,9 @@ CMake zu nutzen, um Ihre Build-Prozesse zu verbessern und die Produktivität Ihr
 * Überprüfung Ihres CMake-Codes und umsetzbare Rückmeldungen
 * Hilfe beim Aufbau einer modernen CMake-Projektstruktur
 * [CMake Best Practices](/cmake-best-practices) - ein umfassender Leitfaden für CMake Best Practices
+
+# Bereit für den nächsten Schritt?
+
+Bereit für den nächsten Schritt? Füllen Sie das Formular aus und wir kommen ins Gespräch!
+
+{%include contact-form.html %}

@@ -13,3 +13,9 @@ qualität, Wartbarkeit und Performance zu verbessern:
 * Identifizierung von Verbesserungs- und Modernisierungsmöglichkeiten
 * Implementierung von Best Practices für Softwareentwicklung und -lieferung
 * Schulungen zu modernen C++-Features und -Techniken
+
+# Bereit für den nächsten Schritt?
+
+Bereit für den nächsten Schritt? Füllen Sie das Formular aus und wir kommen ins Gespräch!
+
+{%include contact-form.html %}
