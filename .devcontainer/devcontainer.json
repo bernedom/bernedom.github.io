@@ -15,5 +15,9 @@
                 "sissel.shopify-liquid" // Liquid
             ]
         }
-    }
+    },
+    "runArgs": [
+        "--cpus=6",
+        "--memory=6g"
+    ]
 }
