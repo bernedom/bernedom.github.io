@@ -29,3 +29,9 @@ As the author of [CMake Best Practices](/cmake-best-practices), I offer hands-on
 * Continuous improvement – Foster a culture of continuous improvement in your team
 * *... and more, tailored to your team's needs*
 
+# Ready to take the next step?
+
+Ready to take the next step? Fill out the form below and let’s start the conversation!
+
+{%include contact-form.html %}
+

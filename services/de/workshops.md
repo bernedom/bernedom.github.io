@@ -29,3 +29,9 @@ Als Autor von [CMake Best Practices](/cmake-best-practices) biete ich praxisnahe
 * Kontinuierliche Verbesserung – Eine Kultur der kontinuierlichen Verbesserung im Team fördern
 * *... und weitere Themen nach Bedarf Ihres Teams*
 
+# Bereit für den nächsten Schritt?
+
+Bereit für den nächsten Schritt? Füllen Sie das Formular aus und wir kommen ins Gespräch!
+
+{%include contact-form.html %}
+
