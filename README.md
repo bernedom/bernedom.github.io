@@ -1,6 +1,6 @@
 # Overview
 
-Head over to (dominikberner.ch/)[dominikberner.ch/] to read the blog. 
+Head over to (softwarecraft.ch/)[softwarecraft.ch/] to read the blog. 
 The site is built using [jekyll-now](https://github.com/barryclark/jekyll-now)
 
 ## Developing

@@ -195,7 +195,7 @@ keine private-structs mehr nötig
 
 # Klassen und structs können auch ausgepackt werden, aber hier ist die semantik nicht geordnet -> Nicht empfehlenswert
 
-http://dominikberner.ch/structured-bindings/
+http://softwarecraft.ch/structured-bindings/
 
 ## Weiter zu anderen Datentypen - Enums
 

@@ -402,7 +402,7 @@ cmake -S <sourceDir> -B <buildDir> \
 ]
 .right-column[
 .left[
-[![web](web_icon.png) dominikberner.me](http://dominikberner.ch)
+[![web](web_icon.png) dominikberner.me](http://softwarecraft.ch)
 
 [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
 

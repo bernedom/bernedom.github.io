@@ -87,7 +87,7 @@ So what goes into which presets? A typical example for many of my CMake projects
    *  Ninja: My generator of choice when building for Linux and mac. This preset defines the build directory and the generator.
    *  MSVC: for building on windows
    *  Any other generator required to build on other platforms
-* **Toolchain presets**: These contain specific compiler versions and flags. These presets are also marked `hidden` and are used in other presets. They might also contain library locations such as for Qt or Boost. I often prefix them with either `ci` if they contain information that is specific to the ci environment or the [devcontainer](https://dominikberner.ch/using-devcontainers-with-cpp/) bundled with the project. These might (re-)define the build directory. 
+* **Toolchain presets**: These contain specific compiler versions and flags. These presets are also marked `hidden` and are used in other presets. They might also contain library locations such as for Qt or Boost. I often prefix them with either `ci` if they contain information that is specific to the ci environment or the [devcontainer](https://softwarecraft.ch/using-devcontainers-with-cpp/) bundled with the project. These might (re-)define the build directory. 
   * gcc-flags: Defines the flags for gcc and clang such as `-Wall -Werror`
   * msvc-flags: Defines the flags for MSVC such as `/W4 /WX`
   * clang-sanitizer: Defines the flags for clang sanitizer such as `-fsanitize=address`
@@ -101,7 +101,7 @@ So what goes into which presets? A typical example for many of my CMake projects
 <details>
 <summary markdown="span">
 An example `CMakePresets.json` to build a Qt project for linux, windows, android and webassembly might look like this (Click to expand). 
-Note that this particular example does contain some file paths that are specific to the CI setup. To easily replicate build environments I recommend using [devcontainers](https://dominikberner.ch/using-devcontainers-with-cpp/). This particular setup does only contain configure and build presets. 
+Note that this particular example does contain some file paths that are specific to the CI setup. To easily replicate build environments I recommend using [devcontainers](https://softwarecraft.ch/using-devcontainers-with-cpp/). This particular setup does only contain configure and build presets. 
 
 </summary>
 

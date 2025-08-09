@@ -228,7 +228,7 @@ class: left, middle
 ### C++ Coder, Agilist & Rock Climber
 
 
-[![web](web_icon.png) dominikberner.ch](http://dominikberner.ch)
+[![web](web_icon.png) softwarecraft.ch](http://softwarecraft.ch)
 
 [![twitter](twitter_icon.png) @BernerDominik](https://twitter.com/BernerDominik)
 

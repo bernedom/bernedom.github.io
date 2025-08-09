@@ -18,11 +18,11 @@ It bloats your repo, makes updates a hassle, and creates fragile builds. Modern 
 
 {% include cmake-best-practices-ad.html %}
 
-Even better, tools like [Conan or vcpkg](https://dominikberner.ch/conan-as-cmake-dependency-provider/) can take care of dependency management for you. Stop hardcoding paths - let CMake and your package manager handle it.
+Even better, tools like [Conan or vcpkg](https://softwarecraft.ch/conan-as-cmake-dependency-provider/) can take care of dependency management for you. Stop hardcoding paths - let CMake and your package manager handle it.
 
 ## 2. Not using CMakePresets
 
-[CMake Presets are a game-changer](https://dominikberner.ch/cmake-presets-best-practices/) - use them! Since their introduction, they’ve made managing multiple build configurations *so* much easier. Instead of fiddling with command-line flags or custom scripts, you can define builds cleanly in `CMakePresets.json`.
+[CMake Presets are a game-changer](https://softwarecraft.ch/cmake-presets-best-practices/) - use them! Since their introduction, they’ve made managing multiple build configurations *so* much easier. Instead of fiddling with command-line flags or custom scripts, you can define builds cleanly in `CMakePresets.json`.
 
 > CMake presets are one of the most impactful features introduced in CMake since the introduction of targets.
 
@@ -60,7 +60,7 @@ That’s what happens when the setup of the library target is incomplete or slop
 
 Don’t just make everything `PUBLIC`. Be precise with `PRIVATE`, `PUBLIC`, and `INTERFACE`. Set symbol visibility correctly, especially for shared libs. And always include version info (`VERSION`, `SOVERSION`) for libraries - it helps tools, consumers, and future-you.
 
-For a solid setup, [here’s a line-by-line guide](https://dominikberner.ch/cmake-library-setup/).
+For a solid setup, [here’s a line-by-line guide](https://softwarecraft.ch/cmake-library-setup/).
 
 ## 6. No install instructions
 
