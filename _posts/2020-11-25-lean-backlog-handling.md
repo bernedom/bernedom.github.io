@@ -6,7 +6,7 @@ image: /images/backlog-handling/thumbnail.jpg
 
 **Having a high-quality backlog is a cornerstone of lean-agile development.** The backlog is a central part of agile software development. Whether you're doing Scrum, Kanban, or any of the scaled agile approaches, virtually all methodologies have a backlog as the central artifact of storing upcoming and current work. Because of its central role, handling the backlog well and keeping it lean is a necessity to unlock the possibilities of agile development. 
 
-Having [well formulated and concise](https://dominikberner.ch/the-art-of-slicing/) items in the backlog is a must, but it is just the start. Keeping the backlog itself lean and useful is equally important. After all one has to be lean to be agile. If a backlog too much irrelevant or outdated information it becomes unwieldy and a nuisance to those working daily with it. 
+Having [well formulated and concise](https://softwarecraft.ch/the-art-of-slicing/) items in the backlog is a must, but it is just the start. Keeping the backlog itself lean and useful is equally important. After all one has to be lean to be agile. If a backlog too much irrelevant or outdated information it becomes unwieldy and a nuisance to those working daily with it. 
 
 ## Keep it short
 
@@ -15,7 +15,7 @@ Running a lean software development means refining just enough backlog items to 
 > Everything in the backlog that is not important for daily work is a distraction
 
 Lean backlogs are short. Ideally, anybody on the team should be able to recall 80% of the items in the backlog at any time. A rough idea about what the story is about is good enough, no need to remember all the details of a story all the time. After all, we write the details down so we don't need to remember them constantly. 
-Anything that is beyond the mental capability to keep in active memory goes into the product vision or if needed in an [agile roadmap](https://dominikberner.ch/Agile-Roadmapping/). The backlog is a working document on which the team works every day. Everything that is not important for daily work that is in there is just a distraction. 
+Anything that is beyond the mental capability to keep in active memory goes into the product vision or if needed in an [agile roadmap](https://softwarecraft.ch/Agile-Roadmapping/). The backlog is a working document on which the team works every day. Everything that is not important for daily work that is in there is just a distraction. 
 
 I like to have at most a few weeks of work in a backlog at any time. Enough to not be surprised by what comes up, but also not so much stuff that I feel overwhelmed by it. 
 A good practice is to frequently go over the backlog trying to put a date for further refinement on any item in the "new" column. Anything that is not "ready to work on" or anything that the team can't put a date for refinement on is thrown away. If a story is important, the team should be willing to put in effort into it now (or at least very soon). If not it is not important. 

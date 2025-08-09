@@ -30,7 +30,7 @@ Having a lean development process means having just enough stories in "Ready" so
 Since we can closely control the inflow of stories but are reactive when it comes to throughput in the "Doing" state this is where we measure. Increasing the frequency and number of refinement meetings is a straight forward way to speed up cycle time of the states "New" and "Ready" and to increase the amount of "Ready" items. 
 Knowing the throughput and the variance of our development process enables prediction with great confidence. To determine the variance of our system measuring cycle time for stories is the way to go. 
 Plotting cycle time into a graph usually results in a typical Gaussian bell curve. If the curve is flat and wide rather than steep and narrow the system is more volatile, predictions tend to be less accurate, but that is not necessarily bad, just something to keep in mind.
-If the variance in cycle time is very big investing more into [slicing stories](https://dominikberner.ch/the-art-of-slicing/) might help to increase the stability. 
+If the variance in cycle time is very big investing more into [slicing stories](https://softwarecraft.ch/the-art-of-slicing/) might help to increase the stability. 
 
 ![Distribution of story size]({{site.baseurl}}/images/noestimates/size-distribution.png)
 

@@ -20,7 +20,7 @@ To build an Android APK, you need the following:
 
 The example project used in this article can be found on [GitHub](https://github.com/bernedom/CMakeQtAPK/).
 
-Since the dependencies for building an Android APK with CMake are quite heavy, I recommend using [development containers](https://dominikberner.ch/using-devcontainers-with-cpp/) to set up your development environment. This way you can use the same environment on your local machine and your CI server.
+Since the dependencies for building an Android APK with CMake are quite heavy, I recommend using [development containers](https://softwarecraft.ch/using-devcontainers-with-cpp/) to set up your development environment. This way you can use the same environment on your local machine and your CI server.
 
 {% include cmake-best-practices-ad.html %}
 
@@ -164,7 +164,7 @@ cmake --build build_android --target apk
 
 This will first configure the project and then build the APK. The APK will be located in the `build_android` folder as defined in our preset.
 
-Since Qt itself and the Android NDK and SDK are quite heavy dependencies I recommend using [containerized build](https://dominikberner.ch/using-devcontainers-with-cpp/) environments](https://dominikberner.ch/using-devcontainers-with-cpp/) to build the project. This will ensure that the build-environment is always the same and that your OS is not polluted with the dependencies. This comes in especially handy as it is often the case that one needs to build for different android versions and installing everything directly into the OS can be a hassle. 
+Since Qt itself and the Android NDK and SDK are quite heavy dependencies I recommend using [containerized build](https://softwarecraft.ch/using-devcontainers-with-cpp/) environments](https://softwarecraft.ch/using-devcontainers-with-cpp/) to build the project. This will ensure that the build-environment is always the same and that your OS is not polluted with the dependencies. This comes in especially handy as it is often the case that one needs to build for different android versions and installing everything directly into the OS can be a hassle. 
 
 ## Running the APK
 
