@@ -11,8 +11,8 @@ items:
     call_to_action_name: Lassen Sie uns Software besser machen
     call_to_action_link: /services/
 
-  - title: Artikel
-    subtitle: CMake, C++, Agile und Softwarequalität
+  - title: Blog
+    subtitle: CMake, C++, Agile und Softwarequalität (Englisch)
     icon: fa-newspaper
     icon_brand: false
     description: >
