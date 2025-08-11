@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Dienstleistungen
-subtitle: Effektives Auslieferung von Software
+subtitle: Software Delivery auf höchsten Niveau
 callouts: service_callouts
 permalink: /services/
 lang: de
+hero_image: images/title_hero.jpg
 ---
 
 # Beratung zur Softwareauslieferung
