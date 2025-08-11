@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Services
-subtitle: Bring your software delivery to new heights
+subtitle: Your road to efficient software delivery
 callouts: service_callouts
 permalink: /services/
 lang: en
-hero_image: images/title_hero.jpg
+hero_image: /images/services_hero.jpg
 ---
 
 # Software Delivery Consulting

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Software Delivery Consulting
-subtitle: Speed up your software delivery processes
+subtitle: Ship your software faster and more reliably
 lang: en
 permalink: /services/software-delivery-consulting/
 ---
