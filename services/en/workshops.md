@@ -4,6 +4,7 @@ title: Workshops & Trainings
 subtitle: Hands-on workshops to boost your team's skills
 lang: en
 permalink: /services/workshops/
+hero_image: /images/workshops_hero.jpg
 ---
 
 In recent years, I have conducted numerous workshops and training sessions to help teams improve their software delivery processes and CMake skills. 

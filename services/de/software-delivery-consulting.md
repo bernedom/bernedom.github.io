@@ -4,6 +4,7 @@ title: Software Delivery Beratung
 subtitle: Schnelle und zuverlässige Softwareauslieferung
 lang: de
 permalink: /services/software-delivery-consulting/
+hero_image: /images/delivery_hero.jpg
 ---
 
 Haben Sie Schwierigkeiten, Ihre Software rechtzeitig zu veröffentlichen? Stehen Sie vor Herausforderungen mit Ihren Entwicklungsprozessen und ist Ihr

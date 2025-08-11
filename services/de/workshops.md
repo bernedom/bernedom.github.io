@@ -4,6 +4,7 @@ title: Workshops & Trainings
 subtitle: Praxisnahe Workshops zur Verbesserung der Kompetenzen ihres Teams
 lang: de
 permalink: /services/workshops/
+hero_image: /images/workshops_hero.jpg
 ---
 
 In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software-Delivery-Prozesse und CMake-Kenntnisse zu verbessern. 

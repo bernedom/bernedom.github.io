@@ -10,7 +10,7 @@ items:
     call_to_action_name: Let's make software better
     call_to_action_link: /services/
 
-  - title: Articles
+  - title: Blog
     subtitle: CMake, C++, Agile and Software Quality
     icon: fa-newspaper
     description: >

@@ -4,6 +4,7 @@ title: Software Delivery Consulting
 subtitle: Ship your software faster and more reliably
 lang: en
 permalink: /services/software-delivery-consulting/
+hero_image: /images/delivery_hero.jpg
 ---
 
 Do you struggle to release your software on time? Are you facing challenges with your development processes and is your
