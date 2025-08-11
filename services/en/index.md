@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Services
-subtitle: Let me help you with your software delivery needs
+subtitle: Bring your software delivery to new heights
 callouts: service_callouts
 permalink: /services/
 lang: en
+hero_image: images/title_hero.jpg
 ---
 
 # Software Delivery Consulting
