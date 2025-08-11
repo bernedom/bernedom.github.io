@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Software Delivery Beratung
-subtitle: Beschleunigen Sie Ihre Software Delivery Prozesse
+subtitle: Schnelle und zuverlässige Softwareauslieferung
 lang: de
 permalink: /services/software-delivery-consulting/
 ---
