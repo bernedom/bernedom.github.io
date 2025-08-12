@@ -4,6 +4,7 @@ title: CMake Expertise
 subtitle: Master CMake for efficient build systems
 lang: en
 permalink: /services/cmake-expertise/
+hero_image: /images/coding_hero.png
 ---
 
 

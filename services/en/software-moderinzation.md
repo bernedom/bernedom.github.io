@@ -4,6 +4,7 @@ title: Software Modernization in C++
 subtitle: Modernize your C++ codebase
 lang: en
 permalink: /services/software-modernization/
+hero_image: /images/coding_hero.png
 ---
 
 Are you looking to modernize your C++ codebase? I can help you adopt modern C++ standards and practices to improve code
