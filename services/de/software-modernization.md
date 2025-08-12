@@ -4,6 +4,7 @@ title: Software-Modernisierung in C++
 subtitle: Modernisieren Sie Ihre C++-Codebasis
 lang: de
 permalink: /services/software-modernization/
+hero_image: /images/coding_hero.png
 ---
 
 Möchten Sie Ihre C++-Codebasis modernisieren? Ich kann Ihnen dabei helfen, moderne C++-Standards und -Praktiken einzuführen, um die Code-

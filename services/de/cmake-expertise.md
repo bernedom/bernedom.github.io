@@ -4,6 +4,7 @@ title: CMake-Expertise
 subtitle: CMake für effiziente Build-Systeme meistern
 lang: de
 permalink: /services/cmake-expertise/
+hero_image: /images/coding_hero.png
 ---
 
 
