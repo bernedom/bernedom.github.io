@@ -1,13 +1,11 @@
 - name: Dienstleistungen
   link: /services/
   dropdown:
+    - name: Software Delivery Beratung
+      link: /services/software-delivery-consulting/
     - name: Workshops
       link: /services/workshops/
-    - name: Software Delivery Consulting
-      link: /services/software-delivery-consulting/
-    - name: CMake Expertise
-      link: /services/cmake-expertise/
-    - name: Softwareprojekte
+    - name: Projektarbeit
       link: /services/project-work/
 - name: Blog
   link: /blog/
