@@ -22,10 +22,11 @@ items:
     call_to_action_link: /blog/
 
   - title: Kontakt
+    subtitle: Haben Sie eine Frage? Möchten Sie ein Angebot? Nehmen Sie Kontakt auf!
     icon: fa-envelope
     icon_brand: false
     description: >
-      Haben Sie eine Frage, möchten ein Projekt besprechen oder einfach nur Hallo sagen?
+      Haben Sie eine Frage, möchten Sie ein Projekt besprechen oder einfach nur Hallo sagen?
       Ich freue mich darauf, von Ihnen zu hören.
 
     call_to_action_name: Kontakt aufnehmen

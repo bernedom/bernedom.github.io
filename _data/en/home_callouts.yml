@@ -20,7 +20,7 @@ items:
     call_to_action_link: /blog/
 
   - title: Contact
-
+    subtitle: Have a question? Looking for a quote? Get in touch!
     icon: fa-envelope
     icon_brand: false
     description: >
