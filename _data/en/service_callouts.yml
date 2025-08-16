@@ -7,26 +7,25 @@ items:
     description: >
       on-site or remote consulting to assess your current software delivery processes, identify bottlenecks and areas for improvement, implement best practices for software development and delivery.
 
-
     call_to_action_name: Read more
     call_to_action_link: /services/software-delivery-consulting/
-  
-  - title: CMake Expertise
-    subtitle: CMake, Trainings, Consulting and Project Work
+
+  - title: Project Work
+    subtitle: Tailored Solutions for Your Development Needs
     icon: fa-wrench
     description: >
       How I can help you with your software development projects.
 
     call_to_action_name: Read more
-    call_to_action_link: /services/cmake-expertise/
+    call_to_action_link: /services/project-work/
 
-  - title: Software Modernization
-    subtitle: C++ Modernization, Refactoring and Code Reviews
-    
+  - title: Workshops and Training
+    subtitle:
+
     icon: fa-gear
     icon_brand: false
     description: >
-      adopt modern C++ standards and practices to improve code quality, maintainability, and performance
+      Modern C++, Lean Software Delivery, CMake Best Practices and more
 
     call_to_action_name: Read more
-    call_to_action_link: /services/software-modernization/
+    call_to_action_link: /services/workshops/
