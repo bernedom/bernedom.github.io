@@ -1,14 +1,13 @@
 - name: Services
   link: /services/
   dropdown:
-    - name: Workshops
-      link: /services/workshops/
     - name: Software Delivery Consulting
       link: /services/software-delivery-consulting/
-    - name: CMake Expertise
-      link: /services/cmake-expertise/
-    - name: C++ Modernization
-      link: /services/software-modernization/
+    - name: Workshops
+      link: /services/workshops/
+    - name: Project Work
+      link: /services/project-work/
+
 - name: Blog
   link: /blog/
 - name: CMake Best Practices

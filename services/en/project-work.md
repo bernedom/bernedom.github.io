@@ -3,7 +3,7 @@ layout: page
 title: Software Modernization in C++
 subtitle: Modernize your C++ codebase
 lang: en
-permalink: /services/software-modernization/
+permalink: /services/project-work/
 hero_image: /images/coding_hero.png
 ---
 
