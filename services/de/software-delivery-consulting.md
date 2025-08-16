@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Software Delivery Beratung
-subtitle: Schnelle und zuverlässige Softwareauslieferung
+subtitle: Liefern Sie Ihre Software schneller und zuverlässiger
 lang: de
 permalink: /services/software-delivery-consulting/
 hero_image: /images/delivery_hero.jpg

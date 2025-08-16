@@ -1,13 +1,13 @@
 ---
 layout: page
 title: Workshops & Trainings
-subtitle: Praxisnahe Workshops zur Verbesserung der Kompetenzen ihres Teams
+subtitle: Praxisnahe Workshops zur Stärkung der Kompetenzen Ihres Teams
 lang: de
 permalink: /services/workshops/
 hero_image: /images/workshops_hero.jpg
 ---
 
-In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software-Delivery-Prozesse und CMake-Kenntnisse zu verbessern. 
+In den vergangenen Jahren habe ich zahlreiche Workshops und Trainings durchgeführt, um Teams dabei zu unterstützen, ihre Software Delivery Prozesse und CMake-Kenntnisse zu verbessern. 
 
 Alle Workshops können individuell auf die Bedürfnisse Ihres Teams zugeschnitten werden – von kurzen 2-Stunden-Sessions bis hin zu ganztägigen oder mehrtägigen Workshops. Hier sind einige der Workshops, die ich anbiete:
 
@@ -17,14 +17,14 @@ Als Autor von [CMake Best Practices](/cmake-best-practices) biete ich praxisnahe
 
 * Einführung in CMake
 * Fortgeschrittene CMake-Techniken
-* Best Practices für die Struktur großer CMake-Projekte
+* Best Practices für die Struktur grosser CMake-Projekte
 * CMake für Tests und Continuous Integration
 * Eigene CMake-Module und Skripte
 * *... und weitere Themen nach Bedarf Ihres Teams*
 
 # Lean Software Delivery Workshops
 
-* Value Stream Mapping – Engpässe im Software-Delivery-Prozess identifizieren
+* Value Stream Mapping – Engpässe im Software Delivery Prozess identifizieren
 * Backlog-Management – Arbeit effektiv priorisieren und verwalten
 * Effiziente Entscheidungen – Techniken für bessere und schnellere Entscheidungen
 * Kontinuierliche Verbesserung – Eine Kultur der kontinuierlichen Verbesserung im Team fördern
