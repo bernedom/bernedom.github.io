@@ -1,11 +1,29 @@
 ---
 layout: page
-title: Software Modernization in C++
-subtitle: Modernize your C++ codebase
+title: Software Projects
+subtitle: Practical Solutions for Your Development Needs
 lang: en
 permalink: /services/project-work/
 hero_image: /images/coding_hero.png
 ---
+
+Do you need hands-on software development power? SoftwareCraft might be the right partner for you.
+
+We specialize in delivering practical solutions tailored to your specific needs, whether it's developing new features, optimizing existing code, or integrating modern technologies. Whether it's a small project or a large-scale initiative, we have the expertise to help you succeed.
+
+### CMake expertise
+
+CMake is a powerful tool for managing complex build systems, but it can be challenging to master. I can help you
+leverage CMake to improve your build processes and increase your team's productivity:
+
+* Train your team on CMake best practices
+* Modernize your build systems
+* Migration from legacy build systems to CMake
+* Review your CMake code and provide actionable feedback
+* Help you set up a modern CMake project structure
+* [CMake Best Practices](/cmake-best-practices) - a comprehensive guide to CMake best practices
+
+### C++ modernization
 
 Are you looking to modernize your C++ codebase? I can help you adopt modern C++ standards and practices to improve code
 quality, maintainability, and performance:
@@ -14,6 +32,15 @@ quality, maintainability, and performance:
 * Identify areas for improvement and modernization
 * Implement best practices for software development and delivery
 * Provide training on modern C++ features and techniques
+
+### Custom feature development
+
+With over 20 years of experience in software development, I can help you design and implement custom features that meet your unique requirements. Whether you need a new application, a specific functionality within an existing system, or integration with third-party services, I have the skills and expertise to deliver high-quality solutions. 
+
+* Implement standalone products
+* Create components and libraries to integrate in your product
+* Collaborate with your team to ensure seamless integration and delivery
+* Boost your team's delivery power on short notice
 
 # Ready to take the next step?
 
