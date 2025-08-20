@@ -11,15 +11,51 @@ image: /images/cmake-logo.png
 
 Let's look at a typical CI/CD pipeline: When a developer pushes code changes, the CI system triggers a build process that compiles the code, runs tests, and produces artifacts (e.g., binaries, libraries, documentation). In a traditional setup, every time a change is pushed, the entire build process is executed from scratch, which can be time-consuming and resource-intensive.
 
-{%include figure.html url="images/artifact-based-ci/example_cicd_pipeline.png" description="A typical high level view of a development pipeline" %}
+<figure markdown="0">
+```mermaid!
 
-For a simple and small project such a straight forward pipeline is all what it takes. However if projects grow larger and contain multiple components, the build process can become complex and time-consuming. This is where artifact based CI comes into play. A simple example might be an application that consists of a frontend and several backend services. Here, building all the services from scratch, even if only a part of the code has changed is wasteful. Also, if only the frontend changes, running the full backend build and test process is not necessary.
+flowchart LR
+  A[Push to version control] --> B[Build] --> C[Test] --> D[Package] --> E[Publish]
 
-*** ! Image of a more complex CI/CD pipeline with artifact based CI
+```
+<figcaption>
+  A very high level view of a typical, trivial CI/CD pipeline
+</figcaption>
+</figure>
+
+For a simple and small project such a straight forward pipeline is all what it takes. However if projects grow larger and contain multiple components, the build process can become complex and time-consuming. This is where artifact based CI comes into play. A slightly more complicated example might be an application that consists of a frontend and several backend services. A trivial approach to CI/CD would be to build all the services from scratch on every change, then deploy all together to a test-environment, run the tests and if successfully deploy to the target system. 
+
+<figure markdown="0">
+```mermaid!
+
+flowchart LR
+  A[Push to version control] --> B[Build Backend Service A] --> C[Build Backend Service B] --> D[Build frontend] --> E[Deploy to test environment] --> F[Test] --> G[Package] --> H[Publish]
+
+```
+<figcaption>
+  A more complex CI/CD pipeline with multiple components
+</figcaption>
+</figure>
+
+Since the backend services and the frontend should be deployable individually, building everything from scratch, even if only a part of the code has changed is wasteful. Also, if for example only the frontend changes, running the full backend build and test process is not necessary. So to optimize this, we can introduce artifact based CI.
+
+Artifact based CI is a practice where the output of your build process (the artifacts) are stored and reused in subsequent builds. This means that instead of rebuilding everything from scratch every time, you can leverage previously built artifacts, which can save a lot of time and resources.
+
+If done right, artifact based CI can not just speed up your builds and increase the reliability of your CI/CD pipelines, but they are also a great way to test deployment processes on the go. By deploying the same artifacts that will be used in production, you can catch deployment issues early in the development process.
+
+The same pipeline as before, but now with artifact based CI could look like this:
+
+</figure>
+
+Since the backend services and the frontend should be deployable individually, building everything from scratch, even if only a part of the code has changed is wasteful. Also, if for example only the frontend changes, running the full backend build and test process is not necessary. So to optimize this, we can introduce artifact based CI. 
 
 Artifact based CI is a practice where the output of your build process (the artifacts) are stored and reused in subsequent builds. This means that instead of rebuilding everything from scratch every time, you can leverage previously built artifacts, which can save a lot of time and resources. 
 
 If done right, artifact based CI can not just speed up your builds and increase the reliability of your CI/CD pipelines, but they are also a great way to test deployment processes on the go. By deploying the same artifacts that will be used in production, you can catch deployment issues early in the development process.
+
+The same pipeline as before, but now with artifact based CI could look like this:
+
+{%include figure.html url="images/artifact-based-ci/example-artifact-based-cicd-multiple-services.png" description="A more complex CI/CD pipeline with multiple components and artifact based CI" %}
 
 
 
