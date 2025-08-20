@@ -45,6 +45,22 @@ If done right, artifact based CI can not just speed up your builds and increase 
 
 The same pipeline as before, but now with artifact based CI could look like this:
 
+<figure markdown="0">
+```mermaid!
+
+flowchart LR
+  A[Push to version control] --> A1{Did Service A change?} -->|Yes| A2[Build Backend Service A] --> A3[Store new artifact for Service A]
+  A1 -->|No| B{Did Service B change?} -->|Yes| B1[Build Backend Service B] --> B2[Store new artifact for Service B]
+  A3 --> B
+  B --> |No| C{Did Frontend change?} -->|Yes| C1[Build Frontend] --> C2[Store new artifact for Frontend]
+  B2 --> C
+  C2 --> D
+  C --> |No| D[Pull existing artifacts] --> E[deploy to test environment] --> F[Test] --> G[Package] --> H[Publish]
+
+```
+<figcaption>
+  The same pipeline as before, but now with artifact based CI
+</figcaption>
 </figure>
 
 Since the backend services and the frontend should be deployable individually, building everything from scratch, even if only a part of the code has changed is wasteful. Also, if for example only the frontend changes, running the full backend build and test process is not necessary. So to optimize this, we can introduce artifact based CI. 
