@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: Writing "CMake Best Practices" - A writing journey
 description: From August 2021 to May 2022 I spent quite some time writing the Book CMake Best Practices with Packt Publishing. This article contains a highly subjective and opinionated story of the writing journey.  
 image: /images/writing-cmake-best-practices/thumbnail.jpg

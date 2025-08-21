@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: Organizing CMake presets
 description: CMake presets are a big help in how to configure CMake. This article shows how to set up and organize them.
 image: /images/cmake-logo.png

@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: "The 7 CMake anti-patterns that eat your time and energy"
 description: "CMake is powerful, but often blamed for bad build experiences. Most of the frustration, though, comes from avoidable mistakes. Here are 7 common CMake anti-patterns that waste your time - and how to fix them."
 image: /images/cmake-logo.png
