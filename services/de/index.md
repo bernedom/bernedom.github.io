@@ -6,6 +6,7 @@ callouts: service_callouts
 permalink: /services/
 lang: de
 hero_image: /images/services_hero.jpg
+hero_darken: true
 ---
 
 # Software Delivery Beratung
