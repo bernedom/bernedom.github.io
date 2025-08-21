@@ -2,6 +2,8 @@
 layout: post
 title: A practical guide to tangible product visions
 image: /images/visions/thumbnail.png
+hero_image: /images/visions/thumbnail.png
+hero_darken: true
 ---
 
 **A good product vision is the cornerstone for being successful at delivering software products[^1].** Having a product vision that is tangible and accepted by your developers is one of the most important things to have, if teams are supposed to work in an empowered and self-organized way. A vision is not just a good advertising tool, but it is the foundation to creating a *purpose* for everyone's alignment towards what the product shall be. It is a common pattern, that companies that struggle with creating good product or company visions, find it very hard to create alignment and motivation in those employees who are building and delivering their products. 

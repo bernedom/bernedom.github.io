@@ -3,6 +3,8 @@ layout: post
 title: The four core powers for empowered agile teams
 description: "The term empowered teams is often used in the context of agile software development. But what does it mean? There are many variations of this but there is a definitive set of 'minimum powers' that a team needs to be able to be agile."
 image: /images/empowered-teams/thumbnail.jpg
+hero_image: /images/empowered-teams/thumbnail.jpg
+hero_darken: true
 ---
 
 **Empowering Teams is a key aspect to create high-performing teams in an agile setting.** Ever since [Extreme Programming](http://www.extremeprogramming.org/) was introduced into the world of software development this statement or a variety of it has been carried over to almost all agile frameworks. And there is a multitude of articles about how to create them. But what does "empowered" exactly mean? What are the minimum powers that a team needs to be able to be agile?

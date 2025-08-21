@@ -2,6 +2,8 @@
 layout: post
 title: Standard Attributes - CleanCode for C++17
 image: /images/cpp_logo.png
+hero_image: /images/cpp_logo.png
+hero_darken: true
 ---
 
 **Good code is self-documenting** - We coders love this sentence and with the standard attributes available since C++11 we are one step closer to this utopia. 

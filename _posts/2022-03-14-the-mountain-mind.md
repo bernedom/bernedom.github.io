@@ -3,6 +3,8 @@ layout: post
 title: The Mountain Mind - Mountain climbing and software development are the same
 description: Taking and assessing risks, commitment, and focus on the task play an important role when climbing as well as when writing software. A few thoughts on how being a successful mountaineer influences my work as a software engineer and what can be learned from being in the great outdoors. 
 image: /images/mountain-mind/thumbnail.jpg
+hero_image: /images/mountain-mind/thumbnail.jpg
+hero_darken: true
 ---
 
 When planning a climbing trip the goal of reaching the summit is often known, but how tough it really is to get up there is something that can only be judged in detail once the climbing starts. Some mountains look almost impossible to climb and yet they are relatively easy to summit, while others look comparatively tame but require quite some effort to get up to. Starting a software project is often very similar. While there might be a general idea of what problem or business case the software should solve, it is often unclear what is needed to get there. Some things might turn out much harder than anticipated, while others will be solved surprisingly quick. 
