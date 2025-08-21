@@ -89,6 +89,8 @@ For a start, a simple storage solution for these artifacts might be enough, but 
 
 ## Further improvements
 
-Moving from a build-everything-all-the-time approach to an artifact-based CI approach can be a bit of a paradigm shift, but it can lead to significant improvements in build times and reliability. Once the CI pipeline is set up to handle artifacts, the door is open to further optimizations, such as caching dependencies, parallelizing builds, and more. Depending on the team's setup, it can even be beneficial to make the artifacts available to developers locally, so they can test their changes against the same artifacts that will be used in production. As always, the key is to start somewhere and iterate and improve over time. Shifting to artifact-based CI is a great step towards more efficient and reliable CI/CD pipelines, and it can help teams to focus on delivering value rather than dealing with long build times and waiting for feedback.
+Moving from a build-everything-all-the-time approach to an artifact-based CI approach can be a bit of a paradigm shift, but it can lead to significant improvements in build times and reliability. Once the CI pipeline is set up to handle artifacts, the door is open to further optimizations, such as caching dependencies, parallelizing builds, and more. Depending on the team's setup, it can even be beneficial to make the artifacts available to developers locally, so they can test their changes against the same artifacts that will be used in production. 
+
+As always, the key is to start somewhere and iterate and improve over time. Shifting to artifact-based CI is a great step towards more efficient and reliable CI/CD pipelines, and it can help teams to focus on delivering value rather than dealing with long build times and waiting for feedback.
 
 
