@@ -3,7 +3,7 @@ layout: post
 title: "Faster build times with artifact based CI"
 description: "Artifact-based CI can optimize your CI/CD pipelines by reducing build times, improving reliability, and streamlining workflows. Discover strategies for efficient artifact storage, versioning, and retrieval, and explore best practices for implementing artifact-based continuous integration in modern software development."
 image: /images/artifact-based-ci/thumbnail.png
-hero_image: /images/artifact-based-ci/thumbnail.png
+hero_image: /images/artifact-based-ci/hero.png
 hero_darken: true
 ---
 
