@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Artifact based CI"
-description: ""
-image: /images/cmake-logo.png
+description: "Artifact-based CI can optimize your CI/CD pipelines by reducing build times, improving reliability, and streamlining workflows. Discover strategies for efficient artifact storage, versioning, and retrieval, and explore best practices for implementing artifact-based continuous integration in modern software development."
+image: /images/artifact-based-ci/thumbnail.png
 ---
 
 **CI/CD pipelines are a standard part of many software development workflows.** However, many teams still struggle with long build times, flaky tests and inefficient workflows. Apart from driving the cost of CI up, these issues can lead to frustration and reduced productivity up to quality issues as developers may not run the full test suites before deploying their changes. One approach to address these challenges is to use artifact based CI, which can significantly improve the efficiency and reliability of your CI/CD pipelines.
@@ -81,14 +81,14 @@ The core concept of artifact based CI rotates around storing and retrieving buil
 
 * **Staged builds**: These are the artifacts used for testing purposes, such as staging or QA environments. They can be a mix of development and production builds, depending on the testing requirements. If all goes well, these artifacts might be promoted to production builds or discarded if newer artifacts are available. 
 
-The naming and versioning of the artifacts should reflect these different stages. A common approach is to use semantic versioning, where the version number consists of three parts: major, minor, and patch. For example, a development build might be named `myapp-1.0.0-dev-123`, where `123` is a build number, a commit hash or a branch name (or a combination of all of them). A released build might be named `myapp-1.0.0`, and a staged build might be named `myapp-1.0.0-staging`. 
+The naming and versioning of the artifacts should reflect these different stages. A common approach is to use semantic versioning, where the version number consists of three parts: major, minor, and patch. For example, a development build might be named `myapp-1.0.0-dev-123`, where `123` is a build number, a commit hash, or a branch name (or a combination of all of them). A released build might be named `myapp-1.0.0`, and a staged build might be named `myapp-1.0.0-staging`. 
 
 This way it is easy to identify where an artifact comes from and what it is used for. If building for multiple platforms or configurations, the naming scheme can be extended to include the platform and configuration, such as `myapp-1.0.0-linux-x86_64`, `myapp-1.0.0-windows-x86_64`, etc.
 
-For a start a simple storing solution for these artifacts might be enough, but as the project grows, it is worth considering a dedicated artifact repository and a [package manager](https://softwarecraft.ch/conan-as-cmake-dependency-provider/) to handle the artifacts. If you have the versioning and naming scheme covered, you are already a huge step further towards efficient artifact based CI and further improvements can usually be made incrementally.
+For a start, a simple storage solution for these artifacts might be enough, but as the project grows, it is worth considering a dedicated artifact repository and a [package manager](https://softwarecraft.ch/conan-as-cmake-dependency-provider/) to handle the artifacts. If you have the versioning and naming scheme covered, you are already a huge step further towards efficient artifact-based CI, and further improvements can usually be made incrementally.
 
 ## Further improvements
 
-Moving from a build-everything-all-the-time approach to an artifact based CI approach can be a bit of a paradigm shift, but it can lead to significant improvements in build times and reliability. Once the CI pipeline is set up to handle artifacts the door is open to further optimizations, such as caching dependencies, parallelizing builds, and more. Depending on the teams setup it can even be beneficial to make the artifacts available to developers locally, so they can test their changes against the same artifacts that will be used in production. As always, the key is to start somewhere and iterate and improve over time. Shifting to artifact based CI is a great step towards more efficient and reliable CI/CD pipelines, and it can help teams to focus on delivering value rather than dealing with long build times and waiting for feedback.
+Moving from a build-everything-all-the-time approach to an artifact-based CI approach can be a bit of a paradigm shift, but it can lead to significant improvements in build times and reliability. Once the CI pipeline is set up to handle artifacts, the door is open to further optimizations, such as caching dependencies, parallelizing builds, and more. Depending on the team's setup, it can even be beneficial to make the artifacts available to developers locally, so they can test their changes against the same artifacts that will be used in production. As always, the key is to start somewhere and iterate and improve over time. Shifting to artifact-based CI is a great step towards more efficient and reliable CI/CD pipelines, and it can help teams to focus on delivering value rather than dealing with long build times and waiting for feedback.
 
 
