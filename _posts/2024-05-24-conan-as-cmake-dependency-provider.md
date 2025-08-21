@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title:  "Using Conan as a CMake Dependency Provider"
 description: "With the addition of dependency providers in CMake 3.24 using Conan to manage dependencies becomes easier and more integrated. This post shows a step-by-step guide on how to use Conan as a CMake dependency provider."
 image: /images/cmake-conan-logo.png

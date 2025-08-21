@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: CMake line by line - using a non-CMake library
 image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png

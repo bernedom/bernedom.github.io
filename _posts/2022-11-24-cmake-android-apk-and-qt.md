@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: CMake line by line - Building and Android APK with Qt5
 description: A line by line explanation of how to build an Android APK with CMake for a Qt5/QML application using the Android NDK and SDK.
 image: /images/qml_on_android/cmake-android-qt-logo.png

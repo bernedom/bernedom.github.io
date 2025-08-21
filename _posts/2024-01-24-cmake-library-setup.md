@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: cmake
 title: CMake line by line - Creating a library
 description: "How to set up a library with CMake, including proper symbol visibility and installation"
 image: /images/cmake-logo.png
