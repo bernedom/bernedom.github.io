@@ -9,36 +9,26 @@ hero_image: /images/services_hero.jpg
 hero_darken: true
 ---
 
-# Software Delivery Consulting
+# Unlock Your Team's Potential with Expert Services
 
-Do you struggle to release your software on time? Are you facing challenges with your development processes and is your
-release cycle too long? I can help you identify bottlenecks, streamline your workflows, and implement best practices to
-ensure timely and efficient software delivery:
+At SoftwareCraft, I offer tailored services to help you streamline your software delivery, enhance your team's skills, and modernize your development processes. Whether you're looking for consulting, training, or hands-on project work, I can provide the expertise you need to succeed.
 
-* On site or remote consulting
-* Assess your current software delivery processes
-* Identify bottlenecks and areas for improvement
-* Implement best practices for software development and delivery
-* Hands-on streamlining of CI/CD systems
+## [Software Delivery Consulting](/services/software-delivery-consulting/)
 
-# CMake Expertise
+Struggling with long release cycles or inefficient workflows? I can help you identify bottlenecks, optimize your processes, and implement best practices to deliver software faster and more reliably. From CI/CD improvements to workflow assessments, I provide actionable solutions to boost your delivery efficiency.
 
-CMake is a powerful tool for managing complex build systems, but it can be challenging to master. I can help you
-leverage CMake to improve your build processes and increase your team's productivity:
+## [C++ and CMake Expertise](/services/cmake-expertise/)
 
-* Train your team on CMake best practices
-* Modernize your build systems
-* Migration from legacy build systems to CMake
-* Review your CMake code and provide actionable feedback
-* Help you set up a modern CMake project structure
-* [CMake Best Practices](/cmake-best-practices) - a comprehensive guide to CMake best practices
+Master CMake with guidance from the author of [CMake Best Practices](/cmake-best-practices). I offer training, code reviews, and hands-on support to help your team build modern, efficient, and maintainable CMake projects. Whether you're migrating from legacy systems or optimizing existing setups, I can help.
 
-# Software Modernization in C++
+## [Workshops & Trainings](/services/workshops/)
 
-Are you looking to modernize your C++ codebase? I can help you adopt modern C++ standards and practices to improve code
-quality, maintainability, and performance:
+Empower your team with hands-on workshops tailored to your needs. Topics include CMake, lean software delivery, and modern development practices. From short sessions to multi-day workshops, I ensure your team gains practical, real-world skills.
 
-* Assess your current software architecture
-* Identify areas for improvement and modernization
-* Implement best practices for software development and delivery
-* Provide training on modern C++ features and techniques
+## [Project Work](/services/project-work/)
+
+Need extra development power? I specialize in delivering practical solutions, from modernizing C++ codebases to implementing custom features and optimizing build systems. Whether it's a small task or a large-scale initiative, I can help you achieve your goals.
+
+---
+
+Ready to take the next step? [Contact me](/contact) today to discuss how I can help you elevate your software delivery

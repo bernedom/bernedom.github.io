@@ -1,6 +1,5 @@
 ---
 layout: post
-tags: cmake
 title: Quick and easy unpacking in C++ with structured bindings 
 image: /images/cpp_logo.png
 hero_image: /images/cpp_logo.png
