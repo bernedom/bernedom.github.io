@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Dienstleistungen
-subtitle: Ihr Weg zur effizienten Software Delivery
+subtitle: Ihr Weg zu effizienter Software Delivery
 callouts: service_callouts
 permalink: /services/
 lang: de
@@ -9,36 +9,26 @@ hero_image: /images/services_hero.jpg
 hero_darken: true
 ---
 
-# Software Delivery Beratung
+# Entfalten Sie das Potenzial Ihres Teams mit professionellen Dienstleistungen
 
-Haben Sie Schwierigkeiten, Ihre Software rechtzeitig zu veröffentlichen? Stehen Sie vor Herausforderungen mit Ihren Entwicklungsprozessen und ist Ihr
-Release-Zyklus zu lang? Ich kann Ihnen dabei helfen, Engpässe zu identifizieren, Ihre Arbeitsabläufe zu optimieren und Best Practices zu implementieren, um
-eine rechtzeitige und effiziente Software Delivery sicherzustellen:
+Bei SoftwareCraft biete ich massgeschneiderte Dienstleistungen an, um Ihre Software Delivery zu optimieren, die Fähigkeiten Ihres Teams zu verbessern und Ihre Entwicklungsprozesse zu modernisieren. Ob Beratung, Schulung oder praktische Projektarbeit – ich stelle die Expertise bereit, die Sie für Ihren Erfolg benötigen.
 
-* Vor-Ort- oder Remote-Beratung
-* Bewertung Ihrer aktuellen Software Delivery Prozesse
-* Identifizierung von Engpässen und Verbesserungsmöglichkeiten
-* Implementierung von Best Practices für Softwareentwicklung und -lieferung
-* Praktische Optimierung von CI/CD-Systemen
+## [Beratung zur Software Delivery](/services/software-delivery-consulting/)
 
-# CMake-Expertise
+Haben Sie mit langen Release-Zyklen oder ineffizienten Workflows zu kämpfen? Ich helfe Ihnen, Engpässe zu identifizieren, Ihre Prozesse zu optimieren und Best Practices zu implementieren, damit Sie Software schneller und zuverlässiger liefern können. Von CI/CD-Verbesserungen bis hin zu Workflow-Analysen biete ich umsetzbare Lösungen, um Ihre Effizienz zu steigern.
 
-CMake ist ein mächtiges Werkzeug für die Verwaltung komplexer Build-Systeme, kann aber schwierig zu meistern sein. Ich kann Ihnen dabei helfen,
-CMake zu nutzen, um Ihre Build-Prozesse zu verbessern und die Produktivität Ihres Teams zu steigern:
+## [C++- und CMake-Expertise](/services/cmake-expertise/)
 
-* Schulung Ihres Teams in CMake Best Practices
-* Modernisierung Ihrer Build-Systeme
-* Migration von Legacy-Build-Systemen zu CMake
-* Überprüfung Ihres CMake-Codes und umsetzbare Rückmeldungen
-* Hilfe beim Aufbau einer modernen CMake-Projektstruktur
-* [CMake Best Practices](/cmake-best-practices) - ein umfassender Leitfaden für CMake Best Practices
+Meistern Sie CMake mit der Unterstützung des Autors von [CMake Best Practices](/cmake-best-practices). Ich biete Schulungen, Code-Reviews und praktische Unterstützung, um Ihrem Team zu helfen, moderne, effiziente und wartbare CMake-Projekte zu erstellen. Egal, ob Sie von Altsystemen migrieren oder bestehende Setups optimieren – ich unterstütze Sie dabei.
 
-# Software-Modernisierung in C++
+## [Workshops & Schulungen](/services/workshops/)
 
-Möchten Sie Ihre C++-Codebasis modernisieren? Ich kann Ihnen dabei helfen, moderne C++-Standards und -Praktiken einzuführen, um die Code-
-qualität, Wartbarkeit und Performance zu verbessern:
+Stärken Sie Ihr Team mit praxisnahen Workshops, die auf Ihre Bedürfnisse zugeschnitten sind. Themen umfassen CMake, Lean Software Delivery und moderne Entwicklungsmethoden. Von kurzen Sessions bis hin zu mehrtägigen Workshops stelle ich sicher, dass Ihr Team praktische, realitätsnahe Fähigkeiten erwirbt.
 
-* Bewertung Ihrer aktuellen Software-Architektur
-* Identifizierung von Verbesserungs- und Modernisierungsmöglichkeiten
-* Implementierung von Best Practices für Softwareentwicklung und -lieferung
-* Schulungen zu modernen C++-Features und -Techniken
+## [Projektarbeit](/services/project-work/)
+
+Benötigen Sie zusätzliche Entwicklungskapazitäten? Ich spezialisiere mich auf die Bereitstellung praktischer Lösungen – von der Modernisierung von C++-Codebasen bis hin zur Implementierung von kundenspezifischen Features und der Optimierung von Build-Systemen. Ob kleine Aufgaben oder gross angelegte Initiativen – ich helfe Ihnen, Ihre Ziele zu erreichen.
+
+---
+
+Bereit für den nächsten Schritt? [Kontaktieren Sie mich](/contact) noch heute, um zu besprechen, wie ich Ihnen helfen kann, Ihre Software Delivery und Entwicklungspraktiken auf das nächste
