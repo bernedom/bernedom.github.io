@@ -2,6 +2,8 @@
 layout: post
 title: CMake line by line - creating a header-only library
 image: /images/cmake-logo.png
+hero_image: /images/cmake-logo.png
+hero_darken: true
 ---
 
 **CMake can be hard to figure out.** I love CMake, but unfortunately, its documentation is more focused on completeness than on providing hands-on-examples. Since I found it hard to find a comprehensive example of how a header-only library can be set up, I decided to provide an example of a CMakeLists.txt file for such a library here and analyze it line by line. The example is taken from [SI, a header-only library that provides strongly typed physical units](https://github.com/bernedom/SI).

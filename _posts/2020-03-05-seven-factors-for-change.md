@@ -2,6 +2,8 @@
 layout: post
 title: 7 factors for successful change 
 image: /images/change-management/thumbnail.jpg
+hero_image: /images/change-management/thumbnail.jpg
+hero_darken: true
 ---
 
 **Change is everywhere in modern organizations. Those organizations that find it easy to change succeed, the others suffer.**

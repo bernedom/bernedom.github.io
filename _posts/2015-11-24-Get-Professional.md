@@ -2,6 +2,8 @@
 layout: post
 title: Get Professional - A professional skillset for software developers
 image: /images/get-professional/thumbnail.png
+hero_image: /images/get-professional/thumbnail.png
+hero_darken: true
 ---
 
 

@@ -1,5 +1,7 @@
 ---
 layout: post
+hero_image: /images/default-hero.jpg
+hero_darken: true
 title: The Seven Must Reads For The Aspiring Agilist
 ---
 

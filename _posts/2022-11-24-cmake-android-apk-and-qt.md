@@ -3,6 +3,8 @@ layout: post
 title: CMake line by line - Building and Android APK with Qt5
 description: A line by line explanation of how to build an Android APK with CMake for a Qt5/QML application using the Android NDK and SDK.
 image: /images/qml_on_android/cmake-android-qt-logo.png
+hero_image: /images/qml_on_android/cmake-android-qt-logo.png
+hero_darken: true
 ---
 
 **If you build GUI applications with C++ and Qt, chances are that you have to create a mobile version of it.** While the discussion, if Qt and C++ or the native Android SDK is the right technology to use is certainly worth a tought, there are situations where it makes sense to stick with Qt and C++. This article illustrates line by line how to build a C++/Qt application for android with *CMake* and how to pack it into an android APK. 

@@ -2,6 +2,8 @@
 layout: post
 title: How to iterate fast when developing software and hardware together
 image: /images/fast-iterations/iterating-with-hardware.jpg
+hero_image: /images/fast-iterations/iterating-with-hardware.jpg
+hero_darken: true
 ---
 
 **Iterate fast and often to make better products.** This rings true not just when creating software but also when developing it close to or together with hardware. IoT and fully automated Industry 4.0 are currently big topics in the industry, which promotes integrated development between hardware and software even more. Unfortunately, the reality is often that software- and hardware-engineers fail to work effectively together and because of this struggle with creating awesome products. 
