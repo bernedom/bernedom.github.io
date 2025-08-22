@@ -28,8 +28,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-
+     
       - name: Setup Ruby, JRuby and TruffleRuby
         uses: ruby/setup-ruby@v1.256.0
         with:
