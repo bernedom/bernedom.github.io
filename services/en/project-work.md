@@ -5,6 +5,7 @@ subtitle: Practical Solutions for Your Development Needs
 lang: en
 permalink: /services/project-work/
 hero_image: /images/coding_hero.png
+image: /images/coding_hero.png
 ---
 
 Do you need hands-on software development power? SoftwareCraft might be the right partner for you.

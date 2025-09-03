@@ -7,6 +7,7 @@ permalink: /services/
 lang: en
 hero_image: /images/services_hero.jpg
 hero_darken: true
+image: /images/services_hero.jpg
 ---
 
 # Unlock Your Team's Potential with Expert Services

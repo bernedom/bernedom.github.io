@@ -7,6 +7,7 @@ permalink: /services/
 lang: de
 hero_image: /images/services_hero.jpg
 hero_darken: true
+image: /images/services_hero.jpg
 ---
 
 # Entfalten Sie das Potenzial Ihres Teams mit professionellen Dienstleistungen
