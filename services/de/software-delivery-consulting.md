@@ -5,6 +5,7 @@ subtitle: Liefern Sie Ihre Software schneller und zuverlässiger
 lang: de
 permalink: /services/software-delivery-consulting/
 hero_image: /images/delivery_hero.jpg
+image: /images/delivery_hero.jpg
 ---
 
 Haben Sie Schwierigkeiten, Ihre Software rechtzeitig zu veröffentlichen? Stehen Sie vor Herausforderungen mit Ihren Entwicklungsprozessen und ist Ihr

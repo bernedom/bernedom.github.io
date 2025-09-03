@@ -5,6 +5,7 @@ subtitle: Praktische Lösungen für Ihre Entwicklungsanforderungen
 lang: de
 permalink: /services/project-work/
 hero_image: /images/coding_hero.png
+image: /images/coding_hero.png
 ---
 
 Benötigen Sie praktische Softwareentwicklungskraft? SoftwareCraft könnte der richtige Partner für Sie sein.
