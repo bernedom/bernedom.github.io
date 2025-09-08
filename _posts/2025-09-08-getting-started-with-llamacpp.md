@@ -20,7 +20,7 @@ Llama.cpp is a C/C++ implementation of Facebook's LLaMA model that allows you to
 So let's build a simple executable that uses llama.cpp to answer simple prompts like this one. You can find the complete code on [My GitHub](https://github.com/bernedom/LlamaPlayground)
 
 ```
-> LLamaPlayground What is the capital of Switzerland?
+> LLamaPlayground -m What is the capital of Switzerland?
 The capital of Switzerland is Bern.
 ```
 
@@ -29,6 +29,24 @@ To get started we need a few things:
 * A C++17 compatible compiler and CMake
 * llama.cpp as library, which we can get by using CMakes `FetchContent` module. (Unfortunately the conan module for llama.cpp is outdated at the time of writing)
 * A LLM-Model as `.gguf` file which can be obtained from various sources, e.g. [Huggingface](https://huggingface.co/models?search=gguf)
+
+### Setting up the project
+
+Let's start up by setting up a simple CMake project like this:
+
+```
+.
+
+├── CMakeLists.txt
+├── models
+│   └── my_model.gguf # Downloaded models from Huggingface go here
+├── src
+│   └── main.cpp
+
+
+```
+
+
 
 
 
