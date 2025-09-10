@@ -4,6 +4,7 @@ title: Lean backlog handling
 image: /images/backlog-handling/thumbnail.jpg
 hero_image: /images/backlog-handling/thumbnail.jpg
 hero_darken: true
+tags: software-delivery, agile
 ---
 
 **Having a high-quality backlog is a cornerstone of lean-agile development.** The backlog is a central part of agile software development. Whether you're doing Scrum, Kanban, or any of the scaled agile approaches, virtually all methodologies have a backlog as the central artifact of storing upcoming and current work. Because of its central role, handling the backlog well and keeping it lean is a necessity to unlock the possibilities of agile development. 

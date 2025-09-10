@@ -5,6 +5,7 @@ description: Taking and assessing risks, commitment, and focus on the task play 
 image: /images/mountain-mind/thumbnail.jpg
 hero_image: /images/mountain-mind/thumbnail.jpg
 hero_darken: true
+tags: agile, software-development
 ---
 
 When planning a climbing trip the goal of reaching the summit is often known, but how tough it really is to get up there is something that can only be judged in detail once the climbing starts. Some mountains look almost impossible to climb and yet they are relatively easy to summit, while others look comparatively tame but require quite some effort to get up to. Starting a software project is often very similar. While there might be a general idea of what problem or business case the software should solve, it is often unclear what is needed to get there. Some things might turn out much harder than anticipated, while others will be solved surprisingly quick. 

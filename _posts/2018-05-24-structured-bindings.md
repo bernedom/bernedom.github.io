@@ -4,6 +4,7 @@ title: Quick and easy unpacking in C++ with structured bindings
 image: /images/cpp_logo.png
 hero_image: /images/cpp_logo.png
 hero_darken: true
+tags: cpp
 ---
 
 **Unpacking a fixed-size container in C++ can be tedious, and require you to fiddle around with `std::get` or `std::tie`.** But not anymore, thanks to the new *structured bindings* introduced in C++17. Unpacking anything with a fixed size into named variables never has been easier. 

@@ -5,6 +5,7 @@ description: "Software products might live for a long time. After the initial co
 image: /images/cost-of-change/thumbnail-cost-of-change.jpg
 hero_image: /images/cost-of-change/thumbnail-cost-of-change.jpg
 hero_darken: true
+tags: software-delivery, agile
 ---
 
 **Software development is an expensive business.** Measured over the lifespan of a product, the cost of maintaining and changing the code over time often greatly outweighs the initial development cost. Successful software products nowadays often have lifespans measured in decades rather than years, and often they are kept under active development throughout the whole period. Evolving technology, fixing defects, adaptation to customer needs, or pressure from competition are common reasons why software needs change. In view of this, it is paramount that *when designing software and writing code, you should optimize for reducing future cost of change first before anything else*.
