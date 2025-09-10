@@ -5,6 +5,7 @@ image: /images/regulatory_agile/thumbnail.jpg
 hero_image: /images/regulatory_agile/thumbnail.jpg
 hero_darken: true
 description: how to benefit from apply agile software development in a regulatory environment such as ISO 13485 or IEC 62304
+tags: regulatory, agile, software-development
 ---
 
 **I would like to do agile software development for my medical devices, but the #$%! regulations make it impossible!** This response is common when asking people from med-tech or similarly regulated industries about [agile software development](https://agilemanifesto.org/). Contrary to this popular belief, developing regulated software in an agile way is not as hard as one might think. Yes, going agile will not lessen the additional overhead required to pass a regulatory audit. But by focusing on creating artifacts and features which bring value to the products first, the result will be better products.

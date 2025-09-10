@@ -5,6 +5,7 @@ description: "Striking the balance between preventive & corrective planning in s
 image: /images/preventive_planning/preventive_planning.png
 hero_image: /images/preventive_planning/preventive_planning.png
 hero_darken: true
+tags: software-delivery, agile
 ---
 
 **In software development, the way we do planning plays a crucial role in determining the success or failure of a project or product**. It's a dance between trying to foresee every possible scenario and being agile enough to navigate uncertainties as they pop up. On a high level, two primary approaches dominate this landscape: preventive planning and corrective planning. While classical project management methodologies often favor preventive planning, the agile movement has brought corrective planning to the forefront, emphasizing adaptability and responsiveness.

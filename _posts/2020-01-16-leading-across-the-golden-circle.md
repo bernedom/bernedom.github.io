@@ -4,6 +4,8 @@ title: Leading across the golden circle
 image: /images/golden-circle/golden_circle.png
 hero_image: /images/golden-circle/golden_circle.png
 hero_darken: true
+tags: leadership, teamwork, management
+
 ---
 **A good part of leadership is to bring inspiration and purpose to people in order to motivate them do get things done.** In modern companies job no longer falls to a single boss-leader, but situational, decentralized leadership is the way to go. In essence "whoever knows best" leads the way.
 In the book [Start with Why](https://simonsinek.com/product/start-with-why/?ref=home) and a [TED talk](https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action?language=en), the author Simon Sinek describes what he calls the "golden circle" as a model to create purpose and inspiration. In the tiniest nutshell the method consists of three concentric rings, "Why" (innermost), "How" and "What" (outermost) and these questions get answered inside out. 

@@ -5,6 +5,7 @@ description: Why running software projects is different than other engineering d
 image: /images/software-is-different/thumbnail.jpg
 hero_image: /images/software-is-different/thumbnail.jpg
 hero_darken: true
+tags: software-development, agile
 ---
 
 **Project based "Design first and build it once" approaches are a waste when creating software.** Software engineering benefits hugely from an agile approach to product development - not just because software lets us tackle more complex problems, but also because of the different constraints that software development faces compared to other engineering disciplines. Software is wonderfully volatile and easy to change compared to other engineering disciplines, so a different way of building products is necessary. 

@@ -5,6 +5,7 @@ description: How to set up a build environment for building C++ applications wit
 image: /images/devcontainer/thumbnail.png
 hero_image: /images/devcontainer/thumbnail.png
 hero_darken: true
+tags: cpp, docker, vscode
 ---
 
 **"But it compiles on MY machine!"** Is one of the phrases that every C++ coder hates. Even with CMake building a C++ app is often hard, because of missing system dependencies, or people have different libraries installed or are just building with another flavor of make or ninja. But thanks to the [remote container extension](https://code.visualstudio.com/docs/remote/containers-tutorial) of visual studio code this has gotten much easier. 
