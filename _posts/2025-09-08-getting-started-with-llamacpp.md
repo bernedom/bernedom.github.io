@@ -2,8 +2,8 @@
 layout: post
 title: "Building a custom AI agent with Llama.cpp and C++"
 description: ""
-image: /images/artifact-based-ci/thumbnail.png
-hero_image: /images/artifact-based-ci/hero.png
+image: /images/llamacpp/thumbnail.jpg
+hero_image: /images/llamacpp/hero.png
 hero_darken: true
 tags: cpp, ai, cmake
 ---
