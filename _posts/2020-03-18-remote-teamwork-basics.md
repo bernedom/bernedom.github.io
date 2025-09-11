@@ -1,10 +1,12 @@
 ---
+author: Dominik
 layout: post
 title: Making remote teamwork work
 image: /images/remote-teamwork/thumbnail.jpg
 hero_image: /images/remote-teamwork/thumbnail.jpg
 hero_darken: true
 ---
+author: Dominik
 
 **How does remote teamwork actually work?** Working together remotely has its challenges, but they are not as big as one might think from the cozy office of a co-located team. While the communication bandwidth of physical face-to-face communication still beats everything else, but modern technology and a few rules for online behavior can make up for a lot.
 
@@ -48,5 +50,6 @@ Working remotely together takes training and takes a bit of routine. Especially 
 
 
 ---
+author: Dominik
 [^1]: The list by no means meant to be exhaustive, it is just what I worked with in the past and found decent workable choices.
 

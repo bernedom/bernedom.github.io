@@ -1,10 +1,12 @@
 ---
+author: Dominik
 layout: post
 title: Get Professional - A professional skillset for software developers
 image: /images/get-professional/thumbnail.png
 hero_image: /images/get-professional/thumbnail.png
 hero_darken: true
 ---
+author: Dominik
 
 
 **Everybody is a great coder!** It's now over fifteen years since I first got money for a program that I wrote, and since over ten years I consider myself a professional software engineer. When I started out programming I was convinced that raw coding ability and deep, innate technical knowledge of a few programming languages would be all it would take to make it in the industry. But over the years I learned that there is more to being a professional programmer than hacking together complex code. Having worked both in academics and industry, this often became most apparent to me when working with newbies fresh out of college. Often they are great programmers, but lack some of the surrounding skills to make them look professional to me. So what distinguishes the common coder and/or hobbyist from the pros? Before I forget: This article is written on a purely subjective basis of my personal experiences, feel free to tell me that I'm wrong

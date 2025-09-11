@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: 7 factors for successful change 
 image: /images/change-management/thumbnail.jpg
@@ -6,6 +7,7 @@ hero_image: /images/change-management/thumbnail.jpg
 hero_darken: true
 tags: teamwork, change-management
 ---
+author: Dominik
 
 **Change is everywhere in modern organizations. Those organizations that find it easy to change succeed, the others suffer.**
 Life in modern companies is signified by fast and frequent changes. Be it agile transformations, digitalization, new tools, new technology, new methods, new processes (and much more) - there are are many powerful drivers for change in a modern [VUCA-World](https://en.wikipedia.org/wiki/Volatility%2C_uncertainty%2C_complexity_and_ambiguity)
@@ -87,6 +89,7 @@ On the other hand, recognizing established norms and values and using the existi
 The seven factors are not a traditional checklist to be checked of once and then it's done. Rather they provide a canvas to support reflecting about an ongoing change and help to prepare the next move. The factors are closely linked and influence each other, so adapting one will usually affect the others. Applying system thinking and using the factors as a base to describe the systems in play is a good start to bring change to your organization. 
 
 ---
+author: Dominik
 
 ![bbv software services logo]({{ site.baseurl }}/images/logo_bbv_thumb.png#floating) Images published with permission from [bbv software services AG](https://www.bbv.ch)
 

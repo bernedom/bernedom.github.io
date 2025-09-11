@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: Reproducible build environments for C++ using docker and vscode
 description: How to set up a build environment for building C++ applications with docker and visual studio codes remote container environment (devcontainer)
@@ -7,6 +8,7 @@ hero_image: /images/devcontainer/thumbnail.png
 hero_darken: true
 tags: cpp, docker, vscode
 ---
+author: Dominik
 
 **"But it compiles on MY machine!"** Is one of the phrases that every C++ coder hates. Even with CMake building a C++ app is often hard, because of missing system dependencies, or people have different libraries installed or are just building with another flavor of make or ninja. But thanks to the [remote container extension](https://code.visualstudio.com/docs/remote/containers-tutorial) of visual studio code this has gotten much easier. 
 
@@ -129,5 +131,6 @@ In the lower left corner a green sign appears that tells you whenever you're wor
 Your devcontainer is up and running and you can start to work without worrying about diverging build environments. If your devcontainer works as expected I recommend to use the same container in your CI as well, for even more consistency when building C++ apps. And that's it for setting it up - Happy coding!
 
 ---
+author: Dominik
 
 [^1]:Other container runtimes such as podman will also work, but I am not familiar with them

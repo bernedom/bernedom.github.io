@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: On leadership debt 
 image: /images/leadership-debt/thumbnail.png
@@ -6,6 +7,7 @@ hero_image: /images/leadership-debt/thumbnail.png
 hero_darken: true
 tags: leadership, management, teamwork
 ---
+author: Dominik
 
 **Are modern organizations ready to pay the price for increased demand for their leaders?** Countless companies and organizations are currently changing how they work internally. Some experience a growth spurt in the wake of digitalization, others want to be more flexible in reacting to change. And a lot of these organizations struggle with these transformations. They got the agile framework of their choosing in place, they got the teams set up and maybe they even streamlined their portfolio and technological infrastructure. At first, everything looks good, but after a while, all the shiny new things start to lose their gleam and things become tedious again. Decisions take ages to be put into action and once a course is set, people find it hard to deviate from it. All the fluffy stuff like empowerment of the teams and people somehow does not seem to happen. These symptoms might hint that an organization is suffering from **"leadership debt"**. 
 
@@ -63,6 +65,7 @@ Building successful leadership by making time, enabling feedback, and finding th
 
 
 ---
+author: Dominik
 
 [^1]: There is of course much more to DevOps, don't hate me for simplifying this ;)
 

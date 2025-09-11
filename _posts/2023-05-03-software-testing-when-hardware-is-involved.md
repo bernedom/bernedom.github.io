@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: Testing strategies for software that interacts with hardware
 description: Whenever software that interacts closely with hardware is developed, testing becomes more complicated. This article discusses some strategies to make testing easier and more effective.
@@ -7,6 +8,7 @@ hero_image: /images/testing-with-hardware/thumbnail.jpg
 hero_darken: true
 tags: software-testing, cicd
 ---
+author: Dominik
 
 **"Testing our software is difficult, because of the hardware involved",** is a common sentence when developing software for a specific hardware platform. Testing software that interacts closely with hardware indeed complicates the testing setup and in turn, often means that additional cost and effort are required. As the range of "embedded software" goes from low-level firmware running on a specific chip to software running on a specifically designed operating system with custom peripherals there is no one-size-fits-all solution to this. However, there are some strategies and principles that can help to make testing when easier and more effective.
 
