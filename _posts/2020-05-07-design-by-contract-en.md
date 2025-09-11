@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: Robust code with design by contract
 image: /images/design-by-contract/thumbnail.png
@@ -6,6 +7,7 @@ hero_image: /images/design-by-contract/thumbnail.png
 hero_darken: true
 tags: software-quality
 ---
+author: Dominik
 
 **99.9% of software bugs are caused by programmer mistakes.** Testing and code reviews help, but are not enough. If bad code could be caught even earlier, that would be so much nicer. With *Design by contract* we software engineers get a tool that does exactly that. Design by Contract not just makes code more correct, it also makes it more readable and much more robust against regression bugs.
 

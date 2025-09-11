@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: Ditch the estimates and start forecasting 
 image: /images/noestimates/NoEstimates.jpg
@@ -6,6 +7,7 @@ hero_image: /images/noestimates/NoEstimates.jpg
 hero_darken: true
 tags: agile
 ---
+author: Dominik
 
 **"NoEstimates cannot work because people want to plan ahead."** Sounds familiar? Actually NoEstimates means does not mean the absence of any forecasting and planning ahead. Quite the contrary. By tracking the throughput of a team and having a lean development process planning can actually become more reliable, despite not estimating a single story.
 

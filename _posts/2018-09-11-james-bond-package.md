@@ -1,10 +1,12 @@
 ---
+author: Dominik
 layout: post
 title: The "James Bond Package"
 image: /images/james_bond/thumbnail.jpg
 hero_image: /images/james_bond/thumbnail.jpg
 hero_darken: true
 ---
+author: Dominik
 
 **Due to his combination of skills, motivation and initiative James Bond is the perfect agile problem solver.** Agile working requires empowerment of teams and individuals, self-organizing and a different mentality than classical command-and-control structures. This is not just the case for the leaders but also for the people actually solving the problems and delivering the products. To perform in such an environment it helps if each and everyone of us shares a bit of what I like to call the "James Bond Package". 
 
@@ -57,6 +59,7 @@ Though James Bond is self-reliant and perfectly capable of beating up villains o
 As appealing as the James Bond package is, can we transfer it from Hollywood to reality? Though it is unrealistic that we are able to hire or even build up a single James Bond we can substitute him with **cross-functional, empowered teams**. Not every single team member has to be an expert in all the problem-solving skills needed to save the world if they work together. By having people with complementing and overlapping skill-sets we can get very close to what James Bond can do. However there are some key attributes such as motivation and a sense for autonomy which should be shared with all team members and this is probably the hardest part, but by coaching and enabling people even this can be achieved with a bit of time.
 
 ---
+author: Dominik
 *This article is the first part of a series of articles regarding my talk [double-o-agile (PDF slides)](/images/james_bond/00agile_english.pdf)* 
 
 * [Part 2: What secret agents need to work successfully]({{site.base_url}}/james-bond-in-your-company/)

@@ -1,4 +1,5 @@
 ---
+author: Dominik
 layout: post
 title: The art of slicing stories
 image: /images/slicing/thumbnail.png
@@ -6,6 +7,7 @@ hero_image: /images/slicing/thumbnail.png
 hero_darken: true
 tags: agile, software-delivery
 ---
+author: Dominik
 
 **Breaking down stories in small, manageable chunks is an essential skill when maintaining a good backlog.** Sounds good, but how does one actually do the slicing? Splitting backlog items is not magic, but a skill that can be learned. All it needs is a bit of thinking and a few techniques to get going. 
 
@@ -69,5 +71,6 @@ If estimating is still done for such stories it is advisable to slice first and 
 For teams suffering long cycle times, radical slicing is one of the first things to optimize before anything else. 
 
 ---
+author: Dominik
 
 [^1]: ["small is beautiful" good article explaining the importance of small batch sizes](https://medium.com/faun/small-is-beautiful-the-importance-of-batch-size-ea968ed8d477)

@@ -1,10 +1,12 @@
 ---
+author: Dominik
 layout: post
 title: Don't fear large scale agile frameworks
 image: /images/beyond-team-size/beyond-team-size.jpg
 hero_image: /images/beyond-team-size/beyond-team-size.jpg
 hero_darken: true
 ---
+author: Dominik
 
 Agile is successful and we know it. For years we scrum masters, agile coaches and change champions advertised and trained developers in the agile principles and the many frameworks and ideas out there. We have seen teams and individuals grow and become self-organized and empowered. It was fun but tough work. We grass-rooted ideas with the developers and helped people changing their minds about "how we work". 
 And it was frustrating when we hit the hard wall of culture-shifting whole organizations instead of just teams. Our teams worked well but somehow the movers and shakers of the companies needed a lot more and a different kind of attention to bring them along. Suddenly the ideas and principles we instilled so successfully into cross-functional teams of developers, testers and engineers were under harsh critique. Somehow there always seemed a someone up a higher level that did not agree with what we tried to achieve. Countless stories of trying to put scrum into action on a contract that is essentially waterfall are a strong indicator to that.
