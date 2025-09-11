@@ -50,6 +50,8 @@ FetchContent_MakeAvailable(llama)
 ```
 This gives us access to the `llama` target that we can link to our executable like this `target_link_libraries(LLamaPlayground PRIVATE llama)`.
 
+{% include cmake-best-practices-ad.html %}
+
 Next we need to obtain a model. You can find various models on [Huggingface](https://huggingface.co/models?search=gguf). For this example I downloaded the `ggml-org/gemma-3-1b-it-GGUF` model and placed it in a `models` folder next to the executable. This is a fairly lightweight model that accepts text or images as input and generates text as output.
 
 The easiest way to get the model is to use the [huggingface CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli). You can install it using pip:
