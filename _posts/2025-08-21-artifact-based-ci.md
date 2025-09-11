@@ -89,6 +89,8 @@ This way it is easy to identify where an artifact comes from and what it is used
 
 For a start, a simple storage solution for these artifacts might be enough, but as the project grows, it is worth considering a dedicated artifact repository and a [package manager](https://softwarecraft.ch/conan-as-cmake-dependency-provider/) to handle the artifacts. If you have the versioning and naming scheme covered, you are already a huge step further towards efficient artifact-based CI, and further improvements can usually be made incrementally.
 
+{% include cmake-best-practices-ad.html %}
+
 ## Further improvements
 
 Moving from a build-everything-all-the-time approach to an artifact-based CI approach can be a bit of a paradigm shift, but it can lead to significant improvements in build times and reliability. Once the CI pipeline is set up to handle artifacts, the door is open to further optimizations, such as caching dependencies, parallelizing builds, and more. Depending on the team's setup, it can even be beneficial to make the artifacts available to developers locally, so they can test their changes against the same artifacts that will be used in production. 
