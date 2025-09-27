@@ -12,6 +12,14 @@ In recent years, I have conducted numerous workshops and training sessions to he
 
 All workshops can be tailored to your team's needs, ranging from small 2-hour sessions to full-day or multi-day workshops.Here are some of the workshops I offer: 
 
+# Lean Software Delivery Workshops
+
+* Value Stream Mapping – Identify bottlenecks in your software delivery process
+* Backlog management – Prioritize and manage your work effectively
+* Efficient decisions – Techniques for making better decisions faster
+* Continuous improvement – Foster a culture of continuous improvement in your team
+* *... and more, tailored to your team's needs*
+
 # CMake Workshops
 
 As the author of [CMake Best Practices](/cmake-best-practices), I offer hands-on workshops to help your team master CMake. These workshops are designed to be practical and interactive, ensuring that your team gains real-world skills:
@@ -21,14 +29,6 @@ As the author of [CMake Best Practices](/cmake-best-practices), I offer hands-on
 * Best practices for large CMake project structures
 * CMake for testing and continuous integration
 * Custom CMake modules and scripts
-* *... and more, tailored to your team's needs*
-
-# Lean Software Delivery Workshops
-
-* Value Stream Mapping – Identify bottlenecks in your software delivery process
-* Backlog management – Prioritize and manage your work effectively
-* Efficient decisions – Techniques for making better decisions faster
-* Continuous improvement – Foster a culture of continuous improvement in your team
 * *... and more, tailored to your team's needs*
 
 # Ready to take the next step?
