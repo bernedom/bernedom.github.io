@@ -27,22 +27,162 @@ std::expected<double, std::string> safe_sqrt(double x) {
     }
     return std::sqrt(x);
 }
-```
 
-To use this function, you can check if the result is valid and handle the error accordingly:
+...
 
-```cpp
-#include <iostream>
-
-int main() {
-    auto result = safe_sqrt(-1);
-    if (result) {
-        std::cout << "Square root: " << *result << '\n';
-    } else {
-        std::cout << "Error: " << result.error() << '\n';
-    }
-    return 0;
+// Usage
+const auto result = safe_sqrt(-1);
+if (result) {
+    std::cout << "Square root: " << *result << '\n';
+} else {
+    std::cout << "Error: " << result.error() << '\n';
 }
 
-* expected vs optional vs exceptions
-* 
+```
+In this example, `safe_sqrt` returns an `std::expected<double, std::string>`. If the input is valid, it returns the square root; otherwise, it returns an error message. The caller can then check if the result is valid and handle the error accordingly. So how does this compare to traditional error handling methods?
+
+### Comparison to Traditional Error Handling
+
+Before `std::expected`, there were typically two main approaches to error handling in C++: exceptions and error codes. While exceptions can be powerful, they typically bring with them more complexity in control flow and then there is the discussion which errors should cause an exception to be thrown and which should not. The benefit of exceptions is that they allow for clean separation of error handling code and for propagation of errors up the call stack. 
+Error codes on the other hand tend to either clutter the code by requiring out-parameters or have the problem of being either ignored or misunderstood by the caller. While [nodiscard](https://en.cppreference.com/w/cpp/language/attributes/nodiscard) can help with ignored return values, it still does not solve the problem that the caller has to semantically understand the meaning of the return value. 
+
+`std::expected` provides a middle ground. It makes error handling explicit in the type system, allowing to pass semantic information about the error back to the caller. The beauty of `std::expected`is also, that it can help to discern between expected or recoverable errors (e.g. file not found, invalid input) and unexpected or unrecoverable errors (e.g. out of memory, logic errors) which should still be handled via exceptions. 
+
+> **Tip:** Use `std::expected` for recoverable errors where the caller can take action based on the error, and reserve exceptions for truly exceptional situations.
+
+Let's look at a more complex example that demonstrates how `std::expected` can be used in a real-world scenario.
+
+### Real world example: Reading a QR code from an image
+
+Let's suppose we want to write a function that reads a QR code from binary image data. The function generally has three paths:
+
+1. The image contains a valid QR code and we can return the decoded string.
+2. The image does not contain a QR code and we want to return an error indicating that.
+3. The image data is unreadable (e.g. corrupted or unrecognizable format) and we want to throw an exception.
+
+While the first two paths are expected and recoverable errors, the third path is an unexpected error that should be handled via exceptions. So the implementation could look like this:
+
+```cpp
+#include <expected>
+#include <string>
+#include <stdexcept>
+#include <vector>   
+
+std::expected<std::string, std::string> read_qr_code(std::vector<uint8_t> const& image_data) {
+    
+    if (image_data.empty() || check_if_corrupted(image_data)) {
+        throw std::invalid_argument("Invalid image data");
+    }
+
+    // Assume parse_image_data is a function that parses the image data and returns the QR code string or throws on failure
+    std::string parsed_data = parse_image_data(image_data); // May throw exceptions on failure
+
+    if (parsed_data.empty()) {
+        return std::unexpected("No QR code found");
+    }
+
+    return parsed_data;
+}
+```
+
+Note that in this example, both the success and error type are strings, but they could be any type. In a lot of cases, it might still make sense to use an enum or a custom error type for the error case to make it more structured. However, by using `std::expected`, we already are able to add a lot more context to the function without cluttering the code. This already is a big improvement over returning, but there is more.  
+
+### Monadic chaining with `and_then`
+
+
+Monadic chaining lets you compose a sequence of operations that may fail, without deeply nested `if`/`else`. With `std::expected`, you chain:
+- `and_then` when the next step itself may fail and returns another `expected`.
+- `transform` when the next step cannot fail and just maps the value.
+- `or_else` to act on or recover from an error.
+
+Below is a continuation of the QR example, showing a pipeline that:
+1) reads the QR payload,
+2) validates it,
+3) parses it as a URI,
+4) extracts the host (pure mapping),
+5) adds context to the error if anything failed.
+
+```cpp
+// Reuse the earlier read_qr_code signature:
+// std::expected<std::string, std::string> read_qr_code(const std::vector<uint8_t>&);
+
+#include <expected>
+#include <string>
+#include <vector>
+#include <cctype>
+
+struct Uri {
+    std::string scheme;
+    std::string host;
+    std::string path;
+};
+
+std::expected<std::string, std::string>
+validate_payload(std::string const& s) {
+    if (s.empty()) {
+        return std::unexpected("Empty QR payload");
+    }
+    if (s.size() > 4096) { // arbitrary sanity limit
+        return std::unexpected("QR payload too large");
+    }
+    return s; // valid as-is
+}
+
+std::expected<Uri, std::string>
+parse_uri(std::string const& s) {
+    auto starts_with = [&](std::string const& p) {
+        return s.rfind(p, 0) == 0;
+    };
+
+    Uri u;
+    if (starts_with("https://")) {
+        u.scheme = "https";
+    } else if (starts_with("http://")) {
+        u.scheme = "http";
+    } else {
+        return std::unexpected("Not an http(s) URI");
+    }
+
+    // very naïve split: scheme://host/path
+    auto pos = s.find("://");
+    auto rest = s.substr(pos + 3);
+    auto slash = rest.find('/');
+    if (slash == std::string::npos) {
+        u.host = rest;
+        u.path = "/";
+    } else {
+        u.host = rest.substr(0, slash);
+        u.path = rest.substr(slash);
+    }
+    if (u.host.empty()) {
+        return std::unexpected("Missing host");
+    }
+    return u;
+}
+
+std::string host_from(Uri const& u) {
+    return u.host; // pure mapping, cannot fail
+}
+
+std::expected<std::string, std::string>
+annotate_error(std::string const& err) {
+    return std::unexpected(std::string{"QR processing failed: "} + err);
+}
+
+// Usage: linear, early-exiting pipeline
+std::expected<std::string, std::string>
+extract_qr_host(std::vector<uint8_t> const& image) {
+    return read_qr_code(image)
+        .and_then(validate_payload)        // may fail -> expected<Payload, E>
+        .and_then(parse_uri)               // may fail -> expected<Uri, E>
+        .transform(host_from)              // cannot fail -> expected<std::string, E>
+        .or_else(annotate_error);          // act on error path, keep E the same
+}
+```
+
+Notes and gotchas:
+- Keep the error type `E` consistent across `and_then`/`or_else` steps. If you must change it, use `transform_error`.
+- Use `and_then` only with functions that return `expected<..., E>`. Use `transform` for pure mappings returning plain values.
+- The chain short-circuits on the first error, returning that error downstream.
+- If a step can throw, those exceptions still propagate unless caught and converted to `std::unexpected`.
+- Prefer passing by `const&` in chain steps to avoid copies. If you need to move, adapt the function to accept by value and `std::move` internally.
