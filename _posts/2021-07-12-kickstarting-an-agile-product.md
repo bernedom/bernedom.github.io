@@ -6,6 +6,7 @@ description: Agile software development is the way to go when developing a proje
 image: /images/kickstart-agile-project/thumbnail.jpg
 hero_image: /images/kickstart-agile-project/thumbnail.jpg
 hero_darken: true
+tags: agile software-development software-delivery
 ---
 author: Dominik
 

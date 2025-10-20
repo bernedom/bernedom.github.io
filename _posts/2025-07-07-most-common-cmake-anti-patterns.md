@@ -7,6 +7,7 @@ description: "CMake is powerful, but often blamed for bad build experiences. Mos
 image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
+tags: cmake
 ---
 author: Dominik
 

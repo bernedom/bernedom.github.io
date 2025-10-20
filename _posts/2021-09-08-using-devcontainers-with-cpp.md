@@ -6,7 +6,7 @@ description: How to set up a build environment for building C++ applications wit
 image: /images/devcontainer/thumbnail.png
 hero_image: /images/devcontainer/thumbnail.png
 hero_darken: true
-tags: cpp, docker, vscode
+tags: cpp docker vscode cmake software-delivery
 ---
 author: Dominik
 

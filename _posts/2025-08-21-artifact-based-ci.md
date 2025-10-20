@@ -6,6 +6,7 @@ description: "Artifact-based CI can optimize your CI/CD pipelines by reducing bu
 image: /images/artifact-based-ci/thumbnail.png
 hero_image: /images/artifact-based-ci/hero.png
 hero_darken: true
+tags: devops ci/cd
 ---
 author: Dominik
 

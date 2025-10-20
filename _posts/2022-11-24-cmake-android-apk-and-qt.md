@@ -7,6 +7,7 @@ description: A line by line explanation of how to build an Android APK with CMak
 image: /images/qml_on_android/cmake-android-qt-logo.png
 hero_image: /images/qml_on_android/cmake-android-qt-logo.png
 hero_darken: true
+tags: cmake qt android
 ---
 author: Dominik
 

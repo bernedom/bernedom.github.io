@@ -7,6 +7,7 @@ description: CMake presets are a big help in how to configure CMake. This articl
 image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
+tags: cmake
 ---
 author: Dominik
 

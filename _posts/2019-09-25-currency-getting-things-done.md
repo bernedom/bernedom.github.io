@@ -5,7 +5,7 @@ title: The currency of getting things done
 image: /images/currency/thumbnail.png
 hero_image: /images/currency/thumbnail.png
 hero_darken: true
-tags: software-delivery, agile
+tags: software-delivery agile
 ---
 author: Dominik
 

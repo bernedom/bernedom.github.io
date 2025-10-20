@@ -5,7 +5,7 @@ title: The art of slicing stories
 image: /images/slicing/thumbnail.png
 hero_image: /images/slicing/thumbnail.png
 hero_darken: true
-tags: agile, software-delivery
+tags: agile software-delivery
 ---
 author: Dominik
 

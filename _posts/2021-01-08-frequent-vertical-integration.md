@@ -6,7 +6,7 @@ description: How early and frequent vertical integration will increase the quali
 image: /images/vertical_integration/thumbnail.jpg
 hero_image: /images/vertical_integration/thumbnail.jpg
 hero_darken: true
-tags: software-delivery, software-quality, devops, cicd
+tags: software-delivery software-quality devops cicd
 ---
 author: Dominik
 

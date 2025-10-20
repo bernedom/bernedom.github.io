@@ -6,7 +6,7 @@ description: "Striking the balance between preventive & corrective planning in s
 image: /images/preventive_planning/preventive_planning.png
 hero_image: /images/preventive_planning/preventive_planning.png
 hero_darken: true
-tags: software-delivery, agile
+tags: software-delivery agile
 ---
 author: Dominik
 

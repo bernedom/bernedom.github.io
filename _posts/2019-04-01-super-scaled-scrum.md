@@ -5,7 +5,7 @@ title: Scaled Single Sprint Scrum<sup>TM</sup>
 image: /images/aprils-fool/aprils-fool.jpg
 hero_image: /images/aprils-fool/aprils-fool.jpg
 hero_darken: true
-tags: april-fools, agile
+tags: april-fools agile
 ---
 author: Dominik
 

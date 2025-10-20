@@ -5,6 +5,7 @@ title: Help! I'm getting SAFed!
 image: /images/getting-safed/thumbnail.png
 hero_image: /images/getting-safed/thumbnail.png
 hero_darken: true
+tags: agile
 ---
 author: Dominik
 

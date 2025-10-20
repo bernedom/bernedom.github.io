@@ -6,7 +6,7 @@ description: "Practical introduction to std::expected: intent-revealing, structu
 image: /images/cpp_logo.png
 hero_image: /images/cpp_logo.png
 hero_darken: true
-tags: cpp ai cmake
+tags: cpp 
 ---
 
 **How to handle errors in C++ has been a constant point of debate.** Do you use exceptions, error code, out-parameters or return nullptrs on failure? And how do you convey information on the nature of the failure? With C++17 we got `std::optional` for "value or nothing" semantics, but it lacks error context. [C++23 - finally - introduces `std::expected`](https://en.cppreference.com/w/cpp/utility/expected.html), a type that encapsulates either a value or an error, making error handling explicit and composable. Let's explore how `std::expected` can improve your C++ code.

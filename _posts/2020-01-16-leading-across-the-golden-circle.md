@@ -5,7 +5,7 @@ title: Leading across the golden circle
 image: /images/golden-circle/golden_circle.png
 hero_image: /images/golden-circle/golden_circle.png
 hero_darken: true
-tags: leadership, teamwork, management
+tags: leadership teamwork management
 
 ---
 author: Dominik

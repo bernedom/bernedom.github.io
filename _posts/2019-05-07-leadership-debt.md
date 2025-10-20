@@ -5,7 +5,7 @@ title: On leadership debt
 image: /images/leadership-debt/thumbnail.png
 hero_image: /images/leadership-debt/thumbnail.png
 hero_darken: true
-tags: leadership, management, teamwork
+tags: leadership management teamwork agile
 ---
 author: Dominik
 

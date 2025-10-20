@@ -5,7 +5,7 @@ title: The joy of failure
 image: /images/failure/thumbnail.jpg
 hero_image: /images/failure/thumbnail.jpg
 hero_darken: true
-tags: software-development
+tags: software-development agile
 ---
 author: Dominik
 

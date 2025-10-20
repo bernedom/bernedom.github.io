@@ -5,6 +5,7 @@ title: Making remote teamwork work
 image: /images/remote-teamwork/thumbnail.jpg
 hero_image: /images/remote-teamwork/thumbnail.jpg
 hero_darken: true
+tags: agile software-development
 ---
 author: Dominik
 
