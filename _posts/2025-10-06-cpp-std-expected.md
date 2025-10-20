@@ -85,12 +85,11 @@ std::expected<std::string, std::string> read_qr_code(std::vector<uint8_t> const&
 }
 ```
 
-Note that in this example, both the success and error type are strings, but they could be any type. In a lot of cases, it might still make sense to use an enum or a custom error type for the error case to make it more structured. However, by using `std::expected`, we already are able to add a lot more context to the function without cluttering the code. This already is a big improvement over returning, but there is more.  
+Note that in this example, both the success and error type are strings, but they could be any type. In a lot of cases, it might still make sense to use an enum or a custom error type for the error case to make it more structured. However, by using `std::expected`, we already are able to add a lot more context to the function without cluttering the code. This already is a big improvement over returning, but there is more. `std::expected` also provides a set of powerful combinators for composing operations that may fail, allowing for more elegant error handling.
 
 ### Monadic chaining with `and_then`
 
-
-Monadic chaining lets you compose a sequence of operations that may fail, without deeply nested `if`/`else`. With `std::expected`, you chain:
+One of the benefits of `std::expected` is that it allows for [monadic chaining](https://en.wikipedia.org/wiki/Monad_(functional_programming)), A technique widely used in functional programming. Monadic chaining lets you compose a sequence of operations that may fail, without deeply nested `if`/`else`. With `std::expected`, you chain:
 - `and_then` when the next step itself may fail and returns another `expected`.
 - `transform` when the next step cannot fail and just maps the value.
 - `or_else` to act on or recover from an error.
@@ -109,7 +108,6 @@ Below is a continuation of the QR example, showing a pipeline that:
 #include <expected>
 #include <string>
 #include <vector>
-#include <cctype>
 
 struct Uri {
     std::string scheme;
@@ -143,7 +141,7 @@ parse_uri(std::string const& s) {
         return std::unexpected("Not an http(s) URI");
     }
 
-    // very naïve split: scheme://host/path
+    // very naive split: scheme://host/path
     auto pos = s.find("://");
     auto rest = s.substr(pos + 3);
     auto slash = rest.find('/');
@@ -180,9 +178,18 @@ extract_qr_host(std::vector<uint8_t> const& image) {
 }
 ```
 
-Notes and gotchas:
-- Keep the error type `E` consistent across `and_then`/`or_else` steps. If you must change it, use `transform_error`.
-- Use `and_then` only with functions that return `expected<..., E>`. Use `transform` for pure mappings returning plain values.
-- The chain short-circuits on the first error, returning that error downstream.
-- If a step can throw, those exceptions still propagate unless caught and converted to `std::unexpected`.
-- Prefer passing by `const&` in chain steps to avoid copies. If you need to move, adapt the function to accept by value and `std::move` internally.
+As we see, the resulting code in `extract_qr_host` is linear and easy to read. Each step is clearly defined, and error handling is centralized without deeply nested conditionals. The use of `and_then`, `transform`, and `or_else` makes the intent of each operation explicit. 
+
+There are some pitfalls and good practices to keep in mind when using monadic chaining with `std::expected`:
+
+* Keep the error type `E` consistent across `and_then`/`or_else` steps. If you must change it, use `transform_error`.
+* Use `and_then` only with functions that return `expected<..., E>`. Use `transform` for pure mappings returning plain values.
+* The chain short-circuits on the first error, returning that error downstream. So having a catch-all `or_else` at the end is a good practice.
+* If a step can throw, those exceptions still propagate unless caught and converted to `std::unexpected`.
+* Prefer passing by `const&` in chain steps to avoid copies or use move semantics. However the guaranteed copy elision in C++17 and later often makes this less of a concern.
+
+With these practices in mind, `std::expected` and its combinators can greatly enhance the clarity and robustness of error handling in your C++ code.
+
+## final thoughts
+
+With the arrival of `std::expected` in C++23 there is another powerful tool in C++ to allow more expressive code in a functional programming style. This can make applications that do a lot of data processing and have many recoverable failure paths much cleaner and easier to maintain. While it does not replace exceptions for unrecoverable errors, it nicely complements them by providing a structured way to handle expected errors. And the beauty of it is, that it still works seamlessly with existing C++ code and libraries - So no need to go all in and change it everywhare. So give it a try in your next C++ project and see how it can improve your error handling!
