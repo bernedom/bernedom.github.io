@@ -193,6 +193,7 @@ With these practices in mind, `std::expected` and its combinators can greatly en
 ## final thoughts
 
 With the arrival of `std::expected` in C++23 there is another powerful tool in C++ to allow more expressive code in a functional programming style. This can make applications that do a lot of data processing and have many recoverable failure paths much cleaner and easier to maintain. While it does not replace exceptions for unrecoverable errors, it nicely complements them by providing a structured way to handle expected errors. And the beauty of it is, that it still works seamlessly with existing C++ code and libraries - So no need to go all in and change it everywhere. So give it a try in your next C++ project and see how it can improve your error handling!
+
 ---
 
 While `std::expected` became part of the C++ standard with C++23, it has been around for quite some time as an [open-source library](https://github.com/TartanLlama/expected) by Sy Brand before that.
