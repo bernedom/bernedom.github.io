@@ -7,6 +7,7 @@ description: "How to set up a library with CMake, including proper symbol visibi
 image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
+tags: cmake
 ---
 author: Dominik
 

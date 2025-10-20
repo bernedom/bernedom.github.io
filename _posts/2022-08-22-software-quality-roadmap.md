@@ -6,7 +6,7 @@ description: Bringing engineering and quality topics into a development roadmap 
 image: /images/software-quality/Quality.png
 hero_image: /images/software-quality/Quality.png
 hero_darken: true
-tags: software-delivery, agile, software-quality
+tags: software-delivery agile, software-quality
 ---
 author: Dominik
 

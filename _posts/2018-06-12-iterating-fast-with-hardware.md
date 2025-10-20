@@ -5,6 +5,7 @@ title: How to iterate fast when developing software and hardware together
 image: /images/fast-iterations/iterating-with-hardware.jpg
 hero_image: /images/fast-iterations/iterating-with-hardware.jpg
 hero_darken: true
+tags: agile software-delivery
 ---
 author: Dominik
 

@@ -6,6 +6,7 @@ title: CMake line by line - creating a header-only library
 image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
+tags: cmake
 ---
 author: Dominik
 

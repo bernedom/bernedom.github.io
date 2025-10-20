@@ -5,6 +5,7 @@ title: Do not leave your innovation to the engineers
 image: /images/innovation/innovation_by_people.jpg
 hero_image: /images/innovation/innovation_by_people.jpg
 hero_darken: true
+tags: agile innovation business
 ---
 author: Dominik
 

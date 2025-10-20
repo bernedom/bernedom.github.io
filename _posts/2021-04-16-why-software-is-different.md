@@ -6,7 +6,7 @@ description: Why running software projects is different than other engineering d
 image: /images/software-is-different/thumbnail.jpg
 hero_image: /images/software-is-different/thumbnail.jpg
 hero_darken: true
-tags: software-development, agile
+tags: software-development agile
 ---
 author: Dominik
 

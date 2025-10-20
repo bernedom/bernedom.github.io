@@ -6,7 +6,7 @@ description: "Learn how to build a local AI agent using llama.cpp and C++. This 
 image: /images/llamacpp/thumbnail.jpg
 hero_image: /images/llamacpp/hero.png
 hero_darken: true
-tags: cpp, ai, cmake
+tags: cpp ai cmake
 ---
 author: Dominik
 

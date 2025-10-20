@@ -5,6 +5,7 @@ title: Stop calling it agile
 image: /images/no-more-agile/stop-agile-thumb.jpg
 hero_image: /images/no-more-agile/stop-agile-thumb.jpg
 hero_darken: true
+tags: agile
 ---
 author: Dominik
 

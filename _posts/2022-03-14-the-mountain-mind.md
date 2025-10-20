@@ -6,7 +6,7 @@ description: Taking and assessing risks, commitment, and focus on the task play 
 image: /images/mountain-mind/thumbnail.jpg
 hero_image: /images/mountain-mind/thumbnail.jpg
 hero_darken: true
-tags: agile, software-development
+tags: agile software-development
 ---
 author: Dominik
 

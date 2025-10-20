@@ -5,7 +5,7 @@ title: Decide to decide better
 image: /images/decisions/thumbnail.jpg
 hero_image: /images/decisions/thumbnail.jpg
 hero_darken: true
-tags: agile, teamwork, leadership
+tags: agile teamwork leadership
 ---
 author: Dominik
 

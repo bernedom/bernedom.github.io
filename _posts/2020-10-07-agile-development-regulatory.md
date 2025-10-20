@@ -6,7 +6,7 @@ image: /images/regulatory_agile/thumbnail.jpg
 hero_image: /images/regulatory_agile/thumbnail.jpg
 hero_darken: true
 description: how to benefit from apply agile software development in a regulatory environment such as ISO 13485 or IEC 62304
-tags: regulatory, agile, software-development
+tags: regulatory agile software-development software-delivery
 ---
 author: Dominik
 

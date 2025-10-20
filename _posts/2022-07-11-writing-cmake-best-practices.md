@@ -7,6 +7,7 @@ description: From August 2021 to May 2022 I spent quite some time writing the Bo
 image: /images/writing-cmake-best-practices/thumbnail.jpg
 hero_image: /images/writing-cmake-best-practices/thumbnail.jpg
 hero_darken: true
+tags: cmake
 ---
 author: Dominik
 

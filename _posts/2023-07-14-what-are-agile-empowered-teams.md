@@ -6,7 +6,7 @@ description: "The term empowered teams is often used in the context of agile sof
 image: /images/empowered-teams/thumbnail.jpg
 hero_image: /images/empowered-teams/thumbnail.jpg
 hero_darken: true
-tags: software-delivery, agile
+tags: software-delivery agile
 ---
 author: Dominik
 

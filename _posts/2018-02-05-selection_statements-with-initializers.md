@@ -5,6 +5,7 @@ title: initializers in selection statements - smarter coding in C++17
 image: /images/cpp_logo.png
 hero_image: /images/cpp_logo.png
 hero_darken: true
+tags: cpp
 ---
 author: Dominik
 

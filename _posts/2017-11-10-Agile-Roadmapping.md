@@ -5,7 +5,7 @@ title: Planning ahead the agile way
 image: /images/agile-roadmapping/thumbnail.jpg
 hero_image: /images/agile-roadmapping/thumbnail.jpg
 hero_darken: true
-tags: agile, software-delivery, product-management
+tags: agile software-delivery product-management
 ---
 author: Dominik
 

@@ -6,7 +6,7 @@ description: Whenever software that interacts closely with hardware is developed
 image: /images/testing-with-hardware/thumbnail.jpg
 hero_image: /images/testing-with-hardware/thumbnail.jpg
 hero_darken: true
-tags: software-testing, cicd
+tags: software-testing cicd software-delivery
 ---
 author: Dominik
 

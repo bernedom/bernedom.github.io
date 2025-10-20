@@ -5,7 +5,7 @@ title: Lean backlog handling
 image: /images/backlog-handling/thumbnail.jpg
 hero_image: /images/backlog-handling/thumbnail.jpg
 hero_darken: true
-tags: software-delivery, agile
+tags: software-delivery agile
 ---
 author: Dominik
 

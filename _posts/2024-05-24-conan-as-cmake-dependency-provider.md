@@ -7,6 +7,7 @@ description: "With the addition of dependency providers in CMake 3.24 using Cona
 image: /images/cmake-conan-logo.png
 hero_image: /images/cmake-conan-logo.png
 hero_darken: true
+tags: cmake conan
 ---
 author: Dominik
 

@@ -5,6 +5,7 @@ title: Don't fear large scale agile frameworks
 image: /images/beyond-team-size/beyond-team-size.jpg
 hero_image: /images/beyond-team-size/beyond-team-size.jpg
 hero_darken: true
+tags: agile
 ---
 author: Dominik
 

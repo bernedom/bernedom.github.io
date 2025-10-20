@@ -6,7 +6,7 @@ description: "Software products might live for a long time. After the initial co
 image: /images/cost-of-change/thumbnail-cost-of-change.jpg
 hero_image: /images/cost-of-change/thumbnail-cost-of-change.jpg
 hero_darken: true
-tags: software-delivery, agile
+tags: software-delivery agile
 ---
 author: Dominik
 

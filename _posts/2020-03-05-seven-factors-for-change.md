@@ -5,7 +5,7 @@ title: 7 factors for successful change
 image: /images/change-management/thumbnail.jpg
 hero_image: /images/change-management/thumbnail.jpg
 hero_darken: true
-tags: teamwork, change-management
+tags: teamwork change-management agile
 ---
 author: Dominik
 
