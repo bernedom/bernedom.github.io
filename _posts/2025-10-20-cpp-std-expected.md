@@ -9,7 +9,7 @@ hero_darken: true
 tags: cpp ai cmake
 ---
 
-**How to handle errors in C++ has been a constant point of debate.** Do you use exceptions, error code, out-parameters or return nullptrs on failure? And how do you convey information on the nature of the failure? With C++17 we got `std::optional` for "value or nothing" semantics, but it lacks error context. [C++23 - finally - introduces `std::expected`](https://en.cppreference.com/w/cpp/utility/expected.html)[^1], a type that encapsulates either a value or an error, making error handling explicit and composable. Let's explore how `std::expected` can improve your C++ code.
+**How to handle errors in C++ has been a constant point of debate.** Do you use exceptions, error code, out-parameters or return nullptrs on failure? And how do you convey information on the nature of the failure? With C++17 we got `std::optional` for "value or nothing" semantics, but it lacks error context. [C++23 - finally - introduces `std::expected`](https://en.cppreference.com/w/cpp/utility/expected.html), a type that encapsulates either a value or an error, making error handling explicit and composable. Let's explore how `std::expected` can improve your C++ code.
 
 ## `std::expected` in a nutshell
 
@@ -194,4 +194,5 @@ With these practices in mind, `std::expected` and its combinators can greatly en
 
 With the arrival of `std::expected` in C++23 there is another powerful tool in C++ to allow more expressive code in a functional programming style. This can make applications that do a lot of data processing and have many recoverable failure paths much cleaner and easier to maintain. While it does not replace exceptions for unrecoverable errors, it nicely complements them by providing a structured way to handle expected errors. And the beauty of it is, that it still works seamlessly with existing C++ code and libraries - So no need to go all in and change it everywhere. So give it a try in your next C++ project and see how it can improve your error handling!
 ---
-[^1]: While `std::expected` became part of the C++ standard with C++23, it has been around for quite some time as an [open-source library](https://github.com/TartanLlama/expected) by Sy Brand before that.
+
+While `std::expected` became part of the C++ standard with C++23, it has been around for quite some time as an [open-source library](https://github.com/TartanLlama/expected) by Sy Brand before that.
