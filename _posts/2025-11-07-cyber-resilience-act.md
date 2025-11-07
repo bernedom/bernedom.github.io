@@ -9,94 +9,57 @@ hero_darken: true
 tags: cpp 
 ---
 
-Note: This is an informational overview, not legal advice. Consult counsel for scoped interpretations and timelines.
+**The EU Cyber Resilience Act (CRA) is set to become a landmark regulation for software and connected device security in Europe.** With its planned enforcement starting in September 2026, companies developing software or devices using software must prepare to meet its requirements or fear of losing access to the EU market. While this sounds daunting at first, it might not be as overwhelming as it seems. This post provides a practical overview of what the CRA entails, what companies need to establish, and how to get started to meet the requirements in a structured way.
 
-What it is (in brief)
-- The EU Cyber Resilience Act (CRA) sets baseline cybersecurity requirements for “products with digital elements” placed on the EU market, covering both software and connected hardware.
-- It introduces security-by-design obligations across the product lifecycle, post-market vulnerability handling, security updates, incident reporting, and documentation for conformity (CE marking).
-- Duties fall primarily on manufacturers, with obligations also for importers and distributors. Some categories require involvement of a notified body (risk-based classification).
-- There are transition periods before full enforcement; however, starting early is essential because many obligations affect how you build and ship software.
+## The Cyber Resilience Act at a glance
 
-What companies need to establish
-- Governance: name accountable roles (product owner and PSIRT lead), define a vulnerability disclosure policy, and train teams on secure development.
-- Risk management: threat modeling and documented risk mitigation for each product and version.
-- Secure development lifecycle: requirements, secure coding, reviews, testing, fuzzing, hardening, and release controls.
-- Supply chain security: SBOMs, third-party component vetting, license compliance, and update mechanisms.
-- Vulnerability handling: intake (including security.txt), triage, remediation SLAs, advisories, and coordinated disclosure.
-- Post‑market surveillance: monitor exploits, track incidents, and deploy timely security updates for the product’s expected lifetime.
-- Conformity evidence: technical documentation, test reports, security posture, and EU Declaration of Conformity to support CE marking.
+At the very highest level, the Cyber Resilience Act - often abbreviated as CRA - is a regulation by the European Union that aims to enhance the cybersecurity of products with digital elements, including software and connected hardware devices. The CRA establishes baseline security requirements for these products throughout their lifecycle, from design and development to deployment and maintenance. The term **"products with digital elements"** is defined broadly and includes any product that relies on software to function, such as IoT devices, medical devices, industrial control systems, and general-purpose software applications.
 
-Hands-on checklist (engineering-focused)
-- Inventory and SBOM
-    - Maintain a product/component inventory with version lineage.
-    - Generate SBOMs in SPDX or CycloneDX for every build; store alongside artifacts; sign and ship with releases.
-    - Prefer reproducible builds to correlate binaries with SBOMs.
-- Secure build and release
-    - Enforce branch protection, mandatory reviews, and signed commits/tags (e.g., Sigstore/cosign or GPG).
-    - Harden binaries: position-independent executables, RELRO/now, stack canaries, FORTIFY, control-flow integrity where available.
-    - Enable compiler/linker warnings-as-errors in CI; block release on security test failures.
-- Vulnerability management
-    - Scan source, containers, and SBOMs against public advisories (OSV/CVE); track risk and remediation.
-    - Adopt VEX to communicate non-exploitable findings to customers.
-    - Keep a living risk register mapped to mitigations and evidence.
-- Update and rollback strategy
-    - Provide authenticated, integrity-protected updates (consider TUF/Uptane patterns).
-    - Implement safe rollback and partial failure handling; document update cadence and support window.
-- Incident and disclosure process
-    - Publish a clear policy and intake channel (security.txt; monitored mailbox).
-    - Define triage steps, timelines, and customer advisory templates; practice table‑top exercises.
-- Documentation and testing evidence
-    - Threat models (STRIDE or equivalent), secure design decisions, pen/fuzz test outcomes, code review stats, and coverage for security tests.
-    - User/admin guidance on secure setup, hardening options, and update procedures.
+At the core, the CRA focuses on three main areas:
 
-90‑day starter plan
-- Days 0–30
-    - Appoint a PSIRT lead; define scope (products, versions, roles as manufacturer/importer).
-    - Run a CRA gap assessment; start product inventory; decide SBOM format; add a minimal VDP and security.txt.
-    - Turn on compiler hardening, basic SAST, and dependency scanning in CI.
-- Days 31–60
-    - Automate SBOM generation in CI/CD; sign release artifacts and SBOMs.
-    - Establish risk assessment and threat model templates; run them on top products.
-    - Choose update mechanism and sign/verify flows; pilot on a canary channel.
-- Days 61–90
-    - Formalize vulnerability handling (intake→triage→fix→advisory); define SLAs by severity.
-    - Draft technical documentation structure (indices, evidence collection).
-    - Conduct a dry‑run of conformity documentation for one product; remediate gaps found.
+* Security-by-design: Integrate security measures into the product design and development process from the outset.
+* Vulnerability management and incident response: Establish processes for identifying, reporting, and remediating vulnerabilities throughout the product lifecycle. Develop and maintain an incident response plan to address security incidents effectively
+* Compliance documentation: Maintain comprehensive documentation to demonstrate compliance with CRA requirements.
 
-Artifacts to prepare for conformity and CE marking
-- Product definition and scope, intended use, assets, and assumptions.
-- Risk assessment and threat model, with traceability to mitigations.
-- Secure development process description and training records.
-- SBOMs (per release), supplier evaluations, license due diligence.
-- Security test evidence: SAST/DAST, dependency scans, fuzzing, pen test reports, code review records.
-- Update architecture: signing, distribution, rollback, key management.
-- Vulnerability handling and post‑market surveillance procedures; incident logs.
-- User/admin security guidance and configuration hardening notes.
-- EU Declaration of Conformity draft and references to harmonized standards (when applicable).
+***** IMAGE venn diagram security-by-design, vulnerability management, compliance documentation *****
 
-C++‑specific, practical hardening tips
-- Compiler/linker flags (adjust for toolchain and platform): 
-    - Enable stack protection and FORTIFY: use strong stack protector and define FORTIFY_SOURCE where supported.
-    - Prefer PIE/ASLR and full RELRO; strip unused symbols in release; enable LTO carefully.
-    - Turn on sanitizers (ASan/UBSan/MSan) and run in CI on nightly builds; run fuzzers on parsers and protocol handlers.
-- Tooling
-    - Static analysis: clang-tidy, cppcheck; integrate as a blocking CI job on changed code.
-    - Fuzzing: libFuzzer/AFL on critical inputs; track coverage and crash triage.
-    - Supply chain: lock and verify third‑party packages (e.g., Conan/vcpkg lockfiles), pin versions, and verify checksums/signatures.
-- Secure defaults
-    - Minimize exposed attack surface; disable unused features; validate all inputs; adopt constant‑time primitives for crypto-adjacent code; zeroize secrets.
+Let's look at some of the key requirements of the CRA in more detail. 
 
-Common pitfalls
-- Treating SBOM as a document, not a continuously updated artifact.
-- Shipping updates without strong verification or rollback protection.
-- Missing traceability from threats to mitigations to tests.
-- Incomplete vulnerability intake (no monitored channel or unclear policy).
-- Collecting evidence too late; start capturing during development.
+### Security-by-design
 
-Where to read more
-- Official CRA text and status on EUR‑Lex (search: “Cyber Resilience Act EUR‑Lex”).
-- ENISA guidance on product security, coordinated vulnerability disclosure, and SBOM best practices.
-- Relevant harmonized standards when published; in the interim, align with well-known baselines (e.g., IEC 62443 series, ISO/IEC 27001/27002 controls for process maturity).
+Security by design is a fundamental principle of the CRA and is often considered the most technical part. This means that security considerations must be part of the design and development process of software products. So companies need to implement secure coding practices, conduct regular security testing (e.g., static and dynamic analysis, fuzzing, penetration testing), and ensure that products are resilient against common cyber threats. Additionally, products must be designed to minimize attack surfaces and protect sensitive data. But what about existing products? Do they need to be redesigned from scratch? Not necessarily. The CRA recognizes that many products are already in the market and allows for a risk-based approach to security improvements.
 
-Pragmatic outcome
-- Create a lightweight “CRA kit” repo per product: templates (risk, threat model, tests), CI configs (SBOM, scans, signatures), update wiring, and evidence checklist. Make it part of the definition of done so compliance grows with the product—not as a scramble before release.
+> The CRA recognizes that many products are already in the market and allows for a risk-based approach to security improvements.
+
+This means companies need to assess the security, do a threat analysis of their existing products first. After this assessment, they can prioritize security enhancements based on the identified risks and start implementing necessary measures to improve security over time. An important part here is, that a lot of the security issues might be mitigated by other means than code changes e.g. by limiting exposure to threat vectors or improving user guidance.
+
+### Vulnerability management and incident response
+
+The authors of the CRA understand that no software is perfect and vulnerabilities will inevitably be discovered over time. Therefore, the CRA mandates that companies establish *vulnerability management* and *incident response processes*. At the core vulnerability management means setting up a way to report and triage vulnerabilities, a way to inform customers about the existence of a vulnerability and ensuring timely remediation of identified vulnerabilities. Again, this sounds like a lot of work, but in many cases existing processes for receiving user feedback or bug reports can be extended to cover security vulnerabilities. 
+
+While proactively addressing vulnerabilities is important, companies must also be prepared to respond effectively when security incidents occur. This is closely tied to the vulnerability management and may even use some of the same facilities.
+
+> The most important part of incident response is to have a clear plan in place that outlines roles, responsibilities, and communication channels during a security incident.
+
+The most important part of incident response is to have a clear plan in place that outlines roles, responsibilities, and communication channels during a security incident. So make it explicit, who is taking over the lead, who needs to sit in the crisis room and what are the response times expected. Who can make decisions to enable containing the incident, mitigating its impact, and recovering normal operations. The third part to be ready for the CRA is to have comprehensive compliance documentation.
+
+### Compliance documentation
+
+Chances are that if you are affected by the CRA, you already have some level of compliance documentation in place, because many other regulations (e.g., GDPR, industry-specific regulations) also require documentation of security practices. If so good news, you can build upon your existing documentation efforts. Don't panic, creating the necessary documentation is not an unmanageable task. So what kind of documentation is required? First of all, the efforts described in the previous sections need to be documented. This includes documenting the security-by-design practices, vulnerability management processes, and incident response plans discussed earlier.
+
+>  Don't panic, creating the necessary documentation is not an unmanageable task.
+
+Additionally, companies must maintain records of security testing results, risk assessments, and any security-related decisions made during the product lifecycle. In practice this means nothing else as keep the CI/CD and testing results of your releases ready and create a comprehensive changelog. Additionally the CRA requires companies to also keep track of third-party components used in their products, including open-source libraries. This means maintaining a Software Bill of Materials (SBOM) that lists all components, their versions, and any known vulnerabilities associated with them. This can be automated to a large extent using existing tools that generate SBOMs as part of the build process. 
+
+The compliance documentation is the final piece of the puzzle to be ready for the CRA. While security-by-design and vulnerability management focus are the more practical parts, compliance documentation ensures that companies can demonstrate their adherence to CRA requirements. So where to start?    
+
+## Get started with the Cyber Resilience Act
+
+Preparing for the CRA may seem overwhelming at first, but breaking it down into manageable steps can make the process more approachable. An incremental approach is often the best way to build up the neccessary capabilities to pass an audit and get your products certified. 
+
+Start with a high level gap assessment to identify where your current practices stand in relation to the CRA requirements. Then implement a "CRA-Light" process that covers the most critical aspects of the CRA without overwhelming your teams. Start with the "who" regarding vulnerability management and incident response. Do a high level STRIDE threat model for your main products to identify the biggest risks. Automate SBOM generation in your build process and start collecting compliance documentation as you go along. 
+
+While this might not cover all aspects of the CRA right away, it establishes a foundation that can be built upon over time. Building up CRA compliance incrementally allows teams to adapt and improve their processes without feeling overwhelmed by the full scope of the regulation from the start. And remember passing audits on the first try is nice, but often not the case - so build a process that allows you to continuously improve and get better over time.
+
+After all, the CRA is not just about compliance; it's about enhancing the overall security posture of products and protecting users from cyber threats. By taking proactive steps to meet CRA requirements, companies can not only ensure market access in the EU but also contribute to a safer digital ecosystem.
+
