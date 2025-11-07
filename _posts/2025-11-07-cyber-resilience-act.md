@@ -3,10 +3,10 @@ author: Dominik
 layout: post
 title: "Cyber Resilience Act - Get Started"
 description: ""
-image: /images/cpp_logo.png
-hero_image: /images/cpp_logo.png
+image: /images/cyber-resilience-act/thumbnail.jpg
+hero_image: /images/cyber-resilience-act/thumbnail.jpg
 hero_darken: true
-tags: cpp 
+tags: cyber-resilience-act
 ---
 
 **The EU Cyber Resilience Act (CRA) is set to become a landmark regulation for software and connected device security in Europe.** With its planned enforcement starting in September 2026, companies developing software or devices using software must prepare to meet its requirements or fear of losing access to the EU market. While this sounds daunting at first, it might not be as overwhelming as it seems. This post provides a practical overview of what the CRA entails, what companies need to establish, and how to get started to meet the requirements in a structured way.
@@ -21,7 +21,9 @@ At the core, the CRA focuses on three main areas:
 * Vulnerability management and incident response: Establish processes for identifying, reporting, and remediating vulnerabilities throughout the product lifecycle. Develop and maintain an incident response plan to address security incidents effectively
 * Compliance documentation: Maintain comprehensive documentation to demonstrate compliance with CRA requirements.
 
-***** IMAGE venn diagram security-by-design, vulnerability management, compliance documentation *****
+
+{%include figure.html url="images/cyber-resilience-act/cra_pillars.jpg" description="Three main components for compliance with the Cyber Resilience Act: Security-by-design, Vulnerability management, Compliance documentation" %}
+
 
 Let's look at some of the key requirements of the CRA in more detail. 
 
