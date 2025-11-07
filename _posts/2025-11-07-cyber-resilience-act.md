@@ -1,15 +1,16 @@
 ---
 author: Dominik
 layout: post
-title: "Cyber Resilience Act - Get Started"
-description: ""
+title: "Demystifying the Cyber Resilience Act: A pragmatic starting point"
+description: "A Practical guide to the EU Cyber Resilience Act: key requirements, security-by-design, vulnerability management, incident response, SBOM & incremental compliance."
 image: /images/cyber-resilience-act/thumbnail.jpg
 hero_image: /images/cyber-resilience-act/thumbnail.jpg
 hero_darken: true
 tags: cyber-resilience-act
+unlisted: true
 ---
 
-**The EU Cyber Resilience Act (CRA) is set to become a landmark regulation for software and connected device security in Europe.** With its planned enforcement starting in September 2026, companies developing software or devices using software must prepare to meet its requirements or fear of losing access to the EU market. While this sounds daunting at first, it might not be as overwhelming as it seems. This post provides a practical overview of what the CRA entails, what companies need to establish, and how to get started to meet the requirements in a structured way.
+**The EU Cyber Resilience Act (CRA) is set to become a landmark regulation for software security in Europe.** With its planned enforcement starting in September 2026, companies developing software or devices using software must prepare to meet its requirements or fear of losing access to the EU market. While this sounds daunting at first, it might not be as overwhelming as it seems. This post provides a practical overview of what the CRA entails, what companies need to establish, and how to get started to meet the requirements in a structured way.
 
 ## The Cyber Resilience Act at a glance
 
