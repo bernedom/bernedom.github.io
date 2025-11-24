@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: "Faster build times with artifact based CI"
 description: "Artifact-based CI can optimize your CI/CD pipelines by reducing build times, improving reliability, and streamlining workflows. Discover strategies for efficient artifact storage, versioning, and retrieval, and explore best practices for implementing artifact-based continuous integration in modern software development."
@@ -7,8 +6,7 @@ image: /images/artifact-based-ci/thumbnail.png
 hero_image: /images/artifact-based-ci/hero.png
 hero_darken: true
 tags: devops ci/cd
----
-author: Dominik
+--- 
 
 **CI/CD pipelines are a standard part of many software development workflows.** However, many teams still struggle with long build times, flaky tests and inefficient workflows. Apart from driving the cost of CI up, these issues can lead to frustration and reduced productivity up to quality issues as developers may not run the full test suites before deploying their changes. One approach to address these challenges is to use artifact based CI, which can significantly improve the efficiency and reliability of your CI/CD pipelines.
 

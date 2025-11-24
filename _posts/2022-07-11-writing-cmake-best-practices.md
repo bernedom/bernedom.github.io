@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 tags: cmake
 title: Writing "CMake Best Practices" - A writing journey
@@ -8,8 +7,7 @@ image: /images/writing-cmake-best-practices/thumbnail.jpg
 hero_image: /images/writing-cmake-best-practices/thumbnail.jpg
 hero_darken: true
 tags: cmake
----
-author: Dominik
+--- 
 
 When Packt Publishing approached me in august 2021 with the idea of writing a book about CMake, I immediately was all for it. Ten months later I am mightily proud that "[CMake Best Practices](https://www.amazon.com/CMake-Best-Practices-maintaining-programming-ebook/dp/B09QKYQ6SZ)" finally hit the shelves. As this would be my first book, I had no idea what I was getting into when I signed the contract with [Packt](https://www.packtpub.com/). The months of writing the book were among the most exhausting ones in my whole career and they were an emotional rollercoaster, but I also count them as one of my most valuable experiences. And finally seeing the book getting the first customer reviews really rocks. So how is it to write a book for Packt as a first-time author? In this article, I try to give a few insights into my writing journey.
 

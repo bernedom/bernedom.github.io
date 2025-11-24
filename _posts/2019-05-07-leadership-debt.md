@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: On leadership debt 
 image: /images/leadership-debt/thumbnail.png
 hero_image: /images/leadership-debt/thumbnail.png
 hero_darken: true
 tags: leadership management teamwork agile
----
-author: Dominik
+--- 
 
 **Are modern organizations ready to pay the price for increased demand for their leaders?** Countless companies and organizations are currently changing how they work internally. Some experience a growth spurt in the wake of digitalization, others want to be more flexible in reacting to change. And a lot of these organizations struggle with these transformations. They got the agile framework of their choosing in place, they got the teams set up and maybe they even streamlined their portfolio and technological infrastructure. At first, everything looks good, but after a while, all the shiny new things start to lose their gleam and things become tedious again. Decisions take ages to be put into action and once a course is set, people find it hard to deviate from it. All the fluffy stuff like empowerment of the teams and people somehow does not seem to happen. These symptoms might hint that an organization is suffering from **"leadership debt"**. 
 
@@ -64,8 +62,7 @@ Building and distributing leadership skills need strong feedback culture. Growin
 Building successful leadership by making time, enabling feedback, and finding the right people is hard and complex work, but the rewards are huge. Recognizing that one might suffer from leadership debt is often the first step toward getting rid of it. As with technical debt, leadership debt will never be completely avoidable but if it is being acknowledged and the interest is paid upfront, later costs can be greatly reduced. As each organization has its context there is of course no "guaranteed to work"-recipe to minimize leadership debt, but the measures described above are often a very good starting point. 
 
 
----
-author: Dominik
+--- 
 
 [^1]: There is of course much more to DevOps, don't hate me for simplifying this ;)
 

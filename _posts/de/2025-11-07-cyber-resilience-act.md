@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: "Der Cyber Resilience Act ist keine schwarze Magie: Ein pragmatischer Einstieg"
 description: "Praktischer Leitfaden zum EU Cyber Resilience Act: zentrale Anforderungen, Security-by-Design, Vulnerability Management, Incident Response, SBOM & inkrementelle Compliance."

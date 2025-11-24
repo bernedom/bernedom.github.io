@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 tags: cmake
 title: "The 7 CMake anti-patterns that eat your time and energy"
@@ -8,8 +7,7 @@ image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
 tags: cmake
----
-author: Dominik
+--- 
 
 
 **"CMake is hard and our builds are a nightmare!"** If that sounds familiar, you're not alone. CMake has a reputation for being painful to use - but most of that pain comes from bad practices, not the tool itself.In this post, I’ll break down 7 of the most common CMake anti-patterns I see in real projects. These issues often creep in from legacy setups or lack of modern CMake knowledge, and they tend to slow teams down, cause frustration, and make build systems nearly unmaintainable.

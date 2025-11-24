@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: "std::expected in C++23: A Better Way to Handle Errors"
 description: "Practical introduction to std::expected: intent-revealing, structured error handling for recoverable failure paths in modern C++."

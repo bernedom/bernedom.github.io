@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: initializers in selection statements - smarter coding in C++17
 image: /images/cpp_logo.png
 hero_image: /images/cpp_logo.png
 hero_darken: true
 tags: cpp
----
-author: Dominik
+--- 
 
 **C++ is hard!** Luckily the new standards brought some features and tools to make writing C++ easier. Selection statements with initializers are one of these small-but-nice features that make our coding-life easier. 
 

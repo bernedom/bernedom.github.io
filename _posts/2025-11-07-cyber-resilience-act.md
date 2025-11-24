@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: "Demystifying the Cyber Resilience Act: A pragmatic starting point"
 description: "A practical guide to the EU Cyber Resilience Act: key requirements, security-by-design, vulnerability management, incident response, SBOM & incremental compliance."

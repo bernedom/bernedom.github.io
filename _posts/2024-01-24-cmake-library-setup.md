@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 tags: cmake
 title: CMake line by line - Creating a library
@@ -8,8 +7,7 @@ image: /images/cmake-logo.png
 hero_image: /images/cmake-logo.png
 hero_darken: true
 tags: cmake
----
-author: Dominik
+--- 
 
 **Creating a clean library that has proper symbol visibility and installation instructions might sound difficult.** However with CMake it is relatively straight forward to set up, even if there are a few things to consider. Actually creating creating a library is as simple as invoking the `add_library()` command and adding the sources to it. When it comes to setting up the installation instructions and symbol visibility properly there is a bit more to it. There are also some small, but useful things like defining the version compatibility of the library that make the life of developers a lot easier if done properly. 
 

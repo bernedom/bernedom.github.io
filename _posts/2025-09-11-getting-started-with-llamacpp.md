@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: "Building a local AI agent with Llama.cpp and C++"
 description: "Learn how to build a local AI agent using llama.cpp and C++. This article covers setting up your project with CMake, obtaining a suitable LLM model, and implementing basic model loading, prompt tokenization, and text generation. Ideal for those interested in running AI models on their own hardware without relying on cloud services."
@@ -8,7 +7,6 @@ hero_image: /images/llamacpp/hero.png
 hero_darken: true
 tags: cpp ai cmake
 ---
-author: Dominik
 
 **Large Language Models (LLMs) and AI agents are everywhere and there are tons of online services that let you use them.** But what if you want to build your own, local AI agent that can run on your own hardware, without relying on cloud services? No problem - starting there is not as difficult as one might think. There is a great open source project called [llama.cpp](https://github.com/ggml-org/llama.cpp) that makes it easy to run LLMs on your own hardware. Let's see how to get stated with a simple AI agent using llama.cpp, CMake and C++. 
 

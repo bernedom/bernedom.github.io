@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 tags: cmake
 title: CMake line by line - using a non-CMake library
@@ -8,8 +7,7 @@ hero_image: /images/cmake-logo.png
 hero_darken: true
 description: how to use the find.cmake mechanism to include library into your CMake project, even if it is not built with CMake itself. By combining find_package with a custom .cmake file we can migrate any library to be usable with a CMake project. 
 tags: cmake
----
-author: Dominik
+--- 
 
 **CMake is awesome, but it can be hard to figure out.** Over the last few years, CMake has become one of the most popular ways to build C++ applications and libraries. Unfortunately, you might be stuck with an existing piece of software that is built entirely differently - be it makefiles, gradle, Qmake or even a completely custom-built way to compile software - you name it. So what if you want to move your codebase to CMake without rewriting the way all these old dependencies are built?
 
