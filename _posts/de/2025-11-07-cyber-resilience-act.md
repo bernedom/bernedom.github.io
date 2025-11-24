@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "Der Cyber Resilience Act ist keine schwarze Magie: Ein pragmatischer Einstieg"
+title: "Cyber Resilience Act verstehen: Praktische Umsetzung statt Mythos"
 description: "Praktischer Leitfaden zum EU Cyber Resilience Act: zentrale Anforderungen, Security-by-Design, Vulnerability Management, Incident Response, SBOM & inkrementelle Compliance."
 image: /images/cyber-resilience-act/thumbnail.jpg
 hero_image: /images/cyber-resilience-act/thumbnail.jpg
