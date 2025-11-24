@@ -1,7 +1,7 @@
 ---
 author: Dominik
 layout: post
-title: "Den Cyber Resilience Act entmystifizieren: Ein pragmatischer Einstieg"
+title: "Der Cyber Resilience Act ist keine schwarze Magie: Ein pragmatischer Einstieg"
 description: "Praktischer Leitfaden zum EU Cyber Resilience Act: zentrale Anforderungen, Security-by-Design, Vulnerability Management, Incident Response, SBOM & inkrementelle Compliance."
 image: /images/cyber-resilience-act/thumbnail.jpg
 hero_image: /images/cyber-resilience-act/thumbnail.jpg
@@ -10,29 +10,29 @@ tags: cyber-resilience-act
 lang: de
 ---
 
-**Der EU Cyber Resilience Act (CRA) wird zu einer wegweisenden Regulierung für Softwaresicherheit in Europa.** Mit dem [geplanten Inkrafttreten ab September 2026](https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng) müssen Unternehmen, die Software oder eingebettete Geräte entwickeln, seine Anforderungen erfüllen – sonst riskieren sie den Zugang zum EU-Markt. Das klingt zunächst einschüchternd, ist aber oft weniger überwältigend als gedacht. Dieser Beitrag bietet einen praxisnahen Überblick darüber, was der CRA verlangt, was Unternehmen etablieren müssen und wie sie Schritt für Schritt beginnen können.
+**Der EU Cyber Resilience Act (CRA) wird zu einer wegweisenden Regulierung für Softwaresicherheit in Europa.** Mit dem [geplanten Inkrafttreten ab September 2026](https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng) müssen Unternehmen, die Software oder eingebettete Geräte entwickeln, seine Anforderungen erfüllen - sonst riskieren sie den Zugang zum EU-Markt zu verlieren. Das klingt zunächst einschüchternd, ist aber oft weniger überwältigend als gedacht. Dieser Beitrag bietet einen praxisnahen Überblick darüber, was der CRA verlangt, was Unternehmen etablieren müssen und wie sie Schritt für Schritt beginnen können.
 
 ## Der Cyber Resilience Act auf einen Blick
 
-Auf höchster Ebene ist der Cyber Resilience Act (CRA) eine Verordnung der Europäischen Union, die die Cybersicherheit von Produkten mit digitalen Elementen stärken soll – einschließlich Software und vernetzten Hardwaregeräten. Der CRA definiert grundlegende Sicherheitsanforderungen über den gesamten Lebenszyklus eines Produkts: von Entwurf und Entwicklung über Auslieferung bis zu Wartung. Der Begriff **„Produkte mit digitalen Elementen“** ist weit gefasst und umfasst jedes Produkt, das auf Software angewiesen ist – etwa IoT-Geräte, Medizinprodukte, industrielle Steuerungen und allgemeine Softwareanwendungen.
+Kurz gesagt ist der Cyber Resilience Act (CRA) eine Verordnung der Europäischen Union, die die Cybersicherheit von Produkten mit digitalen Elementen stärken soll - einschliesslich Software und vernetzten Hardwaregeräten. Der CRA definiert grundlegende Sicherheitsanforderungen über den gesamten Lebenszyklus eines Produkts: von Entwurf und Entwicklung über Auslieferung bis zu Wartung. Der Begriff **„Produkte mit digitalen Elementen“** ist weit gefasst und umfasst jedes Produkt, das auf Software angewiesen ist – etwa IoT-Geräte, Medizinprodukte, industrielle Steuerungen und allgemeine Softwareanwendungen.
 
 Im Kern konzentriert sich der CRA auf drei Hauptbereiche:
 
-* Security-by-Design: Sicherheitsmaßnahmen von Anfang an in den Entwicklungs- und Designprozess integrieren.
+* Security-by-Design: Sicherheitsmassnahmen von Anfang an in den Entwicklungs- und Designprozess integrieren.
 * Vulnerability Management und Incident Response: Prozesse zum Identifizieren, Melden und Beheben von Schwachstellen über den gesamten Lebenszyklus einführen. Einen Incident-Response-Plan pflegen, um Sicherheitsvorfälle effektiv zu bewältigen.
 * Compliance-Dokumentation: Umfassende Nachweise führen, die die Erfüllung der CRA-Anforderungen belegen.
 
 {%include figure.html url="images/cyber-resilience-act/cra_pillars.jpg" description="Drei Hauptkomponenten für Compliance mit dem Cyber Resilience Act: Security-by-Design, Vulnerability Management, Compliance-Dokumentation" %}
 
-Schauen wir uns einige zentrale Anforderungen des CRA genauer an.
+Was versteckt sich hinter diesen Anforderungen im Detail? Schauen wir uns die wichtigsten Punkte an.
 
 ### Security-by-Design
 
-Security-by-Design ist ein Grundprinzip des CRA und oft der technischste Teil. Sicherheitsaspekte müssen integraler Bestandteil von Architektur, Design und Entwicklung sein. Unternehmen sollen sichere Coding-Praktiken anwenden, regelmäßige Sicherheitstests durchführen (z. B. statische und dynamische Analyse, Fuzzing, Penetrationstests) und sicherstellen, dass Produkte widerstandsfähig gegen verbreitete Cyberbedrohungen sind. Produkte sollten Angriffsflächen minimieren und sensible Daten schützen. Aber was ist mit bestehenden Produkten? Müssen sie komplett neu entworfen werden? Nicht zwingend. Der CRA erkennt an, dass viele Produkte bereits im Markt sind und erlaubt einen risikobasierten Ansatz für Verbesserungen.
+Security-by-Design ist ein Grundprinzip des CRA und oft der technischste Teil. Sicherheitsaspekte müssen integraler Bestandteil von Architektur, Design und Entwicklung sein. Unternehmen sollen sichere Coding-Praktiken anwenden, regelmässige Sicherheitstests durchführen (z.B. statische und dynamische Analyse, Fuzzing, Penetrationstests) und sicherstellen, dass Produkte widerstandsfähig gegen verbreitete Cyberbedrohungen sind. Produkte sollten Angriffsflächen minimieren und sensible Daten schützen. Aber was ist mit bestehenden Produkten? Müssen sie komplett neu entworfen werden? Nicht zwingend. Der CRA erkennt an, dass viele Produkte bereits im Markt sind und erlaubt einen risikobasierten Ansatz für Verbesserungen.
 
 > Der CRA erkennt an, dass viele Produkte bereits im Markt sind und erlaubt einen risikobasierten Ansatz für Sicherheitsverbesserungen.
 
-Das bedeutet: Unternehmen sollten zunächst Sicherheitsstatus und Bedrohungslage ihrer bestehenden Produkte analysieren. Danach können sie Verbesserungen nach Risiko priorisieren und schrittweise umsetzen. Wichtig: Viele Sicherheitsprobleme lassen sich auch ohne Codeänderung mitigieren – etwa durch Begrenzung der Exposition gegenüber Angriffsvektoren oder bessere Nutzerführung.
+Das bedeutet: Unternehmen sollten zunächst Sicherheitsstatus und Bedrohungslage ihrer bestehenden Produkte analysieren. Danach können sie Verbesserungen nach Risiko priorisieren und schrittweise umsetzen. Wichtig: Viele Sicherheitsprobleme lassen sich auch ohne Codeänderung mitigieren - etwa durch Begrenzung der Exposition gegenüber Angriffsvektoren oder bessere Nutzerführung.
 
 ### Vulnerability Management und Incident Response
 
@@ -46,19 +46,19 @@ Der entscheidendste Teil ist ein klarer Incident-Response-Plan: Wer übernimmt d
 
 ### Compliance-Dokumentation
 
-Falls Ihr Unternehmen vom CRA betroffen ist, existiert oft bereits eine gewisse Compliance-Dokumentation – viele andere Regulierungen (z. B. DSGVO oder branchenspezifische Standards) verlangen ähnliche Nachweise. Gute Nachricht: Darauf lässt sich aufbauen. Falls noch nichts vorhanden ist: Keine Panik – die Erstellung ist beherrschbar. Was wird benötigt? Zunächst müssen die Aktivitäten aus den vorigen Abschnitten dokumentiert werden: Security-by-Design-Praktiken, Prozesse für Vulnerability Management und Incident Response.
+Falls Ihr Unternehmen vom CRA betroffen ist, existiert oft bereits eine gewisse Compliance-Dokumentation – viele andere Regulierungen (z. B. DSGVO oder branchenspezifische Standards) verlangen ähnliche Nachweise. Gute Nachricht: Darauf lässt sich aufbauen. Falls noch nichts vorhanden ist: Keine Panik - die Erstellung ist keine unlösbare Aufgabe. Was wird benötigt? Zunächst müssen die Aktivitäten aus den vorigen Abschnitten dokumentiert werden: Security-by-Design-Praktiken, Prozesse für Vulnerability Management und Incident Response.
 
-> Keine Panik – die Erstellung der notwendigen Dokumentation für den CRA ist beherrschbar.
+> Keine Panik - die Erstellung der notwendigen Dokumentation für den CRA ist keine unlösbare Aufgabe.
 
-Zusätzlich müssen Unternehmen Aufzeichnungen über Testergebnisse, Risikoanalysen und sicherheitsrelevante Entscheidungen über den Produktlebenszyklus führen. Praktisch heißt das: CI/CD- und Testergebnisse der Releases verfügbar halten und ein aussagekräftiges Changelog pflegen. Weiter verlangt der CRA Transparenz über Drittkomponenten – inklusive Open-Source-Bibliotheken. Das heißt: Eine Software Bill of Materials (SBOM) pflegen, die alle Komponenten, Versionen und bekannte Schwachstellen aufführt. Moderne Tools können SBOMs weitgehend automatisiert im Build-Prozess erzeugen.
+Zusätzlich müssen Unternehmen Aufzeichnungen über Testergebnisse, Risikoanalysen und sicherheitsrelevante Entscheidungen über den Produktlebenszyklus führen. Praktisch heisst das: CI/CD- und Testergebnisse der Releases verfügbar halten und ein aussagekräftiges Changelog pflegen. Weiter verlangt der CRA Transparenz über Drittkomponenten - inklusive Open-Source-Bibliotheken. Das heisst: Eine Software Bill of Materials (SBOM) pflegen, die alle Komponenten, Versionen und bekannte Schwachstellen aufführt. Moderne Tools können SBOMs weitgehend automatisiert im Build-Prozess erzeugen.
 
 Die Compliance-Dokumentation ist das letzte Puzzleteil für CRA-Bereitschaft. Während Security-by-Design und Vulnerability Management die operativen Aspekte darstellen, liefert Dokumentation den Nachweis der Umsetzung. Wie startet man also?
 
 ## Einstieg in den Cyber Resilience Act
 
-Die Vorbereitung auf den CRA wirkt anfangs groß – ein schrittweiser Ansatz macht sie greifbar. Inkrementelle Umsetzung ist meist der beste Weg, um auditfähige Fähigkeiten aufzubauen und Produkte zertifizierbar zu machen.
+Die Vorbereitung auf den CRA mag anfangs überwältigend wirken - ein schrittweiser Ansatz macht sie aber greifbar. Inkrementelle Umsetzung ist meist der beste Weg, um auditfähige Fähigkeiten aufzubauen und Produkte zertifizierbar zu machen.
 
-Beginnen Sie mit einem groben Gap-Assessment: Wo stehen Ihre aktuellen Praktiken relativ zu den CRA-Anforderungen? Implementieren Sie dann einen „CRA-Light“-Prozess, der kritische Elemente abdeckt, ohne Teams zu überlasten. Starten Sie beim „Wer“ für Vulnerability Management und Incident Response. Führen Sie ein hochrangiges STRIDE-Threat-Modeling für Ihre Hauptprodukte durch, um größte Risiken zu finden. Automatisieren Sie die SBOM-Erzeugung im Build und beginnen Sie frühzeitig mit dem Sammeln von Compliance-Nachweisen.
+Beginnen Sie mit einem groben Gap-Assessment: Wo stehen Ihre aktuellen Praktiken relativ zu den CRA-Anforderungen? Implementieren Sie dann einen „CRA-Light“-Prozess, der kritische Elemente abdeckt, ohne Teams zu überlasten. Starten Sie beim „Wer“ für Vulnerability Management und Incident Response. Führen Sie ein hochrangiges STRIDE-Threat-Modeling für Ihre Hauptprodukte durch, um grösste Risiken zu finden. Automatisieren Sie die SBOM-Erzeugung im Build und beginnen Sie frühzeitig mit dem Sammeln von Compliance-Nachweisen.
 
 Auch wenn dieser Ansatz zunächst nicht alles vollständig abdeckt, schafft er eine belastbare Basis. Inkrementelle Umsetzung erlaubt Anpassung und Reifung ohne Überforderung durch die gesamte Regulierung. Und denken Sie daran: Ein Audit direkt vollständig zu bestehen ist schön, aber oft nicht realistisch – bauen Sie Prozesse, die kontinuierliche Verbesserung ermöglichen.
 
