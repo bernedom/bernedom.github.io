@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: Help! I'm getting SAFed!
 image: /images/getting-safed/thumbnail.png
 hero_image: /images/getting-safed/thumbnail.png
 hero_darken: true
 tags: agile
----
-author: Dominik
+--- 
 
 **SAFe is the worst implementation of "corporate agile" that is out there!** Over the last few months I heard this sentence or a variety of it a few times. There is some truth to it, but it is not the whole truth. The [SAFe-framework](https://www.scaledagileframework.com) is far away from what I imagine when thinking "agile", but there are some aspects which are pretty neat. Despite all the critics it is a very popular framework that is implemented in a lot of bigger companies. So there has to be *something* good in it, doesn't it? Let's have a more differentiated look at it! 
 

@@ -1,5 +1,4 @@
----
-author: Dominik
+--- 
 layout: post
 title: kickstarting agile product development
 description: Agile software development is the way to go when developing a project. But how does one get started with a project or a product? What is needed to get an initial backlog up and running and how much information should one collect to enable all people involved to act empowered? 
@@ -7,8 +6,7 @@ image: /images/kickstart-agile-project/thumbnail.jpg
 hero_image: /images/kickstart-agile-project/thumbnail.jpg
 hero_darken: true
 tags: agile software-development software-delivery
----
-author: Dominik
+--- 
 
 **Agile is all fun and games once you're up and running, but how does one start developing a software product in an agile way?** There is a lot of information out there about how to run an agile team - Be it with scrum, kanban, or any other flavor of a variety of agile processes. But when it comes to how to get started, most advice is "just get going". So how does this "just get going" look like? 
 

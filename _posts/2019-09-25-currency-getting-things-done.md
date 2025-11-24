@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: The currency of getting things done
 image: /images/currency/thumbnail.png
 hero_image: /images/currency/thumbnail.png
 hero_darken: true
 tags: software-delivery agile
----
-author: Dominik
+--- 
 
 **What is your organizations currency of getting things done?** When trying to getting things outside daily business done, every organization reacts to different kind of arguments and incentives. "Paying" in the right kind of arguments is often the key to get ones concerns put into action. 
 

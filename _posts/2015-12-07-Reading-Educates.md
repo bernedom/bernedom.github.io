@@ -1,11 +1,9 @@
----
-author: Dominik
+--- 
 layout: post
 hero_image: /images/default-hero.jpg
 hero_darken: true
 title: The Seven Must Reads For The Aspiring Agilist
----
-author: Dominik
+--- 
 
 Over the course of the last few years I read a lot of books about agile principles and teamwork and there are some that stood out to me as particularly worth to read. Most of the books are rather about agile teamwork in general than any particular methodology such as scrum or kanban. These books are also starting point on the way to knowing and doing agile, so the list is obviously by no means complete.
 

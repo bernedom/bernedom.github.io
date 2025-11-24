@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: Making remote teamwork work
 image: /images/remote-teamwork/thumbnail.jpg
 hero_image: /images/remote-teamwork/thumbnail.jpg
 hero_darken: true
 tags: agile software-development
----
-author: Dominik
+--- 
 
 **How does remote teamwork actually work?** Working together remotely has its challenges, but they are not as big as one might think from the cozy office of a co-located team. While the communication bandwidth of physical face-to-face communication still beats everything else, but modern technology and a few rules for online behavior can make up for a lot.
 
@@ -50,7 +48,6 @@ And to not forget the fun side: take breaks together. Get a coffee, switch on th
 Working remotely together takes training and takes a bit of routine. Especially when doing it for the first time it can take a bit to get used to it. The best thing to get good at it is to just start doing it. Set up the virtual team-space and take a quarter of an hour with your team to run through the basic agreement of working remotely and get going. Take ten minutes each day to discuss what to improve and it will feel effortless quickly. 
 
 
----
-author: Dominik
+--- 
 [^1]: The list by no means meant to be exhaustive, it is just what I worked with in the past and found decent workable choices.
 

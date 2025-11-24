@@ -1,13 +1,11 @@
----
-author: Dominik
+--- 
 layout: post
 title: The joy of failure 
 image: /images/failure/thumbnail.jpg
 hero_image: /images/failure/thumbnail.jpg
 hero_darken: true
 tags: software-development agile
----
-author: Dominik
+--- 
 
 **"We only learn through failure.** This quote attributed to the legendary alpinist [Reinhold Messner](https://en.wikipedia.org/wiki/Reinhold_Messner) holds a lot of truth in it. Modern organizations like to talk about good failure culture, but is a failure in every circumstance a good thing? Probably not. As a software engineer and climber, I saw a few failures with sometimes quite drastic consequences. Failure is never the goal but sometimes unavoidable, so how can we as individuals, teams, and companies benefit from it? 
 
@@ -63,8 +61,7 @@ Higher and higher we climb and finally we send the feature into the CI-environme
 
 Full of pride we look back at how we went through hell to get here. How horrible and how good the experience of overcoming a near-catastrophic failure was. And we know that reaching this summit would not have been possible before. Knowing that experiencing these moments of dread and despair provided the necessary learning experience to finally reach the top is incredible. And this feeling, this moment, **that is the joy of failure.** 
 
----
-author: Dominik
+--- 
 
 This article was inspired by the article ["Staying alive" by John Dill of the Yosemite Search and Rescue ](http://www.bluebison.net/yosar/alive.htm)
 
