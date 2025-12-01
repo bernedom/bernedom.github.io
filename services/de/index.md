@@ -28,7 +28,7 @@ Stärken Sie Ihr Team mit praxisnahen Workshops, die auf Ihre Bedürfnisse zuges
 
 ## [Projektarbeit](/services/project-work/)
 
-Benötigen Sie zusätzliche Entwicklungskapazitäten? Ich spezialisiere mich auf die Bereitstellung praktischer Lösungen – von der Modernisierung von C++-Codebasen bis hin zur Implementierung von kundenspezifischen Features und der Optimierung von Build-Systemen. Ob kleine Aufgaben oder gross angelegte Initiativen – ich helfe Ihnen, Ihre Ziele zu erreichen.
+Benötigen Sie zusätzliche Entwicklungskapazitäten? Ich spezialisiere mich auf die Bereitstellung praktischer Lösungen – von der Modernisierung von C++-Codebasen, über Embedded-Linux-Lösungen bis hin zur Implementierung von kundenspezifischen Features und der Optimierung von Build-Systemen. Ob kleine Aufgaben oder gross angelegte Initiativen – ich helfe Ihnen, Ihre Ziele zu erreichen.
 
 ---
 

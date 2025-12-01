@@ -43,6 +43,15 @@ Mit über 20 Jahren Erfahrung in der Softwareentwicklung kann ich Ihnen dabei he
 * Zusammenarbeit mit Ihrem Team, um nahtlose Integration und Lieferung sicherzustellen
 * Stärkung der Lieferkraft Ihres Teams auf kurze Frist
 
+### Embedded-Linux-Lösungen
+
+Embedded Linux ist zum Rückgrat vieler moderner Geräte geworden. Die Entwicklung und Wartung von Embedded-Linux-Systemen kann jedoch komplex und zeitaufwändig sein. Wir bieten fachkundige Unterstützung, um diese Herausforderungen zu meistern und robuste Embedded-Software zu liefern. Unsere Leistungen umfassen:
+
+* Erstellung massgeschneiderter Embedded-Linux-Distributionen mit dem Yocto Project
+* Hinzufügen von Sicherheitsfunktionen wie Secure Boot und Speicher-/Datenträgerverschlüsselung
+* Mechanismen für Over-the-Air-Updates (OTA) für Embedded-Geräte
+* Modernisierung und Aktualisierung bestehender Embedded-Linux-Systeme auf den neuesten Stand der Technik
+
 # Bereit für den nächsten Schritt?
 
 Bereit für den nächsten Schritt? Füllen Sie das Formular aus und wir kommen ins Gespräch!
