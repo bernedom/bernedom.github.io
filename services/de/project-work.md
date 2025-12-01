@@ -12,6 +12,16 @@ Benötigen Sie praktische Softwareentwicklungskraft? SoftwareCraft könnte der r
 
 Wir spezialisieren uns darauf, praktische Lösungen zu liefern, die auf Ihre spezifischen Bedürfnisse zugeschnitten sind, sei es die Entwicklung neuer Features, die Optimierung bestehenden Codes oder die Integration moderner Technologien. Ob kleines Projekt oder grossangelegte Initiative, wir haben die Expertise, um Ihnen zum Erfolg zu verhelfen.
 
+### C++-Modernisierung
+
+Möchten Sie Ihre C++-Codebasis modernisieren? Ich kann Ihnen dabei helfen, moderne C++-Standards und -Praktiken einzuführen, um die Code-
+qualität, Wartbarkeit und Performance zu verbessern:
+
+* Bewertung Ihrer aktuellen Software-Architektur
+* Identifizierung von Verbesserungs- und Modernisierungsmöglichkeiten
+* Implementierung von Best Practices für Softwareentwicklung und -lieferung
+* Schulungen zu modernen C++-Features und -Techniken
+
 ### CMake-Expertise
 
 CMake ist ein mächtiges Werkzeug für die Verwaltung komplexer Build-Systeme, kann aber schwierig zu meistern sein. Ich kann Ihnen dabei helfen,
@@ -23,16 +33,6 @@ CMake zu nutzen, um Ihre Build-Prozesse zu verbessern und die Produktivität Ihr
 * Überprüfung Ihres CMake-Codes und umsetzbare Rückmeldungen
 * Hilfe beim Aufbau einer modernen CMake-Projektstruktur
 * [CMake Best Practices](/cmake-best-practices) - ein umfassender Leitfaden für CMake Best Practices
-
-### C++-Modernisierung
-
-Möchten Sie Ihre C++-Codebasis modernisieren? Ich kann Ihnen dabei helfen, moderne C++-Standards und -Praktiken einzuführen, um die Code-
-qualität, Wartbarkeit und Performance zu verbessern:
-
-* Bewertung Ihrer aktuellen Software-Architektur
-* Identifizierung von Verbesserungs- und Modernisierungsmöglichkeiten
-* Implementierung von Best Practices für Softwareentwicklung und -lieferung
-* Schulungen zu modernen C++-Features und -Techniken
 
 ### Massgeschneiderte Feature-Entwicklung
 
