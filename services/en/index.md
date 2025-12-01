@@ -22,17 +22,13 @@ Struggling with long release cycles or inefficient workflows? I can help you ide
 
 Master CMake with guidance from the author of [CMake Best Practices](/cmake-best-practices). I offer training, code reviews, and hands-on support to help your team build modern, efficient, and maintainable CMake projects. Whether you're migrating from legacy systems or optimizing existing setups, I can help.
 
-## Embedded Linux Solutions
-
-Get expert assistance with your embedded Linux projects. From system architecture to build system optimization, I provide practical solutions to help you deliver robust and efficient embedded software. Leverage our experience to overcome challenges and accelerate your development process.
-
 ## [Workshops & Trainings](/services/workshops/)
 
 Empower your team with hands-on workshops tailored to your needs. Topics include CMake, lean software delivery, and modern development practices. From short sessions to multi-day workshops, I ensure your team gains practical, real-world skills.
 
 ## [Project Work](/services/project-work/)
 
-Need extra development power? I specialize in delivering practical solutions, from modernizing C++ codebases to implementing custom features and optimizing build systems. Whether it's a small task or a large-scale initiative, I can help you achieve your goals.
+Need extra development power? I specialize in delivering practical solutions, from modernizing C++ codebases, over embedded Linux solutions to implementing custom features and optimizing build systems. Whether it's a small task or a large-scale initiative, I can help you achieve your goals.
 
 ---
 
