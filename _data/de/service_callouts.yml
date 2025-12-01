@@ -14,13 +14,13 @@ items:
     subtitle: Massgeschneiderte Lösungen für Ihre Entwicklungsanforderungen
     icon: fa-wrench
     description: >
-      Individuelle Lösungsentwicklung, CMake-Expertise, C++-Modernisierung und mehr.
+      Individuelle Lösungsentwicklung, CMake-Expertise, C++-Modernisierung, Embedded Linux und mehr.
 
     call_to_action_name: Mehr erfahren
     call_to_action_link: /services/project-work/
 
   - title: Workshops und Schulungen
-    subtitle: 
+    subtitle:
 
     icon: fa-gear
     icon_brand: false
