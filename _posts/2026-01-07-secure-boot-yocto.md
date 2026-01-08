@@ -5,7 +5,7 @@ description: "Secure boot for an embedded Linux devices based on raspberry pi CM
 image: /images/secure-boot-yocto/secure-boot-yocto-thumb.jpg
 hero_image: /images/secure-boot-yocto/secure-boot-yocto.jpg
 hero_darken: true
-tags: secure-boot,yocto,embedded-linux
+tags: secure-boot yocto embedded-linux
 lang: en
 author: Dominik
 ---
