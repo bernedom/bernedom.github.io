@@ -7,6 +7,7 @@ hero_image: /images/secure-boot-yocto/secure-boot-yocto.jpg
 hero_darken: true
 tags: secure-boot,yocto,embedded-linux
 lang: en
+author: Dominik
 ---
 
 **Security is no longer optional for embedded devices, especially not with the Cyber Resilience Act coming into effect.** Unfortunately, adding secure boot to embedded Linux devices is often not straightforward. In this post, we share our experience implementing secure boot for an embedded Linux device based on the Raspberry Pi Compute Module 4 using the Yocto Project. (Warning, this is a long read!)
@@ -25,9 +26,9 @@ On a high level, implementing secure boot for an embedded Linux device using Yoc
 
 * Enable trusted boot support on the device itself - In the case of the Raspberry Pi CM4, this involves configuring the EEPROM firmware to enable secure boot features. 
 * Provide the public key used for verifying the signature of the bootloader to the device and store it on the EEPROM.
-* Create a boot.img container that includes the bootloader, kernel, and device tree blobs (DTBs) - This container needs to be signed using a public key.
-* Configure Yocto to build and sign the boot.img - This involves creating custom Yocto layers and recipes to handle the signing process and ensure that the boot.img is correctly formatted.
-* Replace existing boot files with the signed boot.img and pack it into the boot partition of the device's storage medium.
+* Create a `boot.img` container that includes the bootloader, kernel, and device tree blobs (DTBs) - This container needs to be signed using a public key.
+* Configure Yocto to build and sign the `boot.img` - This involves creating custom Yocto layers and recipes to handle the signing process and ensure that the `boot.img` is correctly formatted.
+* Replace existing boot files with the signed `boot.img` and pack it into the boot partition of the device's storage medium.
 
 Before we dive into the details, we enable trusted boot on the Raspberry Pi CM4.
 
@@ -174,7 +175,7 @@ Signing is relatively straightforward:
 * Find the generated `boot.img` from the `boot-img-container` recipe
 * Generate a sha256 hash of the `boot.img` to create a digest
 * Sign the digest using the private key to create the signature
-* Copy the boot.sig file to the deploy directory
+* Copy the `boot.sig` file to the deploy directory
 
 The resulting recipe could look like this:
 
