@@ -35,15 +35,15 @@ Before we dive into the details, we enable trusted boot on the Raspberry Pi CM4.
 
 Trusted boot on the Raspberry Pi CM4 needs to be enabled in the boot EEPROM by setting the `SIGNED_BOOT` flag in the boot.conf and by providing the public key to verify the signature. This is done [using the `rpiboot` tool](https://github.com/raspberrypi/usbboot/), which allows us to write the necessary configuration to the EEPROM. The [usbboot repository](https://github.com/raspberrypi/usbboot/) provides the necessary tools and documentations to update the EEPROM for Raspberry Pi.
 
-For illustration purposes, I'll show how to enable secure boot using a self-signed key pair. In a production environment, you would typically use a key pair issued by a trusted certificate authority (CA).
+For illustration purposes, this article shows how to enable secure boot using a self-signed key pair. In a production environment, you would typically use a key pair issued by a trusted certificate authority (CA).
 
-First we generate a public/private key pair using OpenSSL:
+First, we generate a public/private key pair using OpenSSL:
 
 ```bash
 openssl genrsa 2048 > keypair.pem
 ```
 
-Next we set up the `boot.conf` file to enable signed boot by setting `SIGNED_BOOT=1`. Then we use the `update-pieeprom` tool from rpiboot to update the EEPROM with the public key and flash it to the device:
+Next, we set up the `boot.conf` file to enable signed boot by setting `SIGNED_BOOT=1`. Then we use the `update-pieeprom` tool from rpiboot to update the EEPROM with the public key and flash it to the device:
 
 ```bash
 update-pieeprom -k  keypair.pem
@@ -60,7 +60,7 @@ Now that secure boot is enabled on the device and the key pair is generated, we 
 
 By default the raspberrypi layers in yocto store the boot files directly in the boot partition, so once we have a signed `boot.img`, we need to override the default behavior to use our signed image instead. 
 
-So let's start with creating the `boot.img` container
+Let's start with creating the `boot.img` container
 
 #### Creating the boot.img container
 
@@ -71,7 +71,7 @@ The recipe will do the following things:
 * Create a staging directory to hold the boot files
 * Copy the bootloader, kernel, and DTBs to the staging directory
 * Create a fat16 formatted `boot.img`
-* copy the boot files from the staging directory to the `boot.img`
+* Copy the boot files from the staging directory to the `boot.img`
 
 Let's look at the recipe code:
 
@@ -167,11 +167,11 @@ Next up is signing the `boot.img`.
 
 #### Signing the boot.img
 
-After creating the `boot.img`, we need to sign it using our private key. For debugging purposes it is convenient to also be able to create unsigned images, so I added the signing as a separate recipe that depends on the `boot-img-container` recipe. This way we can choose whether to build a signed or unsigned image by including the appropriate recipe in our build.
+After creating the `boot.img`, we need to sign it using our private key. For debugging purposes, it is convenient to also be able to create unsigned images, so let's add the signing as a separate recipe that depends on the `boot-img-container` recipe. This way we can choose whether to build a signed or unsigned image by including the appropriate recipe in our build.
 
 Signing is relatively straightforward: 
 
-* find the generated `boot.img` from the `boot-img-container` recipe
+* Find the generated `boot.img` from the `boot-img-container` recipe
 * Generate a sha256 hash of the `boot.img` to create a digest
 * Sign the digest using the private key to create the signature
 * Copy the boot.sig file to the deploy directory
