@@ -23,8 +23,8 @@ In practice, this means that the device's bootloader is cryptographically signed
 
 On a high level, implementing secure boot for an embedded Linux device using Yocto involves the following steps:
 
-* Enable trusted boot support on the device itself - In the case of the Raspberry Pi CM4, this involves configuring the eeprom firmware to enable secure boot features. 
-* Provide the public key used for verifying the signature of the bootloader to the device and store it on the eeprom.
+* Enable trusted boot support on the device itself - In the case of the Raspberry Pi CM4, this involves configuring the EEPROM firmware to enable secure boot features. 
+* Provide the public key used for verifying the signature of the bootloader to the device and store it on the EEPROM.
 * Create a boot.img container that includes the bootloader, kernel, and device tree blobs (DTBs) - This container needs to be signed using a public key.
 * Configure Yocto to build and sign the boot.img - This involves creating custom Yocto layers and recipes to handle the signing process and ensure that the boot.img is correctly formatted.
 * Replace existing boot files with the signed boot.img and pack it into the boot partition of the device's storage medium.
@@ -35,7 +35,7 @@ Before we dive into the details, we enable trusted boot on the Raspberry Pi CM4.
 
 Trusted boot on the Raspberry Pi CM4 needs to be enabled in the boot EEPROM by setting the `SIGNED_BOOT` flag in the boot.conf and by providing the public key to verify the signature. This is done [using the `rpiboot` tool](https://github.com/raspberrypi/usbboot/), which allows us to write the necessary configuration to the EEPROM. The [usbboot repository](https://github.com/raspberrypi/usbboot/) provides the necessary tools and documentations to update the EEPROM for Raspberry Pi.
 
-For illustration purpose, I'll show how to enable secure boot using a self-signed key pair. In a production environment, you would typically use a key pair issued by a trusted certificate authority (CA).
+For illustration purposes, I'll show how to enable secure boot using a self-signed key pair. In a production environment, you would typically use a key pair issued by a trusted certificate authority (CA).
 
 First we generate a public/private key pair using OpenSSL:
 
@@ -43,14 +43,14 @@ First we generate a public/private key pair using OpenSSL:
 openssl genrsa 2048 > keypair.pem
 ```
 
-Next we set up the `boot.conf` file to enable signed boot by setting `SIGNED_BOOT=1`. Then we use the `update-pieeprom` tool from rpiboot to update the eeprom with the public key and flash it to the device:
+Next we set up the `boot.conf` file to enable signed boot by setting `SIGNED_BOOT=1`. Then we use the `update-pieeprom` tool from rpiboot to update the EEPROM with the public key and flash it to the device:
 
 ```bash
 update-pieeprom -k  keypair.pem
 rpiboot -d /path/to/bootconf/
 ```
 
-From this point on, the device will expect a signed `boot.img` during the boot process, the signature of it is expected to be present in a `boot.sig` file. If we try to boot an unsigned image, the device will halt the boot process with a `Bad signature boot.sig` error. To disable secure boot, we can overwrite the eeprom again with `SIGNED_BOOT=0`.
+From this point on, the device will expect a signed `boot.img` during the boot process, the signature of it is expected to be present in a `boot.sig` file. If we try to boot an unsigned image, the device will halt the boot process with a `Bad signature boot.sig` error. To disable secure boot, we can overwrite the EEPROM again with `SIGNED_BOOT=0`.
 
 Now that secure boot is enabled on the device, we can move on to configuring Yocto to build and sign the `boot.img`.
 
@@ -64,7 +64,7 @@ So let's start with creating the `boot.img` container
 
 #### Creating the boot.img container
 
-The boot.img container is a fat16 formated file that contains the bootloader, kernel, and device tree blobs (DTBs). We can create a custom Yocto recipe to build this container, let's call this `boot-img-container.bb`:
+The boot.img container is a fat16 formatted file that contains the bootloader, kernel, and device tree blobs (DTBs). We can create a custom Yocto recipe to build this container, let's call this `boot-img-container.bb`:
 
 The recipe will do the following things: 
 
@@ -93,7 +93,7 @@ do_compile() {
     mkdir -p ${B}/boot-img-container-staging/overlays
     mkdir -p ${S}
 
-    #collect all bootfiles from BOOTFILES_DIR and DTBO_DIR and and put it into the staging dear
+    #collect all bootfiles from BOOTFILES_DIR and DTBO_DIR and and put it into the staging dir
     find ${BOOTFILES_DIR} -maxdepth 1 -type f ! -name 'cmdline.txt' -exec install -m 0644 -t ${B}/boot-img-container-staging/ {} +
 
     # copy all resolved .dtbo symlinks (the image is vfat formatted and symlinks are not supported)
@@ -201,7 +201,7 @@ do_compile() {
         printf 'ts: %s\n' "$(date -u +%s)" >> "${SIG_FILE_PATH}"
 
         # Generate RSA signature of the boot.img using openssl and hash it using sha256
-        # apend at the end of the sig file
+        # append at the end of the sig file
 
         sig=$(openssl dgst -sha256 -sign "${BOOT_IMG_CERTIFICATE_PEM}" "${BOOT_IMG_PATH}" | xxd -c 4096 -p )
         printf 'rsa2048: %s\n' "${sig}" >> "${SIG_FILE_PATH}"
@@ -231,9 +231,9 @@ The `BOOT_IMG_PATH` variable points to the location of the generated `boot.img`,
 
 The `do_compile` function first checks if the `BOOT_IMG_CERTIFICATE_PEM` variable is set and if the `boot.img` file exists. If both checks pass, it generates a SHA256 hash of the `boot.img` and writes it to the signature file. It also appends a timestamp to the signature file for reference. Then, it generates an RSA signature of the `boot.img` using the private key and appends it to the signature file. 
 
-And with that , we have our signed `boot.img` and `boot.sig` files ready for deployment! The `do_deploy` function installs the `boot.sig` file to the deploy directory, so the image creation command automatically packs it.
+And with that, we have our signed `boot.img` and `boot.sig` files ready for deployment! The `do_deploy` function installs the `boot.sig` file to the deploy directory, so the image creation command automatically packs it.
 
-Lastly, we need to tell bitbake to execute the `do_compile` and `do_deploy` tasks at the appropriate times in the build process by adding them to the task graph. We do this by placing the `1do_compile` task before the `do_install` task and the `do_deploy` task before the `do_build` task. We also make sure that the `do_compile` task depends on the deployment of the `boot-img-container` recipe to ensure that the `boot.img` is available for signing.
+Lastly, we need to tell bitbake to execute the `do_compile` and `do_deploy` tasks at the appropriate times in the build process by adding them to the task graph. We do this by placing the `do_compile` task before the `do_install` task and the `do_deploy` task before the `do_build` task. We also make sure that the `do_compile` task depends on the deployment of the `boot-img-container` recipe to ensure that the `boot.img` is available for signing.
 
 With that we have the recipes ready to create and sign the `boot.img`. The last step is to make sure that the signed image is used during the build process instead of the default boot files.
 
