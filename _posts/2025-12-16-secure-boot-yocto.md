@@ -2,8 +2,8 @@
 layout: post
 title: "Bringing Secure Boot to Embedded Linux with Yocto"
 description: "Secure boot for an embedded Linux devices based on raspberry pi CM4 using the yocto project"
-image: /images/cyber-resilience-act/thumbnail.jpg
-hero_image: /images/cyber-resilience-act/thumbnail.jpg
+image: /images/secure-boot-yocto/secure-boot-yocto-thumb.jpg
+hero_image: /images/secure-boot-yocto/secure-boot-yocto.jpg
 hero_darken: true
 tags: secure-boot,yocto,embedded-linux
 lang: en
@@ -15,7 +15,9 @@ lang: en
 
 There are many aspects to consider when building a secure embedded device. One of the first steps towards security is making sure that a device runs only trusted software. This is generally called **Secure boot** and it is preventing attackers from loading malicious code on the device during the boot process. Secure boot is typically implemented using a chain of trust, where each stage of the boot process verifies the integrity and authenticity of the next stage before executing it.
 
-In practice, this means that the device's bootloader is cryptographically signed, and the hardware verifies this signature before executing the bootloader. If the signature is invalid, the boot process is halted, preventing the execution of potentially malicious code.
+{%include figure.html url="images/secure-boot-yocto/raspberry-secure-boot-process.png" description="The Raspberry Pi 4 Boot Security Process" source="https://pip-assets.raspberrypi.com/categories/1260-security/documents/RP-004651-WP-2-Raspberry%20Pi%204%20Boot%20Security.pdf" %}
+
+In practice, this means that the device's bootloader is cryptographically signed, and the hardware verifies this signature before executing the bootloader. If the signature is invalid, the boot process is halted, preventing the execution of potentially malicious code. For a more in-depth documentation on secure boot for raspberry pi devices, check out the [Raspberry Pi Secure Boot documentation](https://pip-assets.raspberrypi.com/categories/1260-security/documents/RP-004651-WP-2-Raspberry%20Pi%204%20Boot%20Security.pdf?disposition=inline).
 
 ## Implementing secure boot with Yocto
 
@@ -180,7 +182,7 @@ The resulting recipe could look like this:
 
 inherit nopackages
 
-depends += "boot-img-container openssl-native xxd-native"
+DEPENDS += "boot-img-container openssl-native xxd-native"
 
 BOOT_IMG_PATH = "${DEPLOY_DIR_IMAGE}/boot.img"
 SIG_FILE_PATH = "${DEPLOY_DIR_IMAGE}/boot.sig"
@@ -253,9 +255,10 @@ And with that, we have successfully integrated secure boot into our Yocto build 
 
 ## What about further improvements?
 
-* Fetch key from AWS or so? 
-* Populate to upstream meta-raspberrypi?
-* allow for further customization of the boot.img contents via variables and the 
+The recipes and approach described in this post provide a basic implementation of secure boot for an embedded Linux device using Yocto. For production use one improvement that needs to be made is to securely manage the private key used for signing the `boot.img`. Storing the private key directly in the source code or build environment is not secure and can lead to compromise of the key. Instead, consider using a secure key management solution, such as a hardware security module (HSM) or a cloud-based key management service (KMS), to store and manage the private key. 
+
+
+
 
 
 
