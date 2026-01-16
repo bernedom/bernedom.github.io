@@ -7,7 +7,7 @@ hero_image: /images/secure-boot-yocto/secure-boot-yocto.jpg
 hero_darken: true
 tags: secure-boot yocto embedded-linux
 lang: en
-author: Dominik
+author: Dominik Berner
 ---
 
 **Security is no longer optional for embedded devices, especially not with the Cyber Resilience Act coming into effect.** Unfortunately, adding secure boot to embedded Linux devices is often not straightforward. In this post, we share our experience implementing secure boot for an embedded Linux device based on the Raspberry Pi Compute Module 4 using the Yocto Project. (Warning, this is a long read!)
