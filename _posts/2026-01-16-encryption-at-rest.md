@@ -131,12 +131,200 @@ do_install() {
 FILES:${PN} = "/init /dev/console /proc /sys /mnt"
 ```
 
-This recipe is included in the initramfs image by adding it to the `PACKAGE_INSTALL` variable in the `initramfs-cryptsetup.bb` recipe as shown earlier. The actual init script (`provisioning-initramfs-init`) contains the logic for both the provisioning and normal unlocking processes. Additionally, it creates the `/dev` directory and the `/dev/console` device to allow for logging over uart, but this is manly for debug purposed. 
+This recipe is included in the initramfs image by adding it to the `PACKAGE_INSTALL` variable in the `initramfs-cryptsetup.bb` recipe as shown earlier. The actual init script (`provisioning-initramfs-init`) contains the logic for both the provisioning and normal unlocking processes. Additionally, it creates the `/dev` directory and the `/dev/console` device to allow for logging over uart, but this is manly for debug purpose.
 
-```bash
+Now let's look at the init script itself:
+
+#### The init script
+
+The init script is a shell script that runs during the initramfs stage of the boot process. It checks whether the device has been provisioned (i.e., whether the LUKS-encrypted root filesystem has been created and the encryption key stored in OTP memory). If not, it performs the provisioning process; otherwise, it retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. 
 
 
 ********** IMAGE with the two paths **********
+
+
+1. Generate a unique encryption key for the device using a secure random number generator.
+2. Store the generated encryption key in the One-Time Programmable (OTP) memory of the Raspberry Pi CM4 using the appropriate tools (e.g., `rpi-eeprom`).
+3. Create a LUKS-encrypted container for the root filesystem using the generated encryption key.
+4. Copy the unencrypted root filesystem into the LUKS-encrypted container. 
+5. Boot into the newly created LUKS-encrypted root filesystem.
+
+One question to clarify is where to store the unencrypted root filesystem before the provisioning process. Since LUKS does not support in-place encryption of existing filesystems, we need to have the unencrypted root filesystem available somewhere during the first boot. If you are using an A/B partition scheme, you can store the unencrypted root filesystem in one of the partitions (e.g., partition A) and use the other partition (e.g., partition B) for the LUKS-encrypted root filesystem. During the provisioning process, the init script can copy the unencrypted root filesystem from partition A into the LUKS-encrypted container on partition B and then do the same vice versa from the now encrypted B partition to A. While this complicates the init script somewhat, it streamlines the provisioning process significantly, as no external media is required to provide the unencrypted root filesystem during the first boot.
+
+So let's look at the key commands that need to be executed in the init script for both the provisioning and normal unlocking processes.
+
+#### Provisioning and boot process
+
+First we need to check if the device is already provisioned. The simplest way to do this is to check if all partitions are already LUKS encrypted and if there is a non-zero key stored in OTP memory. 
+If the OTP key is not set, we need to generate a new encryption key and store it in OTP memory. The RPI eeprom tools provide a convenient way to do this:
+
+```bash
+rpi-otp-private-key -w $(openssl rand -hex 32) -y
+```
+
+If the key is either generated or already present in OTP memory, we read it out and store it in a temporary key file for use with `cryptsetup`:
+
+```bash
+rpi-otp-private-key -r > /keyfile.bin
+# in case the private key is only zeroes, the file is not created
+if [ ! -f /keyfile.bin ] || [ ! -s /keyfile.bin ]; then
+    echo "[initramfs] FATAL ERROR: OTP private key file /keyfile.bin missing or empty. This is fatal!"
+    reboot -f
+fi
+```
+
+
+```bash
+ROOTFS_A="/dev/mmcblk0p5"   # rootfs_A
+ROOTFS_B="/dev/mmcblk0p6"   # rootfs_B
+OTP_KEY_SET=false
+rpi-otp-private-key -c && OTP_KEY_SET=true
+cryptsetup isLuks "${ROOTFS_B}" || { [ "${OTP_KEY_SET}" = false ] && ROOTFS_B_NEEDS_SETUP=true; }
+cryptsetup isLuks "${ROOTFS_A}" || { [ "${OTP_KEY_SET}" = false ] && ROOTFS_A_NEEDS_SETUP=true; }
+```
+
+The `rpi-otp-private-key -c` command stems from the `rpi-eeprom` yocto recipe and checks if a private key is stored in OTP memory. If the OTP is non-zero, it returns 0 else 1. We use this to set the `OTP_KEY_SET` variable accordingly. Next we check if the rootfs partitions are LUKS containers with the `cryptsetup isLuks` command. If either of the rootfs partitions is not a LUKS container and the OTP key is not set, we mark that partition as needing setup. 
+
+
+For this we create two helper functions: `set_up_luks_partition` and `provision_luks_partition`. The first function creates the LUKS container on the specified partition, while the second function copies the unencrypted root filesystem into the LUKS container and stores the encryption key in OTP memory. Here is an example implementation of these functions:
+
+
+```bash
+set_up_luks_partition(){
+    target_partition="$1"
+    mapping_name="$2"
+
+    echo "[initramfs] Setting up LUKS on ${target_partition}..."
+    cryptsetup luksFormat "${target_partition}" --batch-mode --key-file /keyfile.bin || {
+        echo "[initramfs] ERROR: Failed to open LUKS partition ${target_partition}."
+        reboot -f
+    }
+
+    echo "[initramfs] formatting ${target_partition} to ext4."
+
+    cryptsetup luksOpen ${target_partition} ${mapping_name} --key-file /keyfile.bin || {
+        echo "[initramfs] ERROR: Failed to open LUKS partition ${target_partition}."
+        reboot -f
+    }   
+
+    mkfs.ext4 /dev/mapper/${mapping_name} || {
+        cryptsetup luksClose ${mapping_name}
+        echo "[initramfs] ERROR: Failed to format LUKS partition ${target_partition}."
+        reboot -f
+    }
+
+    
+    cryptsetup luksClose ${mapping_name}
+    echo "[initramfs] LUKS partition ${target_partition} is set up and ready."
+}
+```
+
+First, the `set_up_luks_partition` function takes two arguments: the target partition to be encrypted and the mapping name for the LUKS container. It uses `cryptsetup luksFormat` to create the LUKS container on the specified partition, using a predefined key file (`/keyfile.bin`) for simplicity. After creating the LUKS container, it opens it with `cryptsetup luksOpen`, formats it to ext4 using `mkfs.ext4`, and then closes the LUKS container. If any of these steps fail, an error message is printed, and the system reboots. However depending on where things go wrong this might leave you with a bricked device, so be careful when testing this!
+
+Once the LUKS container is set up, we can proceed to the provisioning process with the `provision_luks_partition` function:
+
+```bash
+provision_luks_partition() {
+    target_partition="$1"
+    mapping_name="$2"
+    source_partition="$3"
+
+    echo "[initramfs] Opening LUKS partition ${target_partition}..."
+    cryptsetup luksOpen ${target_partition} ${mapping_name} --key-file /keyfile.bin || {
+        echo "[initramfs] ERROR: Failed to open LUKS partition ${target_partition}."
+        reboot -f
+    }   
+
+    echo "[initramfs] mounting ${mapping_name} to /mnt/target."
+    mkdir -p /mnt/target
+    mount /dev/mapper/${mapping_name} /mnt/target || {
+        cryptsetup luksClose ${mapping_name}
+        echo "[initramfs] ERROR: Failed to mount LUKS partition ${target_partition}."
+        reboot -f
+    }
+    mkdir -p /mnt/src
+    mount ${source_partition} /mnt/src || {
+        
+        umount /mnt/target
+        cryptsetup luksClose ${mapping_name}
+        echo "[initramfs] ERROR: Failed to mount source partition ${source_partition}."
+        reboot -f
+    }
+
+    echo "[initramfs] Copy everything from ${source_partition} (/mnt/src) to /mnt/target using rsync."
+    rsync -aHAXx /mnt/src/ /mnt/target/ || {
+        umount /mnt/target
+        cryptsetup luksClose ${mapping_name}
+        echo "[initramfs] ERROR: Failed to copy data from /mnt/src to /mnt/target."
+        reboot -f
+    }
+
+    umount /mnt/target
+    umount /mnt/src
+    cryptsetup luksClose ${mapping_name}
+
+}
+```
+
+The `provision_luks_partition` function takes three arguments: the target partition to be provisioned, the mapping name for the LUKS container, and the source partition containing the unencrypted root filesystem. It opens the LUKS container on the target partition, mounts it to `/mnt/target`, and mounts the source partition to `/mnt/src`. It then uses `rsync` to copy all data from the source partition to the target LUKS-encrypted partition. After the data transfer is complete, it unmounts both partitions and closes the LUKS container. If any step fails, an error message is printed, and the system reboots.
+
+We then can use these functions to handle the provisioning process during the first boot. Here is an example of how to use these functions in the init script:
+```bash
+
+if [ "${ROOTFS_B_NEEDS_SETUP}" = true ]; then
+    set_up_luks_partition ${ROOTFS_B} "rootfs_b" 
+    provision_luks_partition ${ROOTFS_B} "rootfs_b" ${ROOTFS_A}
+    
+else
+    echo "[initramfs] Rootfs_B partition ${ROOTFS_B} is already LUKS formatted. Skipping setup and provisioning."
+fi
+
+# Create a LUKS container for mmcblk0p5 (rootfs_A) if needed
+if [ "${ROOTFS_A_NEEDS_SETUP}" = true ]; then
+    echo "[initramfs] Rootfs_A partition ${ROOTFS_A} is not LUKS formatted. Setting up LUKS."
+    set_up_luks_partition ${ROOTFS_A} "rootfs_a"
+    # this is now a bit hacky, we mount rootfsb as luks 
+    cryptsetup luksOpen ${ROOTFS_B} "rootfs_b" --key-file /keyfile.bin || {
+        echo "[initramfs] ERROR: Failed to open LUKS partition ${ROOTFS_B}."
+        reboot -f
+    }
+    provision_luks_partition ${ROOTFS_A} "rootfs_a" "/dev/mapper/rootfs_b"
+    cryptsetup luksClose "rootfs_b"
+else
+    echo "[initramfs] Rootfs_A partition ${ROOTFS_A} is already LUKS formatted. Skipping setup and provisioning."
+fi
+```
+
+Note that while the first provisioning is done from an unencrypted partition to an encrypted one, the second provisioning is done from an already encrypted partition to another encrypted partition. For this we need to open the source LUKS container first and use the mapped device as source for the `provision_luks_partition` function.
+
+Once the provisioning process is complete, we can proceed to unlock the LUKS-encrypted root filesystem for normal operation during subsequent boots. Here is an example of how to do this in the init script, for simplicity let's say always into rootfs_A:
+
+```bash
+cryptsetup luksOpen ${ROOTFS_A} rootfs_a --key-file /keyfile.bin || {
+    echo "[initramfs] ERROR: Failed to open LUKS partition ${luks_partition}."
+    reboot -f
+}
+mount /dev/mapper/rootfs_a /mnt/rootfs || {
+    cryptsetup luksClose rootfs_a
+    echo "[initramfs] ERROR: Failed to mount LUKS partition ${luks_partition}."
+    reboot -f
+}
+```
+
+At this point, the LUKS-encrypted root filesystem is unlocked and mounted to `/mnt/rootfs`, allowing the normal boot process to continue.
+
+Finally, we need to switch to the unlocked root filesystem and continue the normal boot process. This can be done using the `switch_root` command:
+
+```bash
+exec switch_root /mnt/rootfs /sbin/init
+```
+
+At this point, the init script has completed its tasks, and the normal boot process continues from the unlocked LUKS-encrypted root filesystem. 
+
+## Conclusion
+
+
+
 
 
 
