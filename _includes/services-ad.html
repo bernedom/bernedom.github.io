@@ -1,0 +1,46 @@
+<style>
+    /* Default: Light theme → make box darker */
+    .contrast-box {
+        background-color: hsla(0, 0%, 94%, 0.918);
+        margin-bottom: 1.5em;
+        padding: 0.5em;
+    }
+
+    /* Dark theme → make box lighter */
+    @media (prefers-color-scheme: dark) {
+
+        .contrast-box {
+            background-color: hsla(0, 0%, 89%, 0.055);
+        }
+    }
+</style>
+
+<div class="contrast-box" markdown="0">
+    <h1><a href="https://softwarecraft.ch/services/project-work/">
+            Like what you read?</a></h1>
+
+    <div style="display: grid; width: 100%; grid-template-columns: 10% 1fr; grid-gap: 1%; padding-bottom: 0.5em;">
+        <div>
+
+            <a href="https://softwarecraft.ch/services/project-work/">
+                <img src="{{ site.baseurl }}/images/software-craft-logo_small.png" alt="Softwarecraft Logo"
+                    style="max-width:100%;height:auto;display:block" />
+
+            </a>
+
+        </div>
+        <div>
+            Softwarecraft helps teams design, build, and rescue complex software projects. From
+            tricky architectures to hands-on delivery, we bring senior expertise where it matters most. Curious how we
+            can help?
+            <br />
+            <br />
+
+            <a href="https://softwarecraft.ch/services/project-work/">Learn more</a> or
+            <a href="https://softwarecraft.ch/contact/">or contact us</a>
+
+
+        </div>
+
+    </div>
+</div>
