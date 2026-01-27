@@ -1,9 +1,9 @@
 --- 
 layout: post
 title: "Encryption at rest for embedded Linux devices using LUKS"
-description: "Encryption at rest for embedded Linux devices based on raspberry pi CM4 using the yocto project"
-image: /images/secure-boot-yocto/secure-boot-yocto-thumb.jpg
-hero_image: /images/secure-boot-yocto/secure-boot-yocto.jpg
+description: "Encryption at rest for a Raspberry Pi using yocto"
+image: /images/encryption-at-rest/encryption_at_rest_thumb.jpg
+hero_image: /images/encryption-at-rest/encryption_at_rest.jpg
 hero_darken: true
 tags: secure-boot yocto embedded-linux
 lang: en
@@ -12,7 +12,7 @@ author: Dominik Berner
 
 {% include mermaid-script.html %}
 
-**As embedded devices store more and more sensitive data, encryption-at-rest becomes a critical requirement.** Especially for devices that are publicly accessible or deployed in untrusted environments, protecting data while the device is powered down is essential. Together with [secure boot](https://softwarecraft.ch/secure-boot-yocto/), encryption at rest ensures that data stored on the device remains confidential and tamper-proof, even if the device is physically compromised. This article describes how to implement LUKS encryption for embedded Linux devices based on the Raspberry Pi Compute Module 4 using the Yocto Project.
+**As embedded devices store more and more sensitive data, encryption-at-rest becomes a critical requirement.** Especially for devices that are publicly accessible or deployed in untrusted environments, protecting data while the device is powered down is essential. Together with [secure boot](https://softwarecraft.ch/secure-boot-yocto/), encryption at rest ensures that data stored on the device remains confidential and tamper-proof, even if the device is physically compromised. This article describes how to implement LUKS encryption for embedded Linux devices based on the Raspberry Pi Compute Module 4 using the yocto Project.
 
 ## Encryption at rest in embedded Linux in a nutshell
 
@@ -28,20 +28,20 @@ The general flow for implementing encryption at rest using LUKS on embedded Linu
 4. Once the root filesystem is unlocked, the init script switches to the unlocked root filesystem and continues the normal boot process.
 
 
-## Creating a LUKS-encrypted root filesystem with Yocto
+## Creating a LUKS-encrypted root filesystem with yocto
 
-To implement encryption at rest using LUKS on embedded Linux devices based on the Raspberry Pi Compute Module 4 with the Yocto Project, the following steps are necessary:
+To implement encryption at rest using LUKS on embedded Linux devices based on the Raspberry Pi Compute Module 4 with the yocto Project, the following steps are necessary:
 
 * Create an initramfs image that includes the `cryptsetup` tool and any necessary dependencies.
 * Modify the bootloader configuration to load the initramfs image during the boot process.
 * Create an init script within the initramfs that handles the unlocking of the LUKS-encrypted root filesystem using the encryption key stored in OTP memory.
 
-Since the encryption of the partitions is device specific and needs to be done only once, a provisioning process is required during the first boot of the device. As a consequence, device image created from yocto is unencrypted initially and will only be encrypted during the provisioning process. A convenient way to achieve this is to use an A/B partition scheme, where one partition is used for provisioning and the other for normal operation. During the first boot, the init script generates a unique encryption key for the device, creates the LUKS-encrypted root filesystem, copies the unencrypted root filesystem into the encrypted container, and stores the encryption key in OTP memory. On subsequent boots, the init script retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. So the init script needs to handle two scenarios: the first boot (provisioning) and subsequent boots (normal operation). But first of all, the initramfs image needs to be created and the bootloader configuration modified.
+Since the encryption of the partitions is device specific and needs to be done only once, a provisioning process is required during the first boot of the device. As a consequence, the device image created from yocto is unencrypted initially and will only be encrypted during the provisioning process. A convenient way to achieve this is to use an A/B partition scheme, where one partition is used for provisioning and the other for normal operation. During the first boot, the init script generates a unique encryption key for the device, creates the LUKS-encrypted root filesystem, copies the unencrypted root filesystem into the encrypted container, and stores the encryption key in OTP memory. On subsequent boots, the init script retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. So the init script needs to handle two scenarios: the first boot (provisioning) and subsequent boots (normal operation). But first of all, the initramfs image needs to be created and the bootloader configuration modified.
 
 
 ### Create initramfs with cryptsetup
 
-Since the initramfs is just a minimal Linux image, we can create it using Yocto by defining a custom image recipe. The image recipe should include the `cryptsetup` package and any other necessary dependencies. Here is an example of how to create an initramfs image with `cryptsetup`. Let's call this recipe `initramfs-cryptsetup.bb`:
+Since the initramfs is just a minimal Linux image, we can create it using yocto by defining a custom image recipe. The image recipe should include the `cryptsetup` package and any other necessary dependencies. Here is an example of how to create an initramfs image with `cryptsetup`. Let's call this recipe `initramfs-cryptsetup.bb`:
 
 ```bash
 inherit core-image
@@ -106,7 +106,7 @@ do_compile[depends] += "initramfs-cryptsetup:do_install_bootfiles"
 
 ```
 
-By adding the `initramfs-cryptsetup` dependency to the `DEPENDS` variable, we ensure that the initramfs image is built before the `boot.img` is created. The `do_compile[depends]` line ensures that the initramfs image is installed to the bootfiles directory before creating the `boot.img`. With these modifications and together with the modificaiton of the `RPI_EXTRA_CONFIG` variable, the initramfs will be included in the `boot.img` and loaded by the bootloader during the boot process. At this point we have everything in place to handle the unlocking of the LUKS-encrypted root filesystem during boot, except the logic to actually unlock the file systems.
+By adding the `initramfs-cryptsetup` dependency to the `DEPENDS` variable, we ensure that the initramfs image is built before the `boot.img` is created. The `do_compile[depends]` line ensures that the initramfs image is installed to the bootfiles directory before creating the `boot.img`. With these modifications and together with the modifications of the `RPI_EXTRA_CONFIG` variable, the initramfs will be included in the `boot.img` and loaded by the bootloader during the boot process. At this point we have everything in place to handle the unlocking of the LUKS-encrypted root filesystem during boot, except the logic to actually unlock the file systems.
 
 ### Init script for unlocking LUKS-encrypted root filesystem
 
@@ -152,7 +152,7 @@ flowchart TD
     GENKEY --> ENCRYPTROOTFSB[create a LUKS container for <span style='color:orange'>rootfsB</span> using the key from OTP]
     ENCRYPTROOTFSB --> POPULATEB[Populate <span style='color:orange'>rootfsB</span> with a copy of <span style='color:green'>rootfsA</span>]
     POPULATEB --> ENCRYPTROOTFSA[create a LUKS container for <span style='color:green'>rootfsA</span> using key from OTP]
-    ENCRYPTROOTFSA --> POPULATEA[Populate <span style='color:green'>rootfsA</span> with with a copy from <span style='color:orange'>rootfsB</span>]
+    ENCRYPTROOTFSA --> POPULATEA[Populate <span style='color:green'>rootfsA</span> with a copy from <span style='color:orange'>rootfsB</span>]
     POPULATEA --> MAP[Map all LUKS containers using key from OTP]
     MAP --> MOUNT[Mount all LUKS containers]
     MOUNT --> BOOT[Boot into selected rootfs]
@@ -220,7 +220,7 @@ set_up_luks_partition(){
 
     echo "[initramfs] Setting up LUKS on ${target_partition}..."
     cryptsetup luksFormat "${target_partition}" --batch-mode --key-file /keyfile.bin || {
-        echo "[initramfs] ERROR: Failed to open LUKS partition ${target_partition}."
+        echo "[initramfs] ERROR: Failed to format LUKS partition ${target_partition}."
         exec /bin/sh
     }
 
@@ -307,7 +307,7 @@ fi
 if [ "${ROOTFS_A_NEEDS_SETUP}" = true ]; then
     echo "[initramfs] Rootfs_A partition ${ROOTFS_A} is not LUKS formatted. Setting up LUKS."
     set_up_luks_partition ${ROOTFS_A} "rootfs_a"
-    # this is now a bit hacky, we mount rootfsb as luks 
+    # map rootfsb to copy data from it
     cryptsetup luksOpen ${ROOTFS_B} "rootfs_b" --key-file /keyfile.bin || {
         echo "[initramfs] ERROR: Failed to open LUKS partition ${ROOTFS_B}."
         exec /bin/sh
@@ -351,6 +351,6 @@ Getting an embedded device to support encryption at rest may look daunting at fi
 
 Another concern is that the provisioning code is still present in the initramfs even after the device has been provisioned. An attacker who gains access to the device could potentially exploit vulnerabilities in the provisioning code to compromise the security of the encrypted root filesystem. To mitigate this risk, it is advisable to implement a mechanism to disable or remove the provisioning code from the initramfs after the first successful boot and provisioning process. If your device supports update mechanisms, you could push an updated initramfs without the provisioning code after the first boot. 
 
-However desipte these considerations, implementing encryption at rest using LUKS on embedded Linux devices based on the Raspberry Pi Compute Module 4 with the Yocto Project provides a robust solution for protecting sensitive data and will make exploiting the device significantly harder, even if an attacker has physical access.
+Despite these considerations, implementing encryption at rest using LUKS on embedded Linux devices based on the Raspberry Pi Compute Module 4 with the yocto Project provides a robust solution for protecting sensitive data and will make exploiting the device significantly harder, even if an attacker has physical access.
 
 
