@@ -1,7 +1,7 @@
 --- 
 layout: post
-title: "Encryption at rest for embedded Linux devices using LUKS"
-description: "Encryption at rest for a Raspberry Pi using yocto"
+title: "Encryption at Rest for a Raspberry Pi using Yocto"
+description: "Implement LUKS encryption at rest on Raspberry Pi CM4 with yocto. Complete guide covering initramfs, cryptsetup, OTP keys, and self-provisioning setup."
 image: /images/encryption-at-rest/encryption_at_rest_thumb.jpg
 hero_image: /images/encryption-at-rest/encryption_at_rest.jpg
 hero_darken: true
