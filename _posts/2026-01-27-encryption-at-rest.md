@@ -12,21 +12,15 @@ author: Dominik Berner
 
 {% include mermaid-script.html %}
 
-**As embedded devices store more and more sensitive data, encryption-at-rest becomes a critical requirement.** Especially for devices that are publicly accessible or deployed in untrusted environments, protecting data while the device is powered down is essential. Together with [secure boot](https://softwarecraft.ch/secure-boot-yocto/), encryption at rest ensures that data stored on the device remains confidential and tamper-proof, even if the device is physically compromised. This article describes how to implement LUKS encryption for embedded Linux devices based on the Raspberry Pi Compute Module 4 using the yocto Project.
+**As embedded devices store more and more sensitive data, encryption-at-rest becomes a critical requirement.** Especially for devices that are publicly accessible or deployed in untrusted environments, protecting data while the device is powered down is essential. Together with [secure boot](https://softwarecraft.ch/secure-boot-yocto/), **encryption at rest** ensures that data stored on the device remains confidential and tamper-proof, even if the device is physically compromised. This article describes how to implement LUKS encryption for embedded Linux devices based on the [Raspberry Pi Compute Module 4](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000) using the yocto Project.
 
 ## Encryption at rest in embedded Linux in a nutshell
 
-On a high level, encryption at rest means that all data stored on the device is encrypted when the device is powered off. This ensures that if an attacker gains physical access to the device, they cannot read the data without the encryption key. In practice, this is typically achieved by encrypting the root filesystem and any other sensitive partitions using a strong encryption algorithm such as AES. When the device boots up, the encryption key is retrieved from a secure location (e.g., One-Time Programmable memory) and used to unlock the encrypted partitions, allowing the operating system to access the data as needed. While this adds some complexity to the boot process and comes with a slight performance overhead for I/O operations, the security benefits far outweigh these drawbacks for most applications.
+On a high level, *encryption at rest* means that all data stored on the device is encrypted when the device is powered off. This ensures that if an attacker gains physical access to the device, they cannot read the data without the encryption key. In practice, this is typically achieved by encrypting the root filesystem and any other sensitive partitions using a strong encryption algorithm such as AES. When the device boots up, the encryption key is retrieved from a secure location (e.g. One-Time Programmable memory (OTP)) and used to unlock the encrypted partitions, allowing the operating system to access the data as needed. While this adds some complexity to the boot process and comes with a slight performance overhead for I/O operations, the security benefits far outweigh these drawbacks for most applications.
 
-In practice for embedded Linux devices, encryption at rest can be implemented using LUKS (Linux Unified Key Setup), which is a widely used disk encryption specification for Linux. The tool to manage LUKS encrypted partitions is `cryptsetup` and is well supported in the Linux kernel. 
+In practice for embedded Linux devices, encryption at rest can be implemented using [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup) (Linux Unified Key Setup), which is a widely used disk encryption specification for Linux. The tool to manage LUKS encrypted partitions is [`cryptsetup`](https://gitlab.com/cryptsetup/cryptsetup) and is well supported in the Linux kernel through the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) kernel module. 
 
-The general flow for implementing encryption at rest using LUKS on embedded Linux devices is as follows:
-
-1. Instead of booting directly into the root filesystem, the bootloader first loads an initramfs image.
-2. The initramfs image contains an init script that invokes `cryptsetup` to unlock the encrypted partitions.
-3. The init script retrieves the encryption key from a secure location, such as One-Time Programmable (OTP) memory, and uses it to unlock the LUKS-encrypted root filesystem.
-4. Once the root filesystem is unlocked, the init script switches to the unlocked root filesystem and continues the normal boot process.
-
+Let's look at how these steps can be implemented in detail with yocto.
 
 ## Creating a LUKS-encrypted root filesystem with yocto
 
@@ -35,9 +29,11 @@ To implement encryption at rest using LUKS on embedded Linux devices based on th
 * Create an initramfs image that includes the `cryptsetup` tool and any necessary dependencies.
 * Modify the bootloader configuration to load the initramfs image during the boot process.
 * Create an init script within the initramfs that handles the unlocking of the LUKS-encrypted root filesystem using the encryption key stored in OTP memory.
+* Implement a provisioning process during the first boot to create the LUKS-encrypted root filesystem and store the encryption key in OTP memory.
 
-Since the encryption of the partitions is device specific and needs to be done only once, a provisioning process is required during the first boot of the device. As a consequence, the device image created from yocto is unencrypted initially and will only be encrypted during the provisioning process. A convenient way to achieve this is to use an A/B partition scheme, where one partition is used for provisioning and the other for normal operation. During the first boot, the init script generates a unique encryption key for the device, creates the LUKS-encrypted root filesystem, copies the unencrypted root filesystem into the encrypted container, and stores the encryption key in OTP memory. On subsequent boots, the init script retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. So the init script needs to handle two scenarios: the first boot (provisioning) and subsequent boots (normal operation). But first of all, the initramfs image needs to be created and the bootloader configuration modified.
+Since the encryption of the partitions is device specific and needs to be done only once, a provisioning process is required during the first boot of the device. As a consequence, the device image created from yocto is unencrypted initially and will only be encrypted during the provisioning process. A convenient way to achieve this is to use an A/B partition scheme, where one partition is used for provisioning and the other for normal operation. During the first boot, the init script generates a unique encryption key for the device, creates the LUKS-encrypted root filesystem, copies the unencrypted root filesystem into the encrypted container, and stores the encryption key in OTP memory. On subsequent boots, the init script retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. So the init script needs to handle two scenarios: the first boot (provisioning) and subsequent boots (normal operation). 
 
+But first of all, the initramfs image needs to be created and the bootloader configuration modified.
 
 ### Create initramfs with cryptsetup
 
@@ -67,7 +63,9 @@ addtask do_install_bootfiles after do_image_cpio before do_image_complete
 
 If we look at this a bit closer, we can see that the image recipe inherits from `core-image`, which provides a basic image structure. The `PACKAGE_INSTALL` variable specifies the packages to be included in the initramfs image, including `cryptsetup` for LUKS support `provisioning-initramfs-init`, which is our custom package that contains the init script for handling the unlocking of the LUKS-encrypted root filesystem.  Additionally, other necessary packages such as `e2fsprogs`, `rsync`, `userland`, `openssl`, and `rpi-eeprom` are included to support various functionalities required for the provisioning process, create the encryption keys and store them in the OTP memory of the Raspberry Pi CM4.
 Since the initramfs is intended to only run the provisioning and unlocking process, we exclude the kernel image packages by setting the `PACKAGE_EXCLUDE` variable to `kernel-image-*`. The `IMAGE_FSTYPES` variable is set to `${INITRAMFS_FSTYPES}` to specify the desired initramfs file types (e.g., cpio.gz). The `INITRAMFS_MAXSIZE` variable is set to `262144` (256MB) to define the maximum size of the initramfs image. `IMAGE_FEATURES` is deliberately left empty to avoid including unnecessary features in the initramfs image.
-The `do_install_bootfiles` function installs the generated initramfs image to the appropriate location for the bootloader to access it during the boot process. Next let's look at the init script that handles the unlocking of the LUKS-encrypted root filesystem.
+The `do_install_bootfiles` function installs the generated initramfs image to the appropriate location for the bootloader to access it during the boot process. 
+
+Next we need to make sure that this initramfs image is loaded by the bootloader during the boot process.
 
 ### Modify bootloader configuration to load initramfs
 
@@ -106,11 +104,11 @@ do_compile[depends] += "initramfs-cryptsetup:do_install_bootfiles"
 
 ```
 
-By adding the `initramfs-cryptsetup` dependency to the `DEPENDS` variable, we ensure that the initramfs image is built before the `boot.img` is created. The `do_compile[depends]` line ensures that the initramfs image is installed to the bootfiles directory before creating the `boot.img`. With these modifications and together with the modifications of the `RPI_EXTRA_CONFIG` variable, the initramfs will be included in the `boot.img` and loaded by the bootloader during the boot process. At this point we have everything in place to handle the unlocking of the LUKS-encrypted root filesystem during boot, except the logic to actually unlock the file systems.
+By adding the `initramfs-cryptsetup` dependency to the `DEPENDS` variable, we ensure that the initramfs image is built before the `boot.img` is created. The `do_compile[depends]` line ensures that the initramfs image is installed to the bootfiles directory before creating the `boot.img`. With these modifications and together with the modifications of the `RPI_EXTRA_CONFIG` variable, the initramfs will be included in the `boot.img` and loaded by the bootloader during the boot process. At this point we have everything in place to start looking at how the unlocking of the LUKS-encrypted root filesystem during boot and the provisioning process during the first boot can be implemented.
 
 ### Init script for unlocking LUKS-encrypted root filesystem
 
-The init script is responsible for handling both the provisioning process during the first boot and the normal unlocking process during subsequent boots. First we create a new recipe for our init script, let's call it `provisioning-initramfs-init.bb`:
+Inside the initramfs there is an init script, which is a shell script that runs during the initramfs stage of the boot process. In our case, the init script is responsible for handling both the provisioning process during the first boot and the normal unlocking process during subsequent boots. First we create a new recipe for placing the init script inside the initramfs-image, let's call it `provisioning-initramfs-init.bb`:
 
 ```bash
 SRC_URI = "file://provisioning-initramfs-init"
@@ -135,11 +133,11 @@ FILES:${PN} = "/init /dev/console /proc /sys /mnt"
 
 This recipe is included in the initramfs image by adding it to the `PACKAGE_INSTALL` variable in the `initramfs-cryptsetup.bb` recipe as shown earlier. The actual init script (`provisioning-initramfs-init`) contains the logic for both the provisioning and normal unlocking processes. Additionally, it creates the `/dev` directory and the `/dev/console` device to allow for logging over uart, but this is mainly for debug purpose.
 
-Now let's look at the init script itself:
+So far we have set up the initramfs image with the necessary tools and created a recipe to include the init script. But this does not yet cover the actual logic for unlocking the LUKS-encrypted root filesystem and the provisioning process. Let's look at how this can be implemented in the init script.
 
 #### The init script
 
-The init script is a shell script that runs during the initramfs stage of the boot process. It checks whether the device has been provisioned (i.e., whether the LUKS-encrypted root filesystem has been created and the encryption key stored in OTP memory). If not, it performs the provisioning process; otherwise, it retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. 
+The init script is a shell script that runs during the initramfs stage of the boot process. In our case it it checks whether the device has been provisioned (i.e., whether the LUKS-encrypted root filesystem has been created and the encryption key stored in OTP memory). If not, it performs the provisioning process; otherwise, it retrieves the encryption key from OTP memory and unlocks the LUKS-encrypted root filesystem for normal operation. 
 
 The following flowchart illustrates the provisioning and boot process:
 
@@ -160,13 +158,16 @@ flowchart TD
     
 ```
 
-The provisioning process involves the following steps:
+The path for already provisioned devices is quite straight forward: Retrieve the encryption key from OTP memory, map the LUKS containers using `cryptsetup`, mount the root filesystem, and call `switch_root` to boot into the LUKS-encrypted root filesystem.
 
-1. Generate a unique encryption key for the device using a secure random number generator.
-2. Store the generated encryption key in the One-Time Programmable (OTP) memory of the Raspberry Pi CM4 using the appropriate tools (e.g., `rpi-eeprom`).
-3. Create a LUKS-encrypted container for the root filesystem using the generated encryption key.
-4. Copy the unencrypted root filesystem into the LUKS-encrypted container. 
-5. Boot into the newly created LUKS-encrypted root filesystem.
+The provisioning process is more complex and requires several steps to create the LUKS-encrypted root filesystem and store the encryption key in OTP memory. Our script will perform the following steps during the provisioning process:
+
+1. Detect if the device is already provisioned by checking if the encryption key is present in OTP memory and if the root filesystem partitions are already LUKS encrypted.
+2. Generate a unique encryption key for the device using a secure random number generator.
+3. Store the generated encryption key in the One-Time Programmable (OTP) memory of the Raspberry Pi CM4 using the appropriate tools (e.g., `rpi-eeprom`).
+4. Create a LUKS-encrypted container for the root filesystem using the generated encryption key.
+5. Copy the unencrypted root filesystem into the LUKS-encrypted container. 
+6. Boot into the newly created LUKS-encrypted root filesystem.
 
 One question to clarify is where to store the unencrypted root filesystem before the provisioning process. Since LUKS does not support in-place encryption of existing filesystems, we need to have the unencrypted root filesystem available somewhere during the first boot. If you are using an A/B partition scheme, you can store the unencrypted root filesystem in one of the partitions (e.g., partition A) and use the other partition (e.g., partition B) for the LUKS-encrypted root filesystem. During the provisioning process, the init script can copy the unencrypted root filesystem from partition A into the LUKS-encrypted container on partition B and then do the same vice versa from the now encrypted B partition to A. While this complicates the init script somewhat, it streamlines the provisioning process significantly, as no external media is required to provide the unencrypted root filesystem during the first boot and the entire image can be flashed at once using `.wic` images or similar.
 
