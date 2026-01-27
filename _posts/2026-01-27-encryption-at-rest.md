@@ -195,7 +195,7 @@ fi
 
 Note, that on error we drop into a shell for debugging purposes, but in a production system you might want to `reboot -f` or take halt the system entirely to avoid leaving the device in an inconsistent or vulnerable state. 
 
-> Dropping into a shell on error is dangerous for production systems. Use with caution and only for debugging purposes.
+> ⚠️ Dropping into a shell on error is dangerous for production systems. Use with caution and only for debugging purposes. ⚠️
 
 Next we check if the root filesystem partitions are already LUKS encrypted or need to be provisioned. Here is an example of how to do this:
 
