@@ -11,7 +11,7 @@ items:
       - Streamlining per-device provisioning through simple deployment
       - Optimizing Linux images for size and performance
       - Allow A/B Over-the-Air-Updates with signed images
-    image: /images/showcase/embedded_linux.jpg
+    image: /images/showcase/embedded_linux_header.png
     features_styles: is-centered is-outlined is-primary
     link: /services/project-work
     link_text: Read more about our Embedded Linux services
