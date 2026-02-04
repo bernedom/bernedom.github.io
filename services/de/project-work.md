@@ -52,6 +52,8 @@ Embedded Linux ist zum Rückgrat vieler moderner Geräte geworden. Die Entwicklu
 * Mechanismen für Over-the-Air-Updates (OTA) für Embedded-Geräte
 * Modernisierung und Aktualisierung bestehender Embedded-Linux-Systeme auf den neuesten Stand der Technik
 
+Möchten Sie mehr erfahren? Lesen Sie unsere Artikel darüber, wie wir [Secure Boot](/secure-boot-yocto/) und [Datenverschlüsselung im Ruhezustand](/encryption-at-rest/) mit Yocto auf Embedded-Linux-Geräte gebracht haben.
+
 # Bereit für den nächsten Schritt?
 
 Bereit für den nächsten Schritt? Füllen Sie das Formular aus und wir kommen ins Gespräch!
