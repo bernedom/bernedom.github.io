@@ -1,18 +1,18 @@
 intro: |-
 
 items:
-  - title: Secure Boot & Encryption-At-Rest for Embedded Linux Device
-    subtitle: SoftwareCraft added secure boot and encryption-at-rest capabilities to an embedded Linux device trough yocto.
+  - title: Embedded Linux
+    subtitle: SoftwareCraft brings you embedded Linux expertise.
     description: |-
-      Security is a major concern for embedded devices, especially those deployed in the field. SoftwareCraft implemented secure boot and encryption-at-rest features for an embedded Linux device using the Yocto Project.
+      SoftwareCraft helps teams build and improve embedded Linux devices by adding robust security, reducing image size, streamlining provisioning, and kickstarting new projects with proven tooling and best practices
     features:
-      - Creating custom yocto layers to enable trusted boot support
-      - Enable LUKS encryption for data at rest during provisioning
-      - On-device-provisioning through simple deployment
-      - Per-device unique keys stored in secure hardware
+      - Creating custom yocto layers
+      - Enable Secure boot and encryption for data at rest
+      - Streamlining per-device provisioning through simple deployment
+      - Optimizing Linux images for size and performance
       - Allow A/B Over-the-Air-Updates with signed images
-    image: /images/showcase/secure-boot-encryption.jpg
+    image: /images/showcase/embedded_linux.jpg
     features_styles: is-centered is-outlined is-primary
-    link: http://www.example.com
-    link_text: Read about the project in our blog
+    link: /services/project-work
+    link_text: Read more about our Embedded Linux services
     tags: embedded Linux,Yocto,Security
