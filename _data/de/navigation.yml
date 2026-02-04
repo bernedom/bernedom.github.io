@@ -11,6 +11,8 @@
   link: /blog/
 - name: CMake Best Practices
   link: /cmake-best-practices/
+- name: Showcase
+  link: /showcase/
 - name: Über mich
   link: /about/
   dropdown:

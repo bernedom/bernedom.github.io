@@ -52,6 +52,8 @@ Embedded Linux has become the backbone of many modern devices. But developing an
 * Over the air (OTA) update mechanisms for embedded devices
 * Moderizing and updating existing embedded Linux systems to the latest standards
 
+Want to know more? Read our articles on how we brought [Secure Boot](/secure-boot-yocto/) and [Data Encryption at Rest](/encryption-at-rest/) to embedded Linux devices using Yocto.
+
 # Ready to take the next step?
 
 Ready to take the next step? Fill out the form below and let’s start the conversation!

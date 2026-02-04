@@ -1,0 +1,18 @@
+intro: |-
+
+items:
+  - title: Embedded Linux
+    subtitle: SoftwareCraft brings you embedded Linux expertise.
+    description: |-
+      SoftwareCraft helps teams build and improve embedded Linux devices by adding robust security, reducing image size, streamlining provisioning, and kickstarting new projects with proven tooling and best practices
+    features:
+      - Creating custom yocto layers
+      - Enable Secure boot and encryption for data at rest
+      - Streamlining per-device provisioning through simple deployment
+      - Optimizing Linux images for size and performance
+      - Allow A/B Over-the-Air-Updates with signed images
+    image: /images/showcase/embedded_linux_header.png
+    features_styles: is-centered is-outlined is-primary
+    link: /services/project-work
+    link_text: Read more about our Embedded Linux services
+    tags: embedded Linux,Yocto,Security
