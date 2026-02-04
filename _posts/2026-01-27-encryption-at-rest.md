@@ -10,9 +10,9 @@ lang: en
 author: Dominik Berner
 ---
 
-{% include mermaid-script.html %}
-
 **As embedded devices store more and more sensitive data, encryption-at-rest becomes a critical requirement.** Especially for devices that are publicly accessible or deployed in untrusted environments, protecting data while the device is powered down is essential. Together with [secure boot](https://softwarecraft.ch/secure-boot-yocto/), **encryption at rest** ensures that data stored on the device remains confidential and tamper-proof, even if the device is physically compromised. This article describes how to implement LUKS encryption for embedded Linux devices based on the [Raspberry Pi Compute Module 4](https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000) using the yocto Project.
+
+{% include mermaid-script.html %}
 
 ## Encryption at rest in embedded Linux in a nutshell
 
