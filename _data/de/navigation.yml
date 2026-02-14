@@ -16,7 +16,7 @@
 - name: Über mich
   link: /about/
   dropdown:
-    - name: Über mich
+    - name: Über SoftwareCraft
       link: /about
     - name: Kontakt
       link: /about/contact
