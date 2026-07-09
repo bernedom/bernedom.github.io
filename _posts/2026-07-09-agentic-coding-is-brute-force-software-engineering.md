@@ -1,11 +1,11 @@
 --- 
 layout: post
-title: "Making Releases a Non-Issue: Speeding Up Delivery for Embedded Devices"
+title: "Agentic Coding is Brute-Force Software Engineering"
 description: ""
-image: /images/embedded-delivery/thumbnail.jpg
-hero_image: /images/embedded-delivery/hero.jpg
+image: /images/agentic-coding-brute-force/thumbnail.jpg
+hero_image: /images/agentic-coding-brute-force/hero.jpg
 hero_darken: true
-tags: embedded OTA CI/CD agile software-delivery
+tags: agile software-delivery
 lang: en
 author: Dominik Berner
 ---
