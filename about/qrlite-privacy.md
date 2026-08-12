@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Privacy Policy
+title: QRLite Privacy Policy
 permalink: /about/qrlite-privacy/
 ---
 
