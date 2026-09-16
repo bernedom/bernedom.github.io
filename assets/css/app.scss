@@ -123,4 +123,16 @@
   .highlight .o {
     color: #f92672;
   }
+
+  // bulma-clean-theme's "is-light" callout sections (home/services page
+  // callouts) hardcode a light background+text regardless of color scheme.
+  // Icons inherit their color from the section, so this fixes those too.
+  .hero.is-light {
+    background-color: var(--bulma-scheme-main-bis);
+    color: var(--bulma-text);
+  }
+  .hero.is-light .title,
+  .hero.is-light .subtitle {
+    color: var(--bulma-text);
+  }
 }
