@@ -23,6 +23,8 @@ won't repeat it here. However this time, we have some dependencies to manage, an
 post picks up from there and adds Conan 2 + Qt6, then we go all the way to
 creating a multi-ABI bundle. 
 
+{% include cmake-best-practices-ad.html %}
+
 Before we dive into the details of Conan and Qt integration, let's outline the high-level steps involved in building a multi-ABI Android App Bundle with CMake. At the baseline, an aab file is essentially a collection of packages for different plattforms, so the process of building one with C++ involves:
 
 - Configuring CMake for each target ABI.
@@ -30,8 +32,6 @@ Before we dive into the details of Conan and Qt integration, let's outline the h
 - Building the project for each ABI.
 - Collecting the resulting binaries and resources.
 - Packaging them into a single `.aab` file.
-
-{% include services-ad.html %}
 
 While there exist the `qt-cmake` wrapper to simplify Qt-specific configuration for Android, the underlying challenge of building for multiple ABIs remains. Each ABI still requires a separate CMake configuration and build step. Also qt-cmake has a few quirks and additional steps compared to plain CMake and if your stack is not Qt-centric, plain CMake is often easier to work with. So the approach here is to use plain CMake for building and testing and only use `qt-cmake` when necessary for packaging the final `.aab`.
 Let's walk through each of these steps in more detail. 
@@ -52,8 +52,6 @@ setting
 ```cmake
 set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES "path/to/conan_provider.cmake")
 ```
-
-{% include cmake-best-practices-ad.html %}
 
 before the first `project()` call registers a script that CMake consults
 whenever `find_package()` can't resolve a package the normal way. The script
@@ -325,6 +323,9 @@ So at this point, we have Conan 2 resolving `zxing-cpp` and `Catch2` per-ABI
 through a CMake dependency provider, `find_package()` correctly seeing both
 Conan and Qt6 across an Android cross-compile, and a `qt-cmake`-driven bundle
 step that turns three independent ABI builds into one `.aab`.
+
+
+{% include services-ad.html %}
 
 At this point you can sign the `.aab` and upload it to the Google Play Store (or any derivative app store) for distribution. While creating an `.aab` is a step up in complexity compared to a single-ABI APK, it simplifies distribution and ensures that users get the best possible version of your app for their device, so it is generally worth the extra effort. 
 
