@@ -12,15 +12,15 @@ author: Dominik Berner
 
 **C++ and Qt are a powerful combination for cross-platform development, but building for Android introduces unique challenges.** While for a long time it was enough to just build the software and [wrap it into an apk](/cmake-android-apk-and-qt/), modern Android development often requires handling multiple ABIs, integrating with Java tooling, and managing dependencies in a cross-compiled environment. This sounds tough, but by combining [CMake](https://cmake.org/), [Conan](https://conan.io/), and [Qt6](https://www.qt.io/)'s cross-build capabilities, it becomes manageable. Let's see how it all comes together.
 
-[QRLite](https://github.com/bernedom/QRLite) is a small, local-only and ad-free app for reading QR-Codes that runs on Desktop and Android. It is a C++/Qt6 Android app, using [**CMake presets**](/cmake-presets-best-practices/), [**Conan 2** as a CMake dependency provider](/conan-as-cmake-dependency-provider/), and Qt6's own `qt-cmake` tooling to go from source to a single installable `.aab` (Android App Bundle) covering `armeabi-v7a`, `arm64-v8a`, and `x86_64`.[^1]
+[QRLite](https://github.com/bernedom/QRLite) is a small, local-only and ad-free app for reading QR-Codes that runs on Desktop and Android. It is a C++/Qt6 Android app, using [CMake presets](/cmake-presets-best-practices/), [Conan 2 as a CMake dependency provider](/conan-as-cmake-dependency-provider/), and Qt6's own `qt-cmake` tooling to go from source to a single installable `.aab` (Android App Bundle) covering arm and x86 architectures.[^1]
  
 Let's see how it all comes together.
 
 ## The high level build process for multi-ABI Android App Bundles
 
-[The basic setup for a Qt/CMake Android build is covered in the previous post](/cmake-android-apk-and-qt/). That post covers NDK/SDK installation, environment variables, basic `CMakePresets.json` anatomy, and `adb install`. All are still valid, and we
+[The basic setup for a Qt/CMake Android build is covered a previous post](/cmake-android-apk-and-qt/). That post covers NDK/SDK installation, environment variables, basic `CMakePresets.json` anatomy, and `adb install`. All are still valid, and we
 won't repeat it here. However this time, we have some dependencies to manage, and this
-post picks up from there and adds **Conan 2 + Qt6**, then goes all the way to
+post picks up from there and adds Conan 2 + Qt6, then we go all the way to
 creating a multi-ABI bundle. 
 
 Before we dive into the details of Conan and Qt integration, let's outline the high-level steps involved in building a multi-ABI Android App Bundle with CMake. At the baseline, an aab file is essentially a collection of packages for different plattforms, so the process of building one with C++ involves:
@@ -37,7 +37,7 @@ Let's walk through each of these steps in more detail.
 ## The dependency problem: Conan as a CMake dependency provider
 
 QRLite depends on [zxing-cpp](https://github.com/zxing-cpp/zxing-cpp) for QR
-decoding and [Catch2](https://github.com/catchorg/Catch2) for its test suite. 
+decoding and [Catch2](https://github.com/catchorg/Catch2) for its test suite, which will not be bundled into the final Android App Bundle.
 
 To manage these dependencies across multiple ABIs, we need a tool that understands both CMake and cross-compilation.
 Conan solves the "build the right binary for the right ABI" half of that
