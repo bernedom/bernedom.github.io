@@ -53,6 +53,8 @@ setting
 set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES "path/to/conan_provider.cmake")
 ```
 
+{% include cmake-best-practices-ad.html %}
+
 before the first `project()` call registers a script that CMake consults
 whenever `find_package()` can't resolve a package the normal way. The script
 is [`cmake-conan`](https://github.com/conan-io/cmake-conan), which QRLite
