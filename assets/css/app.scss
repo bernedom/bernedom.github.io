@@ -5,3 +5,122 @@
     $primary: #6B7280,
     $link: #6B7280
 );
+
+// bulma-clean-theme only ships a light Rouge syntax-highlighting theme, so
+// code blocks keep a white background even when the OS/browser is in dark
+// mode. Override with Rouge's "monokai.sublime" theme when dark mode is on.
+@media (prefers-color-scheme: dark) {
+  .highlight .gh {
+    color: #999999;
+  }
+  .highlight .sr {
+    color: #f6aa11;
+  }
+  .highlight .go {
+    color: #888888;
+  }
+  .highlight .gp {
+    color: #555555;
+  }
+  .highlight .ge {
+    font-style: italic;
+  }
+  .highlight .ges {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .highlight .gs {
+    font-weight: bold;
+  }
+  .highlight .gu {
+    color: #aaaaaa;
+  }
+  .highlight .nb {
+    color: #f6aa11;
+  }
+  .highlight .cm,
+  .highlight .cp,
+  .highlight .c1,
+  .highlight .cs,
+  .highlight .c,
+  .highlight .ch,
+  .highlight .cd,
+  .highlight .cpf {
+    color: #75715e;
+  }
+  .highlight .err,
+  .highlight .gr,
+  .highlight .gt {
+    color: #960050;
+  }
+  .highlight .gd,
+  .highlight .gi {
+    color: #49483e;
+  }
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kr,
+  .highlight .no,
+  .highlight .kt {
+    color: #66d9ef;
+  }
+  .highlight .mf,
+  .highlight .mh,
+  .highlight .il,
+  .highlight .mi,
+  .highlight .mo,
+  .highlight .m,
+  .highlight .mb,
+  .highlight .mx,
+  .highlight .sc,
+  .highlight .se,
+  .highlight .ss {
+    color: #ae81ff;
+  }
+  .highlight .sd,
+  .highlight .s2,
+  .highlight .sb,
+  .highlight .sh,
+  .highlight .si,
+  .highlight .sx,
+  .highlight .s1,
+  .highlight .s,
+  .highlight .sa,
+  .highlight .dl {
+    color: #e6db74;
+  }
+  .highlight .na,
+  .highlight .nc,
+  .highlight .nd,
+  .highlight .ne,
+  .highlight .nf,
+  .highlight .fm {
+    color: #a6e22e;
+  }
+  .highlight,
+  .highlight .n,
+  .highlight .py,
+  .highlight .nx,
+  .highlight .vc,
+  .highlight .nn,
+  .highlight .nl,
+  .highlight .ni,
+  .highlight .bp,
+  .highlight .vg,
+  .highlight .vi,
+  .highlight .nv,
+  .highlight .vm,
+  .highlight .w {
+    color: #ffffff;
+    background-color: #272822;
+  }
+  .highlight .ow,
+  .highlight .nt,
+  .highlight .k,
+  .highlight .kv,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .o {
+    color: #f92672;
+  }
+}
