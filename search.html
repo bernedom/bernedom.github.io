@@ -1,0 +1,56 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+
+<h1>Search my blog</h1>
+
+<input type="search" id="blog-search" placeholder="Search articles..." aria-label="Search blog posts" />
+
+<ul id="search-results"></ul>
+
+<script>
+    const input = document.getElementById("blog-search");
+    const results = document.getElementById("search-results");
+
+    fetch({{ '/search.json' | relative_url | jsonify }})
+        .then(response => {
+            if (!response.ok) throw new Error("Search index unavailable");
+            return response.json();
+        })
+        .then(posts => {
+            input.addEventListener("input", () => {
+                const query = input.value.trim().toLowerCase();
+                results.replaceChildren();
+
+                if (!query) return;
+
+                const matches = posts.filter(post =>
+                    (post.title + " " + post.content)
+                        .toLowerCase()
+                        .includes(query)
+                ).slice(0, 20);
+
+                if (!matches.length) {
+                    const item = document.createElement("li");
+                    item.textContent = "No matching posts found.";
+                    results.appendChild(item);
+                }
+
+                matches.forEach(post => {
+                    const item = document.createElement("li");
+                    const link = document.createElement("a");
+
+                    link.href = post.url;
+                    link.textContent = post.title;
+
+                    item.appendChild(link);
+                    results.appendChild(item);
+                });
+            });
+        })
+        .catch(() => {
+            results.textContent = "Search is temporarily unavailable.";
+        });
+</script>
