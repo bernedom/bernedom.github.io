@@ -1,0 +1,132 @@
+<div class="blog-search mb-6">
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input is-medium is-rounded" type="search" id="blog-search"
+                placeholder="Search articles…" aria-label="Search blog posts" autocomplete="off" />
+            <span class="icon is-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+        </p>
+        <p class="help" id="search-status" aria-live="polite"></p>
+    </div>
+
+    <div id="search-results"></div>
+</div>
+
+<style>
+    .blog-search .control .icon { pointer-events: none; }
+    .blog-search .search-result { display: block; transition: transform .15s ease, box-shadow .15s ease; }
+    .blog-search .search-result:hover,
+    .blog-search .search-result:focus { transform: translateY(-2px); box-shadow: 0 .5em 1.25em rgba(0, 0, 0, .15); }
+    .blog-search .search-result .title { margin-bottom: .25rem; }
+    .blog-search .search-result mark { background: rgba(255, 196, 0, .35); color: inherit; padding: 0 .1em; border-radius: 2px; }
+    .blog-search .search-snippet { opacity: .8; }
+</style>
+
+<script>
+    (function () {
+        const input = document.getElementById("blog-search");
+        const results = document.getElementById("search-results");
+        const status = document.getElementById("search-status");
+        const MAX_RESULTS = 20;
+        const SNIPPET_RADIUS = 80;
+
+        // Append `text` to `parent`, wrapping occurrences of `query` in <mark>.
+        function appendHighlighted(parent, text, query) {
+            const lower = text.toLowerCase();
+            let pos = 0;
+            let idx;
+            while (query && (idx = lower.indexOf(query, pos)) !== -1) {
+                parent.append(text.slice(pos, idx));
+                const mark = document.createElement("mark");
+                mark.textContent = text.slice(idx, idx + query.length);
+                parent.append(mark);
+                pos = idx + query.length;
+            }
+            parent.append(text.slice(pos));
+        }
+
+        function snippet(content, query) {
+            const idx = content.toLowerCase().indexOf(query);
+            if (idx === -1) return content.slice(0, SNIPPET_RADIUS * 2) + "…";
+            const start = Math.max(0, idx - SNIPPET_RADIUS);
+            const end = Math.min(content.length, idx + query.length + SNIPPET_RADIUS);
+            return (start > 0 ? "…" : "") + content.slice(start, end) + (end < content.length ? "…" : "");
+        }
+
+        function render(posts, query) {
+            results.replaceChildren();
+            status.textContent = "";
+            if (!query) return;
+
+            const matches = posts
+                .map(post => ({
+                    post,
+                    inTitle: post.title.toLowerCase().includes(query),
+                    inBody: (post.tags + " " + post.content).toLowerCase().includes(query)
+                }))
+                .filter(m => m.inTitle || m.inBody)
+                .sort((a, b) => b.inTitle - a.inTitle); // title hits first, otherwise keep date order
+
+            status.textContent = matches.length
+                ? `${matches.length} article${matches.length === 1 ? "" : "s"} found`
+                : "No matching articles found.";
+
+            matches.slice(0, MAX_RESULTS).forEach(({ post }) => {
+                const card = document.createElement("a");
+                card.className = "box search-result";
+                card.href = post.url;
+
+                const title = document.createElement("p");
+                title.className = "title is-5";
+                appendHighlighted(title, post.title, query);
+
+                const meta = document.createElement("p");
+                meta.className = "is-size-7 has-text-grey mb-2";
+                meta.textContent = post.date;
+
+                const text = document.createElement("p");
+                text.className = "search-snippet is-size-6";
+                appendHighlighted(text, snippet(post.content, query), query);
+
+                card.append(title, meta, text);
+
+                if (post.tags) {
+                    const tags = document.createElement("div");
+                    tags.className = "tags mt-3";
+                    post.tags.split(",").map(t => t.trim()).filter(Boolean).forEach(t => {
+                        const tag = document.createElement("span");
+                        tag.className = "tag is-light";
+                        tag.textContent = t;
+                        tags.append(tag);
+                    });
+                    card.append(tags);
+                }
+
+                results.append(card);
+            });
+        }
+
+        fetch({{ '/search.json' | relative_url | jsonify }})
+            .then(response => {
+                if (!response.ok) throw new Error("Search index unavailable");
+                return response.json();
+            })
+            .then(posts => {
+                let timer;
+                input.addEventListener("input", () => {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => render(posts, input.value.trim().toLowerCase()), 150);
+                });
+                if (input.value) render(posts, input.value.trim().toLowerCase());
+            })
+            .catch(() => {
+                status.textContent = "Search is temporarily unavailable.";
+                status.classList.add("is-danger");
+            });
+    })();
+</script>
