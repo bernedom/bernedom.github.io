@@ -122,6 +122,8 @@
                     clearTimeout(timer);
                     timer = setTimeout(() => render(posts, input.value.trim().toLowerCase()), 150);
                 });
+                const initial = new URLSearchParams(window.location.search).get("q");
+                if (initial) input.value = initial;
                 if (input.value) render(posts, input.value.trim().toLowerCase());
             })
             .catch(() => {

@@ -10,6 +10,11 @@
 
 - name: Blog
   link: /blog/
+  dropdown:
+    - name: All Articles
+      link: /blog/
+    - name: Search
+      link: /search/
 - name: CMake Best Practices
   link: /cmake-best-practices/
 - name: Showcase

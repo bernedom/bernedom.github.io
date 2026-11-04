@@ -9,6 +9,11 @@
       link: /services/project-work/
 - name: Blog (Englisch)
   link: /blog/
+  dropdown:
+    - name: Alle Artikel
+      link: /blog/
+    - name: Suche
+      link: /search/
 - name: CMake Best Practices
   link: /cmake-best-practices/
 - name: Showcase
