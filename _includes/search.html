@@ -23,8 +23,22 @@
     }
 
     .blog-search .search-result {
-        display: block;
+        display: flex;
+        align-items: stretch;
+        gap: 1rem;
         transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .blog-search .search-result-content {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .blog-search .search-thumbnail {
+        flex: 0 0 7rem;
+        width: 7rem;
+        align-self: stretch;
+        object-fit: cover;
     }
 
     .blog-search .search-result:hover,
@@ -105,10 +119,16 @@
                 card.className = "box search-result";
                 card.href = post.url;
 
-                const thumbnail = document.createElement("img");
-                thumbnail.className = "search-thumbnail is-rounded is-small";
-                thumbnail.src = post.thumbnail;
-                card.append(thumbnail);
+                const content = document.createElement("div");
+                content.className = "search-result-content";
+
+                if (post.thumbnail) {
+                    const thumbnail = document.createElement("img");
+                    thumbnail.className = "search-thumbnail is-rounded";
+                    thumbnail.src = post.thumbnail;
+                    thumbnail.alt = "";
+                    card.append(thumbnail);
+                }
 
                 const title = document.createElement("p");
                 title.className = "title is-5";
@@ -122,7 +142,7 @@
                 text.className = "search-snippet is-size-6";
                 appendHighlighted(text, snippet(post.content, query), query);
 
-                card.append(title, meta, text);
+                content.append(title, meta, text);
 
                 if (post.tags) {
                     const tags = document.createElement("div");
@@ -133,9 +153,10 @@
                         tag.textContent = t;
                         tags.append(tag);
                     });
-                    card.append(tags);
+                    content.append(tags);
                 }
 
+                card.append(content);
                 results.append(card);
             });
         }
