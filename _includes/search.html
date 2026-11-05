@@ -1,11 +1,11 @@
 <div class="blog-search mb-6">
     <div class="field">
         <p class="control has-icons-left">
-            <input class="input is-medium is-rounded" type="search" id="blog-search"
-                placeholder="Search articles…" aria-label="Search blog posts" autocomplete="off" />
+            <input class="input is-medium is-rounded" type="search" id="blog-search" placeholder="Search articles…"
+                aria-label="Search blog posts" autocomplete="off" />
             <span class="icon is-left">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="11" cy="11" r="7"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
@@ -18,13 +18,35 @@
 </div>
 
 <style>
-    .blog-search .control .icon { pointer-events: none; }
-    .blog-search .search-result { display: block; transition: transform .15s ease, box-shadow .15s ease; }
+    .blog-search .control .icon {
+        pointer-events: none;
+    }
+
+    .blog-search .search-result {
+        display: block;
+        transition: transform .15s ease, box-shadow .15s ease;
+    }
+
     .blog-search .search-result:hover,
-    .blog-search .search-result:focus { transform: translateY(-2px); box-shadow: 0 .5em 1.25em rgba(0, 0, 0, .15); }
-    .blog-search .search-result .title { margin-bottom: .25rem; }
-    .blog-search .search-result mark { background: rgba(255, 196, 0, .35); color: inherit; padding: 0 .1em; border-radius: 2px; }
-    .blog-search .search-snippet { opacity: .8; }
+    .blog-search .search-result:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 .5em 1.25em rgba(0, 0, 0, .15);
+    }
+
+    .blog-search .search-result .title {
+        margin-bottom: .25rem;
+    }
+
+    .blog-search .search-result mark {
+        background: rgba(255, 196, 0, .35);
+        color: inherit;
+        padding: 0 .1em;
+        border-radius: 2px;
+    }
+
+    .blog-search .search-snippet {
+        opacity: .8;
+    }
 </style>
 
 <script>
@@ -77,9 +99,16 @@
                 : "No matching articles found.";
 
             matches.slice(0, MAX_RESULTS).forEach(({ post }) => {
+
+
                 const card = document.createElement("a");
                 card.className = "box search-result";
                 card.href = post.url;
+
+                const thumbnail = document.createElement("img");
+                thumbnail.className = "search-thumbnail is-rounded is-small";
+                thumbnail.src = post.thumbnail;
+                card.append(thumbnail);
 
                 const title = document.createElement("p");
                 title.className = "title is-5";
@@ -112,23 +141,23 @@
         }
 
         fetch({{ '/search.json' | relative_url | jsonify }})
-            .then(response => {
-                if (!response.ok) throw new Error("Search index unavailable");
-                return response.json();
-            })
-            .then(posts => {
-                let timer;
-                input.addEventListener("input", () => {
-                    clearTimeout(timer);
-                    timer = setTimeout(() => render(posts, input.value.trim().toLowerCase()), 150);
-                });
-                const initial = new URLSearchParams(window.location.search).get("q");
-                if (initial) input.value = initial;
-                if (input.value) render(posts, input.value.trim().toLowerCase());
-            })
-            .catch(() => {
-                status.textContent = "Search is temporarily unavailable.";
-                status.classList.add("is-danger");
+        .then(response => {
+            if (!response.ok) throw new Error("Search index unavailable");
+            return response.json();
+        })
+        .then(posts => {
+            let timer;
+            input.addEventListener("input", () => {
+                clearTimeout(timer);
+                timer = setTimeout(() => render(posts, input.value.trim().toLowerCase()), 150);
             });
-    })();
+            const initial = new URLSearchParams(window.location.search).get("q");
+            if (initial) input.value = initial;
+            if (input.value) render(posts, input.value.trim().toLowerCase());
+        })
+        .catch(() => {
+            status.textContent = "Search is temporarily unavailable.";
+            status.classList.add("is-danger");
+        });
+    }) ();
 </script>
